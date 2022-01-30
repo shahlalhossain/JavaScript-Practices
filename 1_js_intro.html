@@ -322,20 +322,44 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Introduction</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    JavaScript is the world's most popular programming language. <br>
+    JavaScript is the programming language of the Web. <br>
+    JavaScript is easy to learn.
   </p>
+  <p><strong><i>This tutorial is about JavaScript, and JavaScript only.</i></strong></p>
+  <br>
+  <h3>What You Should Already Know</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Before continuing, you should have a basic understanding of the following: <br>
+    HTML <br>
+    CSS
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you want to study these subjects first, find the tutorials on our <a href="https://www.w3schools.com">Home page</a>.
+  </p>
+  <br>
+  <h3>What is JavaScript?</h3>
+  <hr>
   <ul style="padding-left: 40px;">
-    <li>item</li>
+    <li>JavaScript is a scripting language that enables you to create dynamically updating content, control multimedia, animate images, and much more.</li>
+    <li>JavaScript is one of the 3 languages all web developers must learn:
+      <ul style="padding-left: 20px;">
+        <li>HTML to define the content of web pages</li>
+        <li>CSS to specify the layout of web pages</li>
+        <li>JavaScript to program the behavior of web pages</li>
+      </ul>
+    </li>
   </ul>
+  <br>
+  <h3>The HTML &lt;script&gt; Tag</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In HTML, JavaScript code is inserted between <span class="code">&lt;script&gt;</span> and <span class="code">&lt;/script&gt;</span> tags.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +370,74 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <span class="code">&lt;script&gt;<br>
+        &nbsp;&nbsp;document.getElementById("demo").innerHTML = "My First JavaScript";<br>
+        &lt;/script&gt;</span>
+      </td>
+      <td id="demo">My First JavaScript</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Note: </i></strong>Old JavaScript examples may use a <span class="code">type</span> attribute: <span class="code">&lt;script type="text/javascript"&gt;</span>. The type attribute is not required. JavaScript is the default scripting language in all browsers.</p>
+  <br>
+  <h3>JavaScript Functions and Events</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    A JavaScript function is a block of JavaScript code that can be executed when it is "called". <br>
+    For example, a function can be called when an event occurs, such as when the user clicks a button.
+  </p>
+  <br>
+  <h3>JavaScript Changes HTML Content</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    One of many JavaScript HTML methods is <span class="code">getElementById()</span>. <br>
+    This example uses the method to "find" an HTML element (identified by id) and changes the element content (innerHTML) to "Hello JavaScript".
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">document.getElementById("demo2").innerHTML = "Hello JavaScript";</span>
+      </td>
+      <td id="demo2">Paragraph before JavaScript changes it.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>JavaScript accepts both double and single quotes for strings.</p>
+  <br>
+  <h3>JavaScript Can Change HTML Attribute Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In this example JavaScript changes the value of the <span class="code">src</span> (source) attribute of an image.
+  </p>
+  <br>
+  <h3>JavaScript Can Change HTML Styles (CSS)</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Changing the style of an HTML element is a variant of changing an HTML attribute, for example: <br>
+    <span class="code">document.getElementById("demo").style.fontSize = "35px";</span>
+  </p>
+  <br>
+  <h3>JavaScript Can Hide HTML Elements</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Hiding HTML elements can be done by changing the <span class="code">display</span> style: <br>
+    <span class="code">document.getElementById("demo").style.display = "none";</span>
+  </p>
+  <br>
+  <h3>JavaScript Can Show HTML Elements</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Showing hidden HTML elements can also be done by changing the <span class="code">display</span> style: <br>
+    <span class="code">document.getElementById("demo").style.display = "block";</span>
   </p>
 </section>
 <br>
