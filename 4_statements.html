@@ -322,20 +322,23 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Statements</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    In a computer program, statements are instructions to be executed by the computer. <br>
+    JavaScript statements are composed of: Values, Operators, Expressions, Keywords, and Comments.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <h3>JavaScript Programs</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A computer program is a list of "instructions" to be "executed" by a computer. <br>
+    In a programming language, these programming instructions are called statements. <br>
+    A JavaScript program is a list of programming statements.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In HTML, JavaScript programs are executed by the web browser.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +349,243 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <span class="code">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html&gt;<br>
+          &lt;body&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;h2&gt;JavaScript Statements&lt;/h2&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p id="demo"&gt;&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;script&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;let x, y, z;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Statement 1<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;x = 5;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Statement 2<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;y = 6;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Statement 3<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;z = x + y;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Statement 4<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = "The value of z is " + z + ".";<br>
+          &nbsp;&nbsp;&lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;
+        </span>
+      </td>
+      <td>
+        <h2>JavaScript Statements</h2>
+        <p id="demo1">The value of z is 11.</p>
+      </td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <br>
+  <h3>Semicolons ;</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Semicolons separate JavaScript statements. <br>
+    Add a semicolon at the end of each executable statement:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = 5;<br>
+          let y = 6;<br>
+          let z = x + y;
+        </span>
+      </td>
+      <td>Three statements, each ending with a semicolon.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    When separated by semicolons, multiple statements on one line are allowed:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = 5; let y = 6; let z = x + y;
+        </span>
+      </td>
+      <td>Same as above, written on a single line.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>On the web, you might see examples without semicolons. Ending statements with semicolon is not required, but highly recommended.</p>
+  <br>
+  <h3>JavaScript White Space</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript ignores multiple spaces. You can add white space to your script to make it more readable. <br>
+    A good practice is to put spaces around operators ( = + - * / ):
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = y + z;
+        </span>
+      </td>
+      <td>Readable, with spaces around operators.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Line Length and Line Breaks</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    For best readability, programmers often avoid code lines longer than 80 characters. <br>
+    If a JavaScript statement does not fit on one line, the best place to break it is after an operator:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          document.getElementById("demo").innerHTML =<br>
+          &nbsp;&nbsp;"Hello Dolly.";
+        </span>
+      </td>
+      <td>A long statement broken after the assignment operator.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Code Blocks</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript statements can be grouped together in code blocks, inside curly brackets <span class="code">{...}</span>. <br>
+    The purpose of code blocks is to define statements to be executed together. <br>
+    One place you will find statements grouped together in blocks, is in JavaScript functions:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html&gt;<br>
+          &lt;body&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;h2&gt;JavaScript Functions&lt;/h2&gt;<br>
+          &nbsp;&nbsp;&lt;p&gt;This example calls a function which performs a calculation, and returns the result:&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p id="demo"&gt;&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;script&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;function myFunction(p1, p2) {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return p1 * p2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Function returns the product of p1 and p2<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = myFunction(4, 3);<br>
+          &nbsp;&nbsp;&lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;
+        </span>
+      </td>
+      <td>
+        <h2>JavaScript Functions</h2>
+        <p>This example calls a function which performs a calculation, and returns the result:</p>
+        <p id="demo2">12</p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>JavaScript does not care much about extra white space. Multi-line statements and blocks can be written on one line, or on many lines, with the same result; what matters is the placement of semicolons and curly brackets.</p>
+  <br>
+  <h3>JavaScript Keywords</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript statements often start with a keyword to identify the JavaScript action to be performed. <br>
+    Here is a list of some of the keywords you will learn about in this tutorial:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Keyword</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">var</span></td>
+      <td>Declares a variable</td>
+    </tr>
+    <tr>
+      <td><span class="code">let</span></td>
+      <td>Declares a block variable</td>
+    </tr>
+    <tr>
+      <td><span class="code">const</span></td>
+      <td>Declares a block constant</td>
+    </tr>
+    <tr>
+      <td><span class="code">if</span></td>
+      <td>Marks a block of statements to be executed on a condition</td>
+    </tr>
+    <tr>
+      <td><span class="code">switch</span></td>
+      <td>Marks a block of statements to be executed in different cases</td>
+    </tr>
+    <tr>
+      <td><span class="code">for</span></td>
+      <td>Marks a block of statements to be executed in a loop</td>
+    </tr>
+    <tr>
+      <td><span class="code">function</span></td>
+      <td>Declares a function</td>
+    </tr>
+    <tr>
+      <td><span class="code">return</span></td>
+      <td>Exits a function</td>
+    </tr>
+    <tr>
+      <td><span class="code">try</span></td>
+      <td>Implements error handling to a block of statements</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>JavaScript keywords are reserved words. Reserved words cannot be used as names for variables.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +600,20 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    let x, y, z;
+    x = 5;
+    y = 6;
+    z = x + y;
+    document.getElementById("demo1").innerHTML = "The value of z is " + z + ".";
+  })();
 
+  (function () {
+    function myFunction(p1, p2) {
+      return p1 * p2;
+    }
+    document.getElementById("demo2").innerHTML = myFunction(4, 3);
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
