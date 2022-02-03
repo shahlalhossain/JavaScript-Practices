@@ -322,19 +322,53 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Syntax</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    JavaScript syntax is the set of rules, how JavaScript programs are constructed:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          // How to create variables:<br>
+          var x;<br>
+          let y;<br>
+          <br>
+          // How to use variables:<br>
+          x = 5;<br>
+          y = 6;<br>
+          let z = x + y;
+        </span>
+      </td>
+      <td>Creating and using the variables x, y, and z.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The JavaScript syntax defines two types of values: Fixed values and variable values. <br>
+    Fixed values are called literals. Variable values are called variables.
+  </p>
+  <br>
+  <h3>JavaScript Literals</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The two most important syntax rules for fixed values are:
   </p>
   <ul style="padding-left: 40px;">
-    <li>item</li>
+    <li>Numbers are written with or without decimals</li>
+    <li>Strings are text, written within double or single quotes</li>
   </ul>
   <br>
   <table>
@@ -346,14 +380,193 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td><span class="code">10.50</span></td>
+      <td>A number with decimals.</td>
+    </tr>
+    <tr>
+      <td><span class="code">1001</span></td>
+      <td>A number without decimals.</td>
+    </tr>
+    <tr>
+      <td><span class="code">"John Doe"</span></td>
+      <td>A string in double quotes.</td>
+    </tr>
+    <tr>
+      <td><span class="code">'John Doe'</span></td>
+      <td>A string in single quotes.</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <br>
+  <h3>JavaScript Variables</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    In a programming language, variables are used to store data values. <br>
+    JavaScript uses the keywords <span class="code">var</span>, <span class="code">let</span>, and <span class="code">const</span> to declare variables. <br>
+    An equal sign is used to assign values to variables.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let x;</span></td>
+      <td>Declares a variable named x, with no value.</td>
+    </tr>
+    <tr>
+      <td><span class="code">x = 6;</span></td>
+      <td>Assigns the value 6 to x.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Operators</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript uses arithmetic operators ( <span class="code">+ - * /</span> ) to compute values: <br>
+    <span class="code">(5 + 6) * 10</span>
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript uses an assignment operator ( <span class="code">=</span> ) to assign values to variables: <br>
+    <span class="code">let x, y;<br>x = 5;<br>y = 6;</span>
+  </p>
+  <br>
+  <h3>JavaScript Expressions</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    An expression is a combination of values, variables, and operators, which computes to a value. <br>
+    The computation is called an evaluation.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    For example, <span class="code">5 * 10</span> evaluates to 50:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">5 * 10</span></td>
+      <td>50</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Values can be of various types, such as numbers and strings. <br>
+    For example, <span class="code">"John" + " " + "Doe"</span>, evaluates to "John Doe":
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">"John" + " " + "Doe"</span></td>
+      <td>John Doe</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Keywords</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript keywords are used to identify actions to be performed. <br>
+    The <span class="code">let</span> keyword tells the browser to create a variable: <br>
+    <span class="code">let x, y;<br>x = 5 + 6;<br>y = x * 10;</span>
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">const</span> keyword tells the browser that this is a constant. Constant values cannot be changed. <br>
+    The <span class="code">var</span> keyword also tells the browser to create a variable: <br>
+    <span class="code">var x, y;<br>x = 5 + 6;<br>y = x * 10;</span>
+  </p>
+  <br>
+  <h3>JavaScript Comments</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Not all JavaScript statements are "executed". <br>
+    Code after double slashes <span class="code">//</span> or between <span class="code">/*</span> and <span class="code">*/</span> is treated as a comment. <br>
+    Comments are ignored, and will not be executed:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = 5;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// I will be executed<br>
+          <br>
+          // x = 6;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I will NOT be executed
+        </span>
+      </td>
+      <td>The second assignment is skipped because it is commented out.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Identifiers / Names</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Identifiers are JavaScript names. <br>
+    Identifiers are used to name variables (and keywords, and functions, and labels). <br>
+    The rules for legal names are the same in most programming languages. <br>
+    A JavaScript name must begin with:
+  </p>
+  <ul style="padding-left: 40px;">
+    <li>A letter (A-Z or a-z)</li>
+    <li>A dollar sign ($)</li>
+    <li>Or an underscore (_)</li>
+  </ul>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Subsequent characters may be letters, digits, underscores, or dollar signs.
+  </p>
+  <p><strong><i>Note: </i></strong>Numbers are not allowed as the first character in names.</p>
+  <br>
+  <h3>JavaScript is Case Sensitive</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    All JavaScript identifiers are case sensitive. <br>
+    The variables <span class="code">lastName</span> and <span class="code">lastname</span>, are two different variables: <br>
+    <span class="code">let lastname, lastName;<br>lastName = "Doe";<br>lastname = "Peterson";</span>
+  </p>
+  <p><strong><i>Note: </i></strong>JavaScript does not interpret <span class="code">LET</span> or <span class="code">Let</span> as the keyword <span class="code">let</span>.</p>
+  <br>
+  <h3>JavaScript and Camel Case</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Historically, programmers have used different ways of joining multiple words into one variable name:
+  </p>
+  <ul style="padding-left: 40px;">
+    <li>Hyphens: <span class="code">first-name, last-name, master-card, inter-city</span> (Hyphens are not allowed in JavaScript. They are reserved for subtractions.)</li>
+    <li>Underscore: <span class="code">first_name, last_name, master_card, inter_city</span></li>
+    <li>Upper Camel Case (Pascal Case): <span class="code">FirstName, LastName, MasterCard, InterCity</span></li>
+    <li>Lower Camel Case: <span class="code">firstName, lastName, masterCard, interCity</span></li>
+  </ul>
+  <p><strong><i>Note: </i></strong>JavaScript programmers tend to use camel case that starts with a lowercase letter: <span class="code">firstName, lastName, masterCard, interCity</span>.</p>
+  <br>
+  <h3>JavaScript Character Set</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript uses the Unicode character set. <br>
+    Unicode covers (almost) all the characters, punctuations, and symbols in the world.
   </p>
 </section>
 <br>
