@@ -322,20 +322,19 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Comments</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    JavaScript comments can be used to explain JavaScript code, and to make it more readable. <br>
+    JavaScript comments can also be used to prevent execution, when testing alternative code.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <h3>Single Line Comments</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Single line comments start with <span class="code">//</span>. <br>
+    Any text between <span class="code">//</span> and the end of the line is ignored by JavaScript (will not be executed).
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +345,161 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <span class="code">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html&gt;<br>
+          &lt;body&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;h2&gt;JavaScript Comments&lt;/h2&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p id="demo"&gt;&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;script&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;// Change heading:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = "My First Page";<br>
+          &nbsp;&nbsp;&lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;
+        </span>
+      </td>
+      <td>
+        <h2>JavaScript Comments</h2>
+        <p id="demo1">My First Page</p>
+      </td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    This example uses a single line comment at the end of each line, to explain the code:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = 5;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Declare x, give it the value of 5<br>
+          let y = x + 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Declare y, give it the value of x + 2
+        </span>
+      </td>
+      <td>Two statements, each explained with an end-of-line comment.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Multi-line Comments</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Multi-line comments start with <span class="code">/*</span> and end with <span class="code">*/</span>. <br>
+    Any text between <span class="code">/*</span> and <span class="code">*/</span> will be ignored by JavaScript.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html&gt;<br>
+          &lt;body&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;h2&gt;JavaScript Comments&lt;/h2&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p id="demo"&gt;&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;script&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;/* The code below will change<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;the heading with id = "demo"<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;and will write a paragraph<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;in the HTML document */<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = "My First Page";<br>
+          &nbsp;&nbsp;&lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;
+        </span>
+      </td>
+      <td>
+        <h2>JavaScript Comments</h2>
+        <p id="demo2">My First Page</p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    It is most common to use single line comments. Block comments are often used for formal documentation.
+  </p>
+  <br>
+  <h3>Using Comments to Prevent Execution</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Using comments to prevent execution of code is suitable for code testing. <br>
+    Adding <span class="code">//</span> in front of a code line changes the code lines from an executable line to a comment.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This example uses <span class="code">//</span> to prevent execution of one of the code lines:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          //document.getElementById("demo").innerHTML = "Hello Dolly!";<br>
+          document.getElementById("demo").innerHTML = "How are you?";
+        </span>
+      </td>
+      <td>Only the second line executes; the first is commented out.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This example uses a multi-line comment to prevent execution of multiple lines:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          /*<br>
+          document.getElementById("demo").innerHTML = "Hello Dolly!";<br>
+          document.getElementById("demo").innerHTML = "How are you?";<br>
+          */<br>
+          document.getElementById("demo").innerHTML = "Have a nice day!";
+        </span>
+      </td>
+      <td>Only the last line executes; the block above is commented out.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Using comments to "block out" lines of code is a common technique for testing and debugging code.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +514,14 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  // Change heading:
+  document.getElementById("demo1").innerHTML = "My First Page";
 
+  /* The code below will change
+  the heading with id = "demo2"
+  and will write a paragraph
+  in the HTML document */
+  document.getElementById("demo2").innerHTML = "My First Page";
 </script>
 <!--Page Specific JavaScript End-->
 </body>
