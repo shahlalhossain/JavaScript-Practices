@@ -322,20 +322,62 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Variables</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Variables are containers for storing data values. <br>
+    In this example, <span class="code">x</span>, <span class="code">y</span>, and <span class="code">z</span>, are variables, declared with the <span class="code">let</span> keyword: <br>
+    <span class="code">let x = 5;<br>let y = 6;<br>let z = x + y;</span>
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    From the example above, you can expect:
   </p>
   <ul style="padding-left: 40px;">
-    <li>item</li>
+    <li>x stores the value 5</li>
+    <li>y stores the value 6</li>
+    <li>z stores the value 11</li>
   </ul>
+  <br>
+  <h3>JavaScript Identifiers</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    All JavaScript variables must be identified with unique names. These unique names are called identifiers. <br>
+    Identifiers can be short names (like x and y) or more descriptive names (age, sum, totalVolume). <br>
+    The general rules for constructing names for variables (unique identifiers) are:
+  </p>
+  <ul style="padding-left: 40px;">
+    <li>Names can contain letters, digits, underscores, and dollar signs</li>
+    <li>Names must begin with a letter</li>
+    <li>Names can also begin with $ and _ (but we will not use it in this tutorial)</li>
+    <li>Names are case sensitive (y and Y are different variables)</li>
+    <li>Reserved words (like JavaScript keywords) cannot be used as names</li>
+  </ul>
+  <br>
+  <h3>The Assignment Operator</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In JavaScript, the equal sign ( <span class="code">=</span> ) is an "assignment" operator, not an "equal to" operator. <br>
+    This is different from algebra. The following does not make sense in algebra:
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">x = x + 5</span>
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In JavaScript, however, it makes perfect sense: it assigns the value of x + 5 to x.
+  </p>
+  <p><strong><i>Note: </i></strong>The "equal to" operator is written like <span class="code">==</span> in JavaScript.</p>
+  <br>
+  <h3>JavaScript Data Types</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript variables can hold numbers like 100 and text values like "John Doe". <br>
+    In programming, text values are called text strings. <br>
+    JavaScript can handle many types of data, but for now, just think of numbers and strings. <br>
+    Strings are written inside double or single quotes. Numbers are written without quotes.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you put a number in quotes, it will be treated as a text string.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +388,328 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <span class="code">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html&gt;<br>
+          &lt;body&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;h2&gt;JavaScript Variables&lt;/h2&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p id="demo"&gt;&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;script&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;let pi = 3.14;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;let person = "John Doe";<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;let answer = 'Yes I am!';<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML =<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;pi + "&lt;br&gt;" + person + "&lt;br&gt;" + answer;<br>
+          &nbsp;&nbsp;&lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;
+        </span>
+      </td>
+      <td>
+        <h2>JavaScript Variables</h2>
+        <p id="demo1">3.14<br>John Doe<br>Yes I am!</p>
+      </td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <br>
+  <h3>Declaring (Creating) JavaScript Variables</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Creating a variable in JavaScript is called "declaring" a variable. <br>
+    You declare a JavaScript variable with the <span class="code">var</span> or the <span class="code">let</span> keyword:
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">var carName;</span> <br>
+    or: <br>
+    <span class="code">let carName;</span>
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    After the declaration, the variable has no value (technically it has the value of <span class="code">undefined</span>). <br>
+    To assign a value to the variable, use the equal sign:
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">carName = "Volvo";</span>
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can also assign a value to the variable when you declare it:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html&gt;<br>
+          &lt;body&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;h2&gt;JavaScript Variables&lt;/h2&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p id="demo"&gt;&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;script&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;let carName = "Volvo";<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = carName;<br>
+          &nbsp;&nbsp;&lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;
+        </span>
+      </td>
+      <td>
+        <h2>JavaScript Variables</h2>
+        <p id="demo2">Volvo</p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In this tutorial we often use the word "declare" or "define", when we talk about variables. Both means the same.
+  </p>
+  <br>
+  <h3>One Statement, Many Variables</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can declare many variables in one statement. <br>
+    Start the statement with <span class="code">let</span> and separate the variables by comma:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let person = "John Doe", carName = "Volvo", price = 200;
+        </span>
+      </td>
+      <td>Three variables declared in a single statement.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A declaration can span multiple lines:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let person = "John Doe",<br>
+          &nbsp;&nbsp;carName = "Volvo",<br>
+          &nbsp;&nbsp;price = 200;
+        </span>
+      </td>
+      <td>Same as above, written on multiple lines.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Value = undefined</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In computer programs, variables are often declared without a value. The value can be something that has to be calculated, or something that will be provided later, like user input. <br>
+    A variable declared without a value will have the value <span class="code">undefined</span>.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The variable <span class="code">carName</span> will have the value <span class="code">undefined</span> after the execution of this statement:
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">let carName;</span>
+  </p>
+  <br>
+  <h3>Re-Declaring JavaScript Variables</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you re-declare a JavaScript variable declared with <span class="code">var</span>, it will not lose its value.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          var carName = "Volvo";<br>
+          var carName;
+        </span>
+      </td>
+      <td>carName still has the value "Volvo" after the second declaration.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Variables declared with <span class="code">let</span> cannot be redeclared in the same scope, and will throw an error.</p>
+  <br>
+  <h3>JavaScript Arithmetic</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    As with algebra, you can do arithmetic operations with JavaScript variables, using operators like <span class="code">=</span> and <span class="code">+</span>:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = 5 + 2 + 3;
+        </span>
+      </td>
+      <td>x is 10</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can also add strings, but strings will be concatenated (added end-to-end):
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = "John" + " " + "Doe";
+        </span>
+      </td>
+      <td>x is "John Doe"</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you add a number and a string, the result will be a string concatenation:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = "5" + 2 + 3;
+        </span>
+      </td>
+      <td>x is "523"</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          let x = 2 + 3 + "5";
+        </span>
+      </td>
+      <td>x is "55"</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>If you put a number in quotes, the rest of the numbers will be treated as strings, and concatenated. JavaScript evaluates expressions from left to right. Different sequences can produce different results.</p>
+  <br>
+  <h3>JavaScript Dollar Sign $</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Since JavaScript treats a dollar sign as a letter, identifiers containing <span class="code">$</span> are valid variable names:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let $ = "Hello World";
+        </span>
+      </td>
+      <td>$ is used as a name.</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          let $$$ = 2;
+        </span>
+      </td>
+      <td>$$$ is used as a name.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In programming, dollar signs are often used as an alias for the main function in a JavaScript library.
+  </p>
+  <br>
+  <h3>JavaScript Underscore (_)</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Since JavaScript treats underscore as a letter, identifiers containing <span class="code">_</span> are also valid variable names:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let _lastName = "Johnson";
+        </span>
+      </td>
+      <td>_lastName is used as a name.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The underscore is often used as an alias for a "private" (hidden) variable name.
   </p>
 </section>
 <br>
@@ -369,7 +725,19 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    let pi = 3.14;
+    let person = "John Doe";
+    let answer = 'Yes I am!';
 
+    document.getElementById("demo1").innerHTML =
+      pi + "<br>" + person + "<br>" + answer;
+  })();
+
+  (function () {
+    let carName = "Volvo";
+    document.getElementById("demo2").innerHTML = carName;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
