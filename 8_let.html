@@ -322,20 +322,21 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript let</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The <span class="code">let</span> keyword was introduced in ES6 (2015). <br>
+    Variables declared with <span class="code">let</span> have Block Scope. <br>
+    Variables declared with <span class="code">let</span> must be Declared before use. <br>
+    Variables declared with <span class="code">let</span> cannot be Redeclared in the same scope.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <h3>Cannot be Redeclared</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Variables defined with <span class="code">var</span> can be redeclared without throwing an error. <br>
+    You can change the value of a var variable, and declare it again, and the value will remain the new value.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +347,335 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <span class="code">
+          var x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Valid<br>
+          var x = 3;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Valid
+        </span>
+      </td>
+      <td>No error. x ends up being 3.</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    In the <span class="code">let</span> scope, this will throw a syntax error:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Valid<br>
+          let x = 3;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// SyntaxError: 'x' has already been declared
+        </span>
+      </td>
+      <td>SyntaxError: Identifier 'x' has already been declared.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">let</span> keyword solves this problem for variables that have the same name in the same scope.
+  </p>
+  <br>
+  <h3>let can be Redeclared in a Different Scope</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A variable declared with <span class="code">let</span> can be redeclared in a different scope or in a different block:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Valid<br>
+          {<br>
+          &nbsp;&nbsp;let x = 3;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Valid<br>
+          }
+        </span>
+      </td>
+      <td>No error. Each block has its own x.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript let and Block Scope</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Before ES6 (2015), JavaScript had only Global Scope and Function Scope. <br>
+    ES6 introduced two important new JavaScript keywords: <span class="code">let</span> and <span class="code">const</span>. These two keywords provide Block Scope in JavaScript. <br>
+    Variables declared inside a <span class="code">{ }</span> block cannot be accessed from outside the block:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          {<br>
+          &nbsp;&nbsp;let x = 2;<br>
+          }<br>
+          // x can NOT be used here
+        </span>
+      </td>
+      <td>x is only available inside the block.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Variables declared with the <span class="code">var</span> keyword can NOT have block scope. <br>
+    Variables declared inside a block with <span class="code">var</span> can be accessed from outside the block:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          {<br>
+          &nbsp;&nbsp;var x = 2;<br>
+          }<br>
+          // x CAN be used here
+        </span>
+      </td>
+      <td>x is available outside the block too.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Global Scope</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Variables declared with <span class="code">var</span>, <span class="code">let</span> and <span class="code">const</span> are quite similar when declared outside a block. <br>
+    They all have Global Scope:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          var x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Global scope
+        </span>
+      </td>
+      <td>x is accessible from anywhere in the program.</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          let x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Global scope
+        </span>
+      </td>
+      <td>x is accessible from anywhere in the program.</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          const x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Global scope
+        </span>
+      </td>
+      <td>x is accessible from anywhere in the program.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Redeclaring Variables</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Redeclaring a JavaScript variable with <span class="code">var</span> is allowed, anywhere in a program:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          var x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Allowed<br>
+          var x = 3;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Allowed<br>
+          x = 4;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Allowed
+        </span>
+      </td>
+      <td>No errors anywhere.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Redeclaring or reassigning an existing <span class="code">let</span> or <span class="code">const</span> variable to the same scope, is not allowed:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          var x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Allowed<br>
+          let x = 3;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Not allowed
+        </span>
+      </td>
+      <td>SyntaxError: Identifier 'x' has already been declared.</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          let x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Allowed<br>
+          var x = 3;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Not allowed
+        </span>
+      </td>
+      <td>SyntaxError: Identifier 'x' has already been declared.</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          let x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Allowed<br>
+          let x = 3;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Not allowed
+        </span>
+      </td>
+      <td>SyntaxError: Identifier 'x' has already been declared.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>A variable declared with <span class="code">let</span> in a block, can not be redeclared in that same block, but can be redeclared in a function or in the global scope.</p>
+  <br>
+  <h3>JavaScript Hoisting</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Hoisting is JavaScript's default behavior of moving declarations to the top. <br>
+    Variables defined with <span class="code">var</span> are hoisted to the top and can be initialized at any time. Meaning: you can use the variable before it is declared:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          carName = "Volvo";
+        </span>
+      </td>
+      <td>This works, even though x is declared after.</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          var carName;
+        </span>
+      </td>
+      <td>Hoisted declaration; value remains "Volvo".</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you want to learn more about hoisting, study the chapter JS Hoisting. <br>
+    Variables defined with <span class="code">let</span> are also hoisted to the top of the block, but not initialized. <br>
+    Meaning: The block of code is aware of the variable, but it cannot be used until it has been declared:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          carName = "Volvo";&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// ReferenceError<br>
+          let carName;
+        </span>
+      </td>
+      <td>ReferenceError: Cannot access 'carName' before initialization.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Using a <span class="code">let</span> variable before it is declared will result in a ReferenceError. The variable is in a "temporal dead zone" from the start of the block until it is declared.</p>
+  <br>
+  <h3>Browser Support</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The table below shows the first browser version with full support for the <span class="code">let</span> keyword:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Browser</th>
+      <th>First Version with Full Support</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Chrome</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <td>Edge</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>Firefox</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td>Safari</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>Opera</td>
+      <td>36</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">let</span> is not supported in Internet Explorer 11 or earlier.</p>
 </section>
 <br>
 <!--Main Section End-->
