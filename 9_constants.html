@@ -322,20 +322,20 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript const</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The <span class="code">const</span> keyword was introduced in ES6 (2015). <br>
+    Variables defined with <span class="code">const</span> cannot be Redeclared. <br>
+    Variables defined with <span class="code">const</span> cannot be Reassigned. <br>
+    Variables defined with <span class="code">const</span> have Block Scope.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <h3>Cannot be Reassigned</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A <span class="code">const</span> variable cannot be reassigned:
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +346,377 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <span class="code">
+          const PI = 3.141592653589793;<br>
+          PI = 3.14;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// This will give an error<br>
+          PI = PI + 10;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// This will also give an error
+        </span>
+      </td>
+      <td>TypeError: Assignment to constant variable.</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <br>
+  <h3>Must be Assigned</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    JavaScript <span class="code">const</span> variables must be assigned a value when they are declared:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const PI = 3.14159265359;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Correct
+        </span>
+      </td>
+      <td>Works correctly.</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          const PI;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Incorrect<br>
+          PI = 3.14159265359;
+        </span>
+      </td>
+      <td>SyntaxError: Missing initializer in const declaration.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Variables defined with <span class="code">var</span> or <span class="code">let</span> can be declared without being assigned a value. Not so with <span class="code">const</span>.</p>
+  <br>
+  <h3>When to use JavaScript const</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Always declare a variable with <span class="code">const</span> when you know that the value should not be changed. <br>
+    Use <span class="code">const</span> when you declare:
+  </p>
+  <ul style="padding-left: 40px;">
+    <li>A new Array</li>
+    <li>A new Object</li>
+    <li>A new Function</li>
+    <li>A new RegExp</li>
+  </ul>
+  <br>
+  <h3>Block Scope</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Variables declared with <span class="code">const</span> have Block Scope, like variables declared with <span class="code">let</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          {<br>
+          &nbsp;&nbsp;const x = 2;<br>
+          }<br>
+          // x can NOT be used here
+        </span>
+      </td>
+      <td>x is only available inside the block.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Redeclaring</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript <span class="code">const</span> variables cannot be Redeclared. <br>
+    A <span class="code">const</span> variable cannot be redeclared, in the same scope, using <span class="code">var</span>, <span class="code">let</span>, or <span class="code">const</span>:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          var x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Allowed<br>
+          const x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Not allowed
+        </span>
+      </td>
+      <td>SyntaxError: Identifier 'x' has already been declared.</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          let x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Allowed<br>
+          const x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Not allowed
+        </span>
+      </td>
+      <td>SyntaxError: Identifier 'x' has already been declared.</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          const x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Allowed<br>
+          const x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Not allowed
+        </span>
+      </td>
+      <td>SyntaxError: Identifier 'x' has already been declared.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A <span class="code">const</span> variable can be redeclared in a different scope or in a different block:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const x = 2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Allowed<br>
+          {<br>
+          &nbsp;&nbsp;const x = 3;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Allowed<br>
+          }<br>
+          {<br>
+          &nbsp;&nbsp;const x = 4;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Allowed<br>
+          }
+        </span>
+      </td>
+      <td>No error. Each block has its own x.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Constant Objects and Arrays</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The keyword <span class="code">const</span> is a little misleading. <br>
+    It does not define a constant value. It defines a constant reference to a value. <br>
+    Because of this you can NOT:
+  </p>
+  <ul style="padding-left: 40px;">
+    <li>Reassign a constant value</li>
+    <li>Reassign a constant array</li>
+    <li>Reassign a constant object</li>
+  </ul>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    But you CAN:
+  </p>
+  <ul style="padding-left: 40px;">
+    <li>Change the elements of constant array</li>
+    <li>Change the properties of constant object</li>
+  </ul>
+  <br>
+  <h3>Constant Arrays</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can change the elements of a constant array:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html&gt;<br>
+          &lt;body&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;h2&gt;JavaScript Constants&lt;/h2&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p&gt;You can change the elements of a constant array:&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p id="demo"&gt;&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;script&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;// You can create a const array:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;const cars = ["Saab", "Volvo", "BMW"];<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;// You can change an element:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;cars[0] = "Toyota";<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;// You can add an element:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;cars.push("Audi");<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = cars;<br>
+          &nbsp;&nbsp;&lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;
+        </span>
+      </td>
+      <td>
+        <h2>JavaScript Constants</h2>
+        <p>You can change the elements of a constant array:</p>
+        <p id="demo1">Toyota,Volvo,BMW,Audi</p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    But you can NOT reassign the array:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const cars = ["Saab", "Volvo", "BMW"];<br>
+          cars = ["Toyota", "Volvo", "Audi"];&nbsp;&nbsp;&nbsp;&nbsp;// ERROR
+        </span>
+      </td>
+      <td>TypeError: Assignment to constant variable.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Constant Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can change the properties of a constant object:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html&gt;<br>
+          &lt;body&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;h2&gt;JavaScript Constants&lt;/h2&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p&gt;You can change the properties of a constant object:&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p id="demo"&gt;&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;script&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;// You can create a const object:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;const car = {type:"Fiat", model:"500", color:"white"};<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;// You can change a property:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;car.color = "red";<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;// You can add a property:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;car.owner = "Johnson";<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML =<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;"Car color is " + car.color + ", owned by " + car.owner;<br>
+          &nbsp;&nbsp;&lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;
+        </span>
+      </td>
+      <td>
+        <h2>JavaScript Constants</h2>
+        <p>You can change the properties of a constant object:</p>
+        <p id="demo2">Car color is red, owned by Johnson</p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    But you can NOT reassign the object:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const car = {type:"Fiat", model:"500", color:"white"};<br>
+          car = {type:"Volvo", model:"EX60", color:"red"};&nbsp;&nbsp;&nbsp;&nbsp;// ERROR
+        </span>
+      </td>
+      <td>TypeError: Assignment to constant variable.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Browser Support</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The table below shows the first browser version with full support for the <span class="code">const</span> keyword:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Browser</th>
+      <th>First Version with Full Support</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Chrome</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <td>Edge</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>Firefox</td>
+      <td>36</td>
+    </tr>
+    <tr>
+      <td>Safari</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>Opera</td>
+      <td>36</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">const</span> is not supported in Internet Explorer 11 or earlier.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +731,32 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    // You can create a const array:
+    const cars = ["Saab", "Volvo", "BMW"];
 
+    // You can change an element:
+    cars[0] = "Toyota";
+
+    // You can add an element:
+    cars.push("Audi");
+
+    document.getElementById("demo1").innerHTML = cars;
+  })();
+
+  (function () {
+    // You can create a const object:
+    const car = {type: "Fiat", model: "500", color: "white"};
+
+    // You can change a property:
+    car.color = "red";
+
+    // You can add a property:
+    car.owner = "Johnson";
+
+    document.getElementById("demo2").innerHTML =
+      "Car color is " + car.color + ", owned by " + car.owner;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
