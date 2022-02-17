@@ -322,19 +322,445 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Data Types</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    JavaScript has 8 Datatypes:
   </p>
   <ul style="padding-left: 40px;">
-    <li>item</li>
+    <li>String</li>
+    <li>Number</li>
+    <li>Bigint</li>
+    <li>Boolean</li>
+    <li>Undefined</li>
+    <li>Null</li>
+    <li>Symbol</li>
+    <li>Object</li>
+  </ul>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The Object Datatype includes:
+  </p>
+  <ul style="padding-left: 40px;">
+    <li>Object</li>
+    <li>Array</li>
+    <li>Date</li>
+  </ul>
+  <br>
+  <h3>The JavaScript Language</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript has dynamic types. This means that the same variable can be used to hold different data types:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Now x is undefined<br>
+          let x = 5;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Now x is a Number<br>
+          let x = "John";&nbsp;&nbsp;&nbsp;&nbsp;// Now x is a String
+        </span>
+      </td>
+      <td>Same variable, three different data types.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Numbers</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript has only one type of numbers. Numbers can be written with, or without decimals.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x1 = 34.00;&nbsp;&nbsp;&nbsp;&nbsp;// Written with decimals<br>
+          let x2 = 34;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Written without decimals
+        </span>
+      </td>
+      <td>Both x1 and x2 will have the value 34.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Extra large or extra small numbers can be written with scientific (exponential) notation:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let y = 123e5;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// 12300000<br>
+          let z = 123e-5;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// 0.00123
+        </span>
+      </td>
+      <td>Scientific notation examples.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>You will learn more about numbers later in this tutorial.</p>
+  <br>
+  <h3>JavaScript Strings</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A string (or a text string) is a series of characters like "John Doe". <br>
+    Strings are written with quotes. You can use single or double quotes:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let carName1 = "Volvo XC60";&nbsp;&nbsp;&nbsp;&nbsp;// Using double quotes<br>
+          let carName2 = 'Volvo XC60';&nbsp;&nbsp;&nbsp;&nbsp;// Using single quotes
+        </span>
+      </td>
+      <td>Both produce the same string.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>You will learn more about strings later in this tutorial.</p>
+  <br>
+  <h3>JavaScript Booleans</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Booleans can only have two values: <span class="code">true</span> or <span class="code">false</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = 5;<br>
+          let y = 5;<br>
+          let z = 6;<br>
+          (x == y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Returns true<br>
+          (x == z)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Returns false
+        </span>
+      </td>
+      <td>Booleans are often used in conditional testing.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>You will learn more about booleans later in this tutorial.</p>
+  <br>
+  <h3>JavaScript Arrays</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript arrays are written with square brackets. <br>
+    Array items are separated by commas.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const cars = ["Saab", "Volvo", "BMW"];
+        </span>
+      </td>
+      <td>An array of three strings.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Array indexes are zero-based, which means the first item is <span class="code">[0]</span>, second is <span class="code">[1]</span>, and so on. <br>
+    You will learn more about arrays later in this tutorial.
+  </p>
+  <br>
+  <h3>JavaScript Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript objects are written with curly braces <span class="code">{}</span>. <br>
+    Object properties are written as name:value pairs, separated by commas.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};
+        </span>
+      </td>
+      <td>An object with 4 properties.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The object (person) in the example above has 4 properties: firstName, lastName, age, and eyeColor. <br>
+    You will learn more about objects later in this tutorial.
+  </p>
+  <br>
+  <h3>The typeof Operator</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can use the JavaScript <span class="code">typeof</span> operator to find the type of a JavaScript variable.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">typeof</span> operator returns the type of a variable or an expression:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">typeof "John"</span></td>
+      <td>Returns "string"</td>
+    </tr>
+    <tr>
+      <td><span class="code">typeof 3.14</span></td>
+      <td>Returns "number"</td>
+    </tr>
+    <tr>
+      <td><span class="code">typeof NaN</span></td>
+      <td>Returns "number"</td>
+    </tr>
+    <tr>
+      <td><span class="code">typeof false</span></td>
+      <td>Returns "boolean"</td>
+    </tr>
+    <tr>
+      <td><span class="code">typeof [1,2,3,4]</span></td>
+      <td>Returns "object"</td>
+    </tr>
+    <tr>
+      <td><span class="code">typeof {name:'John', age:34}</span></td>
+      <td>Returns "object"</td>
+    </tr>
+    <tr>
+      <td><span class="code">typeof function myFunc(){}</span></td>
+      <td>Returns "function"</td>
+    </tr>
+    <tr>
+      <td><span class="code">typeof undefined</span></td>
+      <td>Returns "undefined"</td>
+    </tr>
+    <tr>
+      <td><span class="code">typeof null</span></td>
+      <td>Returns "object"</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>You will learn more about the <span class="code">typeof</span> operator later in this tutorial.</p>
+  <br>
+  <h3>Undefined</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In JavaScript, a variable without a value, has the value <span class="code">undefined</span>. The type is also <span class="code">undefined</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let car;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Value is undefined, type is undefined
+        </span>
+      </td>
+      <td>car is undefined.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Any variable can be emptied, by setting the value to <span class="code">undefined</span>. The type will also be <span class="code">undefined</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          car = undefined;&nbsp;&nbsp;&nbsp;&nbsp;// Value is undefined, type is undefined
+        </span>
+      </td>
+      <td>car is now emptied.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Empty Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    An empty value has nothing to do with <span class="code">undefined</span>. <br>
+    An empty string has both a legal value and a type.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let car = "";&nbsp;&nbsp;&nbsp;&nbsp;// The value is "", the typeof is "string"
+        </span>
+      </td>
+      <td>car has an empty value, but is defined.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Null</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In JavaScript <span class="code">null</span> is "nothing". It is supposed to be something that doesn't exist. <br>
+    Unfortunately, in JavaScript, the data type of <span class="code">null</span> is an object. <br>
+    You can consider it a bug in JavaScript that <span class="code">typeof null</span> is an object. It should be <span class="code">null</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let car = null;</span></td>
+      <td>The value is null, but the type is still an object.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can empty an object by setting it to <span class="code">null</span>:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};<br>
+          person = null;&nbsp;&nbsp;&nbsp;&nbsp;// Now value is null, but type is still object
+        </span>
+      </td>
+      <td>person is now empty.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Difference Between Undefined and Null</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">undefined</span> and <span class="code">null</span> are equal in value but different in type:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">typeof undefined</span></td>
+      <td>"undefined"</td>
+    </tr>
+    <tr>
+      <td><span class="code">typeof null</span></td>
+      <td>"object"</td>
+    </tr>
+    <tr>
+      <td><span class="code">null === undefined</span></td>
+      <td>false</td>
+    </tr>
+    <tr>
+      <td><span class="code">null == undefined</span></td>
+      <td>true</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Primitive Data</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A primitive data value is a single simple data value with no additional properties and methods. <br>
+    The <span class="code">typeof</span> operator can return one of these primitive types:
+  </p>
+  <ul style="padding-left: 40px;">
+    <li>string</li>
+    <li>number</li>
+    <li>boolean</li>
+    <li>undefined</li>
   </ul>
   <br>
   <table>
@@ -346,15 +772,67 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td><span class="code">typeof "John"</span></td>
+      <td>Returns "string"</td>
+    </tr>
+    <tr>
+      <td><span class="code">typeof 3.14</span></td>
+      <td>Returns "number"</td>
+    </tr>
+    <tr>
+      <td><span class="code">typeof true</span></td>
+      <td>Returns "boolean"</td>
+    </tr>
+    <tr>
+      <td><span class="code">typeof undefined</span></td>
+      <td>Returns "undefined"</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <br>
+  <h3>Complex Data</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The <span class="code">typeof</span> operator can return one of two complex types:
   </p>
+  <ul style="padding-left: 40px;">
+    <li>function</li>
+    <li>object</li>
+  </ul>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">typeof</span> operator returns "object" for objects, arrays, and null.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">typeof</span> operator does not return "object" for functions.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">typeof {name:'John', age:34}</span></td>
+      <td>Returns "object"</td>
+    </tr>
+    <tr>
+      <td><span class="code">typeof [1,2,3,4]</span></td>
+      <td>Returns "object"</td>
+    </tr>
+    <tr>
+      <td><span class="code">typeof null</span></td>
+      <td>Returns "object"</td>
+    </tr>
+    <tr>
+      <td><span class="code">typeof function myFunc(){}</span></td>
+      <td>Returns "function"</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The <span class="code">typeof</span> operator returns "object" for arrays because in JavaScript arrays are objects.</p>
 </section>
 <br>
 <!--Main Section End-->
