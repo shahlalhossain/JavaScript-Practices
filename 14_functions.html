@@ -322,20 +322,12 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Functions</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    A JavaScript function is a block of code designed to perform a particular task. <br>
+    A JavaScript function is executed when "something" invokes it (calls it).
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,14 +338,313 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <span class="code">
+          function myFunction(p1, p2) {<br>
+          &nbsp;&nbsp;return p1 * p2;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// The function returns the product of p1 and p2<br>
+          }
+        </span>
+      </td>
+      <td>A function that returns the product of two parameters.</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <br>
+  <h3>JavaScript Function Syntax</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    A JavaScript function is defined with the <span class="code">function</span> keyword, followed by a name, followed by parentheses ().
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Function names can contain letters, digits, underscores, and dollar signs (same rules as variables). <br>
+    The parentheses may include parameter names separated by commas: <span class="code">(parameter1, parameter2, ...)</span>
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The code to be executed, by the function, is placed inside curly brackets: <span class="code">{}</span>
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          function name(parameter1, parameter2, parameter3) {<br>
+          &nbsp;&nbsp;// code to be executed<br>
+          }
+        </span>
+      </td>
+      <td>Basic function syntax.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Function parameters are listed inside the parentheses () in the function definition. <br>
+    Function arguments are the values received by the function when it is invoked. <br>
+    Inside the function, the arguments (the parameters) behave as local variables.
+  </p>
+  <br>
+  <h3>Function Invocation</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The code inside the function will execute when "something" invokes (calls) the function:
+  </p>
+  <ul style="padding-left: 40px;">
+    <li>When an event occurs (when a user clicks a button)</li>
+    <li>When it is invoked (called) from JavaScript code</li>
+    <li>Automatically (self invoked)</li>
+  </ul>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You will learn a lot more about function invocation later in this tutorial.
+  </p>
+  <br>
+  <h3>Function Return</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    When JavaScript reaches a <span class="code">return</span> statement, the function will stop executing. <br>
+    If the function was invoked from a statement, JavaScript will "return" to execute the code after the invoking statement. <br>
+    Functions often compute a return value. The return value is "returned" back to the "caller":
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html&gt;<br>
+          &lt;body&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;h2&gt;JavaScript Functions&lt;/h2&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p&gt;This example calls a function which performs a calculation, and returns the result:&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p id="demo"&gt;&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;script&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;let x = toCelsius(77);<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = x;<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;function toCelsius(fahrenheit) {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (5/9) * (fahrenheit-32);<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+          &nbsp;&nbsp;&lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;
+        </span>
+      </td>
+      <td>
+        <h2>JavaScript Functions</h2>
+        <p>This example calls a function which performs a calculation, and returns the result:</p>
+        <p id="demo1">25</p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Why Functions?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can reuse code: Define the code once, and use it many times. <br>
+    You can use the same code many times with different arguments, to produce different results.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html&gt;<br>
+          &lt;body&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;h2&gt;JavaScript Functions&lt;/h2&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p&gt;This example converts Fahrenheit to Celsius for different Fahrenheit values:&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p id="demo"&gt;&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;script&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML =<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;toCelsius(77) + "&lt;br&gt;" +<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;toCelsius(32) + "&lt;br&gt;" +<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;toCelsius(212);<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;function toCelsius(fahrenheit) {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (5/9) * (fahrenheit-32);<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+          &nbsp;&nbsp;&lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;
+        </span>
+      </td>
+      <td>
+        <h2>JavaScript Functions</h2>
+        <p>This example converts Fahrenheit to Celsius for different Fahrenheit values:</p>
+        <p id="demo2">25<br>0<br>100</p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>The () Operator Invokes the Function</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Using the example above, <span class="code">toCelsius</span> refers to the function object, and <span class="code">toCelsius()</span> refers to the function result.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          function toCelsius(fahrenheit) {<br>
+          &nbsp;&nbsp;return (5/9) * (fahrenheit-32);<br>
+          }
+        </span>
+      </td>
+      <td>toCelsius refers to the function object.</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          toCelsius(77);
+        </span>
+      </td>
+      <td>toCelsius(77) refers to the function result, which is 25.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Accessing a function without <span class="code">()</span> will return the function object instead of the function result.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html&gt;<br>
+          &lt;body&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;h2&gt;JavaScript Functions&lt;/h2&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p&gt;Accessing a function without () will return the function object instead of the function result.&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p id="demo"&gt;&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;script&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML =<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;toCelsius;<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;function toCelsius(fahrenheit) {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (5/9) * (fahrenheit-32);<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+          &nbsp;&nbsp;&lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;
+        </span>
+      </td>
+      <td>
+        <h2>JavaScript Functions</h2>
+        <p>Accessing a function without () will return the function object instead of the function result.</p>
+        <p id="demo3">function toCelsius(fahrenheit) { return (5/9) * (fahrenheit-32); }</p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Functions Used as Variable Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Functions can be used the same way as you use variables, in all types of formulas, assignments, and calculations.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html&gt;<br>
+          &lt;body&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;h2&gt;JavaScript Functions&lt;/h2&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p&gt;Instead of using a temporary variable, you can use the function result directly:&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p id="demo"&gt;&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;script&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;let text = "The temperature is " + toCelsius(77) + " Celsius";<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = text;<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;function toCelsius(fahrenheit) {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return (5/9) * (fahrenheit-32);<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+          &nbsp;&nbsp;&lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;
+        </span>
+      </td>
+      <td>
+        <h2>JavaScript Functions</h2>
+        <p>Instead of using a temporary variable, you can use the function result directly:</p>
+        <p id="demo4">The temperature is 25 Celsius</p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Local Variables</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Variables declared within a JavaScript function, become LOCAL to the function. <br>
+    Local variables can only be accessed from within the function. Since local variables are only recognized inside their functions, variables with the same name can be used in different functions.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Local variables are created when a function starts, and deleted when the function is completed. <br>
+    You will learn more about scope later in this tutorial.
   </p>
 </section>
 <br>
@@ -369,7 +660,38 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    function toCelsius(fahrenheit) {
+      return (5 / 9) * (fahrenheit - 32);
+    }
+    let x = toCelsius(77);
+    document.getElementById("demo1").innerHTML = x;
+  })();
 
+  (function () {
+    function toCelsius(fahrenheit) {
+      return (5 / 9) * (fahrenheit - 32);
+    }
+    document.getElementById("demo2").innerHTML =
+      toCelsius(77) + "<br>" +
+      toCelsius(32) + "<br>" +
+      toCelsius(212);
+  })();
+
+  (function () {
+    function toCelsius(fahrenheit) {
+      return (5 / 9) * (fahrenheit - 32);
+    }
+    document.getElementById("demo3").innerHTML = toCelsius;
+  })();
+
+  (function () {
+    function toCelsius(fahrenheit) {
+      return (5 / 9) * (fahrenheit - 32);
+    }
+    let text = "The temperature is " + toCelsius(77) + " Celsius";
+    document.getElementById("demo4").innerHTML = text;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
