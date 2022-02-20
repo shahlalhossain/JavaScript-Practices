@@ -322,20 +322,12 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Objects</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Objects are variables too. But objects can contain many values. <br>
+    This example creates an object with 3 properties, firstName, lastName, and age:
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +338,458 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <span class="code">
+          const person = {firstName:"John", lastName:"Doe", age:50};
+        </span>
+      </td>
+      <td>An object literal with 3 properties.</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <br>
+  <h3>What is an Object?</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Values in JavaScript are always of a certain type. For example strings, numbers, objects, and so on. <br>
+    In JavaScript, objects are king. If you understand objects, you understand JavaScript.
   </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In JavaScript, an object is an unordered collection of related data, of primitive or reference types, in the form of "key: value" pairs. These keys can be variables or functions, and are called properties and methods, respectively, in the context of an object.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript objects are containers for named values, called properties and methods.
+  </p>
+  <br>
+  <h3>Object Properties</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Properties are the values associated with a JavaScript object. <br>
+    A JavaScript object is a collection of unordered properties. <br>
+    Properties can usually be changed, added, and deleted, but some are read only.
+  </p>
+  <br>
+  <h3>Accessing Object Properties</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can access object properties in two ways:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">person.lastName;</span></td>
+      <td>Dot notation.</td>
+    </tr>
+    <tr>
+      <td><span class="code">person["lastName"];</span></td>
+      <td>Bracket notation.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Methods are actions that can be performed on objects. <br>
+    Methods are stored in properties as function definitions.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const person = {<br>
+          &nbsp;&nbsp;firstName: "John",<br>
+          &nbsp;&nbsp;lastName : "Doe",<br>
+          &nbsp;&nbsp;id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 5566,<br>
+          &nbsp;&nbsp;fullName : function() {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;return this.firstName + " " + this.lastName;<br>
+          &nbsp;&nbsp;}<br>
+          };
+        </span>
+      </td>
+      <td>The fullName property is a method that returns the person's full name.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In the example above, <span class="code">this</span> refers to the person object.
+  </p>
+  <br>
+  <h3>Accessing Object Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You access an object method with the following syntax:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">objectName.methodName()</span></td>
+      <td>General syntax for calling a method.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html&gt;<br>
+          &lt;body&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;h2&gt;JavaScript Objects&lt;/h2&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p&gt;In JavaScript, methods are functions stored as object properties.&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p id="demo"&gt;&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;script&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;const person = {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;firstName: "John",<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lastName : "Doe",<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : 5566,<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fullName : function() {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return this.firstName + " " + this.lastName;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = person.fullName();<br>
+          &nbsp;&nbsp;&lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;
+        </span>
+      </td>
+      <td>
+        <h2>JavaScript Objects</h2>
+        <p>In JavaScript, methods are functions stored as object properties.</p>
+        <p id="demo1">John Doe</p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>If you access the <span class="code">fullName</span> property, without <span class="code">()</span>, it will return the function definition.</p>
+  <br>
+  <h3>The this Keyword</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In a function definition, <span class="code">this</span> refers to the "owner" of the function. <br>
+    In the example above, <span class="code">this</span> is the person object that "owns" the fullName function. <br>
+    In other words, <span class="code">this.firstName</span> means the firstName property of this object.
+  </p>
+  <br>
+  <h3>What is this?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In JavaScript, the <span class="code">this</span> keyword refers to an object. <br>
+    Which object depends on how <span class="code">this</span> is being invoked (used or called). <br>
+    The <span class="code">this</span> keyword refers to different objects depending on how it is used:
+  </p>
+  <ul style="padding-left: 40px;">
+    <li>In an object method, this refers to the object</li>
+    <li>Alone, this refers to the global object</li>
+    <li>In a function, this refers to the global object</li>
+    <li>In a function, in strict mode, this is undefined</li>
+    <li>In an event, this refers to the element that received the event</li>
+    <li>Methods like call(), apply(), and bind() can refer this to any object</li>
+  </ul>
+  <br>
+  <h3>Displaying JavaScript Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    When displaying objects, with the <span class="code">innerHTML</span> property, you have to convert the object to a string, or display selected properties.
+  </p>
+  <br>
+  <h3>Displaying with Object.values()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can use the built-in method <span class="code">Object.values()</span> to display the values of a JavaScript object as an array:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const person = {<br>
+          &nbsp;&nbsp;firstName: "John",<br>
+          &nbsp;&nbsp;lastName: "Doe",<br>
+          &nbsp;&nbsp;age: 50,<br>
+          &nbsp;&nbsp;eyeColor: "blue"<br>
+          };<br>
+          document.getElementById("demo").innerHTML = Object.values(person);
+        </span>
+      </td>
+      <td id="demo2">John,Doe,50,blue</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Displaying Properties using for...in</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can loop through object properties with a <span class="code">for...in</span> loop.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const person = {<br>
+          &nbsp;&nbsp;firstName: "John",<br>
+          &nbsp;&nbsp;lastName: "Doe",<br>
+          &nbsp;&nbsp;age: 50,<br>
+          &nbsp;&nbsp;eyeColor: "blue"<br>
+          };<br>
+          <br>
+          let text = "";<br>
+          for (let x in person) {<br>
+          &nbsp;&nbsp;text += person[x] + " ";<br>
+          }
+        </span>
+      </td>
+      <td id="demo3">John Doe 50 blue</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Displaying Properties using Object.entries()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can use the <span class="code">Object.entries()</span> method to loop through object properties.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = {Bananas:300, Oranges:200, Apples:500};<br>
+          <br>
+          let text = "";<br>
+          for (let [key, value] of Object.entries(fruits)) {<br>
+          &nbsp;&nbsp;text += key + ": " + value + "&lt;br&gt;";<br>
+          }
+        </span>
+      </td>
+      <td id="demo4">Bananas: 300<br>Oranges: 200<br>Apples: 500</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Object Constructors</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Sometimes we need a "blueprint" for creating many objects of the same "type". <br>
+    The way to create an "object type", is to use an object constructor function.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html&gt;<br>
+          &lt;body&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;h2&gt;JavaScript Constructors&lt;/h2&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p id="demo"&gt;&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;script&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;function Person(first, last, age, eye) {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.firstName = first;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.lastName = last;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.age = age;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.eyeColor = eye;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;const myFather = new Person("John", "Doe", 50, "blue");<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;const myMother = new Person("Sally", "Rally", 48, "green");<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML =<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;"My father is " + myFather.age + ". My mother is " + myMother.age + ".";<br>
+          &nbsp;&nbsp;&lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;
+        </span>
+      </td>
+      <td>
+        <h2>JavaScript Constructors</h2>
+        <p id="demo5">My father is 50. My mother is 48.</p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Note that the <span class="code">this</span> keyword, used in the constructor function, is not a value. It is a reference to the object that "receives" the function call. <br>
+    It is a good practice to name constructor functions with an upper-case first letter.
+  </p>
+  <br>
+  <h3>Object Types (Blueprints) (Classes)</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The examples above are limited in many situations. They only produce a single object. <br>
+    Sometimes we need a "blueprint" for creating many objects of the same "type". <br>
+    The way to create an "object type", is to use an object constructor function. It is considered good practice to use capital first letter for constructor functions.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          function Person(first, last, age, eye) {<br>
+          &nbsp;&nbsp;this.firstName = first;<br>
+          &nbsp;&nbsp;this.lastName = last;<br>
+          &nbsp;&nbsp;this.age = age;<br>
+          &nbsp;&nbsp;this.eyeColor = eye;<br>
+          }
+        </span>
+      </td>
+      <td>A constructor function for creating Person objects.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Creating Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    When you have an object constructor, you can use the <span class="code">new</span> keyword to create new objects of the same type:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const myFather = new Person("John", "Doe", 50, "blue");<br>
+          const myMother = new Person("Sally", "Rally", 48, "green");
+        </span>
+      </td>
+      <td>Two separate Person objects, each with their own property values.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The <span class="code">this</span> keyword in a constructor function does not have a value. It becomes the new object when the constructor is used to create an object.</p>
+  <br>
+  <h3>Adding a Property to an Object</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Adding a new property to an existing object is easy:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">myFather.nationality = "English";</span></td>
+      <td>The nationality property is added only to myFather, not to myMother.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The new property is added only to this object; it is not added to any other object of the same type.</p>
+  <br>
+  <h3>Adding a Method to an Object</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Adding a new method to an existing object is also easy:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          myFather.name = function() {<br>
+          &nbsp;&nbsp;return this.firstName + " " + this.lastName;<br>
+          };
+        </span>
+      </td>
+      <td>The name method is added only to myFather, not to myMother.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The new method is added only to this object; it is not added to any other object of the same type.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +804,67 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      id: 5566,
+      fullName: function () {
+        return this.firstName + " " + this.lastName;
+      }
+    };
+    document.getElementById("demo1").innerHTML = person.fullName();
+  })();
 
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 50,
+      eyeColor: "blue"
+    };
+    document.getElementById("demo2").innerHTML = Object.values(person);
+  })();
+
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 50,
+      eyeColor: "blue"
+    };
+
+    let text = "";
+    for (let x in person) {
+      text += person[x] + " ";
+    }
+    document.getElementById("demo3").innerHTML = text;
+  })();
+
+  (function () {
+    const fruits = {Bananas: 300, Oranges: 200, Apples: 500};
+
+    let text = "";
+    for (let [key, value] of Object.entries(fruits)) {
+      text += key + ": " + value + "<br>";
+    }
+    document.getElementById("demo4").innerHTML = text;
+  })();
+
+  (function () {
+    function Person(first, last, age, eye) {
+      this.firstName = first;
+      this.lastName = last;
+      this.age = age;
+      this.eyeColor = eye;
+    }
+
+    const myFather = new Person("John", "Doe", 50, "blue");
+    const myMother = new Person("Sally", "Rally", 48, "green");
+
+    document.getElementById("demo5").innerHTML =
+      "My father is " + myFather.age + ". My mother is " + myMother.age + ".";
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
