@@ -322,20 +322,31 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript HTML Events</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    HTML events are "things" that happen to HTML elements. <br>
+    When JavaScript is used in HTML pages, JavaScript can "react" on these events.
+  </p>
+  <br>
+  <h3>HTML Events</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    An HTML event can be something the browser does, or something a user does. <br>
+    Here are some examples of HTML events:
   </p>
   <ul style="padding-left: 40px;">
-    <li>item</li>
+    <li>An HTML web page has finished loading</li>
+    <li>An HTML input field was changed</li>
+    <li>An HTML button was clicked</li>
   </ul>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Often, when events happen, you may want to do something. <br>
+    JavaScript lets you execute code when events are detected.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    HTML allows event handler attributes, with JavaScript code, to be added to HTML elements:
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +357,487 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <span class="code">
+          &lt;button onclick="document.getElementById('demo').innerHTML = Date()"&gt;The time is?&lt;/button&gt;
+        </span>
+      </td>
+      <td>
+        <button type="button" onclick="document.getElementById('demo1').innerHTML = Date()">The time is?</button>
+        <p id="demo1"></p>
+      </td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <br>
+  <h3>Common HTML Events</h3>
+  <hr>
+  <table>
+    <thead>
+    <tr>
+      <th>Event</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">onchange</span></td>
+      <td>An HTML element has been changed</td>
+    </tr>
+    <tr>
+      <td><span class="code">onclick</span></td>
+      <td>The user clicks an HTML element</td>
+    </tr>
+    <tr>
+      <td><span class="code">onmouseover</span></td>
+      <td>The user moves the mouse over an HTML element</td>
+    </tr>
+    <tr>
+      <td><span class="code">onmouseout</span></td>
+      <td>The user moves the mouse away from an HTML element</td>
+    </tr>
+    <tr>
+      <td><span class="code">onkeydown</span></td>
+      <td>The user pushes a keyboard key</td>
+    </tr>
+    <tr>
+      <td><span class="code">onload</span></td>
+      <td>The browser has finished loading the page</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Event Handlers</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    HTML event handlers can execute JavaScript code directly:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;button onclick="document.getElementById('demo').innerHTML = Date()"&gt;The time is?&lt;/button&gt;
+        </span>
+      </td>
+      <td>Calls JavaScript code directly from an HTML attribute.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Or you can call a function from the event handler:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html&gt;<br>
+          &lt;body&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;h2&gt;JavaScript Events&lt;/h2&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;button onclick="displayDate()"&gt;The time is?&lt;/button&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p id="demo"&gt;&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;script&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;function displayDate() {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = Date();<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+          &nbsp;&nbsp;&lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;
+        </span>
+      </td>
+      <td>
+        <h2>JavaScript Events</h2>
+        <button type="button" onclick="document.getElementById('demo2').innerHTML = Date()">The time is?</button>
+        <p id="demo2"></p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Mouse Events</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Mouse events happen when the mouse interacts with an HTML element, such as clicking, moving over, or releasing a mouse button.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Event</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">onmousedown</span></td>
+      <td>The mouse button is pressed over an element</td>
+    </tr>
+    <tr>
+      <td><span class="code">onmouseup</span></td>
+      <td>The mouse button is released over an element</td>
+    </tr>
+    <tr>
+      <td><span class="code">onclick</span></td>
+      <td>A mouse button is pressed and released over an element</td>
+    </tr>
+    <tr>
+      <td><span class="code">ondblclick</span></td>
+      <td>A mouse button is double-clicked over an element</td>
+    </tr>
+    <tr>
+      <td><span class="code">onmousemove</span></td>
+      <td>The mouse is moving while it is over an element</td>
+    </tr>
+    <tr>
+      <td><span class="code">onmouseover</span></td>
+      <td>The mouse pointer moves onto an element</td>
+    </tr>
+    <tr>
+      <td><span class="code">onmouseout</span></td>
+      <td>The mouse pointer moves out of an element</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;div onmousemove="mouseMoveFunction(this)"&gt;Mouse Over Me&lt;/div&gt;
+        </span>
+      </td>
+      <td>
+        <div onmousemove="this.innerHTML='Mouse coordinates logged'" style="border:1px solid #dddddd; padding:10px;">Mouse Over Me</div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Keyboard Events</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript HTML events happen when the user interacts with the keyboard.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Event</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">onkeydown</span></td>
+      <td>The user is pressing a key</td>
+    </tr>
+    <tr>
+      <td><span class="code">onkeypress</span></td>
+      <td>The user is pressing a character key (deprecated)</td>
+    </tr>
+    <tr>
+      <td><span class="code">onkeyup</span></td>
+      <td>The user releases a key</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;input type="text" onkeydown="document.getElementById('demo').innerHTML = 'You pressed a key inside the input field'"&gt;
+        </span>
+      </td>
+      <td>
+        <input type="text" onkeydown="document.getElementById('demo3').innerHTML = 'You pressed a key inside the input field'">
+        <p id="demo3"></p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Keyboard events are often used together with form validation.</p>
+  <br>
+  <h3>JavaScript Load and Unload Events</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">onload</span> and <span class="code">onunload</span> events are triggered when the user enters or leaves the page. <br>
+    The <span class="code">onload</span> event can be used to check the visitor's browser type and browser version, and load the proper version of the web page based on the information. <br>
+    The <span class="code">onload</span> and <span class="code">onunload</span> events can be used to deal with cookies.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;body onload="checkCookies()"&gt;
+        </span>
+      </td>
+      <td>Runs a function as soon as the page has finished loading.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Resize Event</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">onresize</span> event occurs when the browser window is resized.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;body onresize="document.getElementById('demo').innerHTML = window.innerWidth + 'px x ' + window.innerHeight + 'px'"&gt;
+        </span>
+      </td>
+      <td>Displays the window size whenever the browser window is resized.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Event Handling (Management)</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript has an event model where event handlers are set as properties on elements, where several events are related to each phase of user interaction.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    When using the HTML DOM, all HTML elements are defined as objects. Object properties and object methods (functions) can be used to add HTML events to the elements:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          document.getElementById("myBtn").onclick = function() {displayDate()};
+        </span>
+      </td>
+      <td>Assigning an event handler using properties.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>The HTML DOM addEventListener() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">addEventListener()</span> method attaches an event handler to the specified element. <br>
+    The <span class="code">addEventListener()</span> method attaches an event handler to an element without overwriting existing event handlers. <br>
+    You can add many event handlers to one element. <br>
+    You can add many event handlers of the same type to one element, i.e two "click" events. <br>
+    You can add event listeners to any DOM object, not only HTML elements. i.e the window object. <br>
+    The <span class="code">addEventListener()</span> method makes it easier to control how the event reacts to bubbling.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          element.addEventListener("click", function() {<br>
+          &nbsp;&nbsp;document.getElementById("demo").innerHTML = "Hello World";<br>
+          });
+        </span>
+      </td>
+      <td>
+        <button type="button" id="demo4Btn">Click Me</button>
+        <p id="demo4"></p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can also add a reference to a named function:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          element.addEventListener("click", myFunction);<br>
+          <br>
+          function myFunction() {<br>
+          &nbsp;&nbsp;document.getElementById("demo").innerHTML = "Hello World";<br>
+          }
+        </span>
+      </td>
+      <td>A named function used as the event handler.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>The removeEventListener() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">removeEventListener()</span> method removes an event handler that has been attached with the <span class="code">addEventListener()</span> method:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          element.removeEventListener("mousemove", myFunction);
+        </span>
+      </td>
+      <td>Removes a previously attached event handler.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript HTML DOM EventListener</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The HTML DOM allows you to execute code when an event occurs, like when a user clicks on an HTML element.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To execute code when a user clicks on an element, add JavaScript code to an HTML event attribute:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          onclick=myFunction
+        </span>
+      </td>
+      <td>HTML events are "things" that happen to HTML elements.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    HTML DOM allows you to add event listeners to any HTML DOM object such as HTML elements, the HTML document, and the window object. Events are normally used in combination with functions, and the function will not be executed before the event occurs.
+  </p>
+  <br>
+  <h3>Mouse Click Events</h3>
+  <hr>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html&gt;<br>
+          &lt;body&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;h2&gt;JavaScript HTML Events&lt;/h2&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p&gt;Click the button to trigger a function.&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;button id="myBtn"&gt;Try it&lt;/button&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p id="demo"&gt;&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;script&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("myBtn").addEventListener("click", displayDate);<br>
+          <br>
+          &nbsp;&nbsp;&nbsp;&nbsp;function displayDate() {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = Date();<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+          &nbsp;&nbsp;&lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;
+        </span>
+      </td>
+      <td>
+        <h2>JavaScript HTML Events</h2>
+        <p>Click the button to trigger a function.</p>
+        <button type="button" id="demo5Btn">Try it</button>
+        <p id="demo5"></p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The <span class="code">onclick</span> attribute (with lowercase "onclick") is defined in HTML. The <span class="code">addEventListener()</span> method is defined in the HTML DOM.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +852,13 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo4Btn").addEventListener("click", function () {
+    document.getElementById("demo4").innerHTML = "Hello World";
+  });
 
+  document.getElementById("demo5Btn").addEventListener("click", function () {
+    document.getElementById("demo5").innerHTML = Date();
+  });
 </script>
 <!--Page Specific JavaScript End-->
 </body>
