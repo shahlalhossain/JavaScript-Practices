@@ -322,20 +322,12 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Strings</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    A JavaScript string is zero or more characters written inside quotes. <br>
+    You can use single or double quotes:
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +338,500 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td><span class="code">let carName1 = "Volvo XC60";</span></td>
+      <td>Double quotes.</td>
+    </tr>
+    <tr>
+      <td><span class="code">let carName2 = 'Volvo XC60';</span></td>
+      <td>Single quotes.</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          &lt;!DOCTYPE html&gt;<br>
+          &lt;html&gt;<br>
+          &lt;body&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;h2&gt;JavaScript Strings&lt;/h2&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;p id="demo"&gt;&lt;/p&gt;<br>
+          <br>
+          &nbsp;&nbsp;&lt;script&gt;<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;let text = "John Doe";<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = text;<br>
+          &nbsp;&nbsp;&lt;/script&gt;<br>
+          <br>
+          &lt;/body&gt;<br>
+          &lt;/html&gt;
+        </span>
+      </td>
+      <td>
+        <h2>JavaScript Strings</h2>
+        <p id="demo1">John Doe</p>
+      </td>
+    </tr>
+    </tbody>
+  </table>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    You can use quotes inside a string, as long as they don't match the quotes surrounding the string:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let answer1 = "It's alright";</span></td>
+      <td>Single quote inside double quotes.</td>
+    </tr>
+    <tr>
+      <td><span class="code">let answer2 = "He is called 'Johnny'";</span></td>
+      <td>Single quotes inside double quotes.</td>
+    </tr>
+    <tr>
+      <td><span class="code">let answer3 = 'He is called "Johnny"';</span></td>
+      <td>Double quotes inside single quotes.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>String Length</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To find the length of a string, use the built-in <span class="code">length</span> property:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";<br>
+          let length = text.length;
+        </span>
+      </td>
+      <td id="demo2">26</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Escape Characters</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Because strings must be written within quotes, JavaScript will misunderstand this string:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let text = "We are the so-called "Vikings" from the north.";</span></td>
+      <td>SyntaxError: the string will be cut short at "Vikings".</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The solution to avoid this problem, is to use the backslash escape character. <br>
+    The backslash ( <span class="code">\</span> ) escape character turns special characters into string characters:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code</th>
+      <th>Result</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">\'</span></td>
+      <td>'</td>
+      <td>Single quote</td>
+    </tr>
+    <tr>
+      <td><span class="code">\"</span></td>
+      <td>"</td>
+      <td>Double quote</td>
+    </tr>
+    <tr>
+      <td><span class="code">\\</span></td>
+      <td>\</td>
+      <td>Backslash</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let text = "We are the so-called \"Vikings\" from the north.";</span></td>
+      <td id="demo3">We are the so-called "Vikings" from the north.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Six other escape sequences are valid in JavaScript:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code</th>
+      <th>Result</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">\b</span></td>
+      <td>Backspace</td>
+    </tr>
+    <tr>
+      <td><span class="code">\f</span></td>
+      <td>Form Feed</td>
+    </tr>
+    <tr>
+      <td><span class="code">\n</span></td>
+      <td>New Line</td>
+    </tr>
+    <tr>
+      <td><span class="code">\r</span></td>
+      <td>Carriage Return</td>
+    </tr>
+    <tr>
+      <td><span class="code">\t</span></td>
+      <td>Horizontal Tabulator</td>
+    </tr>
+    <tr>
+      <td><span class="code">\v</span></td>
+      <td>Vertical Tabulator</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The 6 escape characters above were originally designed to control typewriters, teletypes, and fax machines. They do not make any sense in HTML.</p>
+  <br>
+  <h3>Breaking up a Code Line</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can break up a code line within a text string with a single backslash:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          document.getElementById("demo").innerHTML = "Hello \<br>
+          Dolly!";
+        </span>
+      </td>
+      <td>Hello Dolly!</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The method above is not the preferred method. It might not have universal support. Some browsers will not allow spaces behind the backslash character.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The safest way to break up a string, is to use string addition:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          document.getElementById("demo").innerHTML = "Hello " +<br>
+          "Dolly!";
+        </span>
+      </td>
+      <td>Hello Dolly!</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>You cannot break up a code line with a backslash. This will work: <span class="code">"Hello Dolly!"</span>, but this will NOT work: <span class="code">\"Hello Dolly!"</span>.</p>
+  <br>
+  <h3>JavaScript Strings as Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Normally, JavaScript strings are primitive values, created from literals: <span class="code">let x = "John";</span> <br>
+    But strings can also be defined as objects with the keyword <span class="code">new</span>: <span class="code">let y = new String("John");</span>
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = "John";<br>
+          let y = new String("John");
+        </span>
+      </td>
+      <td>typeof x is "string", typeof y is "object".</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Don't create Strings as objects. It slows down execution speed. <br>
+    The <span class="code">new</span> keyword complicates the code and can produce unexpected results:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = "John";<br>
+          let y = new String("John");<br>
+          (x == y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// is true because x and y have equal values
+        </span>
+      </td>
+      <td>true</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          let x = "John";<br>
+          let y = new String("John");<br>
+          (x === y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// is false because x and y have different types
+        </span>
+      </td>
+      <td>false</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Comparing two JavaScript objects always returns false:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = new String("John");<br>
+          let y = new String("John");<br>
+          (x == y)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// is false because x and y are different objects
+        </span>
+      </td>
+      <td>false</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Objects cannot be compared. JSON.stringify() is the only safe way to compare objects for value equality.</p>
+  <br>
+  <h3>JavaScript String Reference</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    For a complete reference, see the full <span class="code">String</span> object reference. <br>
+    The reference contains descriptions and examples of all String properties and methods.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Property / Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">length</span></td>
+      <td>Returns the length of a string</td>
+    </tr>
+    <tr>
+      <td><span class="code">at()</span></td>
+      <td>Returns the character at a specified index (position) in a string</td>
+    </tr>
+    <tr>
+      <td><span class="code">charAt()</span></td>
+      <td>Returns the character at a specified index (position) in a string</td>
+    </tr>
+    <tr>
+      <td><span class="code">charCodeAt()</span></td>
+      <td>Returns the Unicode of the character at a specified index in a string</td>
+    </tr>
+    <tr>
+      <td><span class="code">codePointAt()</span></td>
+      <td>Returns the Unicode code point at a specified index in a string</td>
+    </tr>
+    <tr>
+      <td><span class="code">concat()</span></td>
+      <td>Joins two or more strings, and returns a copy of the joined strings</td>
+    </tr>
+    <tr>
+      <td><span class="code">endsWith()</span></td>
+      <td>Checks whether a string ends with specified string/characters</td>
+    </tr>
+    <tr>
+      <td><span class="code">fromCharCode()</span></td>
+      <td>Converts Unicode values to characters</td>
+    </tr>
+    <tr>
+      <td><span class="code">includes()</span></td>
+      <td>Checks whether a string contains the specified string/characters</td>
+    </tr>
+    <tr>
+      <td><span class="code">indexOf()</span></td>
+      <td>Returns the position of the first found occurrence of a specified value in a string</td>
+    </tr>
+    <tr>
+      <td><span class="code">lastIndexOf()</span></td>
+      <td>Returns the position of the last found occurrence of a specified value in a string</td>
+    </tr>
+    <tr>
+      <td><span class="code">localeCompare()</span></td>
+      <td>Compares two strings in the current locale</td>
+    </tr>
+    <tr>
+      <td><span class="code">match()</span></td>
+      <td>Searches a string for a match against a regular expression, and returns the matches</td>
+    </tr>
+    <tr>
+      <td><span class="code">matchAll()</span></td>
+      <td>Searches a string for all matches against a regular expression, and returns an iterator of the matches</td>
+    </tr>
+    <tr>
+      <td><span class="code">normalize()</span></td>
+      <td>Returns the Unicode Normalization Form of a string</td>
+    </tr>
+    <tr>
+      <td><span class="code">padEnd()</span></td>
+      <td>Pads a string at the end with another string until it reaches a given length</td>
+    </tr>
+    <tr>
+      <td><span class="code">padStart()</span></td>
+      <td>Pads a string at the start with another string until it reaches a given length</td>
+    </tr>
+    <tr>
+      <td><span class="code">repeat()</span></td>
+      <td>Returns a new string with a specified number of copies of an existing string</td>
+    </tr>
+    <tr>
+      <td><span class="code">replace()</span></td>
+      <td>Searches a string for a specified value, or a regular expression, and returns a new string where the specified values are replaced</td>
+    </tr>
+    <tr>
+      <td><span class="code">replaceAll()</span></td>
+      <td>Searches a string for all occurrences of a specified value, or a regular expression, and returns a new string where the specified values are replaced</td>
+    </tr>
+    <tr>
+      <td><span class="code">search()</span></td>
+      <td>Searches a string for a specified value, or regular expression, and returns the position of the match</td>
+    </tr>
+    <tr>
+      <td><span class="code">slice()</span></td>
+      <td>Extracts a part of a string and returns a new string</td>
+    </tr>
+    <tr>
+      <td><span class="code">split()</span></td>
+      <td>Splits a string into an array of substrings</td>
+    </tr>
+    <tr>
+      <td><span class="code">startsWith()</span></td>
+      <td>Checks whether a string begins with specified string/characters</td>
+    </tr>
+    <tr>
+      <td><span class="code">substr()</span></td>
+      <td>Extracts the characters from a string, beginning at a specified start position, and through the specified number of characters (deprecated)</td>
+    </tr>
+    <tr>
+      <td><span class="code">substring()</span></td>
+      <td>Extracts the characters from a string, between two specified indices</td>
+    </tr>
+    <tr>
+      <td><span class="code">toLowerCase()</span></td>
+      <td>Converts a string to lowercase letters</td>
+    </tr>
+    <tr>
+      <td><span class="code">toUpperCase()</span></td>
+      <td>Converts a string to uppercase letters</td>
+    </tr>
+    <tr>
+      <td><span class="code">toString()</span></td>
+      <td>Returns the value of a String object</td>
+    </tr>
+    <tr>
+      <td><span class="code">trim()</span></td>
+      <td>Removes whitespace from both ends of a string</td>
+    </tr>
+    <tr>
+      <td><span class="code">trimEnd()</span></td>
+      <td>Removes whitespace from the end of a string</td>
+    </tr>
+    <tr>
+      <td><span class="code">trimStart()</span></td>
+      <td>Removes whitespace from the start of a string</td>
+    </tr>
+    <tr>
+      <td><span class="code">valueOf()</span></td>
+      <td>Returns the primitive value of a String object</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>All string methods return a new value. They do not change the original variable.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +846,21 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    let text = "John Doe";
+    document.getElementById("demo1").innerHTML = text;
+  })();
 
+  (function () {
+    let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let length = text.length;
+    document.getElementById("demo2").innerHTML = length;
+  })();
+
+  (function () {
+    let text = "We are the so-called \"Vikings\" from the north.";
+    document.getElementById("demo3").innerHTML = text;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
