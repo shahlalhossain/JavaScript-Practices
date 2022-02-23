@@ -322,19 +322,50 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript String Methods</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    String methods help you to work with strings. <br>
+    JavaScript primitive values, like strings, cannot have properties or methods because they are not objects. <br>
+    But with JavaScript, methods and properties are also available to primitive values, because JavaScript treats primitive values as objects when executing methods and properties.
+  </p>
+  <br>
+  <h3>JavaScript String Length</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">length</span> property returns the length of a string:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";<br>
+          let length = text.length;
+        </span>
+      </td>
+      <td id="demo1">26</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Extracting String Characters</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    There are 4 methods for extracting string characters:
   </p>
   <ul style="padding-left: 40px;">
-    <li>item</li>
+    <li>at(position)</li>
+    <li>charAt(position)</li>
+    <li>charCodeAt(position)</li>
+    <li>Property access [ ]</li>
   </ul>
   <br>
   <table>
@@ -346,15 +377,528 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td><span class="code">let text = "HELLO WORLD";<br>text.at(0);</span></td>
+      <td>H</td>
+    </tr>
+    <tr>
+      <td><span class="code">let text = "HELLO WORLD";<br>text.charAt(0);</span></td>
+      <td>H</td>
+    </tr>
+    <tr>
+      <td><span class="code">let text = "HELLO WORLD";<br>text.charCodeAt(0);</span></td>
+      <td>72</td>
+    </tr>
+    <tr>
+      <td><span class="code">let text = "HELLO WORLD";<br>text[0];</span></td>
+      <td>H</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Note: </i></strong>Property access can be a little unpredictable: it does not let you set new properties, and it does not work on strings created with <span class="code">new String()</span>.</p>
+  <br>
+  <h3>Extracting String Parts</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    There are 3 methods for extracting a part of a string:
   </p>
+  <ul style="padding-left: 40px;">
+    <li>slice(start, end)</li>
+    <li>substring(start, end)</li>
+    <li>substr(start, length)</li>
+  </ul>
+  <br>
+  <h3>The slice() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">slice()</span> extracts a part of a string and returns the extracted part in a new string. <br>
+    The method takes 2 parameters: start position, and end position (end not included).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "Apple, Banana, Kiwi";<br>
+          let part = text.slice(7, 13);
+        </span>
+      </td>
+      <td id="demo2">Banana</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If a parameter is negative, the position is counted from the end of the string:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "Apple, Banana, Kiwi";<br>
+          let part = text.slice(-12, -6);
+        </span>
+      </td>
+      <td id="demo3">Banana</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you omit the second parameter, the method will slice out the rest of the string:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "Apple, Banana, Kiwi";<br>
+          let part = text.slice(7);
+        </span>
+      </td>
+      <td id="demo4">Banana, Kiwi</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "Apple, Banana, Kiwi";<br>
+          let part = text.slice(-12);
+        </span>
+      </td>
+      <td id="demo5">Banana, Kiwi</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>The substring() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">substring()</span> is similar to <span class="code">slice()</span>. <br>
+    The difference is that <span class="code">substring()</span> cannot accept negative indexes.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "Apple, Banana, Kiwi";<br>
+          let part = text.substring(7, 13);
+        </span>
+      </td>
+      <td id="demo6">Banana</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you omit the second parameter, <span class="code">substring()</span> will slice out the rest of the string.
+  </p>
+  <br>
+  <h3>The substr() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">substr()</span> is similar to <span class="code">slice()</span>. <br>
+    The difference is that the second parameter specifies the length of the extracted part.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "Apple, Banana, Kiwi";<br>
+          let part = text.substr(7, 6);
+        </span>
+      </td>
+      <td id="demo7">Banana</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you omit the second parameter, <span class="code">substr()</span> will slice out the rest of the string. <br>
+    If the first parameter is negative, the position counts from the end of the string.
+  </p>
+  <p><strong><i>Note: </i></strong><span class="code">substr()</span> is an Annex B feature. Annex B features are not standard JS features, but are implemented in most browsers for compatibility reasons. New JavaScript code should avoid using it.</p>
+  <br>
+  <h3>Replacing String Content</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">replace()</span> method replaces a specified value with another value in a string:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "Please visit Microsoft!";<br>
+          let newText = text.replace("Microsoft", "W3Schools");
+        </span>
+      </td>
+      <td id="demo8">Please visit W3Schools!</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The <span class="code">replace()</span> method does not change the string it is called on. It returns a new string. The <span class="code">replace()</span> method replaces only the first match. By default, the <span class="code">replace()</span> method is case sensitive.</p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To replace case insensitive, use a regular expression with an <span class="code">/i</span> flag (insensitive):
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let text = "Please visit Microsoft!";<br>let newText = text.replace(/MICROSOFT/i, "W3Schools");</span></td>
+      <td>Please visit W3Schools!</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To replace all matches, use a regular expression with a <span class="code">/g</span> flag (global match):
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let text = "Please visit Microsoft and Microsoft!";<br>let newText = text.replace(/Microsoft/g, "W3Schools");</span></td>
+      <td>Please visit W3Schools and W3Schools!</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>The replaceAll() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">replaceAll()</span> method replaces all occurrences of a specified value with another value in a string:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "Please visit Microsoft and Microsoft!";<br>
+          let newText = text.replaceAll("Microsoft", "W3Schools");
+        </span>
+      </td>
+      <td id="demo9">Please visit W3Schools and W3Schools!</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">replaceAll()</span> was introduced in JavaScript 2021 (ES2021). It is not supported in Internet Explorer.</p>
+  <br>
+  <h3>Converting to Upper and Lower Case</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A string is converted to upper case with <span class="code">toUpperCase()</span>:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text1 = "Hello World!";<br>
+          let text2 = text1.toUpperCase();
+        </span>
+      </td>
+      <td id="demo10">HELLO WORLD!</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A string is converted to lower case with <span class="code">toLowerCase()</span>:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text1 = "Hello World!";<br>
+          let text2 = text1.toLowerCase();
+        </span>
+      </td>
+      <td id="demo11">hello world!</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>The concat() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">concat()</span> joins two or more strings:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text1 = "Hello";<br>
+          let text2 = "World";<br>
+          let text3 = text1.concat(" ", text2);
+        </span>
+      </td>
+      <td id="demo12">Hello World</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">concat()</span> method can be used instead of the plus operator. These two lines do the same:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let text = "Hello" + " " + "World!";</span></td>
+      <td>Hello World!</td>
+    </tr>
+    <tr>
+      <td><span class="code">let text = "Hello".concat(" ", "World!");</span></td>
+      <td>Hello World!</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Trimming Strings</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">trim()</span> method removes whitespace from both sides of a string:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text1 = "&nbsp;&nbsp;&nbsp;&nbsp;Hello World!&nbsp;&nbsp;&nbsp;&nbsp;";<br>
+          let text2 = text1.trim();
+        </span>
+      </td>
+      <td id="demo13">Hello World!</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">trimStart()</span> method removes whitespace only from the start of a string. <br>
+    The <span class="code">trimEnd()</span> method removes whitespace only from the end of a string.
+  </p>
+  <br>
+  <h3>Padding a String</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript string padding is the process of adding characters to a string, to ensure it has a certain length. <br>
+    <span class="code">padStart()</span> pads a string from the start:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "5";<br>
+          let padded = text.padStart(4,"0");
+        </span>
+      </td>
+      <td id="demo14">0005</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">padEnd()</span> pads a string from the end:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "5";<br>
+          let padded = text.padEnd(4,"0");
+        </span>
+      </td>
+      <td id="demo15">5000</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Padding methods were added to JavaScript in 2017.</p>
+  <br>
+  <h3>Extracting String Repetition</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">repeat()</span> method returns a new string with a specified number of copies of the original string:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "Hello world!";<br>
+          text.repeat(2);
+        </span>
+      </td>
+      <td id="demo16">Hello world!Hello world!</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The <span class="code">repeat()</span> method was added to JavaScript in 2015.</p>
+  <br>
+  <h3>Converting a String to an Array</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A string can be converted to an array with the <span class="code">split()</span> method:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">"a,b,c".split(",");</span></td>
+      <td>Splits on commas.</td>
+    </tr>
+    <tr>
+      <td><span class="code">"a b c".split(" ");</span></td>
+      <td>Splits on spaces.</td>
+    </tr>
+    <tr>
+      <td><span class="code">"a|b|c".split("|");</span></td>
+      <td>Splits on pipe characters.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you omit the separator, <span class="code">split()</span> returns an array containing the whole string in index [0]. <br>
+    If the separator is <span class="code">""</span>, the returned array will be an array of single characters:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "Hello";<br>
+          text.split("");
+        </span>
+      </td>
+      <td id="demo17">H,e,l,l,o</td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +913,23 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
-
+  document.getElementById("demo1").innerHTML = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".length;
+  document.getElementById("demo2").innerHTML = "Apple, Banana, Kiwi".slice(7, 13);
+  document.getElementById("demo3").innerHTML = "Apple, Banana, Kiwi".slice(-12, -6);
+  document.getElementById("demo4").innerHTML = "Apple, Banana, Kiwi".slice(7);
+  document.getElementById("demo5").innerHTML = "Apple, Banana, Kiwi".slice(-12);
+  document.getElementById("demo6").innerHTML = "Apple, Banana, Kiwi".substring(7, 13);
+  document.getElementById("demo7").innerHTML = "Apple, Banana, Kiwi".substr(7, 6);
+  document.getElementById("demo8").innerHTML = "Please visit Microsoft!".replace("Microsoft", "W3Schools");
+  document.getElementById("demo9").innerHTML = "Please visit Microsoft and Microsoft!".replaceAll("Microsoft", "W3Schools");
+  document.getElementById("demo10").innerHTML = "Hello World!".toUpperCase();
+  document.getElementById("demo11").innerHTML = "Hello World!".toLowerCase();
+  document.getElementById("demo12").innerHTML = "Hello".concat(" ", "World");
+  document.getElementById("demo13").innerHTML = "     Hello World!     ".trim();
+  document.getElementById("demo14").innerHTML = "5".padStart(4, "0");
+  document.getElementById("demo15").innerHTML = "5".padEnd(4, "0");
+  document.getElementById("demo16").innerHTML = "Hello world!".repeat(2);
+  document.getElementById("demo17").innerHTML = "Hello".split("");
 </script>
 <!--Page Specific JavaScript End-->
 </body>
