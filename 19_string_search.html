@@ -322,20 +322,17 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript String Search</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    JavaScript offers many ways to search for a value in a string.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <h3>JavaScript String indexOf()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">indexOf()</span> method returns the index of (the position of) the first occurrence of a specified text in a string:
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +343,298 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <span class="code">
+          let str = "Please locate where 'locate' occurs!";<br>
+          let pos = str.indexOf("locate");
+        </span>
+      </td>
+      <td id="demo1">7</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Note: </i></strong>JavaScript counts positions from zero. 0 is the first position in a string, 1 is the second, 2 is the third ...</p>
+  <br>
+  <h3>JavaScript String lastIndexOf()</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The <span class="code">lastIndexOf()</span> method returns the index of the last occurrence of a specified text in a string:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let str = "Please locate where 'locate' occurs!";<br>
+          let pos = str.lastIndexOf("locate");
+        </span>
+      </td>
+      <td id="demo2">21</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Both <span class="code">indexOf()</span> and <span class="code">lastIndexOf()</span> return <span class="code">-1</span> if the text is not found. <br>
+    Both methods accept a second parameter as the starting position for the search.
+  </p>
+  <br>
+  <h3>JavaScript String search()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">search()</span> method searches a string for a specified value and returns the position of the match:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let str = "Please locate where 'locate' occurs!";<br>
+          let pos = str.search("locate");
+        </span>
+      </td>
+      <td id="demo3">7</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The two methods, <span class="code">indexOf()</span> and <span class="code">search()</span>, are equal. But <span class="code">search()</span> can take regular expressions as a parameter, giving it more search power.</p>
+  <br>
+  <h3>JavaScript String match()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">match()</span> method returns an array containing the results of matching a string against a string (or a regular expression).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "The rain in SPAIN stays mainly in the plain";<br>
+          text.match("ain");
+        </span>
+      </td>
+      <td id="demo4">ain</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "The rain in SPAIN stays mainly in the plain";<br>
+          text.match(/ain/g);
+        </span>
+      </td>
+      <td id="demo5">ain,ain,ain</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "The rain in SPAIN stays mainly in the plain";<br>
+          text.match(/ain/gi);
+        </span>
+      </td>
+      <td id="demo6">ain,AIN,ain,ain</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The <span class="code">g</span> flag (global match) means that the method must return all matches, not just the first. The <span class="code">i</span> flag (ignore case) means that upper and lower case characters are matched as equal. If no match is found, the method returns <span class="code">null</span>.</p>
+  <br>
+  <h3>JavaScript String matchAll()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">matchAll()</span> method returns an iterator containing the results of matching a string against a regular expression.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "The rain in SPAIN stays mainly in the plain";<br>
+          let iterator = text.matchAll(/ain/gi);<br>
+          <br>
+          let text2 = "";<br>
+          for (const match of iterator) {<br>
+          &nbsp;&nbsp;text2 += match[0] + " at position " + match.index + "&lt;br&gt;";<br>
+          }
+        </span>
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The <span class="code">matchAll()</span> method requires the <span class="code">g</span> flag (global search); otherwise it throws a TypeError.</p>
+  <br>
+  <h3>JavaScript String includes()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">includes()</span> method returns true if a string contains a specified value, otherwise false:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "Hello world, welcome to the universe.";<br>
+          text.includes("world");
+        </span>
+      </td>
+      <td id="demo8">true</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">includes()</span> method accepts a second parameter indicating where to start the search:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "Hello world, welcome to the universe.";<br>
+          text.includes("world", 12);
+        </span>
+      </td>
+      <td id="demo9">false</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript String startsWith()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">startsWith()</span> method returns true if a string begins with a specified value, otherwise false:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "Hello world, welcome to the universe.";<br>
+          text.startsWith("Hello");
+        </span>
+      </td>
+      <td id="demo10">true</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">startsWith()</span> method accepts a second parameter indicating the position to start the search:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "Hello world, welcome to the universe.";<br>
+          text.startsWith("world", 6);
+        </span>
+      </td>
+      <td id="demo11">true</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript String endsWith()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">endsWith()</span> method returns true if a string ends with a specified value, otherwise false:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "John Doe";<br>
+          text.endsWith("Doe");
+        </span>
+      </td>
+      <td id="demo12">true</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">endsWith()</span> method accepts a second parameter: the length of the string to check:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text = "John Doe";<br>
+          text.endsWith("John", 4);
+        </span>
+      </td>
+      <td id="demo13">true</td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +649,30 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = "Please locate where 'locate' occurs!".indexOf("locate");
+  document.getElementById("demo2").innerHTML = "Please locate where 'locate' occurs!".lastIndexOf("locate");
+  document.getElementById("demo3").innerHTML = "Please locate where 'locate' occurs!".search("locate");
+  document.getElementById("demo4").innerHTML = "The rain in SPAIN stays mainly in the plain".match("ain");
+  document.getElementById("demo5").innerHTML = "The rain in SPAIN stays mainly in the plain".match(/ain/g);
+  document.getElementById("demo6").innerHTML = "The rain in SPAIN stays mainly in the plain".match(/ain/gi);
 
+  (function () {
+    let text = "The rain in SPAIN stays mainly in the plain";
+    let iterator = text.matchAll(/ain/gi);
+
+    let text2 = "";
+    for (const match of iterator) {
+      text2 += match[0] + " at position " + match.index + "<br>";
+    }
+    document.getElementById("demo7").innerHTML = text2;
+  })();
+
+  document.getElementById("demo8").innerHTML = "Hello world, welcome to the universe.".includes("world");
+  document.getElementById("demo9").innerHTML = "Hello world, welcome to the universe.".includes("world", 12);
+  document.getElementById("demo10").innerHTML = "Hello world, welcome to the universe.".startsWith("Hello");
+  document.getElementById("demo11").innerHTML = "Hello world, welcome to the universe.".startsWith("world", 6);
+  document.getElementById("demo12").innerHTML = "John Doe".endsWith("Doe");
+  document.getElementById("demo13").innerHTML = "John Doe".endsWith("John", 4);
 </script>
 <!--Page Specific JavaScript End-->
 </body>
