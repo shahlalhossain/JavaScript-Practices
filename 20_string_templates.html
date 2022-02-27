@@ -322,20 +322,19 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Template Literals</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Template Literals were introduced with ES6 (JavaScript 2015). <br>
+    Template literals are sometimes called "template strings". <br>
+    Template literals are string literals with embedded expressions.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <h3>Quotes and Template Literals</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Template literals are enclosed by the backtick ( <span class="code">`</span> ) character instead of double or single quotes.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +345,300 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td><span class="code">let text = `Hello World!`;</span></td>
+      <td id="demo1">Hello World!</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <br>
+  <h3>Quotes Inside Strings</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    You can use quotes inside a string, as long as they don't match the quotes surrounding the string:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let text = `He's often called "Johnny"`;</span></td>
+      <td id="demo2">He's often called "Johnny"</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Multiline Strings</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Template literals allow multiple lines in a string:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text =<br>
+          `The quick<br>
+          brown fox<br>
+          jumps over<br>
+          the lazy dog`;
+        </span>
+      </td>
+      <td id="demo3">The quick<br>brown fox<br>jumps over<br>the lazy dog</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Template literals preserve newlines as part of the string, which you would otherwise need to insert with <span class="code">\n</span> in a regular string.</p>
+  <br>
+  <h3>Using Quotes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To avoid wrong usage of quotes inside strings, use template literals instead:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let text =<br>
+          `We are the so-called "Vikings" from the north.`;
+        </span>
+      </td>
+      <td id="demo4">We are the so-called "Vikings" from the north.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Variable Substitution (Interpolation)</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Template literals provide an easy way to substitute variables and expressions into strings. <br>
+    This is called interpolation. <br>
+    Interpolation enables you to combine text and variable-values into a string:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let firstName = "John";<br>
+          let lastName = "Doe";<br>
+          let text = `Welcome ${firstName}, ${lastName}!`;
+        </span>
+      </td>
+      <td id="demo5">Welcome John, Doe!</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Without template literals, you would have to use string concatenation (addition) to achieve the same result:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let firstName = "John";<br>
+          let lastName = "Doe";<br>
+          let text = "Welcome " + firstName + ", " + lastName + "!";
+        </span>
+      </td>
+      <td>Welcome John, Doe!</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Interpolation can also be used to substitute expressions:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let price = 10;<br>
+          let VAT = 0.25;<br>
+          let total = `Total: ${(price * (1 + VAT)).toFixed(2)}`;
+        </span>
+      </td>
+      <td id="demo6">Total: 12.50</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Template Literals and HTML Templating</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Template literals can be especially useful when the text contains HTML:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let header = "Templates Literals";<br>
+          let tags = ["template literals", "javascript", "es6"];<br>
+          <br>
+          let html = `&lt;h2&gt;${header}&lt;/h2&gt;&lt;ul&gt;`;<br>
+          for (const x of tags) {<br>
+          &nbsp;&nbsp;html += `&lt;li&gt;${x}&lt;/li&gt;`;<br>
+          }<br>
+          html += `&lt;/ul&gt;`;
+        </span>
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Nesting Templates</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    For readability, templates can be nested, without the need for escaping quotes:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const isBig = (size) =&gt; size === "big" ? `It's a ${size} one!` : `It's a ${size} one!`;<br>
+          const size = "big";<br>
+          let text = `This is ${ size === "big" ? `big` : `small` }`;
+        </span>
+      </td>
+      <td id="demo8">This is big</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Tagged Templates</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Tagged templates is an advanced form of template literals. <br>
+    Tags allow you to parse template literals with a function. The first argument of a tag function contains an array of the string values. The remaining arguments are related to the expressions.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The tag function can run operations on these arguments, and return a manipulated string:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let person = "John";<br>
+          let age = 15;<br>
+          <br>
+          function myTag(strings, personExp, ageExp) {<br>
+          &nbsp;&nbsp;let str0 = strings[0];&nbsp;&nbsp;// "That "<br>
+          &nbsp;&nbsp;let str1 = strings[1];&nbsp;&nbsp;// " is a "<br>
+          &nbsp;&nbsp;let ageStr;<br>
+          &nbsp;&nbsp;if (ageExp &gt; 99) {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;ageStr = 'centenarian';<br>
+          &nbsp;&nbsp;} else {<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;ageStr = 'youngster';<br>
+          &nbsp;&nbsp;}<br>
+          &nbsp;&nbsp;return `${str0}${personExp}${str1}${ageStr}`;<br>
+          }<br>
+          <br>
+          let output = myTag`That ${person} is a ${age}`;
+        </span>
+      </td>
+      <td id="demo9">That John is a youngster</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Tagged templates will probably not be used in your daily work. But it is important that you know they exist, and how they work, if you (or someone else) uses it someday.</p>
+  <br>
+  <h3>Raw Strings</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">raw</span> property allows you to access the raw strings as they were entered, without processing escape sequences:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          function tag(strings) {<br>
+          &nbsp;&nbsp;let text = strings.raw[0];<br>
+          &nbsp;&nbsp;return text;<br>
+          }<br>
+          <br>
+          let output = tag`Hello\n${2+3}World`;
+        </span>
+      </td>
+      <td id="demo10">Hello\n</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>You will normally not use raw strings. But if you pass a string containing escape characters to a function, you might need to access the raw string.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +653,78 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = `Hello World!`;
 
+  document.getElementById("demo2").innerHTML = `He's often called "Johnny"`;
+
+  document.getElementById("demo3").innerHTML =
+    `The quick<br>
+    brown fox<br>
+    jumps over<br>
+    the lazy dog`;
+
+  document.getElementById("demo4").innerHTML =
+    `We are the so-called "Vikings" from the north.`;
+
+  (function () {
+    let firstName = "John";
+    let lastName = "Doe";
+    document.getElementById("demo5").innerHTML = `Welcome ${firstName}, ${lastName}!`;
+  })();
+
+  (function () {
+    let price = 10;
+    let VAT = 0.25;
+    document.getElementById("demo6").innerHTML = `Total: ${(price * (1 + VAT)).toFixed(2)}`;
+  })();
+
+  (function () {
+    let header = "Templates Literals";
+    let tags = ["template literals", "javascript", "es6"];
+
+    let html = `<h2>${header}</h2><ul>`;
+    for (const x of tags) {
+      html += `<li>${x}</li>`;
+    }
+    html += `</ul>`;
+    document.getElementById("demo7").innerHTML = html;
+  })();
+
+  (function () {
+    const size = "big";
+    let text = `This is ${size === "big" ? `big` : `small`}`;
+    document.getElementById("demo8").innerHTML = text;
+  })();
+
+  (function () {
+    let person = "John";
+    let age = 15;
+
+    function myTag(strings, personExp, ageExp) {
+      let str0 = strings[0];
+      let str1 = strings[1];
+      let ageStr;
+      if (ageExp > 99) {
+        ageStr = "centenarian";
+      } else {
+        ageStr = "youngster";
+      }
+      return `${str0}${personExp}${str1}${ageStr}`;
+    }
+
+    let output = myTag`That ${person} is a ${age}`;
+    document.getElementById("demo9").innerHTML = output;
+  })();
+
+  (function () {
+    function tag(strings) {
+      let text = strings.raw[0];
+      return text;
+    }
+
+    let output = tag`Hello\n${2 + 3}World`;
+    document.getElementById("demo10").innerHTML = output;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
