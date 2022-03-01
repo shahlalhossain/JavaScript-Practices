@@ -322,20 +322,17 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript BigInt</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    JavaScript <span class="code">BigInt</span> is a new datatype (2020) that can be used to store integer values that are too big to be represented by a normal JavaScript Number.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <h3>JavaScript Integers</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript integers are accurate up to 15 digits.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +343,175 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td><span class="code">let x = 999999999999999;&nbsp;&nbsp;&nbsp;&nbsp;// x will be 999999999999999</span></td>
+      <td id="demo1">999999999999999</td>
+    </tr>
+    <tr>
+      <td><span class="code">let y = 9999999999999999;&nbsp;&nbsp;&nbsp;// y will be 10000000000000000</span></td>
+      <td id="demo2">10000000000000000</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Note: </i></strong>The maximum number of decimals is 17, but floating point arithmetic is not always 100% accurate.</p>
+  <br>
+  <h3>JavaScript Maximum Safe Integer</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    JavaScript can only safely represent integers in the range <span class="code">-(2^53 - 1)</span> to <span class="code">2^53 - 1</span>. <br>
+    Safe here means that an integer value is represented accurately and can be correctly compared.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let max = Number.MAX_SAFE_INTEGER;</span></td>
+      <td id="demo3">9007199254740991</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript BigInt</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript <span class="code">BigInt</span> is a new datatype that can be used to store big integer values. Integer values that are too big to be represented by a normal JavaScript Number.
+  </p>
+  <br>
+  <h3>Creating a BigInt</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A BigInt is created by appending <span class="code">n</span> to the end of an integer, or by calling <span class="code">BigInt()</span>:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let x = BigInt(999999999999999);</span></td>
+      <td id="demo4">999999999999999</td>
+    </tr>
+    <tr>
+      <td><span class="code">let y = 1234567890123456789012345n;</span></td>
+      <td id="demo5">1234567890123456789012345</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>The typeof a BigInt</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">typeof</span> a BigInt is "bigint":
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = BigInt(999999999999999);<br>
+          typeof x;
+        </span>
+      </td>
+      <td id="demo6">bigint</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>You Can do Math</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can do mathematical tasks like multiplying big numbers, with BigInt:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = BigInt(Number.MAX_SAFE_INTEGER);<br>
+          let y = x * x;
+        </span>
+      </td>
+      <td id="demo7">81129638414606663681390495662081</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>You cannot Mix Types</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You cannot mix a BigInt and a Number type. You cannot do math with them together:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = 5n + 10;
+        </span>
+      </td>
+      <td>TypeError: Cannot mix BigInt and other types, use explicit conversions.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You cannot mix types in comparisons, but you can compare a BigInt and a Number:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let x = 10n;<br>let y = 10;<br>(x == y);</span></td>
+      <td id="demo8">true</td>
+    </tr>
+    <tr>
+      <td><span class="code">let x = 10n;<br>let y = 10;<br>(x === y);</span></td>
+      <td id="demo9">false</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">===</span> requires equal type and equal value. BigInt and Number are different types.</p>
+  <br>
+  <h3>New in JavaScript 2020</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    BigInt was introduced in JavaScript 2020. <br>
+    BigInt is not supported in Internet Explorer.
   </p>
 </section>
 <br>
@@ -369,7 +527,30 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = 999999999999999;
+  document.getElementById("demo2").innerHTML = 9999999999999999;
+  document.getElementById("demo3").innerHTML = Number.MAX_SAFE_INTEGER;
+  document.getElementById("demo4").innerHTML = BigInt(999999999999999);
+  document.getElementById("demo5").innerHTML = 1234567890123456789012345n;
+  document.getElementById("demo6").innerHTML = typeof BigInt(999999999999999);
 
+  (function () {
+    let x = BigInt(Number.MAX_SAFE_INTEGER);
+    let y = x * x;
+    document.getElementById("demo7").innerHTML = y;
+  })();
+
+  (function () {
+    let x = 10n;
+    let y = 10;
+    document.getElementById("demo8").innerHTML = (x == y);
+  })();
+
+  (function () {
+    let x = 10n;
+    let y = 10;
+    document.getElementById("demo9").innerHTML = (x === y);
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
