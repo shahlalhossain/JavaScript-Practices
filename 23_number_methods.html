@@ -322,20 +322,27 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Number Methods</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    JavaScript number methods help you to work with numbers.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <h3>Number Methods and Primitive Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Number methods can be used on all JavaScript numbers. <br>
+    JavaScript numbers are primitive values created from literals: <span class="code">let x = 123;</span> <br>
+    But numbers can also be defined as objects with the keyword <span class="code">new</span>: <span class="code">let y = new Number(123);</span>
+  </p>
+  <p><strong><i>Note: </i></strong>Do not create Number objects. The <span class="code">new</span> keyword complicates the code and slows down execution speed. Number objects can produce unexpected results.</p>
+  <br>
+  <h3>JavaScript toString()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">toString()</span> method returns a number as a string. <br>
+    All number methods can be used on any type of numbers (literals, variables, or expressions):
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +353,369 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td><span class="code">let x = 123;<br>x.toString();</span></td>
+      <td id="demo1">123</td>
+    </tr>
+    <tr>
+      <td><span class="code">(123).toString();</span></td>
+      <td id="demo2">123</td>
+    </tr>
+    <tr>
+      <td><span class="code">(100 + 23).toString();</span></td>
+      <td id="demo3">123</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <br>
+  <h3>JavaScript toExponential()</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    <span class="code">toExponential()</span> returns a string, with a number rounded and written using exponential notation. <br>
+    A parameter defines the number of characters behind the decimal point:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let x = 9.656;<br>x.toExponential(2);</span></td>
+      <td id="demo4">9.66e+0</td>
+    </tr>
+    <tr>
+      <td><span class="code">let x = 9.656;<br>x.toExponential(4);</span></td>
+      <td id="demo5">9.6560e+0</td>
+    </tr>
+    <tr>
+      <td><span class="code">let x = 9.656;<br>x.toExponential();</span></td>
+      <td id="demo6">9.656e+0</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The parameter is optional. If you don't specify it, JavaScript will not round the number.
+  </p>
+  <br>
+  <h3>JavaScript toFixed()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">toFixed()</span> returns a string, with the number written with a specified number of decimals:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let x = 9.656;<br>x.toFixed(0);</span></td>
+      <td id="demo7">10</td>
+    </tr>
+    <tr>
+      <td><span class="code">let x = 9.656;<br>x.toFixed(2);</span></td>
+      <td id="demo8">9.66</td>
+    </tr>
+    <tr>
+      <td><span class="code">let x = 9.656;<br>x.toFixed(4);</span></td>
+      <td id="demo9">9.6560</td>
+    </tr>
+    <tr>
+      <td><span class="code">let x = 9.656;<br>x.toFixed(6);</span></td>
+      <td id="demo10">9.656000</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">toFixed()</span> is perfect for working with money, and is widely used in e-commerce sites.</p>
+  <br>
+  <h3>JavaScript toPrecision()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">toPrecision()</span> returns a string, with a number written with a specified length:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let x = 9.656;<br>x.toPrecision();</span></td>
+      <td id="demo11">9.656</td>
+    </tr>
+    <tr>
+      <td><span class="code">let x = 9.656;<br>x.toPrecision(2);</span></td>
+      <td id="demo12">9.7</td>
+    </tr>
+    <tr>
+      <td><span class="code">let x = 9.656;<br>x.toPrecision(4);</span></td>
+      <td id="demo13">9.656</td>
+    </tr>
+    <tr>
+      <td><span class="code">let x = 9.656;<br>x.toPrecision(6);</span></td>
+      <td id="demo14">9.65600</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript valueOf()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">valueOf()</span> returns a number as a number:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let x = 123;<br>x.valueOf();</span></td>
+      <td id="demo15">123</td>
+    </tr>
+    <tr>
+      <td><span class="code">(123).valueOf();</span></td>
+      <td id="demo16">123</td>
+    </tr>
+    <tr>
+      <td><span class="code">(100 + 23).valueOf();</span></td>
+      <td id="demo17">123</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In JavaScript, a number can be a primitive value (typeof = number) or an object (typeof = object). The <span class="code">valueOf()</span> method is used internally in JavaScript to convert Number objects to primitive values. There is usually no need to call it in your own code.
+  </p>
+  <br>
+  <h3>Converting Variables to Numbers</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    There are 3 JavaScript methods that can be used to convert a variable to a number:
+  </p>
+  <ul style="padding-left: 40px;">
+    <li>The Number() method</li>
+    <li>The parseInt() method</li>
+    <li>The parseFloat() method</li>
+  </ul>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    These methods are not number methods, but global JavaScript methods, and can be used to convert strings (and other types) to numbers.
+  </p>
+  <br>
+  <h3>The Number() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Number()</span> can be used to convert JavaScript variables to numbers:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">Number(true);</span></td>
+      <td id="demo18">1</td>
+    </tr>
+    <tr>
+      <td><span class="code">Number(false);</span></td>
+      <td id="demo19">0</td>
+    </tr>
+    <tr>
+      <td><span class="code">Number("10");</span></td>
+      <td id="demo20">10</td>
+    </tr>
+    <tr>
+      <td><span class="code">Number("  10");</span></td>
+      <td id="demo21">10</td>
+    </tr>
+    <tr>
+      <td><span class="code">Number("10  ");</span></td>
+      <td id="demo22">10</td>
+    </tr>
+    <tr>
+      <td><span class="code">Number("10.33");</span></td>
+      <td id="demo23">10.33</td>
+    </tr>
+    <tr>
+      <td><span class="code">Number("10,33");</span></td>
+      <td id="demo24">NaN</td>
+    </tr>
+    <tr>
+      <td><span class="code">Number("10 33");</span></td>
+      <td id="demo25">NaN</td>
+    </tr>
+    <tr>
+      <td><span class="code">Number("John");</span></td>
+      <td id="demo26">NaN</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Number Methods Can Not be Used on Numeric Literals</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A number of digits, used directly in a statement, like 10, is called a numeric literal. <br>
+    Since JavaScript interprets 10.toString() as 10. and a number, a syntax error will occur when accessing a method directly on a number literal:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">10.toString();</span></td>
+      <td>SyntaxError</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Methods can however be used if the number itself is a result of an expression:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">(10).toString();</span></td>
+      <td id="demo27">10</td>
+    </tr>
+    <tr>
+      <td><span class="code">(10).toString() + 5;</span></td>
+      <td id="demo28">105</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>The Global parseInt() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The global JavaScript method <span class="code">parseInt()</span> parses a string and returns a whole number. Spaces are allowed. Only the first number is returned:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">parseInt("10");</span></td>
+      <td id="demo29">10</td>
+    </tr>
+    <tr>
+      <td><span class="code">parseInt("10.33");</span></td>
+      <td id="demo30">10</td>
+    </tr>
+    <tr>
+      <td><span class="code">parseInt("10 20 30");</span></td>
+      <td id="demo31">10</td>
+    </tr>
+    <tr>
+      <td><span class="code">parseInt("10 years");</span></td>
+      <td id="demo32">10</td>
+    </tr>
+    <tr>
+      <td><span class="code">parseInt("years 10");</span></td>
+      <td id="demo33">NaN</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>The Global parseFloat() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The global JavaScript method <span class="code">parseFloat()</span> parses a string and returns a number. Spaces are allowed. Only the first number is returned:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">parseFloat("10");</span></td>
+      <td id="demo34">10</td>
+    </tr>
+    <tr>
+      <td><span class="code">parseFloat("10.33");</span></td>
+      <td id="demo35">10.33</td>
+    </tr>
+    <tr>
+      <td><span class="code">parseFloat("10 20 30");</span></td>
+      <td id="demo36">10</td>
+    </tr>
+    <tr>
+      <td><span class="code">parseFloat("10 years");</span></td>
+      <td id="demo37">10</td>
+    </tr>
+    <tr>
+      <td><span class="code">parseFloat("years 10");</span></td>
+      <td id="demo38">NaN</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Number Methods</h3>
+  <hr>
+  <table>
+    <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">toString()</span></td>
+      <td>Returns a number as a string</td>
+    </tr>
+    <tr>
+      <td><span class="code">toExponential()</span></td>
+      <td>Returns a string, with a number rounded and written using exponential notation</td>
+    </tr>
+    <tr>
+      <td><span class="code">toFixed()</span></td>
+      <td>Returns a string, with a number written with a specified number of decimals</td>
+    </tr>
+    <tr>
+      <td><span class="code">toPrecision()</span></td>
+      <td>Returns a string, with a number written with a specified length</td>
+    </tr>
+    <tr>
+      <td><span class="code">valueOf()</span></td>
+      <td>Returns a number as a number</td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +730,52 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = (123).toString();
+  document.getElementById("demo2").innerHTML = (123).toString();
+  document.getElementById("demo3").innerHTML = (100 + 23).toString();
 
+  document.getElementById("demo4").innerHTML = (9.656).toExponential(2);
+  document.getElementById("demo5").innerHTML = (9.656).toExponential(4);
+  document.getElementById("demo6").innerHTML = (9.656).toExponential();
+
+  document.getElementById("demo7").innerHTML = (9.656).toFixed(0);
+  document.getElementById("demo8").innerHTML = (9.656).toFixed(2);
+  document.getElementById("demo9").innerHTML = (9.656).toFixed(4);
+  document.getElementById("demo10").innerHTML = (9.656).toFixed(6);
+
+  document.getElementById("demo11").innerHTML = (9.656).toPrecision();
+  document.getElementById("demo12").innerHTML = (9.656).toPrecision(2);
+  document.getElementById("demo13").innerHTML = (9.656).toPrecision(4);
+  document.getElementById("demo14").innerHTML = (9.656).toPrecision(6);
+
+  document.getElementById("demo15").innerHTML = (123).valueOf();
+  document.getElementById("demo16").innerHTML = (123).valueOf();
+  document.getElementById("demo17").innerHTML = (100 + 23).valueOf();
+
+  document.getElementById("demo18").innerHTML = Number(true);
+  document.getElementById("demo19").innerHTML = Number(false);
+  document.getElementById("demo20").innerHTML = Number("10");
+  document.getElementById("demo21").innerHTML = Number("  10");
+  document.getElementById("demo22").innerHTML = Number("10  ");
+  document.getElementById("demo23").innerHTML = Number("10.33");
+  document.getElementById("demo24").innerHTML = Number("10,33");
+  document.getElementById("demo25").innerHTML = Number("10 33");
+  document.getElementById("demo26").innerHTML = Number("John");
+
+  document.getElementById("demo27").innerHTML = (10).toString();
+  document.getElementById("demo28").innerHTML = (10).toString() + 5;
+
+  document.getElementById("demo29").innerHTML = parseInt("10");
+  document.getElementById("demo30").innerHTML = parseInt("10.33");
+  document.getElementById("demo31").innerHTML = parseInt("10 20 30");
+  document.getElementById("demo32").innerHTML = parseInt("10 years");
+  document.getElementById("demo33").innerHTML = parseInt("years 10");
+
+  document.getElementById("demo34").innerHTML = parseFloat("10");
+  document.getElementById("demo35").innerHTML = parseFloat("10.33");
+  document.getElementById("demo36").innerHTML = parseFloat("10 20 30");
+  document.getElementById("demo37").innerHTML = parseFloat("10 years");
+  document.getElementById("demo38").innerHTML = parseFloat("years 10");
 </script>
 <!--Page Specific JavaScript End-->
 </body>
