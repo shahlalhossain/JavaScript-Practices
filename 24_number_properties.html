@@ -322,20 +322,57 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Number Properties</h3>
+  <hr>
+  <table>
+    <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">EPSILON</span></td>
+      <td>The difference between 1 and the smallest number greater than 1</td>
+    </tr>
+    <tr>
+      <td><span class="code">MAX_VALUE</span></td>
+      <td>The largest number possible in JavaScript</td>
+    </tr>
+    <tr>
+      <td><span class="code">MIN_VALUE</span></td>
+      <td>The smallest number possible in JavaScript</td>
+    </tr>
+    <tr>
+      <td><span class="code">MAX_SAFE_INTEGER</span></td>
+      <td>The maximum safe integer in JavaScript (2^53 - 1)</td>
+    </tr>
+    <tr>
+      <td><span class="code">MIN_SAFE_INTEGER</span></td>
+      <td>The minimum safe integer in JavaScript -(2^53 - 1)</td>
+    </tr>
+    <tr>
+      <td><span class="code">POSITIVE_INFINITY</span></td>
+      <td>Infinity value (returned on overflow)</td>
+    </tr>
+    <tr>
+      <td><span class="code">NEGATIVE_INFINITY</span></td>
+      <td>Negative infinity value (returned on overflow)</td>
+    </tr>
+    <tr>
+      <td><span class="code">NaN</span></td>
+      <td>A "Not-a-Number" value</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Number properties belong to the Number object, and can't be used on number values like <span class="code">x</span> in the code below, because <span class="code">x</span> is of type Number, and not a Number Object. Accessing properties/methods as <span class="code">Number.MAX_VALUE</span> works. Accessing them as <span class="code">x.MAX_VALUE</span> returns undefined.</p>
+  <br>
+  <h3>JavaScript MAX_VALUE</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    <span class="code">MAX_VALUE</span> returns the largest number possible in JavaScript.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +383,214 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td><span class="code">let x = Number.MAX_VALUE;</span></td>
+      <td id="demo1">1.7976931348623157e+308</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <br>
+  <h3>JavaScript MIN_VALUE</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    <span class="code">MIN_VALUE</span> returns the smallest JavaScript number (negative or positive), closest to zero.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let x = Number.MIN_VALUE;</span></td>
+      <td id="demo2">5e-324</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript MAX_SAFE_INTEGER</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">MAX_SAFE_INTEGER</span> represents the maximum safe integer in JavaScript (2^53 - 1).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let x = Number.MAX_SAFE_INTEGER;</span></td>
+      <td id="demo3">9007199254740991</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript MIN_SAFE_INTEGER</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">MIN_SAFE_INTEGER</span> represents the minimum safe integer in JavaScript -(2^53 - 1).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let x = Number.MIN_SAFE_INTEGER;</span></td>
+      <td id="demo4">-9007199254740991</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript POSITIVE_INFINITY</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">POSITIVE_INFINITY</span> represents infinity (returned on overflow). <br>
+    <span class="code">POSITIVE_INFINITY</span> is the value returned if a calculation results in a number bigger than the largest possible number.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let x = Number.POSITIVE_INFINITY;</span></td>
+      <td id="demo5">Infinity</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript NEGATIVE_INFINITY</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">NEGATIVE_INFINITY</span> represents negative infinity (returned on overflow). <br>
+    <span class="code">NEGATIVE_INFINITY</span> is the value returned if a calculation results in a number smaller than the smallest possible number.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let x = Number.NEGATIVE_INFINITY;</span></td>
+      <td id="demo6">-Infinity</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript NaN</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">NaN</span> represents a "Not-a-Number" value. <span class="code">Number.NaN</span> has the same value as the global <span class="code">NaN</span> property.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let x = Number.NaN;</span></td>
+      <td id="demo7">NaN</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript EPSILON</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">EPSILON</span> is the difference between 1 and the smallest number greater than 1 that can be represented as a Number. <br>
+    <span class="code">EPSILON</span> was introduced in JavaScript 2015 (ES6).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">let x = Number.EPSILON;</span></td>
+      <td id="demo8">2.220446049250313e-16</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">EPSILON</span> can be used to test equality of floating point numbers against rounding error:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          function equal(a, b) {<br>
+          &nbsp;&nbsp;return Math.abs(a - b) &lt; Number.EPSILON;<br>
+          }<br>
+          equal(0.2 + 0.1, 0.3);
+        </span>
+      </td>
+      <td id="demo9">true</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Properties Cannot be Used on Numbers</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Number properties are properties of the JavaScript Number object. <br>
+    These properties can only be accessed as <span class="code">Number.MAX_VALUE</span>, <span class="code">Number.MIN_VALUE</span>, etc. <br>
+    Using <span class="code">x.MAX_VALUE</span>, where x is a number variable, returns <span class="code">undefined</span>:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let x = 6;<br>
+          x.MAX_VALUE;
+        </span>
+      </td>
+      <td id="demo10">undefined</td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +605,26 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = Number.MAX_VALUE;
+  document.getElementById("demo2").innerHTML = Number.MIN_VALUE;
+  document.getElementById("demo3").innerHTML = Number.MAX_SAFE_INTEGER;
+  document.getElementById("demo4").innerHTML = Number.MIN_SAFE_INTEGER;
+  document.getElementById("demo5").innerHTML = Number.POSITIVE_INFINITY;
+  document.getElementById("demo6").innerHTML = Number.NEGATIVE_INFINITY;
+  document.getElementById("demo7").innerHTML = Number.NaN;
+  document.getElementById("demo8").innerHTML = Number.EPSILON;
 
+  (function () {
+    function equal(a, b) {
+      return Math.abs(a - b) < Number.EPSILON;
+    }
+    document.getElementById("demo9").innerHTML = equal(0.2 + 0.1, 0.3);
+  })();
+
+  (function () {
+    let x = 6;
+    document.getElementById("demo10").innerHTML = x.MAX_VALUE;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>

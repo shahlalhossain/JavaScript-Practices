@@ -7,12 +7,16 @@ const sidebarClose = document.querySelector(".collapse_sidebar");
 const sidebarExpand = document.querySelector(".expand_sidebar");
 sidebarOpen.addEventListener("click", () => sidebar.classList.toggle("close"));
 
-sidebarClose.addEventListener("click", () => {
-  sidebar.classList.add("close", "hoverable");
-});
-sidebarExpand.addEventListener("click", () => {
-  sidebar.classList.remove("close", "hoverable");
-});
+if (sidebarClose) {
+  sidebarClose.addEventListener("click", () => {
+    sidebar.classList.add("close", "hoverable");
+  });
+}
+if (sidebarExpand) {
+  sidebarExpand.addEventListener("click", () => {
+    sidebar.classList.remove("close", "hoverable");
+  });
+}
 
 sidebar.addEventListener("mouseenter", () => {
   if (sidebar.classList.contains("hoverable")) {
@@ -49,4 +53,10 @@ if (window.innerWidth < 768) {
   sidebar.classList.add("close");
 } else {
   sidebar.classList.remove("close");
+}
+
+const activeNavLink = document.querySelector(".sidebar .nav_link.active");
+if (activeNavLink) {
+  const activeItem = activeNavLink.closest(".item");
+  (activeItem || activeNavLink).scrollIntoView({ block: "center" });
 }
