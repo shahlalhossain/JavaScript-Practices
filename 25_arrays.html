@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Arrays</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    An array is a special variable, which can hold more than one value:
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +337,803 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <span class="code">
+          const cars = ["Saab", "Volvo", "BMW"];
+        </span>
+      </td>
+      <td>An array of three car names.</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <br>
+  <h3>Why Use Arrays?</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    If you have a list of items (a list of car names, for example), storing the cars in single variables could look like this:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          let car1 = "Saab";<br>
+          let car2 = "Volvo";<br>
+          let car3 = "BMW";
+        </span>
+      </td>
+      <td>Three separate variables.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    What if you want to loop through the cars and find a specific one? And what if you had not 3 cars, but 300? <br>
+    The solution is an array. An array can hold many values under a single name, and you can access the values by referring to an index number.
+  </p>
+  <br>
+  <h3>Creating an Array</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Using an array literal is the easiest way to create a JavaScript Array:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">const cars = ["Saab", "Volvo", "BMW"];</span></td>
+      <td>An array literal.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Spaces and line breaks are not important. A declaration can span multiple lines:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const cars = [<br>
+          &nbsp;&nbsp;"Saab",<br>
+          &nbsp;&nbsp;"Volvo",<br>
+          &nbsp;&nbsp;"BMW"<br>
+          ];
+        </span>
+      </td>
+      <td>Same array, written on multiple lines.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>It is a common practice to declare arrays with the <span class="code">const</span> keyword.</p>
+  <br>
+  <h3>Using the JavaScript Keyword new</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The following example also creates an array, and assigns values to it:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">const cars = new Array("Saab", "Volvo", "BMW");</span></td>
+      <td>Same result as the array literal above.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The two examples above do exactly the same. There is no need to use <span class="code">new Array()</span>. For simplicity, readability and execution speed, use the array literal method.</p>
+  <br>
+  <h3>Accessing Array Elements</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You access an array element by referring to the index number:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const cars = ["Saab", "Volvo", "BMW"];<br>
+          let car = cars[0];
+        </span>
+      </td>
+      <td id="demo1">Saab</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Array indexes start with 0. [0] is the first element. [1] is the second element.</p>
+  <br>
+  <h3>Changing an Array Element</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This statement changes the value of the first element in cars:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const cars = ["Saab", "Volvo", "BMW"];<br>
+          cars[0] = "Opel";
+        </span>
+      </td>
+      <td id="demo2">Opel,Volvo,BMW</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Access the Full Array</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    With JavaScript, the full array can be accessed by referring to the array name:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const cars = ["Saab", "Volvo", "BMW"];<br>
+          document.getElementById("demo").innerHTML = cars;
+        </span>
+      </td>
+      <td id="demo3">Saab,Volvo,BMW</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Arrays are Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Arrays are a special type of objects. The <span class="code">typeof</span> operator in JavaScript returns "object" for arrays.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const cars = ["Saab", "Volvo", "BMW"];<br>
+          typeof cars;
+        </span>
+      </td>
+      <td id="demo4">object</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    But, JavaScript arrays are best described as arrays. <br>
+    Arrays use numbers to access its "elements". In this example, <span class="code">person[0]</span> returns John:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">const person = ["John", "Doe", 46];</span></td>
+      <td>An array.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Objects use names to access its "members". In this example, <span class="code">person.firstName</span> returns John:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">const person = {firstName:"John", lastName:"Doe", age:46};</span></td>
+      <td>An object.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Array Elements Can Be Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript variables can be objects. Arrays are special kinds of objects. <br>
+    Because of this, you can have variables of different types in the same Array. You can have objects in an Array. You can have functions in an Array. You can have arrays in an Array:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          myArray[0] = Date.now;<br>
+          myArray[1] = myFunction;<br>
+          myArray[2] = myCars;
+        </span>
+      </td>
+      <td>An array can hold dates, functions, and other arrays.</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Array Properties and Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The real strength of JavaScript arrays are the built-in array properties and methods:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const cars = ["Saab", "Volvo", "BMW"];<br>
+          cars.length;
+        </span>
+      </td>
+      <td id="demo5">3</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          const cars = ["Saab", "Volvo", "BMW"];<br>
+          cars.sort();
+        </span>
+      </td>
+      <td id="demo6">BMW,Saab,Volvo</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You will learn more about arrays methods in the next chapter.
+  </p>
+  <br>
+  <h3>The length Property</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">length</span> property of an array returns the length of an array (the number of array elements).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          let length = fruits.length;
+        </span>
+      </td>
+      <td id="demo7">4</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The <span class="code">length</span> property is always one more than the highest array index.</p>
+  <br>
+  <h3>Accessing the First Array Element</h3>
+  <hr>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          let fruit = fruits[0];
+        </span>
+      </td>
+      <td id="demo8">Banana</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Accessing the Last Array Element</h3>
+  <hr>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          let fruit = fruits[fruits.length - 1];
+        </span>
+      </td>
+      <td id="demo9">Mango</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Looping Array Elements</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    One way to loop through an array, is using a <span class="code">for</span> loop:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          let text = "";<br>
+          for (let i = 0; i &lt; fruits.length; i++) {<br>
+          &nbsp;&nbsp;text += "&lt;li&gt;" + fruits[i] + "&lt;/li&gt;";<br>
+          }
+        </span>
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can also use the <span class="code">Array.forEach()</span> function:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          let text = "";<br>
+          fruits.forEach(myFunction);<br>
+          <br>
+          function myFunction(value) {<br>
+          &nbsp;&nbsp;text += "&lt;li&gt;" + value + "&lt;/li&gt;";<br>
+          }
+        </span>
+      </td>
+      <td id="demo11"></td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Adding Array Elements</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The easiest way to add a new element to an array is using the <span class="code">push()</span> method:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          fruits.push("Lemon");
+        </span>
+      </td>
+      <td id="demo12">Banana,Orange,Apple,Mango,Lemon</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Adding a new element to an array using a new index is also possible, but it can break the array and should be avoided:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          fruits[fruits.length] = "Lemon";
+        </span>
+      </td>
+      <td id="demo13">Banana,Orange,Apple,Mango,Lemon</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Associative Arrays</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Many programming languages support arrays with named indexes. Arrays with named indexes are called associative arrays (or hashes). <br>
+    JavaScript does NOT support arrays with named indexes. In JavaScript, arrays always use numbered indexes.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const person = [];<br>
+          person[0] = "John";<br>
+          person[1] = "Doe";<br>
+          person[2] = 46;<br>
+          person.length;&nbsp;&nbsp;&nbsp;&nbsp;// 3<br>
+          person[0];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// John
+        </span>
+      </td>
+      <td>Works as expected: length is 3, person[0] is "John".</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          const person = [];<br>
+          person["firstName"] = "John";<br>
+          person["lastName"] = "Doe";<br>
+          person["age"] = 46;<br>
+          person.length;&nbsp;&nbsp;&nbsp;&nbsp;// 0<br>
+          person[0];&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// undefined
+        </span>
+      </td>
+      <td>Does not behave as an array. length is 0, person[0] is undefined.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Warning: </i></strong>If you use named indexes, JavaScript will redefine the array to a standard object. After that, some array methods and properties will produce incorrect results.</p>
+  <br>
+  <h3>The Difference Between Arrays and Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In JavaScript, arrays use numbered indexes. <br>
+    In JavaScript, objects use named indexes.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Arrays are a special kind of objects, with numbered indexes.
+  </p>
+  <br>
+  <h3>When to Use Arrays. When to use Objects.</h3>
+  <hr>
+  <ul style="padding-left: 40px;">
+    <li>JavaScript does not support associative arrays.</li>
+    <li>You should use objects when you want the element names to be strings (text).</li>
+    <li>You should use arrays when you want the element names to be numbers.</li>
+  </ul>
+  <br>
+  <h3>JavaScript new Array()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript has a built in array constructor <span class="code">new Array()</span>. But you should avoid using it. <span class="code">new Array()</span> and <span class="code">new Array(car1, car2, car3)</span> work the same as the array literal.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">const points = new Array(40, 100, 1, 5, 25, 10);</span></td>
+      <td>Same as array literal.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    There is one exception with a single numeric parameter: <span class="code">new Array(number)</span> creates an array with an empty slot, and sets the <span class="code">length</span> property to <span class="code">number</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">const points = new Array(40);</span></td>
+      <td>Creates an array with length 40, and no elements.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>To keep things simple, readable and fast, use the array literal syntax.</p>
+  <br>
+  <h3>How to Recognize an Array</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A common question is: How do I know if a variable is an array? <br>
+    The problem is that the JavaScript operator <span class="code">typeof</span> returns "object":
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple"];<br>
+          typeof fruits;
+        </span>
+      </td>
+      <td id="demo14">object</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">typeof</span> operator returns object because a JavaScript array is an object. <br>
+    To solve this problem, ECMAScript 5 (2009) defined a new method <span class="code">Array.isArray()</span>:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple"];<br>
+          Array.isArray(fruits);
+        </span>
+      </td>
+      <td id="demo15">true</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Array Reference</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    For a complete reference, see the full <span class="code">Array</span> object reference.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Property / Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">length</span></td>
+      <td>Sets or returns the number of elements in an array</td>
+    </tr>
+    <tr>
+      <td><span class="code">at()</span></td>
+      <td>Returns indexed element of an array</td>
+    </tr>
+    <tr>
+      <td><span class="code">concat()</span></td>
+      <td>Joins two or more arrays, and returns a copy of the joined arrays</td>
+    </tr>
+    <tr>
+      <td><span class="code">copyWithin()</span></td>
+      <td>Copies array elements within the array, to and from specified positions</td>
+    </tr>
+    <tr>
+      <td><span class="code">entries()</span></td>
+      <td>Returns a key/value pair Array Iteration Object</td>
+    </tr>
+    <tr>
+      <td><span class="code">every()</span></td>
+      <td>Checks if every element in an array pass a test</td>
+    </tr>
+    <tr>
+      <td><span class="code">fill()</span></td>
+      <td>Fill the elements in an array with a static value</td>
+    </tr>
+    <tr>
+      <td><span class="code">filter()</span></td>
+      <td>Creates a new array with every element in an array that pass a test</td>
+    </tr>
+    <tr>
+      <td><span class="code">find()</span></td>
+      <td>Returns the value of the first element in an array that pass a test</td>
+    </tr>
+    <tr>
+      <td><span class="code">findIndex()</span></td>
+      <td>Returns the index of the first element in an array that pass a test</td>
+    </tr>
+    <tr>
+      <td><span class="code">flat()</span></td>
+      <td>Flattens a nested array</td>
+    </tr>
+    <tr>
+      <td><span class="code">forEach()</span></td>
+      <td>Calls a function for each array element</td>
+    </tr>
+    <tr>
+      <td><span class="code">from()</span></td>
+      <td>Creates an array from an object</td>
+    </tr>
+    <tr>
+      <td><span class="code">includes()</span></td>
+      <td>Check if an array contains the specified element</td>
+    </tr>
+    <tr>
+      <td><span class="code">indexOf()</span></td>
+      <td>Search the array for an element and returns its position</td>
+    </tr>
+    <tr>
+      <td><span class="code">isArray()</span></td>
+      <td>Checks whether an object is an array</td>
+    </tr>
+    <tr>
+      <td><span class="code">join()</span></td>
+      <td>Joins all elements of an array into a string</td>
+    </tr>
+    <tr>
+      <td><span class="code">lastIndexOf()</span></td>
+      <td>Search the array for an element, starting at the end, and returns its position</td>
+    </tr>
+    <tr>
+      <td><span class="code">map()</span></td>
+      <td>Creates a new array with the result of calling a function for each array element</td>
+    </tr>
+    <tr>
+      <td><span class="code">pop()</span></td>
+      <td>Removes the last element of an array, and returns that element</td>
+    </tr>
+    <tr>
+      <td><span class="code">push()</span></td>
+      <td>Adds new elements to the end of an array, and returns the new length</td>
+    </tr>
+    <tr>
+      <td><span class="code">reduce()</span></td>
+      <td>Reduce the values of an array to a single value (going left-to-right)</td>
+    </tr>
+    <tr>
+      <td><span class="code">reduceRight()</span></td>
+      <td>Reduce the values of an array to a single value (going right-to-left)</td>
+    </tr>
+    <tr>
+      <td><span class="code">reverse()</span></td>
+      <td>Reverses the order of the elements in an array</td>
+    </tr>
+    <tr>
+      <td><span class="code">shift()</span></td>
+      <td>Removes the first element of an array, and returns that element</td>
+    </tr>
+    <tr>
+      <td><span class="code">slice()</span></td>
+      <td>Selects a part of an array, and returns the new array</td>
+    </tr>
+    <tr>
+      <td><span class="code">some()</span></td>
+      <td>Checks if any of the elements in an array pass a test</td>
+    </tr>
+    <tr>
+      <td><span class="code">sort()</span></td>
+      <td>Sorts the elements of an array</td>
+    </tr>
+    <tr>
+      <td><span class="code">splice()</span></td>
+      <td>Adds/Removes elements from an array</td>
+    </tr>
+    <tr>
+      <td><span class="code">toString()</span></td>
+      <td>Converts an array to a string, and returns the result</td>
+    </tr>
+    <tr>
+      <td><span class="code">unshift()</span></td>
+      <td>Adds new elements to the beginning of an array, and returns the new length</td>
+    </tr>
+    <tr>
+      <td><span class="code">valueOf()</span></td>
+      <td>Returns the primitive value of an array</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>You will learn much more about array methods in the next chapters of this tutorial.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +1148,92 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const cars = ["Saab", "Volvo", "BMW"];
+    document.getElementById("demo1").innerHTML = cars[0];
+  })();
 
+  (function () {
+    const cars = ["Saab", "Volvo", "BMW"];
+    cars[0] = "Opel";
+    document.getElementById("demo2").innerHTML = cars;
+  })();
+
+  (function () {
+    const cars = ["Saab", "Volvo", "BMW"];
+    document.getElementById("demo3").innerHTML = cars;
+  })();
+
+  (function () {
+    const cars = ["Saab", "Volvo", "BMW"];
+    document.getElementById("demo4").innerHTML = typeof cars;
+  })();
+
+  (function () {
+    const cars = ["Saab", "Volvo", "BMW"];
+    document.getElementById("demo5").innerHTML = cars.length;
+  })();
+
+  (function () {
+    const cars = ["Saab", "Volvo", "BMW"];
+    document.getElementById("demo6").innerHTML = cars.sort();
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo7").innerHTML = fruits.length;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo8").innerHTML = fruits[0];
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    document.getElementById("demo9").innerHTML = fruits[fruits.length - 1];
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    let text = "";
+    for (let i = 0; i < fruits.length; i++) {
+      text += "<li>" + fruits[i] + "</li>";
+    }
+    document.getElementById("demo10").innerHTML = text;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    let text = "";
+    fruits.forEach(myFunction);
+    function myFunction(value) {
+      text += "<li>" + value + "</li>";
+    }
+    document.getElementById("demo11").innerHTML = text;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.push("Lemon");
+    document.getElementById("demo12").innerHTML = fruits;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits[fruits.length] = "Lemon";
+    document.getElementById("demo13").innerHTML = fruits;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple"];
+    document.getElementById("demo14").innerHTML = typeof fruits;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple"];
+    document.getElementById("demo15").innerHTML = Array.isArray(fruits);
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
