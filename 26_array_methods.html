@@ -322,20 +322,17 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Array Methods</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    JavaScript array methods help you to work with arrays.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <h3>Converting Arrays to Strings</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The JavaScript method <span class="code">toString()</span> converts an array to a string of (comma separated) array values.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +343,684 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          document.getElementById("demo").innerHTML = fruits.toString();
+        </span>
+      </td>
+      <td id="demo1">Banana,Orange,Apple,Mango</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The <span class="code">join()</span> method also joins all array elements into a string. It behaves just like <span class="code">toString()</span>, but you can also specify the separator:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          document.getElementById("demo").innerHTML = fruits.join(" * ");
+        </span>
+      </td>
+      <td id="demo2">Banana * Orange * Apple * Mango</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Popping and Pushing</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    When working with arrays, it is easy to remove elements and add new elements. <br>
+    Popping and pushing is what happens when you remove and add elements, to and from, an array.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">pop()</span> method removes the last element from an array:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          fruits.pop();
+        </span>
+      </td>
+      <td id="demo3">Banana,Orange,Apple</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">pop()</span> method returns the value that was "popped out":
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          let fruit = fruits.pop();
+        </span>
+      </td>
+      <td id="demo4">Mango</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">push()</span> method (adds a new element to an array) at the end:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          fruits.push("Kiwi");
+        </span>
+      </td>
+      <td id="demo5">Banana,Orange,Apple,Mango,Kiwi</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">push()</span> method returns the new array length:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          let length = fruits.push("Kiwi");
+        </span>
+      </td>
+      <td id="demo6">5</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Shifting Elements</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Shifting is equivalent to popping, but working on the first element instead of the last. <br>
+    The <span class="code">shift()</span> method removes the first array element and "shifts" all other elements to a lower index:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          fruits.shift();
+        </span>
+      </td>
+      <td id="demo7">Orange,Apple,Mango</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">shift()</span> method returns the value that was "shifted out":
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          let fruit = fruits.shift();
+        </span>
+      </td>
+      <td id="demo8">Banana</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">unshift()</span> method adds a new element to an array, at the beginning, and "unshifts" older elements:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          fruits.unshift("Lemon");
+        </span>
+      </td>
+      <td id="demo9">Lemon,Banana,Orange,Apple,Mango</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">unshift()</span> method returns the new array length:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          let length = fruits.unshift("Lemon");
+        </span>
+      </td>
+      <td id="demo10">5</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Changing Elements</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Array elements are accessed using their index number. Array indexes start with 0. <span class="code">[0]</span> is the first element, <span class="code">[1]</span> is the second, <span class="code">[2]</span> is the third...
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          fruits[0] = "Kiwi";
+        </span>
+      </td>
+      <td id="demo11">Kiwi,Orange,Apple,Mango</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Deleting Elements</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Since JavaScript arrays are objects, you can use the <span class="code">delete</span> operator to delete elements from an array:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          delete fruits[0];
+        </span>
+      </td>
+      <td id="demo12">,Orange,Apple,Mango</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Warning: </i></strong>Using <span class="code">delete</span> leaves undefined holes in the array. Use <span class="code">pop()</span> or <span class="code">shift()</span> instead.</p>
+  <br>
+  <h3>Merging (Concatenating) Arrays</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">concat()</span> method creates a new array by merging (concatenating) existing arrays:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const myGirls = ["Cecilie", "Lone"];<br>
+          const myBoys = ["Emil", "Tobias", "Linus"];<br>
+          const myChildren = myGirls.concat(myBoys);
+        </span>
+      </td>
+      <td id="demo13">Cecilie,Lone,Emil,Tobias,Linus</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">concat()</span> method does not change the existing arrays. It always returns a new array. <br>
+    The <span class="code">concat()</span> method can take any number of array arguments:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const arr1 = ["Cecilie", "Lone"];<br>
+          const arr2 = ["Emil", "Tobias", "Linus"];<br>
+          const arr3 = ["Robin", "Morgan"];<br>
+          const myChildren = arr1.concat(arr2, arr3);
+        </span>
+      </td>
+      <td id="demo14">Cecilie,Lone,Emil,Tobias,Linus,Robin,Morgan</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">concat()</span> method can also take strings as arguments:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const arr1 = ["Emil", "Tobias", "Linus"];<br>
+          const myChildren = arr1.concat("Peter");
+        </span>
+      </td>
+      <td id="demo15">Emil,Tobias,Linus,Peter</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Splicing an Array</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">splice()</span> method can be used to add new items to an array:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          fruits.splice(2, 0, "Lemon", "Kiwi");
+        </span>
+      </td>
+      <td id="demo16">Banana,Orange,Lemon,Kiwi,Apple,Mango</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The first parameter (2) defines the position where new elements should be added (spliced in). <br>
+    The second parameter (0) defines how many elements should be removed. <br>
+    The rest of the parameters ("Lemon", "Kiwi") define the new elements to be added.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">splice()</span> method returns an array with the deleted items:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          fruits.splice(2, 2, "Lemon", "Kiwi");
+        </span>
+      </td>
+      <td id="demo17">Banana,Orange,Lemon,Kiwi</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Using <span class="code">splice()</span> to Remove Elements. With clever parameter setting, you can use <span class="code">splice()</span> to remove elements without leaving "holes" in the array:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          fruits.splice(0, 1);
+        </span>
+      </td>
+      <td id="demo18">Orange,Apple,Mango</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Using splice() to Add Elements</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This example uses <span class="code">splice()</span> to add new items, without removing any items:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          fruits.splice(2, 0, "Lemon", "Kiwi");
+        </span>
+      </td>
+      <td id="demo19">Banana,Orange,Lemon,Kiwi,Apple,Mango</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Array copyWithin()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">copyWithin()</span> method copies array elements to another position in an array, overwriting the existing values:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          fruits.copyWithin(2, 0);
+        </span>
+      </td>
+      <td id="demo20">Banana,Orange,Banana,Orange</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">copyWithin()</span> method is a mutable method. It does not create a copy of the array; it changes the original array. The method also returns the array, with the changes.
+  </p>
+  <br>
+  <h3>Flattening an Array</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Flattening an array is the process of reducing the dimensionality of an array. <br>
+    The <span class="code">flat()</span> method creates a new array with sub-array elements concatenated to a specified depth:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const myArr = [[1,2],[3,4],[5,6]];<br>
+          const newArr = myArr.flat();
+        </span>
+      </td>
+      <td id="demo21">1,2,3,4,5,6</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Array flatMap()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">flatMap()</span> method first maps all elements of an array, and then creates a new array by flattening the array:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const myArr = [1, 2, 3, 4, 5, 6];<br>
+          const newArr = myArr.flatMap(x =&gt; x * 2);
+        </span>
+      </td>
+      <td id="demo22">2,4,6,8,10,12</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>JavaScript Array Const</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Arrays declared with <span class="code">const</span> cannot be reassigned, but their elements can still be changed. <br>
+    You will learn more about this in the next chapter.
+  </p>
+  <br>
+  <h3>JavaScript Array Constructor</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript has a built in array constructor <span class="code">new Array()</span>. But you can safely use <span class="code">[]</span> instead.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    These two different statements both create a new empty array named points:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">const points = new Array();</span></td>
+      <td>An empty array, using the constructor.</td>
+    </tr>
+    <tr>
+      <td><span class="code">const points = [];</span></td>
+      <td>An empty array, using an array literal.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    These two different statements both create a new array containing 6 numbers:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">const points = new Array(40, 100, 1, 5, 25, 10);</span></td>
+      <td>An array of 6 numbers, using the constructor.</td>
+    </tr>
+    <tr>
+      <td><span class="code">const points = [40, 100, 1, 5, 25, 10];</span></td>
+      <td>An array of 6 numbers, using an array literal.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The <span class="code">new</span> keyword can simplify, and produce unexpected results. See the exception below.</p>
+  <br>
+  <h3>A Common Error</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">const points = [40];</span> is NOT the same as <span class="code">const points = new Array(40);</span>
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">const points = [40];</span></td>
+      <td id="demo23">1</td>
+    </tr>
+    <tr>
+      <td><span class="code">const points = new Array(40);</span></td>
+      <td id="demo24">40</td>
+    </tr>
+    </tbody>
+  </table>
+  <p>What if there are 2 numbers?</p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td><span class="code">const points = [40, 100];</span></td>
+      <td id="demo25">2</td>
+    </tr>
+    <tr>
+      <td><span class="code">const points = new Array(40, 100);</span></td>
+      <td id="demo26">2</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>How to Recognize an Array</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A common question is: How do I know if a variable is an array? The <span class="code">Array.isArray()</span> method answers this question:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          Array.isArray(document.getElementsByTagName("p"));
+        </span>
+      </td>
+      <td id="demo27">false</td>
+    </tr>
+    <tr>
+      <td>
+        <span class="code">
+          Array.isArray([1, 2, 3, 4]);
+        </span>
+      </td>
+      <td id="demo28">true</td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +1035,138 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = ["Banana", "Orange", "Apple", "Mango"].toString();
+  document.getElementById("demo2").innerHTML = ["Banana", "Orange", "Apple", "Mango"].join(" * ");
 
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.pop();
+    document.getElementById("demo3").innerHTML = fruits;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    let fruit = fruits.pop();
+    document.getElementById("demo4").innerHTML = fruit;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.push("Kiwi");
+    document.getElementById("demo5").innerHTML = fruits;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    let length = fruits.push("Kiwi");
+    document.getElementById("demo6").innerHTML = length;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.shift();
+    document.getElementById("demo7").innerHTML = fruits;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    let fruit = fruits.shift();
+    document.getElementById("demo8").innerHTML = fruit;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.unshift("Lemon");
+    document.getElementById("demo9").innerHTML = fruits;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    let length = fruits.unshift("Lemon");
+    document.getElementById("demo10").innerHTML = length;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits[0] = "Kiwi";
+    document.getElementById("demo11").innerHTML = fruits;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    delete fruits[0];
+    document.getElementById("demo12").innerHTML = fruits;
+  })();
+
+  (function () {
+    const myGirls = ["Cecilie", "Lone"];
+    const myBoys = ["Emil", "Tobias", "Linus"];
+    const myChildren = myGirls.concat(myBoys);
+    document.getElementById("demo13").innerHTML = myChildren;
+  })();
+
+  (function () {
+    const arr1 = ["Cecilie", "Lone"];
+    const arr2 = ["Emil", "Tobias", "Linus"];
+    const arr3 = ["Robin", "Morgan"];
+    const myChildren = arr1.concat(arr2, arr3);
+    document.getElementById("demo14").innerHTML = myChildren;
+  })();
+
+  (function () {
+    const arr1 = ["Emil", "Tobias", "Linus"];
+    const myChildren = arr1.concat("Peter");
+    document.getElementById("demo15").innerHTML = myChildren;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.splice(2, 0, "Lemon", "Kiwi");
+    document.getElementById("demo16").innerHTML = fruits;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.splice(2, 2, "Lemon", "Kiwi");
+    document.getElementById("demo17").innerHTML = fruits;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.splice(0, 1);
+    document.getElementById("demo18").innerHTML = fruits;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.splice(2, 0, "Lemon", "Kiwi");
+    document.getElementById("demo19").innerHTML = fruits;
+  })();
+
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.copyWithin(2, 0);
+    document.getElementById("demo20").innerHTML = fruits;
+  })();
+
+  (function () {
+    const myArr = [[1, 2], [3, 4], [5, 6]];
+    const newArr = myArr.flat();
+    document.getElementById("demo21").innerHTML = newArr;
+  })();
+
+  (function () {
+    const myArr = [1, 2, 3, 4, 5, 6];
+    const newArr = myArr.flatMap(x => x * 2);
+    document.getElementById("demo22").innerHTML = newArr;
+  })();
+
+  document.getElementById("demo23").innerHTML = [40].length;
+  document.getElementById("demo24").innerHTML = new Array(40).length;
+  document.getElementById("demo25").innerHTML = [40, 100].length;
+  document.getElementById("demo26").innerHTML = new Array(40, 100).length;
+  document.getElementById("demo27").innerHTML = Array.isArray(document.getElementsByTagName("p"));
+  document.getElementById("demo28").innerHTML = Array.isArray([1, 2, 3, 4]);
 </script>
 <!--Page Specific JavaScript End-->
 </body>
