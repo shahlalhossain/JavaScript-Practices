@@ -322,20 +322,18 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Array Search</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    JavaScript array search methods help you to search for array elements.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <h3>Array indexOf()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">indexOf()</span> method searches an array for an element value and returns its position.
+  </p>
+  <p><strong><i>Note: </i></strong>Array indexes start with 0. [0] is the first element, [1] is the second, [2] is the third ...</p>
   <br>
   <table>
     <thead>
@@ -346,15 +344,219 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <span class="code">
+          const fruits = ["Apple", "Orange", "Apple", "Mango"];<br>
+          let position = fruits.indexOf("Apple") + 1;
+        </span>
+      </td>
+      <td id="demo1">1</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Syntax: </i></strong><span class="code">array.indexOf(item, start)</span> &mdash; item is required (the value to search for), start is optional (where to start the search, negative values start at the given position counting from the end, and search to the end).</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    <span class="code">indexOf()</span> returns -1 if the item is not found.
   </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If the item is present more than once, it returns the position of the first occurrence.
+  </p>
+  <br>
+  <h3>Array lastIndexOf()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Array.lastIndexOf()</span> is similar to <span class="code">Array.indexOf()</span>, but returns the position of the last occurrence of the specified element.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Apple", "Orange", "Apple", "Mango"];<br>
+          let position = fruits.lastIndexOf("Apple") + 1;
+        </span>
+      </td>
+      <td id="demo2">3</td>
+    </tr>
+    </tbody>
+  </table>
+  <br>
+  <h3>Array includes()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    ES2016 introduced <span class="code">Array.includes()</span> to arrays, which allows us to check if an element is present in an array (including NaN, unlike <span class="code">indexOf</span>):
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const fruits = ["Banana", "Orange", "Apple", "Mango"];<br>
+          fruits.includes("Mango");
+        </span>
+      </td>
+      <td id="demo3">true</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">includes()</span> allows to check for NaN values. Unlike <span class="code">indexOf()</span>, that does not.</p>
+  <br>
+  <h3>JavaScript Array find()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">find()</span> method returns the value of the first array element that passes a test function.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This example finds (returns the value of) the first element that is larger than 18:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const numbers = [4, 9, 16, 25, 29];<br>
+          let first = numbers.find(myFunction);<br>
+          <br>
+          function myFunction(value, index, array) {<br>
+          &nbsp;&nbsp;return value &gt; 18;<br>
+          }
+        </span>
+      </td>
+      <td id="demo4">25</td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Note that the function takes 3 arguments:
+  </p>
+  <ul style="padding-left: 40px;">
+    <li>The item value</li>
+    <li>The item index</li>
+    <li>The array itself</li>
+  </ul>
+  <br>
+  <h3>JavaScript Array findLast()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">findLast()</span> method returns the value of the last array element that passes a test function.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This example finds (returns the value of) the last element that is smaller than 20:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const numbers = [4, 9, 16, 25, 29];<br>
+          let last = numbers.findLast(myFunction);<br>
+          <br>
+          function myFunction(value, index, array) {<br>
+          &nbsp;&nbsp;return value &lt; 20;<br>
+          }
+        </span>
+      </td>
+      <td id="demo5">16</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">findLast()</span> was introduced in ES2023, and is not supported in Internet Explorer.</p>
+  <br>
+  <h3>JavaScript Array findIndex()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">findIndex()</span> method returns the index of the first array element that passes a test function.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This example finds the index of the first element that is larger than 18:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const numbers = [4, 9, 16, 25, 29];<br>
+          let first = numbers.findIndex(myFunction);<br>
+          <br>
+          function myFunction(value, index, array) {<br>
+          &nbsp;&nbsp;return value &gt; 18;<br>
+          }
+        </span>
+      </td>
+      <td id="demo6">3</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">findIndex()</span> was introduced in ES6 (2015), and is not supported in Internet Explorer.</p>
+  <br>
+  <h3>JavaScript Array findLastIndex()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">findLastIndex()</span> method returns the index of the last array element that passes a test function.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This example finds the index of the last element that is smaller than 20:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <span class="code">
+          const numbers = [4, 9, 16, 25, 29];<br>
+          let last = numbers.findLastIndex(myFunction);<br>
+          <br>
+          function myFunction(value, index, array) {<br>
+          &nbsp;&nbsp;return value &lt; 20;<br>
+          }
+        </span>
+      </td>
+      <td id="demo7">2</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">findLastIndex()</span> was introduced in ES2023, and is not supported in Internet Explorer.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +571,55 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const fruits = ["Apple", "Orange", "Apple", "Mango"];
+    let position = fruits.indexOf("Apple") + 1;
+    document.getElementById("demo1").innerHTML = position;
+  })();
 
+  (function () {
+    const fruits = ["Apple", "Orange", "Apple", "Mango"];
+    let position = fruits.lastIndexOf("Apple") + 1;
+    document.getElementById("demo2").innerHTML = position;
+  })();
+
+  document.getElementById("demo3").innerHTML = ["Banana", "Orange", "Apple", "Mango"].includes("Mango");
+
+  (function () {
+    const numbers = [4, 9, 16, 25, 29];
+    function myFunction(value) {
+      return value > 18;
+    }
+    let first = numbers.find(myFunction);
+    document.getElementById("demo4").innerHTML = first;
+  })();
+
+  (function () {
+    const numbers = [4, 9, 16, 25, 29];
+    function myFunction(value) {
+      return value < 20;
+    }
+    let last = numbers.findLast(myFunction);
+    document.getElementById("demo5").innerHTML = last;
+  })();
+
+  (function () {
+    const numbers = [4, 9, 16, 25, 29];
+    function myFunction(value) {
+      return value > 18;
+    }
+    let first = numbers.findIndex(myFunction);
+    document.getElementById("demo6").innerHTML = first;
+  })();
+
+  (function () {
+    const numbers = [4, 9, 16, 25, 29];
+    function myFunction(value) {
+      return value < 20;
+    }
+    let last = numbers.findLastIndex(myFunction);
+    document.getElementById("demo7").innerHTML = last;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
