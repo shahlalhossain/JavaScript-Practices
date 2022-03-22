@@ -322,20 +322,12 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Array Sort</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Arrays can be sorted and reversed using the <span class="code">sort()</span> and <span class="code">reverse()</span> methods. <br>
+    The <span class="code">sort()</span> method sorts an array alphabetically.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +338,247 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const fruits = ["Banana", "Orange", "Apple", "Mango"]; <br>
+        fruits.sort();
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Reversing an Array</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The <span class="code">reverse()</span> method reverses the elements in an array. <br>
+    You can use it to sort an array in descending order.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const fruits = ["Banana", "Orange", "Apple", "Mango"]; <br>
+        fruits.sort(); <br>
+        fruits.reverse();
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Numeric Sort</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    By default, the <span class="code">sort()</span> function sorts values as strings. <br>
+    This works well for strings ("Apple" comes before "Banana"). <br>
+    However, if numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than "1". <br>
+    Because of this, the <span class="code">sort()</span> method will produce an incorrect result when sorting numbers. <br>
+    You can fix this by providing a compare function.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const points = [40, 100, 1, 5, 25, 10]; <br>
+        points.sort(); &nbsp;&nbsp;<i>// Incorrect sort</i>
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    <tr>
+      <td>
+        const points = [40, 100, 1, 5, 25, 10]; <br>
+        points.sort(function(a, b){return a - b}); &nbsp;&nbsp;<i>// Correct sort</i>
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>When numbers are sorted numerically, the compare function must return a value &lt; 0, 0, or &gt; 0 depending on the order of the two values. If the result is negative, a is sorted before b. If the result is positive, b is sorted before a. If the result is 0, no changes are made.</p>
+
+  <h3>Sorting an Array in Random Order</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A compare function can also be used to sort an array in random order.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const points = [40, 100, 1, 5, 25, 10]; <br>
+        points.sort(function(a, b){return 0.5 - Math.random()});
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The Fisher Yates Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The Fisher Yates method for sorting an array, uses a <span class="code">for</span> loop to swap the elements of the array, from the last to the first, with a randomly picked element. <br>
+    This ensures that the array is randomized in an unbiased way.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const points = [40, 100, 1, 5, 25, 10]; <br>
+        for (let i = points.length - 1; i &gt; 0; i--) { <br>
+        &nbsp;&nbsp;let j = Math.floor(Math.random() * (i + 1)); <br>
+        &nbsp;&nbsp;let k = points[i]; <br>
+        &nbsp;&nbsp;points[i] = points[j]; <br>
+        &nbsp;&nbsp;points[j] = k; <br>
+        }
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Find the Lowest (or Highest) Array Value</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    There is no built-in function for finding the lowest or highest value in a JavaScript array. <br>
+    You can solve this problem by sorting the array first, and then take the first (or last) element.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const points = [40, 100, 1, 5, 25, 10]; <br>
+        points.sort(function(a, b){return a - b}); &nbsp;&nbsp;<i>// now points[0] is the lowest</i>
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Sorting a whole array is a very inefficient method if you only want to find the lowest (or highest) value. Use <span class="code">Math.min()</span> or <span class="code">Math.max()</span> instead.</p>
+
+  <h3>Using Math.min() and Math.max() on an Array</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can use <span class="code">apply()</span> to find the lowest or highest number in an array.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myArrayMin(arr) { <br>
+        &nbsp;&nbsp;return Math.min.apply(null, arr); <br>
+        }
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    <tr>
+      <td>
+        function myArrayMax(arr) { <br>
+        &nbsp;&nbsp;return Math.max.apply(null, arr); <br>
+        }
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Sorting Object Arrays</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript arrays often contain objects. <br>
+    Even if objects have properties of different data types, the sort() method can be used to sort the array. <br>
+    The solution is to write a compare function to compare the property values.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const cars = [ <br>
+        &nbsp;&nbsp;{type:"Volvo", year:2016}, <br>
+        &nbsp;&nbsp;{type:"Saab", year:2001}, <br>
+        &nbsp;&nbsp;{type:"BMW", year:2010}]; <br>
+        cars.sort(function(a, b){return a.year - b.year});
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Comparing string properties works the same way.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const cars = [ <br>
+        &nbsp;&nbsp;{type:"Volvo", year:2016}, <br>
+        &nbsp;&nbsp;{type:"Saab", year:2001}, <br>
+        &nbsp;&nbsp;{type:"BMW", year:2010}]; <br>
+        cars.sort(function(a, b){ <br>
+        &nbsp;&nbsp;let x = a.type.toLowerCase(); <br>
+        &nbsp;&nbsp;let y = b.type.toLowerCase(); <br>
+        &nbsp;&nbsp;if (x &lt; y) {return -1;} <br>
+        &nbsp;&nbsp;if (x &gt; y) {return 1;} <br>
+        &nbsp;&nbsp;return 0; <br>
+        });
+      </td>
+      <td id="demo11"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +593,91 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.sort();
+    document.getElementById("demo1").innerHTML = fruits.join(", ");
+  })();
 
+  (function () {
+    const fruits = ["Banana", "Orange", "Apple", "Mango"];
+    fruits.sort();
+    fruits.reverse();
+    document.getElementById("demo2").innerHTML = fruits.join(", ");
+  })();
+
+  (function () {
+    const points = [40, 100, 1, 5, 25, 10];
+    points.sort();
+    document.getElementById("demo3").innerHTML = points.join(", ");
+  })();
+
+  (function () {
+    const points = [40, 100, 1, 5, 25, 10];
+    points.sort(function (a, b) { return a - b; });
+    document.getElementById("demo4").innerHTML = points.join(", ");
+  })();
+
+  (function () {
+    const points = [40, 100, 1, 5, 25, 10];
+    points.sort(function (a, b) { return 0.5 - Math.random(); });
+    document.getElementById("demo5").innerHTML = points.join(", ");
+  })();
+
+  (function () {
+    const points = [40, 100, 1, 5, 25, 10];
+    for (let i = points.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      let k = points[i];
+      points[i] = points[j];
+      points[j] = k;
+    }
+    document.getElementById("demo6").innerHTML = points.join(", ");
+  })();
+
+  (function () {
+    const points = [40, 100, 1, 5, 25, 10];
+    points.sort(function (a, b) { return a - b; });
+    document.getElementById("demo7").innerHTML = points[0];
+  })();
+
+  (function () {
+    function myArrayMin(arr) {
+      return Math.min.apply(null, arr);
+    }
+    document.getElementById("demo8").innerHTML = myArrayMin([40, 100, 1, 5, 25, 10]);
+  })();
+
+  (function () {
+    function myArrayMax(arr) {
+      return Math.max.apply(null, arr);
+    }
+    document.getElementById("demo9").innerHTML = myArrayMax([40, 100, 1, 5, 25, 10]);
+  })();
+
+  (function () {
+    const cars = [
+      { type: "Volvo", year: 2016 },
+      { type: "Saab", year: 2001 },
+      { type: "BMW", year: 2010 }];
+    cars.sort(function (a, b) { return a.year - b.year; });
+    document.getElementById("demo10").innerHTML = cars.map(c => c.type + " (" + c.year + ")").join(", ");
+  })();
+
+  (function () {
+    const cars = [
+      { type: "Volvo", year: 2016 },
+      { type: "Saab", year: 2001 },
+      { type: "BMW", year: 2010 }];
+    cars.sort(function (a, b) {
+      let x = a.type.toLowerCase();
+      let y = b.type.toLowerCase();
+      if (x < y) { return -1; }
+      if (x > y) { return 1; }
+      return 0;
+    });
+    document.getElementById("demo11").innerHTML = cars.map(c => c.type).join(", ");
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
