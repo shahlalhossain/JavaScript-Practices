@@ -322,20 +322,18 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Array Iteration</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Array iteration methods operate on every array item. <br>
+    This page covers: <span class="code">forEach()</span>, <span class="code">map()</span>, <span class="code">filter()</span>, <span class="code">reduce()</span>, <span class="code">reduceRight()</span>, <span class="code">every()</span>, <span class="code">some()</span>, <span class="code">Array.from()</span>, and <span class="code">Array.of()</span>.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Array forEach()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">forEach()</span> method calls a function (a callback function) once for each array element.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +344,263 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const numbers = [45, 4, 9, 16, 25]; <br>
+        let txt = ""; <br>
+        numbers.forEach(myFunction); <br>
+        function myFunction(value, index, array) { <br>
+        &nbsp;&nbsp;txt += value + "&lt;br&gt;"; <br>
+        }
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Note: </i></strong>The function takes 3 arguments: the item value, the item index, and the array itself.</p>
+
+  <h3>Array map()</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The <span class="code">map()</span> method creates a new array by performing a function on each array element. <br>
+    The <span class="code">map()</span> method does not execute the function for array elements without values, and it does not change the original array.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const numbers1 = [45, 4, 9, 16, 25]; <br>
+        const numbers2 = numbers1.map(myFunction); <br>
+        function myFunction(value, index, array) { <br>
+        &nbsp;&nbsp;return value * 2; <br>
+        }
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Array filter()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">filter()</span> method creates a new array with array elements that passes a test.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const numbers = [45, 4, 9, 16, 25]; <br>
+        const over18 = numbers.filter(myFunction); <br>
+        function myFunction(value, index, array) { <br>
+        &nbsp;&nbsp;return value &gt; 18; <br>
+        }
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Array reduce()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">reduce()</span> method runs a function on each array element to produce (reduce it to) a single value. <br>
+    The <span class="code">reduce()</span> method works from left-to-right in the array. See also <span class="code">reduceRight()</span>. <br>
+    The <span class="code">reduce()</span> method does not reduce the original array.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const numbers = [45, 4, 9, 16, 25]; <br>
+        let sum = numbers.reduce(myFunction); <br>
+        function myFunction(total, value, index, array) { <br>
+        &nbsp;&nbsp;return total + value; <br>
+        }
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The function takes 4 arguments: the total (the initial value / previously returned value), the item value, the item index, and the array itself.</p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">reduce()</span> method can accept an initial value.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const numbers = [45, 4, 9, 16, 25]; <br>
+        let sum = numbers.reduce(myFunction, 100); <br>
+        function myFunction(total, value, index, array) { <br>
+        &nbsp;&nbsp;return total + value; <br>
+        }
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Array reduceRight()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">reduceRight()</span> method runs a function on each array element to produce (reduce it to) a single value. <br>
+    The <span class="code">reduceRight()</span> works from right-to-left in the array. See also <span class="code">reduce()</span>. <br>
+    The <span class="code">reduceRight()</span> method does not reduce the original array.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const numbers = [45, 4, 9, 16, 25]; <br>
+        let sum = numbers.reduceRight(myFunction); <br>
+        function myFunction(total, value, index, array) { <br>
+        &nbsp;&nbsp;return total + value; <br>
+        }
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Array every()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">every()</span> method checks if all array values pass a test.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const numbers = [45, 4, 9, 16, 25]; <br>
+        let allOver18 = numbers.every(myFunction); <br>
+        function myFunction(value, index, array) { <br>
+        &nbsp;&nbsp;return value &gt; 18; <br>
+        }
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Array some()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">some()</span> method checks if some array values pass a test.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const numbers = [45, 4, 9, 16, 25]; <br>
+        let someOver18 = numbers.some(myFunction); <br>
+        function myFunction(value, index, array) { <br>
+        &nbsp;&nbsp;return value &gt; 18; <br>
+        }
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Array.from()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">Array.from()</span> method returns an Array object from any object with a length property or any iterable object.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Array.from("ABCDEFG"); &nbsp;&nbsp;<i>// Returns [A,B,C,D,E,F,G]</i>
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Array.of()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">Array.of()</span> method creates a new Array from a variable number of arguments, without the special case for a single numeric argument that <span class="code">Array()</span> has.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Array.of(7); &nbsp;&nbsp;<i>// Array.of(7) creates an array with a single element 7</i>
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    <tr>
+      <td>
+        Array(7); &nbsp;&nbsp;<i>// Array(7) creates an array of 7 empty elements</i>
+      </td>
+      <td id="demo11"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Array iteration methods run a function on each array item, so are often used together with array destructuring and arrow functions for shorter syntax, and should be preferred over for loops for most modern JavaScript code.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +615,84 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const numbers = [45, 4, 9, 16, 25];
+    let txt = "";
+    numbers.forEach(myFunction);
+    function myFunction(value, index, array) {
+      txt += value + "<br>";
+    }
+    document.getElementById("demo1").innerHTML = txt;
+  })();
 
+  (function () {
+    const numbers1 = [45, 4, 9, 16, 25];
+    const numbers2 = numbers1.map(myFunction);
+    function myFunction(value, index, array) {
+      return value * 2;
+    }
+    document.getElementById("demo2").innerHTML = numbers2.join(", ");
+  })();
+
+  (function () {
+    const numbers = [45, 4, 9, 16, 25];
+    const over18 = numbers.filter(myFunction);
+    function myFunction(value, index, array) {
+      return value > 18;
+    }
+    document.getElementById("demo3").innerHTML = over18.join(", ");
+  })();
+
+  (function () {
+    const numbers = [45, 4, 9, 16, 25];
+    let sum = numbers.reduce(myFunction);
+    function myFunction(total, value, index, array) {
+      return total + value;
+    }
+    document.getElementById("demo4").innerHTML = sum;
+  })();
+
+  (function () {
+    const numbers = [45, 4, 9, 16, 25];
+    let sum = numbers.reduce(myFunction, 100);
+    function myFunction(total, value, index, array) {
+      return total + value;
+    }
+    document.getElementById("demo5").innerHTML = sum;
+  })();
+
+  (function () {
+    const numbers = [45, 4, 9, 16, 25];
+    let sum = numbers.reduceRight(myFunction);
+    function myFunction(total, value, index, array) {
+      return total + value;
+    }
+    document.getElementById("demo6").innerHTML = sum;
+  })();
+
+  (function () {
+    const numbers = [45, 4, 9, 16, 25];
+    let allOver18 = numbers.every(myFunction);
+    function myFunction(value, index, array) {
+      return value > 18;
+    }
+    document.getElementById("demo7").innerHTML = allOver18;
+  })();
+
+  (function () {
+    const numbers = [45, 4, 9, 16, 25];
+    let someOver18 = numbers.some(myFunction);
+    function myFunction(value, index, array) {
+      return value > 18;
+    }
+    document.getElementById("demo8").innerHTML = someOver18;
+  })();
+
+  document.getElementById("demo9").innerHTML = Array.from("ABCDEFG").join(", ");
+
+  document.getElementById("demo10").innerHTML = JSON.stringify(Array.of(7));
+
+  document.getElementById("demo11").innerHTML = "length: " + Array(7).length;
 </script>
 <!--Page Specific JavaScript End-->
 </body>
