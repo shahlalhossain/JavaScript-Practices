@@ -322,20 +322,12 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Array Const</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    In 2015, JavaScript introduced a new keyword: <span class="code">const</span>. <br>
+    It has become a common error to confuse <span class="code">const</span> with normal variables when it comes to array declarations.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +338,132 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <i>// You can create a const array:</i> <br>
+        const cars = ["Saab", "Volvo", "BMW"];
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Cannot be Reassigned</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    An array declared with <span class="code">const</span> cannot be reassigned.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const cars = ["Saab", "Volvo", "BMW"]; <br>
+        cars = ["Toyota", "Volvo", "Audi"]; &nbsp;&nbsp;<i>// ERROR</i>
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Constant Arrays are Not Immutable</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The keyword <span class="code">const</span> is a little misleading. <br>
+    It does NOT define a constant array. It defines a constant reference to an array. <br>
+    Because of this, you can still change the elements of a constant array.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// You can create a const array:</i> <br>
+        const cars = ["Saab", "Volvo", "BMW"]; <br>
+        <br>
+        <i>// You can change an element:</i> <br>
+        cars[0] = "Toyota"; <br>
+        <br>
+        <i>// You can add an element:</i> <br>
+        cars.push("Audi");
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Reassigning Elements</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Keyword <span class="code">const</span> is actually a bit misleading. <br>
+    It does not define a constant array. It defines a constant reference to an array. <br>
+    Because of this, we can NOT reassign the array, but we can change elements inside it.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const cars = ["Saab", "Volvo", "BMW"]; &nbsp;&nbsp;<i>// Allowed</i> <br>
+        cars[0] = "Toyota"; &nbsp;&nbsp;<i>// Change allowed</i> <br>
+        cars = ["Volvo", "Saab", "BMW"]; &nbsp;&nbsp;<i>// Reassign not allowed, ERROR</i>
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Browser Support</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">const</span> is supported in all modern browsers since ES6 (2015): <br>
+    Chrome 49, Edge 12, Firefox 36, Safari 10, Opera 36 and later. <br>
+    <span class="code">const</span> is not supported in Internet Explorer.
+  </p>
+
+  <h3>Empty Objects and Arrays</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    An array does not have to be declared with values. It may contain one value, or an empty array with no values at all.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const cars = []; <br>
+        cars[0] = "Saab"; <br>
+        cars[1] = "Volvo"; <br>
+        cars[2] = "BMW";
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Redeclaring or reassigning an array to <span class="code">const</span>, in the same scope, or in the same block, is not allowed.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +478,46 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const cars = ["Saab", "Volvo", "BMW"];
+    document.getElementById("demo1").innerHTML = cars.join(", ");
+  })();
 
+  (function () {
+    try {
+      const cars = ["Saab", "Volvo", "BMW"];
+      cars = ["Toyota", "Volvo", "Audi"];
+      document.getElementById("demo2").innerHTML = cars.join(", ");
+    } catch (err) {
+      document.getElementById("demo2").innerHTML = "Error: " + err.message;
+    }
+  })();
+
+  (function () {
+    const cars = ["Saab", "Volvo", "BMW"];
+    cars[0] = "Toyota";
+    cars.push("Audi");
+    document.getElementById("demo3").innerHTML = cars.join(", ");
+  })();
+
+  (function () {
+    try {
+      const cars = ["Saab", "Volvo", "BMW"];
+      cars[0] = "Toyota";
+      cars = ["Volvo", "Saab", "BMW"];
+      document.getElementById("demo4").innerHTML = cars.join(", ");
+    } catch (err) {
+      document.getElementById("demo4").innerHTML = "Error: " + err.message;
+    }
+  })();
+
+  (function () {
+    const cars = [];
+    cars[0] = "Saab";
+    cars[1] = "Volvo";
+    cars[2] = "BMW";
+    document.getElementById("demo5").innerHTML = cars.join(", ");
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
