@@ -322,20 +322,38 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Date Get Methods</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Get methods are used for getting a part of a date. The following table lists the "get" methods used to get information from a date object, and (setter equivalents are covered on the next page):
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">getFullYear()</span></td><td>Get the year as a four digit number (yyyy)</td></tr>
+    <tr><td><span class="code">getMonth()</span></td><td>Get the month as a number (0-11)</td></tr>
+    <tr><td><span class="code">getDate()</span></td><td>Get the day as a number (1-31)</td></tr>
+    <tr><td><span class="code">getHours()</span></td><td>Get the hour (0-23)</td></tr>
+    <tr><td><span class="code">getMinutes()</span></td><td>Get the minute (0-59)</td></tr>
+    <tr><td><span class="code">getSeconds()</span></td><td>Get the second (0-59)</td></tr>
+    <tr><td><span class="code">getMilliseconds()</span></td><td>Get the millisecond (0-999)</td></tr>
+    <tr><td><span class="code">getTime()</span></td><td>Get the time (milliseconds since January 1, 1970)</td></tr>
+    <tr><td><span class="code">getDay()</span></td><td>Get the weekday as a number (0-6)</td></tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Get methods return information from existing date objects. In a date object, the time is static. The "clock" is not "running". The time in a date object is NOT the same as current time.</p>
+
+  <h3>JavaScript getFullYear()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">getFullYear()</span> method returns the year of a date as a four digit number.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +364,227 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const d = new Date("2022-03-25"); <br>
+        d.getFullYear();
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Note: </i></strong><span class="code">getFullYear()</span> is used for year validation. There is also a deprecated method called <span class="code">getYear()</span> that is supposed to return a 2 digit year. Always use <span class="code">getFullYear()</span>.</p>
+
+  <h3>JavaScript getMonth()</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The <span class="code">getMonth()</span> method returns the month of a date as a number (0-11). <br>
+    In JavaScript, January is month number 0, February is number 1, ... December is number 11.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const d = new Date("2022-03-25"); <br>
+        d.getMonth();
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can use an array of names, and getMonth() to return the month as a name.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const d = new Date("2022-03-25"); <br>
+        const months = ["January", "February", "March", "April", "May", "June", <br>
+        &nbsp;&nbsp;"July", "August", "September", "October", "November", "December"]; <br>
+        let month = months[d.getMonth()];
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JavaScript getDate()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">getDate()</span> method returns the day of a date as a number (1-31).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const d = new Date("2022-03-25"); <br>
+        d.getDate();
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JavaScript getHours(), getMinutes(), getSeconds(), getMilliseconds()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    These methods get the hour (0-23), minute (0-59), second (0-59), and millisecond (0-999) of a date.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const d = new Date("2022-03-25T10:33:30.500"); <br>
+        d.getHours();
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    <tr>
+      <td>
+        const d = new Date("2022-03-25T10:33:30.500"); <br>
+        d.getMinutes();
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    <tr>
+      <td>
+        const d = new Date("2022-03-25T10:33:30.500"); <br>
+        d.getSeconds();
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    <tr>
+      <td>
+        const d = new Date("2022-03-25T10:33:30.500"); <br>
+        d.getMilliseconds();
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JavaScript getDay()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">getDay()</span> method returns the weekday of a date as a number (0-6). <br>
+    In JavaScript, the first day of the week (day 0) is Sunday.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const d = new Date("2022-03-25"); <br>
+        d.getDay();
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can use an array of names, and getDay() to return the weekday as a name.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const d = new Date("2022-03-25"); <br>
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; <br>
+        let day = days[d.getDay()];
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JavaScript getTime()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">getTime()</span> method returns the number of milliseconds since January 1, 1970. <br>
+    <span class="code">getTime()</span> always uses UTC time for time calculation. A complete date and time, including year, month, day, hour, minute, second, and milliseconds, is needed for the calculation.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const d = new Date("2022-03-25"); <br>
+        d.getTime();
+      </td>
+      <td id="demo11"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>You can use <span class="code">getTime()</span> to calculate the number of years between two dates.</p>
+
+  <h3>JavaScript Date.now()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Date.now()</span> returns the number of milliseconds since January 1, 1970. <br>
+    <span class="code">Date.now()</span> is a static method of the Date object. You cannot use it on a date instance, only as <span class="code">Date.now()</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let ms = Date.now();
+      </td>
+      <td id="demo12"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +599,37 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = new Date("2022-03-25").getFullYear();
 
+  document.getElementById("demo2").innerHTML = new Date("2022-03-25").getMonth();
+
+  (function () {
+    const d = new Date("2022-03-25");
+    const months = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"];
+    let month = months[d.getMonth()];
+    document.getElementById("demo3").innerHTML = month;
+  })();
+
+  document.getElementById("demo4").innerHTML = new Date("2022-03-25").getDate();
+
+  document.getElementById("demo5").innerHTML = new Date("2022-03-25T10:33:30.500").getHours();
+  document.getElementById("demo6").innerHTML = new Date("2022-03-25T10:33:30.500").getMinutes();
+  document.getElementById("demo7").innerHTML = new Date("2022-03-25T10:33:30.500").getSeconds();
+  document.getElementById("demo8").innerHTML = new Date("2022-03-25T10:33:30.500").getMilliseconds();
+
+  document.getElementById("demo9").innerHTML = new Date("2022-03-25").getDay();
+
+  (function () {
+    const d = new Date("2022-03-25");
+    const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let day = days[d.getDay()];
+    document.getElementById("demo10").innerHTML = day;
+  })();
+
+  document.getElementById("demo11").innerHTML = new Date("2022-03-25").getTime();
+
+  document.getElementById("demo12").innerHTML = Date.now();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
