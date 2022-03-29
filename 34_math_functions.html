@@ -322,20 +322,13 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Math Object</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The JavaScript <span class="code">Math</span> object allows you to perform mathematical tasks on numbers. <br>
+    Unlike other objects, the Math object has no constructor. The Math object is static. All properties and methods can be used without creating a Math object first. <br>
+    <span class="code">Math.PI;</span> &nbsp;&nbsp;<i>// returns PI</i>
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +339,473 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>Math.PI;</td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Math Properties (Constants)</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    JavaScript provides 8 mathematical constants that can be accessed as Math properties.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Math.E; &nbsp;&nbsp;<i>// returns Euler's number</i></td>
+      <td id="demo2"></td>
+    </tr>
+    <tr>
+      <td>Math.PI; &nbsp;&nbsp;<i>// returns PI</i></td>
+      <td id="demo3"></td>
+    </tr>
+    <tr>
+      <td>Math.SQRT2; &nbsp;&nbsp;<i>// returns the square root of 2</i></td>
+      <td id="demo4"></td>
+    </tr>
+    <tr>
+      <td>Math.SQRT1_2; &nbsp;&nbsp;<i>// returns the square root of 1/2</i></td>
+      <td id="demo5"></td>
+    </tr>
+    <tr>
+      <td>Math.LN2; &nbsp;&nbsp;<i>// returns the natural logarithm of 2</i></td>
+      <td id="demo6"></td>
+    </tr>
+    <tr>
+      <td>Math.LN10; &nbsp;&nbsp;<i>// returns the natural logarithm of 10</i></td>
+      <td id="demo7"></td>
+    </tr>
+    <tr>
+      <td>Math.LOG2E; &nbsp;&nbsp;<i>// returns base 2 logarithm of E</i></td>
+      <td id="demo8"></td>
+    </tr>
+    <tr>
+      <td>Math.LOG10E; &nbsp;&nbsp;<i>// returns base 10 logarithm of E</i></td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Math Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Math methods are written as a property of the Math object: <span class="code">Math.method(number)</span>
+  </p>
+
+  <h3>Number to Integer</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    There are 4 common methods to round a number to an integer: <br>
+    <span class="code">Math.round(x)</span> &nbsp; Returns x rounded to its nearest integer <br>
+    <span class="code">Math.ceil(x)</span> &nbsp; Returns x rounded up to its nearest integer <br>
+    <span class="code">Math.floor(x)</span> &nbsp; Returns x rounded down to its nearest integer <br>
+    <span class="code">Math.trunc(x)</span> &nbsp; Returns the integer part of x (new in ES6)
+  </p>
+
+  <h3>Math.round()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Math.round(x)</span> returns the value of x rounded to its nearest integer.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Math.round(4.6);</td>
+      <td id="demo10"></td>
+    </tr>
+    <tr>
+      <td>Math.round(4.5);</td>
+      <td id="demo11"></td>
+    </tr>
+    <tr>
+      <td>Math.round(4.4);</td>
+      <td id="demo12"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Math.ceil()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Math.ceil(x)</span> returns the value of x rounded up to its nearest integer.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Math.ceil(4.9);</td>
+      <td id="demo13"></td>
+    </tr>
+    <tr>
+      <td>Math.ceil(4.7);</td>
+      <td id="demo14"></td>
+    </tr>
+    <tr>
+      <td>Math.ceil(4.4);</td>
+      <td id="demo15"></td>
+    </tr>
+    <tr>
+      <td>Math.ceil(4.2);</td>
+      <td id="demo16"></td>
+    </tr>
+    <tr>
+      <td>Math.ceil(-4.2);</td>
+      <td id="demo17"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Math.floor()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Math.floor(x)</span> returns the value of x rounded down to its nearest integer.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Math.floor(4.9);</td>
+      <td id="demo18"></td>
+    </tr>
+    <tr>
+      <td>Math.floor(4.7);</td>
+      <td id="demo19"></td>
+    </tr>
+    <tr>
+      <td>Math.floor(4.4);</td>
+      <td id="demo20"></td>
+    </tr>
+    <tr>
+      <td>Math.floor(4.2);</td>
+      <td id="demo21"></td>
+    </tr>
+    <tr>
+      <td>Math.floor(-4.2);</td>
+      <td id="demo22"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Math.trunc()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Math.trunc(x)</span> returns the integer part of x.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Math.trunc(4.9);</td>
+      <td id="demo23"></td>
+    </tr>
+    <tr>
+      <td>Math.trunc(4.7);</td>
+      <td id="demo24"></td>
+    </tr>
+    <tr>
+      <td>Math.trunc(4.4);</td>
+      <td id="demo25"></td>
+    </tr>
+    <tr>
+      <td>Math.trunc(4.2);</td>
+      <td id="demo26"></td>
+    </tr>
+    <tr>
+      <td>Math.trunc(-4.2);</td>
+      <td id="demo27"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Math.sign()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Math.sign(x)</span> returns if x is negative, null or positive (-1, 0, 1).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Math.sign(-4);</td>
+      <td id="demo28"></td>
+    </tr>
+    <tr>
+      <td>Math.sign(0);</td>
+      <td id="demo29"></td>
+    </tr>
+    <tr>
+      <td>Math.sign(4);</td>
+      <td id="demo30"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Math.pow()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Math.pow(x, y)</span> returns the value of x to the power of y.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Math.pow(8, 2);</td>
+      <td id="demo31"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Math.sqrt()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Math.sqrt(x)</span> returns the square root of x.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Math.sqrt(64);</td>
+      <td id="demo32"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Math.abs()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Math.abs(x)</span> returns the absolute (positive) value of x.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Math.abs(-4.7);</td>
+      <td id="demo33"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Math.sin()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Math.sin(x)</span> returns the sine (a value between -1 and 1) of the angle x (given in radians).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Math.sin(90 * Math.PI / 180); &nbsp;&nbsp;<i>// returns 1 (the sine of 90 degrees)</i></td>
+      <td id="demo34"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>If you want to use degrees instead of radians, you have to convert degrees to radians: Angle in radians = Angle in degrees x PI / 180.</p>
+
+  <h3>Math.cos()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Math.cos(x)</span> returns the cosine (a value between -1 and 1) of the angle x (given in radians).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Math.cos(0 * Math.PI / 180); &nbsp;&nbsp;<i>// returns 1 (the cos of 0 degrees)</i></td>
+      <td id="demo35"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Math.min() and Math.max()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Math.min()</span> and <span class="code">Math.max()</span> can be used to find the lowest or highest value in a list of arguments.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Math.min(0, 150, 30, 20, -8, -200);</td>
+      <td id="demo36"></td>
+    </tr>
+    <tr>
+      <td>Math.max(0, 150, 30, 20, -8, -200);</td>
+      <td id="demo37"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Math.random()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Math.random()</span> returns a random number between 0 (inclusive), and 1 (exclusive).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Math.random();</td>
+      <td id="demo38"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">Math.random()</span> is always used together with <span class="code">Math.floor()</span> to return a random integer. This is covered in detail on the next page, "JS - Random".</p>
+
+  <h3>The Math.log() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Math.log(x)</span> returns the natural logarithm of x.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Math.log(1);</td>
+      <td id="demo39"></td>
+    </tr>
+    <tr>
+      <td>Math.log(2);</td>
+      <td id="demo40"></td>
+    </tr>
+    <tr>
+      <td>Math.log(3);</td>
+      <td id="demo41"></td>
+    </tr>
+    <tr>
+      <td>Math.log(10);</td>
+      <td id="demo42"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The Math.log2() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Math.log2(x)</span> returns the base 2 logarithm of x.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Math.log2(8);</td>
+      <td id="demo43"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The Math.log10() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Math.log10(x)</span> returns the base 10 logarithm of x.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Math.log10(1000);</td>
+      <td id="demo44"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +820,66 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = Math.PI;
 
+  document.getElementById("demo2").innerHTML = Math.E;
+  document.getElementById("demo3").innerHTML = Math.PI;
+  document.getElementById("demo4").innerHTML = Math.SQRT2;
+  document.getElementById("demo5").innerHTML = Math.SQRT1_2;
+  document.getElementById("demo6").innerHTML = Math.LN2;
+  document.getElementById("demo7").innerHTML = Math.LN10;
+  document.getElementById("demo8").innerHTML = Math.LOG2E;
+  document.getElementById("demo9").innerHTML = Math.LOG10E;
+
+  document.getElementById("demo10").innerHTML = Math.round(4.6);
+  document.getElementById("demo11").innerHTML = Math.round(4.5);
+  document.getElementById("demo12").innerHTML = Math.round(4.4);
+
+  document.getElementById("demo13").innerHTML = Math.ceil(4.9);
+  document.getElementById("demo14").innerHTML = Math.ceil(4.7);
+  document.getElementById("demo15").innerHTML = Math.ceil(4.4);
+  document.getElementById("demo16").innerHTML = Math.ceil(4.2);
+  document.getElementById("demo17").innerHTML = Math.ceil(-4.2);
+
+  document.getElementById("demo18").innerHTML = Math.floor(4.9);
+  document.getElementById("demo19").innerHTML = Math.floor(4.7);
+  document.getElementById("demo20").innerHTML = Math.floor(4.4);
+  document.getElementById("demo21").innerHTML = Math.floor(4.2);
+  document.getElementById("demo22").innerHTML = Math.floor(-4.2);
+
+  document.getElementById("demo23").innerHTML = Math.trunc(4.9);
+  document.getElementById("demo24").innerHTML = Math.trunc(4.7);
+  document.getElementById("demo25").innerHTML = Math.trunc(4.4);
+  document.getElementById("demo26").innerHTML = Math.trunc(4.2);
+  document.getElementById("demo27").innerHTML = Math.trunc(-4.2);
+
+  document.getElementById("demo28").innerHTML = Math.sign(-4);
+  document.getElementById("demo29").innerHTML = Math.sign(0);
+  document.getElementById("demo30").innerHTML = Math.sign(4);
+
+  document.getElementById("demo31").innerHTML = Math.pow(8, 2);
+
+  document.getElementById("demo32").innerHTML = Math.sqrt(64);
+
+  document.getElementById("demo33").innerHTML = Math.abs(-4.7);
+
+  document.getElementById("demo34").innerHTML = Math.sin(90 * Math.PI / 180);
+
+  document.getElementById("demo35").innerHTML = Math.cos(0 * Math.PI / 180);
+
+  document.getElementById("demo36").innerHTML = Math.min(0, 150, 30, 20, -8, -200);
+  document.getElementById("demo37").innerHTML = Math.max(0, 150, 30, 20, -8, -200);
+
+  document.getElementById("demo38").innerHTML = Math.random();
+
+  document.getElementById("demo39").innerHTML = Math.log(1);
+  document.getElementById("demo40").innerHTML = Math.log(2);
+  document.getElementById("demo41").innerHTML = Math.log(3);
+  document.getElementById("demo42").innerHTML = Math.log(10);
+
+  document.getElementById("demo43").innerHTML = Math.log2(8);
+
+  document.getElementById("demo44").innerHTML = Math.log10(1000);
 </script>
 <!--Page Specific JavaScript End-->
 </body>
