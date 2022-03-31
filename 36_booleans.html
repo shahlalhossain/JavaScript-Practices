@@ -322,20 +322,34 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The Boolean Data Type</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Booleans represent one of two values: <span class="code">true</span> or <span class="code">false</span>. <br>
+    Very often, in programming, you will need a data type that can only have one of two values, like: YES / NO, ON / OFF, TRUE / FALSE. <br>
+    For this, JavaScript has a Boolean data type. It can only take the values true or false.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Key Boolean Characteristics</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Booleans represent the truth value of an expression. <br>
+    Boolean values are the result of comparisons or logical expressions. <br>
+    Booleans are usually used inside conditional statements.
+  </p>
+
+  <h3>Boolean Use Cases</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Booleans are commonly used in: <br>
+    Conditional testing (if-else statements), comparisons (like equality or inequality), loops (controlling the iteration process), logical operations (using <span class="code">&amp;&amp;</span>, <span class="code">||</span>, <span class="code">!</span>), and functions (returning Boolean values based on conditions).
+  </p>
+
+  <h3>Comparisons</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Booleans are often used in comparisons.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +360,269 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        let x = 5; <br>
+        (x == 8); &nbsp;&nbsp;<i>// equals false</i>
+      </td>
+      <td id="demo1"></td>
+    </tr>
+    <tr>
+      <td>
+        let x = 5; <br>
+        (x != 8); &nbsp;&nbsp;<i>// equals true</i>
+      </td>
+      <td id="demo2"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Given x = 5:
   </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Description</th>
+      <th>Example</th>
+      <th>Returns</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>Equal to</td><td><span class="code">(x == 8)</span></td><td>false</td></tr>
+    <tr><td>Not equal to</td><td><span class="code">(x != 8)</span></td><td>true</td></tr>
+    <tr><td>Greater than</td><td><span class="code">(x &gt; 8)</span></td><td>false</td></tr>
+    <tr><td>Less than</td><td><span class="code">(x &lt; 8)</span></td><td>true</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Conditions</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript uses an if statement (and more) to make decisions based on Boolean conditions.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let hour = 10; <br>
+        let greeting; <br>
+        if (hour &lt; 18) { <br>
+        &nbsp;&nbsp;greeting = "Good day"; <br>
+        } else { <br>
+        &nbsp;&nbsp;greeting = "Good evening"; <br>
+        }
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <table>
+    <thead>
+    <tr>
+      <th>Example</th>
+      <th>Result</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">if (day == "Monday")</span></td><td>true or false</td></tr>
+    <tr><td><span class="code">if (salary &gt; 9000)</span></td><td>true or false</td></tr>
+    <tr><td><span class="code">if (age &lt; 18)</span></td><td>true or false</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Loops</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript loops continue to run, as long as the condition for looping is true.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let i = 0; <br>
+        let text = ""; <br>
+        while (i &lt; 10) { <br>
+        &nbsp;&nbsp;text += i; <br>
+        &nbsp;&nbsp;i++; <br>
+        }
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <table>
+    <thead>
+    <tr>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>For loop</td><td><span class="code">for (i = 0; i &lt; 5; i++)</span></td></tr>
+    <tr><td>While loop</td><td><span class="code">while (i &lt; 10)</span></td></tr>
+    <tr><td>For in loop</td><td><span class="code">for (x in person)</span></td></tr>
+    <tr><td>For of loop</td><td><span class="code">for (x of cars)</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>The Boolean() Function</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can use the <span class="code">Boolean()</span> function to find out if an expression (or a variable) is true.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Boolean(10 &gt; 9);</td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Or even easier: <span class="code">(10 &gt; 9)</span>
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>(10 &gt; 9);</td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Everything With a "Value" is True</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript uses the <span class="code">Boolean</span> type to resolve to true or false. <br>
+    Examples of things that resolve to true: <br>
+    100, 3.14, -15, true, "Hello", (7 + 1 + 3.14), [ ] (empty array), { } (empty object) <br>
+    You will learn more about Arrays and Objects later in this tutorial.
+  </p>
+
+  <h3>Everything Without a "Value" is False</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The Boolean value of 0 (zero), "" (empty string), undefined, null, NaN, and false of course, is false.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>let x = 0; &nbsp; Boolean(x);</td>
+      <td id="demo7"></td>
+    </tr>
+    <tr>
+      <td>let x = -0; &nbsp; Boolean(x);</td>
+      <td id="demo8"></td>
+    </tr>
+    <tr>
+      <td>let x = ""; &nbsp; Boolean(x);</td>
+      <td id="demo9"></td>
+    </tr>
+    <tr>
+      <td>let x; &nbsp; Boolean(x);</td>
+      <td id="demo10"></td>
+    </tr>
+    <tr>
+      <td>let x = null; &nbsp; Boolean(x);</td>
+      <td id="demo11"></td>
+    </tr>
+    <tr>
+      <td>let x = false; &nbsp; Boolean(x);</td>
+      <td id="demo12"></td>
+    </tr>
+    <tr>
+      <td>let x = 10 / "Hallo"; &nbsp; Boolean(x);</td>
+      <td id="demo13"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JavaScript Booleans as Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Normally JavaScript booleans are primitive values created from literals: <span class="code">let x = false;</span> <br>
+    But booleans can also be defined as objects with the keyword <span class="code">new</span>: <span class="code">let y = new Boolean(false);</span>
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let x = false; <br>
+        let y = new Boolean(false); <br>
+        <i>// typeof x returns boolean</i> <br>
+        <i>// typeof y returns object</i>
+      </td>
+      <td id="demo14"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Do not create Boolean objects. It slows down execution speed. The <span class="code">new</span> keyword complicates the code. This can produce some unexpected results.</p>
+
+  <h3>Warning</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Never use Booleans as objects. Objects can not be compared the same way as a value is compared to another value.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let x = Boolean(false); <br>
+        let y = new Boolean(false); <br>
+        <i>// (x == y) returns true because x and y have equal values</i> <br>
+        <i>// (x === y) returns false because x and y are of different types</i>
+      </td>
+      <td id="demo15"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +637,79 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    let x = 5;
+    document.getElementById("demo1").innerHTML = (x == 8);
+  })();
+  (function () {
+    let x = 5;
+    document.getElementById("demo2").innerHTML = (x != 8);
+  })();
 
+  (function () {
+    let hour = 10;
+    let greeting;
+    if (hour < 18) {
+      greeting = "Good day";
+    } else {
+      greeting = "Good evening";
+    }
+    document.getElementById("demo3").innerHTML = greeting;
+  })();
+
+  (function () {
+    let i = 0;
+    let text = "";
+    while (i < 10) {
+      text += i;
+      i++;
+    }
+    document.getElementById("demo4").innerHTML = text;
+  })();
+
+  document.getElementById("demo5").innerHTML = Boolean(10 > 9);
+  document.getElementById("demo6").innerHTML = (10 > 9);
+
+  (function () {
+    let x = 0;
+    document.getElementById("demo7").innerHTML = Boolean(x);
+  })();
+  (function () {
+    let x = -0;
+    document.getElementById("demo8").innerHTML = Boolean(x);
+  })();
+  (function () {
+    let x = "";
+    document.getElementById("demo9").innerHTML = Boolean(x);
+  })();
+  (function () {
+    let x;
+    document.getElementById("demo10").innerHTML = Boolean(x);
+  })();
+  (function () {
+    let x = null;
+    document.getElementById("demo11").innerHTML = Boolean(x);
+  })();
+  (function () {
+    let x = false;
+    document.getElementById("demo12").innerHTML = Boolean(x);
+  })();
+  (function () {
+    let x = 10 / "Hallo";
+    document.getElementById("demo13").innerHTML = Boolean(x);
+  })();
+
+  (function () {
+    let x = false;
+    let y = new Boolean(false);
+    document.getElementById("demo14").innerHTML = "typeof x: " + typeof x + ", typeof y: " + typeof y;
+  })();
+
+  (function () {
+    let x = Boolean(false);
+    let y = new Boolean(false);
+    document.getElementById("demo15").innerHTML = "(x == y): " + (x == y) + ", (x === y): " + (x === y);
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
