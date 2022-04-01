@@ -322,20 +322,12 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Comparison</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Comparison and Logical operators are used to test for true or false. <br>
+    Comparison operators are used in logical statements to determine equality or difference between variables or values.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +338,133 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        let age = 15; <br>
+        let text = ""; <br>
+        if (age &lt; 18) text = "Too young to buy alcohol";
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Comparison Operators</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Given that x = 5, the table below explains the comparison operators:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Operator</th>
+      <th>Description</th>
+      <th>Comparing</th>
+      <th>Returns</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">==</span></td><td>equal to</td><td>x == 8</td><td>false</td></tr>
+    <tr><td><span class="code">==</span></td><td>equal to</td><td>x == 5</td><td>true</td></tr>
+    <tr><td><span class="code">==</span></td><td>equal to</td><td>x == "5"</td><td>true</td></tr>
+    <tr><td><span class="code">===</span></td><td>equal value and equal type</td><td>x === 5</td><td>true</td></tr>
+    <tr><td><span class="code">===</span></td><td>equal value and equal type</td><td>x === "5"</td><td>false</td></tr>
+    <tr><td><span class="code">!=</span></td><td>not equal</td><td>x != 8</td><td>true</td></tr>
+    <tr><td><span class="code">!==</span></td><td>not equal value or not equal type</td><td>x !== 5</td><td>false</td></tr>
+    <tr><td><span class="code">!==</span></td><td>not equal value or not equal type</td><td>x !== "5"</td><td>true</td></tr>
+    <tr><td><span class="code">!==</span></td><td>not equal value or not equal type</td><td>x !== 8</td><td>true</td></tr>
+    <tr><td><span class="code">&gt;</span></td><td>greater than</td><td>x &gt; 8</td><td>false</td></tr>
+    <tr><td><span class="code">&lt;</span></td><td>less than</td><td>x &lt; 8</td><td>true</td></tr>
+    <tr><td><span class="code">&gt;=</span></td><td>greater than or equal to</td><td>x &gt;= 8</td><td>false</td></tr>
+    <tr><td><span class="code">&lt;=</span></td><td>less than or equal to</td><td>x &lt;= 8</td><td>true</td></tr>
+    </tbody>
+  </table>
+
+  <h3>JavaScript String Comparison</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript compares strings character by character, using their Unicode value.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text1 = "A"; <br>
+        let text2 = "B"; <br>
+        let result = text1 &lt; text2;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    <tr>
+      <td>
+        let text1 = "20"; <br>
+        let text2 = "5"; <br>
+        let result = text1 &lt; text2;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>A string ("20") is less than a string ("5"), because 20 is alphabetically compared to 5, and in alphabetical order, 2 is less than 5.</p>
+
+  <h3>Comparing Different Types</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Comparing data of different types may give unexpected results.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Case</th>
+      <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">2 &lt; 12</span></td><td>true</td></tr>
+    <tr><td><span class="code">2 &lt; "12"</span></td><td>true</td></tr>
+    <tr><td><span class="code">2 &lt; "John"</span></td><td>false</td></tr>
+    <tr><td><span class="code">2 &gt; "John"</span></td><td>false</td></tr>
+    <tr><td><span class="code">2 == "John"</span></td><td>false</td></tr>
+    <tr><td><span class="code">"2" &lt; "12"</span></td><td>false</td></tr>
+    <tr><td><span class="code">"2" &gt; "12"</span></td><td>true</td></tr>
+    <tr><td><span class="code">"2" == "12"</span></td><td>false</td></tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    When comparing two strings, "2" will be less than "12", because (alphabetically) 1 is less than 2. <br>
+    To secure a proper result, variables should be converted to the proper type before comparison.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let age = "18"; <br>
+        let voteable; <br>
+        age = Number(age); <br>
+        if (isNaN(age)) { <br>
+        &nbsp;&nbsp;voteable = "Input is not a number"; <br>
+        } else { <br>
+        &nbsp;&nbsp;voteable = (age &lt; 18) ? "Too young" : "Old enough"; <br>
+        }
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +479,38 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    let age = 15;
+    let text = "";
+    if (age < 18) text = "Too young to buy alcohol";
+    document.getElementById("demo1").innerHTML = text;
+  })();
 
+  (function () {
+    let text1 = "A";
+    let text2 = "B";
+    let result = text1 < text2;
+    document.getElementById("demo2").innerHTML = result;
+  })();
+
+  (function () {
+    let text1 = "20";
+    let text2 = "5";
+    let result = text1 < text2;
+    document.getElementById("demo3").innerHTML = result;
+  })();
+
+  (function () {
+    let age = "18";
+    let voteable;
+    age = Number(age);
+    if (isNaN(age)) {
+      voteable = "Input is not a number";
+    } else {
+      voteable = (age < 18) ? "Too young" : "Old enough";
+    }
+    document.getElementById("demo4").innerHTML = voteable;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
