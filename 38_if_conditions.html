@@ -322,20 +322,15 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The JavaScript if Statement</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Use the JavaScript <span class="code">if</span> statement to execute a block of code when a condition is true. <br>
+    <strong>Syntax</strong> <br>
+    if (condition) { <br>
+    &nbsp;&nbsp;<i>// block of code to be executed if the condition is true</i> <br>
+    }
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +341,189 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        let hour = 10; <br>
+        let greeting; <br>
+        if (hour &lt; 18) { <br>
+        &nbsp;&nbsp;greeting = "Good day"; <br>
+        }
+      </td>
+      <td id="demo1"></td>
+    </tr>
+    <tr>
+      <td>
+        let age = 18; <br>
+        let text = "You can Not drive"; <br>
+        if (age &gt;= 18) { <br>
+        &nbsp;&nbsp;text = "You can drive"; <br>
+        }
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    <tr>
+      <td>
+        let age = 16; <br>
+        let text = "You can Not drive"; <br>
+        if (age &gt;= 18) { <br>
+        &nbsp;&nbsp;text = "You can drive"; <br>
+        }
+      </td>
+      <td id="demo3"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Nested if</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    You can place an if statement inside another if statement.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let age = 16; <br>
+        let country = "USA"; <br>
+        let text = "You can Not drive!"; <br>
+        if (country == "USA") { <br>
+        &nbsp;&nbsp;if (age &gt;= 16) { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;text = "You can drive!"; <br>
+        &nbsp;&nbsp;} <br>
+        }
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The same example, using the logical AND (&amp;&amp;) operator instead of a nested if:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let age = 16; <br>
+        let country = "USA"; <br>
+        let text = "You can Not drive!"; <br>
+        if (country == "USA" &amp;&amp; age &gt;= 16) { <br>
+        &nbsp;&nbsp;text = "You can drive!"; <br>
+        }
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The else Statement</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Use the <span class="code">else</span> statement to specify a block of code to be executed if the condition is false. <br>
+    <strong>Syntax</strong> <br>
+    if (condition) { <br>
+    &nbsp;&nbsp;<i>// block of code to be executed if the condition is true</i> <br>
+    } else { <br>
+    &nbsp;&nbsp;<i>// block of code to be executed if the condition is false</i> <br>
+    }
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let hour = 20; <br>
+        let greeting; <br>
+        if (hour &lt; 18) { <br>
+        &nbsp;&nbsp;greeting = "Good day"; <br>
+        } else { <br>
+        &nbsp;&nbsp;greeting = "Good evening"; <br>
+        }
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The else if Statement</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Use the <span class="code">else if</span> statement to specify a new condition if the first condition is false. <br>
+    <strong>Syntax</strong> <br>
+    if (condition1) { <br>
+    &nbsp;&nbsp;<i>// block of code to be executed if condition1 is true</i> <br>
+    } else if (condition2) { <br>
+    &nbsp;&nbsp;<i>// block of code to be executed if the condition1 is false and condition2 is true</i> <br>
+    } else { <br>
+    &nbsp;&nbsp;<i>// block of code to be executed if the condition1 is false and condition2 is false</i> <br>
+    }
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let time = 15; <br>
+        let greeting; <br>
+        if (time &lt; 10) { <br>
+        &nbsp;&nbsp;greeting = "Good morning"; <br>
+        } else if (time &lt; 20) { <br>
+        &nbsp;&nbsp;greeting = "Good day"; <br>
+        } else { <br>
+        &nbsp;&nbsp;greeting = "Good evening"; <br>
+        }
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Display a link based on a random number:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text; <br>
+        if (Math.random() &lt; 0.5) { <br>
+        &nbsp;&nbsp;text = "&lt;a href='https://w3schools.com'&gt;Visit W3Schools&lt;/a&gt;"; <br>
+        } else { <br>
+        &nbsp;&nbsp;text = "&lt;a href='https://wwf.org'&gt;Visit WWF&lt;/a&gt;"; <br>
+        }
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +538,88 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    let hour = 10;
+    let greeting;
+    if (hour < 18) {
+      greeting = "Good day";
+    }
+    document.getElementById("demo1").innerHTML = greeting;
+  })();
 
+  (function () {
+    let age = 18;
+    let text = "You can Not drive";
+    if (age >= 18) {
+      text = "You can drive";
+    }
+    document.getElementById("demo2").innerHTML = text;
+  })();
+
+  (function () {
+    let age = 16;
+    let text = "You can Not drive";
+    if (age >= 18) {
+      text = "You can drive";
+    }
+    document.getElementById("demo3").innerHTML = text;
+  })();
+
+  (function () {
+    let age = 16;
+    let country = "USA";
+    let text = "You can Not drive!";
+    if (country == "USA") {
+      if (age >= 16) {
+        text = "You can drive!";
+      }
+    }
+    document.getElementById("demo4").innerHTML = text;
+  })();
+
+  (function () {
+    let age = 16;
+    let country = "USA";
+    let text = "You can Not drive!";
+    if (country == "USA" && age >= 16) {
+      text = "You can drive!";
+    }
+    document.getElementById("demo5").innerHTML = text;
+  })();
+
+  (function () {
+    let hour = 20;
+    let greeting;
+    if (hour < 18) {
+      greeting = "Good day";
+    } else {
+      greeting = "Good evening";
+    }
+    document.getElementById("demo6").innerHTML = greeting;
+  })();
+
+  (function () {
+    let time = 15;
+    let greeting;
+    if (time < 10) {
+      greeting = "Good morning";
+    } else if (time < 20) {
+      greeting = "Good day";
+    } else {
+      greeting = "Good evening";
+    }
+    document.getElementById("demo7").innerHTML = greeting;
+  })();
+
+  (function () {
+    let text;
+    if (Math.random() < 0.5) {
+      text = "<a href='https://w3schools.com'>Visit W3Schools</a>";
+    } else {
+      text = "<a href='https://wwf.org'>Visit WWF</a>";
+    }
+    document.getElementById("demo8").innerHTML = text;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
