@@ -322,20 +322,16 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The For Loop</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The <span class="code">for</span> statement creates a loop with 3 optional expressions. <br>
+    <strong>Syntax</strong> <br>
+    for (expression 1; expression 2; expression 3) { <br>
+    &nbsp;&nbsp;<i>// code block to be executed</i> <br>
+    } <br>
+    Expression 1 is executed (one time) before the execution of the code block. Expression 2 defines the condition for executing the code block. Expression 3 is executed (every time) after the code block has been executed.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +342,144 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        let text = ""; <br>
+        for (let i = 0; i &lt; 5; i++) { <br>
+        &nbsp;&nbsp;text += "The number is " + i + "&lt;br&gt;"; <br>
+        }
+      </td>
+      <td id="demo1"></td>
+    </tr>
+    <tr>
+      <td>
+        const cars = ["BMW", "Volvo", "Saab", "Ford"]; <br>
+        let len = cars.length; <br>
+        let text = ""; <br>
+        for (let i = 0; i &lt; len; i++) { <br>
+        &nbsp;&nbsp;text += cars[i]; <br>
+        }
+      </td>
+      <td id="demo2"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>How to use exp 1</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Expression 1 is used to initialize the variable used in the loop (let i = 0). Expression 1 is optional; you can initiate the variable before the loop starts.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const cars = ["BMW", "Volvo", "Saab", "Ford"]; <br>
+        let len = cars.length; <br>
+        let i = 2; <br>
+        let text = ""; <br>
+        for (; i &lt; len; i++) { <br>
+        &nbsp;&nbsp;text += cars[i] + "&lt;br&gt;"; <br>
+        }
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Expression 1 can also initialize several values.</p>
+
+  <h3>How to use exp 2</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Expression 2 is used to evaluate the condition of the initial variable. Expression 2 is also optional. If expression 2 returns true, the loop will start over again, if it returns false, the loop will end. If you omit expression 2, you must provide a break inside the loop, otherwise the loop will never end, and could crash the browser.
+  </p>
+
+  <h3>How to use exp 3</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Expression 3 is used to increment the value of the initial variable. Expression 3 is optional. Expression 3 can do anything like negative increment (i--), positive increment (i = i + 15), or anything else. Expression 3 can also be omitted (like when you increment your values inside the loop).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const cars = ["BMW", "Volvo", "Saab", "Ford"]; <br>
+        let len = cars.length; <br>
+        let i = 0; <br>
+        let text = ""; <br>
+        for (; i &lt; len; ) { <br>
+        &nbsp;&nbsp;text += cars[i] + "&lt;br&gt;"; <br>
+        &nbsp;&nbsp;i++; <br>
+        }
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Loop Scope</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    When you use <span class="code">var</span> in a loop, the variable declared in the loop redeclares the variable outside the loop.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        var i = 5; <br>
+        for (var i = 0; i &lt; 10; i++) { <br>
+        &nbsp;&nbsp;<i>// some code</i> <br>
+        } <br>
+        <i>// Here i is 10</i>
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    When you use <span class="code">let</span> in a loop, the variable declared in the loop does not redeclare the variable outside the loop.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let i = 5; <br>
+        for (let i = 0; i &lt; 10; i++) { <br>
+        &nbsp;&nbsp;<i>// some code</i> <br>
+        } <br>
+        <i>// Here i is 5</i>
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>When you use <span class="code">let</span>, the variable i in the loop declaration creates a new variable scoped just to the for loop block, each iteration of the loop.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +494,62 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    let text = "";
+    for (let i = 0; i < 5; i++) {
+      text += "The number is " + i + "<br>";
+    }
+    document.getElementById("demo1").innerHTML = text;
+  })();
 
+  (function () {
+    const cars = ["BMW", "Volvo", "Saab", "Ford"];
+    let len = cars.length;
+    let text = "";
+    for (let i = 0; i < len; i++) {
+      text += cars[i];
+    }
+    document.getElementById("demo2").innerHTML = text;
+  })();
+
+  (function () {
+    const cars = ["BMW", "Volvo", "Saab", "Ford"];
+    let len = cars.length;
+    let i = 2;
+    let text = "";
+    for (; i < len; i++) {
+      text += cars[i] + "<br>";
+    }
+    document.getElementById("demo3").innerHTML = text;
+  })();
+
+  (function () {
+    const cars = ["BMW", "Volvo", "Saab", "Ford"];
+    let len = cars.length;
+    let i = 0;
+    let text = "";
+    for (; i < len; ) {
+      text += cars[i] + "<br>";
+      i++;
+    }
+    document.getElementById("demo4").innerHTML = text;
+  })();
+
+  (function () {
+    var i = 5;
+    for (var i = 0; i < 10; i++) {
+      // some code
+    }
+    document.getElementById("demo5").innerHTML = "Here i is " + i;
+  })();
+
+  (function () {
+    let i = 5;
+    for (let i = 0; i < 10; i++) {
+      // some code
+    }
+    document.getElementById("demo6").innerHTML = "Here i is " + i;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
