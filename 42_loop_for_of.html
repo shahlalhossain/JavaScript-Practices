@@ -322,20 +322,23 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The For Of Loop</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The JavaScript <span class="code">for of</span> statement loops through the values of an iterable object. <br>
+    It lets you loop over iterable data structures such as Arrays, Strings, Maps, NodeLists, and more: <br>
+    <strong>Syntax</strong> <br>
+    for (variable of iterable) { <br>
+    &nbsp;&nbsp;<i>// code block to be executed</i> <br>
+    }
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Looping over an Array</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">variable</span> - For every iteration the value of the next property is assigned to the variable. Variable can be declared with const, let, or var. <br>
+    <span class="code">iterable</span> - An object that has iterable properties.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +349,45 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const cars = ["BMW", "Volvo", "Mini"]; <br>
+        let text = ""; <br>
+        for (let x of cars) { <br>
+        &nbsp;&nbsp;text += x; <br>
+        }
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Looping over a String</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The for of loop can also be used to loop over a String.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let language = "JavaScript"; <br>
+        let text = ""; <br>
+        for (let x of language) { <br>
+        &nbsp;&nbsp;text += x; <br>
+        }
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">for of</span> lets you loop over data structures such as Arrays, Strings, Maps, NodeLists, and more.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +402,23 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const cars = ["BMW", "Volvo", "Mini"];
+    let text = "";
+    for (let x of cars) {
+      text += x;
+    }
+    document.getElementById("demo1").innerHTML = text;
+  })();
 
+  (function () {
+    let language = "JavaScript";
+    let text = "";
+    for (let x of language) {
+      text += x;
+    }
+    document.getElementById("demo2").innerHTML = text;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
