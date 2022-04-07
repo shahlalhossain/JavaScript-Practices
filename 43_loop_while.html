@@ -322,20 +322,22 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript While Loops</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Loops can execute a block of code as long as a specified condition is true. <br>
+    The <span class="code">while</span> and <span class="code">do while</span> loops are covered on this page.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>The While Loop</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">while</span> loop loops through a block of code as long as a specified condition is true. <br>
+    <strong>Syntax</strong> <br>
+    while (condition) { <br>
+    &nbsp;&nbsp;<i>// code block to be executed</i> <br>
+    }
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +348,109 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        let text = ""; <br>
+        let i = 0; <br>
+        while (i &lt; 10) { <br>
+        &nbsp;&nbsp;text += "The number is " + i; <br>
+        &nbsp;&nbsp;i++; <br>
+        }
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Note: </i></strong>If you forget to increase the variable used in the condition, the loop will never end. This will crash your browser.</p>
+
+  <h3>The Do While Loop</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The <span class="code">do while</span> loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true. <br>
+    <strong>Syntax</strong> <br>
+    do { <br>
+    &nbsp;&nbsp;<i>// code block to be executed</i> <br>
+    } <br>
+    while (condition);
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text = ""; <br>
+        let i = 0; <br>
+        do { <br>
+        &nbsp;&nbsp;text += "The number is " + i; <br>
+        &nbsp;&nbsp;i++; <br>
+        } <br>
+        while (i &lt; 10);
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Do not forget to increase the variable used in the condition, otherwise the loop will never end.</p>
+
+  <h3>Comparing For and While</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you already read about For Loops, you will see that a While loop is much the same as a For loop, with statement 1 and statement 3 omitted. <br>
+    The loop in this example uses a for loop to collect the car names from a cars array:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const cars = ["BMW", "Volvo", "Saab", "Ford"]; <br>
+        let i = 0; <br>
+        let text = ""; <br>
+        for (; cars[i]; ) { <br>
+        &nbsp;&nbsp;text += cars[i]; <br>
+        &nbsp;&nbsp;i++; <br>
+        }
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The loop in this example uses a while loop to collect the car names from a cars array:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const cars = ["BMW", "Volvo", "Saab", "Ford"]; <br>
+        let i = 0; <br>
+        let text = ""; <br>
+        while (cars[i]) { <br>
+        &nbsp;&nbsp;text += cars[i]; <br>
+        &nbsp;&nbsp;i++; <br>
+        }
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +465,48 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    let text = "";
+    let i = 0;
+    while (i < 10) {
+      text += "The number is " + i;
+      i++;
+    }
+    document.getElementById("demo1").innerHTML = text;
+  })();
 
+  (function () {
+    let text = "";
+    let i = 0;
+    do {
+      text += "The number is " + i;
+      i++;
+    }
+    while (i < 10);
+    document.getElementById("demo2").innerHTML = text;
+  })();
+
+  (function () {
+    const cars = ["BMW", "Volvo", "Saab", "Ford"];
+    let i = 0;
+    let text = "";
+    for (; cars[i]; ) {
+      text += cars[i];
+      i++;
+    }
+    document.getElementById("demo3").innerHTML = text;
+  })();
+
+  (function () {
+    const cars = ["BMW", "Volvo", "Saab", "Ford"];
+    let i = 0;
+    let text = "";
+    while (cars[i]) {
+      text += cars[i];
+      i++;
+    }
+    document.getElementById("demo4").innerHTML = text;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
