@@ -322,20 +322,18 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The Break Statement</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The <span class="code">break</span> statement "jumps out" of a loop. <br>
+    The break statement is also used to jump out of a switch statement.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Break in Loops</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">break</span> statement breaks the loop and continues executing the code after the loop (if any).
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +344,210 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        let text = ""; <br>
+        for (let i = 0; i &lt; 10; i++) { <br>
+        &nbsp;&nbsp;if (i === 3) { break; } <br>
+        &nbsp;&nbsp;text += "The number is " + i + "&lt;br&gt;"; <br>
+        }
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Break in a Switch</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    When JavaScript reaches a break keyword, it breaks out of the switch block.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let day; <br>
+        switch (new Date().getDay()) { <br>
+        &nbsp;&nbsp;case 0: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;day = "Sunday"; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;break; <br>
+        &nbsp;&nbsp;case 1: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;day = "Monday"; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;break; <br>
+        &nbsp;&nbsp;case 2: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;day = "Tuesday"; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;break; <br>
+        &nbsp;&nbsp;case 3: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;day = "Wednesday"; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;break; <br>
+        &nbsp;&nbsp;case 4: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;day = "Thursday"; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;break; <br>
+        &nbsp;&nbsp;case 5: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;day = "Friday"; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;break; <br>
+        &nbsp;&nbsp;case 6: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;day = "Saturday"; <br>
+        }
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The Continue Statement</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">continue</span> statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text = ""; <br>
+        for (let i = 1; i &lt; 10; i++) { <br>
+        &nbsp;&nbsp;if (i === 3) { continue; } <br>
+        &nbsp;&nbsp;text += "The number is " + i + "&lt;br&gt;"; <br>
+        }
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JavaScript Labels</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To label JavaScript statements you precede the statements with a label name and a colon: <br>
+    <strong>Syntax</strong> <br>
+    labelname: statement; <br>
+    labelname: { <br>
+    &nbsp;&nbsp;statements <br>
+    }
+  </p>
+
+  <h3>Labeled Break</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">break labelname;</span> statement can be used to jump out of any labeled code block.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text = ""; <br>
+        loop1: for (let j = 1; j &lt; 5; j++) { <br>
+        &nbsp;&nbsp;loop2: for (let i = 1; i &lt; 5; i++) { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (i === 3) { break loop1; } <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;text += i; <br>
+        &nbsp;&nbsp;} <br>
+        }
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    <tr>
+      <td>
+        let text = ""; <br>
+        loop1: for (let j = 1; j &lt; 5; j++) { <br>
+        &nbsp;&nbsp;loop2: for (let i = 1; i &lt; 5; i++) { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (i === 3) { break loop2; } <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;text += i; <br>
+        &nbsp;&nbsp;} <br>
+        }
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    With a label reference, you can break out of any code block:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text = ""; <br>
+        const cars = ["BMW", "Volvo", "Saab", "Ford"]; <br>
+        list: { <br>
+        &nbsp;&nbsp;text += cars[0] + "&lt;br&gt;"; <br>
+        &nbsp;&nbsp;text += cars[1] + "&lt;br&gt;"; <br>
+        &nbsp;&nbsp;break list; <br>
+        &nbsp;&nbsp;text += cars[2] + "&lt;br&gt;"; <br>
+        &nbsp;&nbsp;text += cars[3] + "&lt;br&gt;"; <br>
+        }
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>A code block is a block of code between <span class="code">{</span> and <span class="code">}</span>.</p>
+
+  <h3>Continue to Labelname</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">continue labelname;</span> statement can be used to skip the current iteration in a labeled loop.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text = ""; <br>
+        loop1: for (let j = 1; j &lt; 5; j++) { <br>
+        &nbsp;&nbsp;loop2: for (let i = 1; i &lt; 5; i++) { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (i === 3) { continue loop1; } <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;text += i; <br>
+        &nbsp;&nbsp;} <br>
+        }
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    <tr>
+      <td>
+        let text = ""; <br>
+        loop1: for (let j = 1; j &lt; 5; j++) { <br>
+        &nbsp;&nbsp;loop2: for (let i = 1; i &lt; 5; i++) { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (i === 3) { continue loop2; } <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;text += i; <br>
+        &nbsp;&nbsp;} <br>
+        }
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +562,107 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    let text = "";
+    for (let i = 0; i < 10; i++) {
+      if (i === 3) { break; }
+      text += "The number is " + i + "<br>";
+    }
+    document.getElementById("demo1").innerHTML = text;
+  })();
 
+  (function () {
+    let day;
+    switch (new Date().getDay()) {
+      case 0:
+        day = "Sunday";
+        break;
+      case 1:
+        day = "Monday";
+        break;
+      case 2:
+        day = "Tuesday";
+        break;
+      case 3:
+        day = "Wednesday";
+        break;
+      case 4:
+        day = "Thursday";
+        break;
+      case 5:
+        day = "Friday";
+        break;
+      case 6:
+        day = "Saturday";
+    }
+    document.getElementById("demo2").innerHTML = day;
+  })();
+
+  (function () {
+    let text = "";
+    for (let i = 1; i < 10; i++) {
+      if (i === 3) { continue; }
+      text += "The number is " + i + "<br>";
+    }
+    document.getElementById("demo3").innerHTML = text;
+  })();
+
+  (function () {
+    let text = "";
+    loop1: for (let j = 1; j < 5; j++) {
+      loop2: for (let i = 1; i < 5; i++) {
+        if (i === 3) { break loop1; }
+        text += i;
+      }
+    }
+    document.getElementById("demo4").innerHTML = text;
+  })();
+
+  (function () {
+    let text = "";
+    loop1: for (let j = 1; j < 5; j++) {
+      loop2: for (let i = 1; i < 5; i++) {
+        if (i === 3) { break loop2; }
+        text += i;
+      }
+    }
+    document.getElementById("demo5").innerHTML = text;
+  })();
+
+  (function () {
+    let text = "";
+    const cars = ["BMW", "Volvo", "Saab", "Ford"];
+    list: {
+      text += cars[0] + "<br>";
+      text += cars[1] + "<br>";
+      break list;
+      text += cars[2] + "<br>";
+      text += cars[3] + "<br>";
+    }
+    document.getElementById("demo6").innerHTML = text;
+  })();
+
+  (function () {
+    let text = "";
+    loop1: for (let j = 1; j < 5; j++) {
+      loop2: for (let i = 1; i < 5; i++) {
+        if (i === 3) { continue loop1; }
+        text += i;
+      }
+    }
+    document.getElementById("demo7").innerHTML = text;
+  })();
+
+  (function () {
+    let text = "";
+    loop1: for (let j = 1; j < 5; j++) {
+      loop2: for (let i = 1; i < 5; i++) {
+        if (i === 3) { continue loop2; }
+        text += i;
+      }
+    }
+    document.getElementById("demo8").innerHTML = text;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
