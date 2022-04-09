@@ -322,20 +322,40 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Iterables</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Iterables are objects that can be iterated over, like Arrays, Strings, Maps, Sets, etc. <br>
+    Iterables can be used with the <span class="code">for...of</span> loop.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>An Iterable is an Iterable Object</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In JavaScript an iterable is an object that implements the Iterable Protocol. Objects that have a looping behavior, like Array or String, are built-in iterables in JavaScript, and automatically work with <span class="code">for...of</span>.
+  </p>
+
+  <h3>The for...of Loop</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The JavaScript <span class="code">for...of</span> statement loops through the values of an iterable object. <br>
+    <strong>Syntax</strong> <br>
+    for (variable of iterable) { <br>
+    &nbsp;&nbsp;<i>// code block to be executed</i> <br>
+    }
+  </p>
+
+  <h3>Iterating</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Iterating over an iterable is like looping over a collection, using its values one at a time, from start to finish.
+  </p>
+
+  <h3>Iterating Over a String</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Iterating over a string, iterates over its individual characters.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +366,207 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const name = "W3Schools"; <br>
+        for (const x of name) { <br>
+        &nbsp;&nbsp;<i>// code block to be executed</i> <br>
+        }
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Iterating Over an Array</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Iterating over an array, iterates over its individual elements.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const letters = ["a", "b", "c"]; <br>
+        for (const x of letters) { <br>
+        &nbsp;&nbsp;<i>// code block to be executed</i> <br>
+        }
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    <tr>
+      <td>
+        const numbers = [2, 4, 6, 8]; <br>
+        for (const x of numbers) { <br>
+        &nbsp;&nbsp;<i>// code block to be executed</i> <br>
+        }
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Iterating Over a Set</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Iterating over a set, iterates over its individual elements.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const letters = new Set(["a", "b", "c"]); <br>
+        for (const x of letters) { <br>
+        &nbsp;&nbsp;<i>// code block to be executed</i> <br>
+        }
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Iterating Over a Map</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Iterating over a map, iterates over its [key, value] pairs.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const fruits = new Map([ <br>
+        &nbsp;&nbsp;["apples", 500], <br>
+        &nbsp;&nbsp;["bananas", 300], <br>
+        &nbsp;&nbsp;["oranges", 200] <br>
+        ]); <br>
+        for (const x of fruits) { <br>
+        &nbsp;&nbsp;<i>// code block to be executed</i> <br>
+        }
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JavaScript Iterators</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The Iterator Protocol defines how to produce a sequence of values from an object. An object becomes an iterator when it implements a <span class="code">next()</span> method. The <span class="code">next()</span> method must return an object with two properties: <span class="code">value</span> (the next value in the sequence) and <span class="code">done</span> (true if the last value has been consumed). <br>
+    Built-in iterables in JavaScript include: String, Array, Map, Set, TypedArray, arguments, and NodeList (DOM objects).
+  </p>
+
+  <h3>Home Made Iterable</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can make your own iterables like this:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myNumbers() { <br>
+        &nbsp;&nbsp;let n = 0; <br>
+        &nbsp;&nbsp;return { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;next: function() { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n += 10; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return {value: n, done: false}; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;} <br>
+        &nbsp;&nbsp;}; <br>
+        } <br>
+        const n = myNumbers(); <br>
+        n.next(); &nbsp;&nbsp;<i>// returns 10</i> <br>
+        n.next(); &nbsp;&nbsp;<i>// returns 20</i> <br>
+        n.next(); &nbsp;&nbsp;<i>// returns 30</i>
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To make the object above iterable, you implement the <span class="code">Symbol.iterator</span> method:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        myNumbers = {}; <br>
+        myNumbers[Symbol.iterator] = function() { <br>
+        &nbsp;&nbsp;let n = 0; <br>
+        &nbsp;&nbsp;done = false; <br>
+        &nbsp;&nbsp;return { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;next() { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n += 10; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (n == 100) {done = true} <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return {value: n, done: done}; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;} <br>
+        &nbsp;&nbsp;}; <br>
+        }; <br>
+        for (const num of myNumbers) { <br>
+        &nbsp;&nbsp;<i>// Any Code Here</i> <br>
+        }
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can iterate over it manually like this:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const iterator = myNumbers[Symbol.iterator](); <br>
+        while (true) { <br>
+        &nbsp;&nbsp;const result = iterator.next(); <br>
+        &nbsp;&nbsp;if (result.done) break; <br>
+        &nbsp;&nbsp;<i>// Any Code Here</i> <br>
+        }
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Do not confuse Iterables with Iterators. An Iterable is an object that can be iterated over (with for...of). An Iterator is an object with a next() method that produces the values to iterate over.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +581,114 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const name = "W3Schools";
+    let text = "";
+    for (const x of name) {
+      text += x + " ";
+    }
+    document.getElementById("demo1").innerHTML = text;
+  })();
 
+  (function () {
+    const letters = ["a", "b", "c"];
+    let text = "";
+    for (const x of letters) {
+      text += x + " ";
+    }
+    document.getElementById("demo2").innerHTML = text;
+  })();
+
+  (function () {
+    const numbers = [2, 4, 6, 8];
+    let text = "";
+    for (const x of numbers) {
+      text += x + " ";
+    }
+    document.getElementById("demo3").innerHTML = text;
+  })();
+
+  (function () {
+    const letters = new Set(["a", "b", "c"]);
+    let text = "";
+    for (const x of letters) {
+      text += x + " ";
+    }
+    document.getElementById("demo4").innerHTML = text;
+  })();
+
+  (function () {
+    const fruits = new Map([
+      ["apples", 500],
+      ["bananas", 300],
+      ["oranges", 200]
+    ]);
+    let text = "";
+    for (const x of fruits) {
+      text += x[0] + ":" + x[1] + " ";
+    }
+    document.getElementById("demo5").innerHTML = text;
+  })();
+
+  (function () {
+    function myNumbers() {
+      let n = 0;
+      return {
+        next: function() {
+          n += 10;
+          return {value: n, done: false};
+        }
+      };
+    }
+    const n = myNumbers();
+    let text = n.next().value + ", " + n.next().value + ", " + n.next().value;
+    document.getElementById("demo6").innerHTML = text;
+  })();
+
+  (function () {
+    let myNumbers = {};
+    let done;
+    myNumbers[Symbol.iterator] = function() {
+      let n = 0;
+      done = false;
+      return {
+        next() {
+          n += 10;
+          if (n == 100) {done = true}
+          return {value: n, done: done};
+        }
+      };
+    };
+    let text = "";
+    for (const num of myNumbers) {
+      text += num + " ";
+    }
+    document.getElementById("demo7").innerHTML = text;
+  })();
+
+  (function () {
+    let myNumbers = {};
+    let done;
+    myNumbers[Symbol.iterator] = function() {
+      let n = 0;
+      done = false;
+      return {
+        next() {
+          n += 10;
+          if (n == 100) {done = true}
+          return {value: n, done: done};
+        }
+      };
+    };
+    const iterator = myNumbers[Symbol.iterator]();
+    let text = "";
+    while (true) {
+      const result = iterator.next();
+      if (result.done) break;
+      text += result.value + " ";
+    }
+    document.getElementById("demo8").innerHTML = text;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
