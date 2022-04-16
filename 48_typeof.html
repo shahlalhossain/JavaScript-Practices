@@ -322,20 +322,17 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The typeof Operator</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The <span class="code">typeof</span> operator returns the data type of a JavaScript variable.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Primitive Data Types</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript has 7 primitive data types: string, number, boolean, bigint, symbol, null, undefined.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +343,427 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>typeof "John"; &nbsp;&nbsp;<i>// Returns string</i></td>
+      <td id="demo1"></td>
+    </tr>
+    <tr>
+      <td>typeof 3.14; &nbsp;&nbsp;<i>// Returns number</i></td>
+      <td id="demo2"></td>
+    </tr>
+    <tr>
+      <td>typeof true; &nbsp;&nbsp;<i>// Returns boolean</i></td>
+      <td id="demo3"></td>
+    </tr>
+    <tr>
+      <td>typeof 1234n; &nbsp;&nbsp;<i>// Returns bigint</i></td>
+      <td id="demo4"></td>
+    </tr>
+    <tr>
+      <td>typeof Symbol(); &nbsp;&nbsp;<i>// Returns symbol</i></td>
+      <td id="demo5"></td>
+    </tr>
+    <tr>
+      <td>let x; &nbsp; typeof x; &nbsp;&nbsp;<i>// Returns undefined</i></td>
+      <td id="demo6"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Note the special case for null:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>typeof null; &nbsp;&nbsp;<i>// Returns object</i></td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The data type of <span class="code">null</span> is object. This is an error in JavaScript. It would make more sense if null returned "null". It is an error in the original JavaScript implementation that has been carried through, for compatibility reasons.</p>
+
+  <h3>Complex Data Types</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">typeof</span> operator returns "object" for arrays, objects, Maps, and Sets, and "function" for functions.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>typeof {name:'John'}; &nbsp;&nbsp;<i>// Returns object</i></td>
+      <td id="demo8"></td>
+    </tr>
+    <tr>
+      <td>typeof [1,2,3,4]; &nbsp;&nbsp;<i>// Returns object</i></td>
+      <td id="demo9"></td>
+    </tr>
+    <tr>
+      <td>typeof new Map(); &nbsp;&nbsp;<i>// Returns object</i></td>
+      <td id="demo10"></td>
+    </tr>
+    <tr>
+      <td>typeof new Set(); &nbsp;&nbsp;<i>// Returns object</i></td>
+      <td id="demo11"></td>
+    </tr>
+    <tr>
+      <td>typeof function (){}; &nbsp;&nbsp;<i>// Returns function</i></td>
+      <td id="demo12"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The data type of arrays and objects is "object". The typeof operator does not distinguish between them.</p>
+
+  <h3>How to Recognize an Array</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A common question is: How do I know if a variable is an array? <br>
+    <span class="code">typeof fruits</span> would return "object", because in JavaScript, an array is an object. You can solve this problem with the <span class="code">Array.isArray()</span> method.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Create an Array</i> <br>
+        const fruits = ["apples", "bananas", "oranges"]; <br>
+        Array.isArray(fruits);
+      </td>
+      <td id="demo13"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The instanceof Operator</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">instanceof</span> operator returns true if an object is an instance of the specified object.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Create a Date</i> <br>
+        const time = new Date(); <br>
+        (time instanceof Date);
+      </td>
+      <td id="demo14"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// Create an Array</i> <br>
+        const fruits = ["apples", "bananas", "oranges"]; <br>
+        (fruits instanceof Array);
+      </td>
+      <td id="demo15"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// Create a Map</i> <br>
+        const fruits = new Map([ <br>
+        &nbsp;&nbsp;["apples", 500], <br>
+        &nbsp;&nbsp;["bananas", 300], <br>
+        &nbsp;&nbsp;["oranges", 200] <br>
+        ]); <br>
+        (fruits instanceof Map);
+      </td>
+      <td id="demo16"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// Create a Set</i> <br>
+        const fruits = new Set(["apples", "bananas", "oranges"]); <br>
+        (fruits instanceof Set);
+      </td>
+      <td id="demo17"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Undefined Variables</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The data type of a variable that has not been assigned a value, is also <span class="code">undefined</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let car; <br>
+        typeof car;
+      </td>
+      <td id="demo18"></td>
+    </tr>
+    <tr>
+      <td>
+        let car = "Volvo"; <br>
+        car = undefined; <br>
+        typeof car;
+      </td>
+      <td id="demo19"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Any variable can be emptied, by setting the value to undefined. The type will also be undefined.</p>
+
+  <h3>Empty Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    An empty value has nothing to do with undefined.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let car = ""; &nbsp;&nbsp;<i>// The value is "", the typeof is "string"</i> <br>
+        typeof car;
+      </td>
+      <td id="demo20"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Null</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In JavaScript, <span class="code">null</span> is "nothing". It is supposed to be something that doesn't exist. Unfortunately, in JavaScript, the data type of null is an object.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Create an Object</i> <br>
+        let person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"}; <br>
+        person = null; &nbsp;&nbsp;<i>// Now value is null, but type is still an object</i> <br>
+        typeof person;
+      </td>
+      <td id="demo21"></td>
+    </tr>
+    <tr>
+      <td>
+        let person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"}; <br>
+        person = undefined; &nbsp;&nbsp;<i>// Now both value and type is undefined</i> <br>
+        typeof person;
+      </td>
+      <td id="demo22"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Difference Between Undefined and Null</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">undefined</span> and <span class="code">null</span> are equal in value but different in type.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>typeof undefined; &nbsp;&nbsp;<i>// undefined</i></td>
+      <td id="demo23"></td>
+    </tr>
+    <tr>
+      <td>typeof null; &nbsp;&nbsp;<i>// object</i></td>
+      <td id="demo24"></td>
+    </tr>
+    <tr>
+      <td>null === undefined; &nbsp;&nbsp;<i>// false</i></td>
+      <td id="demo25"></td>
+    </tr>
+    <tr>
+      <td>null == undefined; &nbsp;&nbsp;<i>// true</i></td>
+      <td id="demo26"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The constructor Property</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">constructor</span> property returns the constructor function for all JavaScript variables.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        {name:'John', age:34}.constructor; &nbsp;&nbsp;<i>// Returns function Object() {}</i>
+      </td>
+      <td id="demo27"></td>
+    </tr>
+    <tr>
+      <td>
+        [1,2,3,4].constructor; &nbsp;&nbsp;<i>// Returns function Array() {}</i>
+      </td>
+      <td id="demo28"></td>
+    </tr>
+    <tr>
+      <td>
+        new Date().constructor; &nbsp;&nbsp;<i>// Returns function Date() {}</i>
+      </td>
+      <td id="demo29"></td>
+    </tr>
+    <tr>
+      <td>
+        new Set().constructor; &nbsp;&nbsp;<i>// Returns function Set() {}</i>
+      </td>
+      <td id="demo30"></td>
+    </tr>
+    <tr>
+      <td>
+        new Map().constructor; &nbsp;&nbsp;<i>// Returns function Map() {}</i>
+      </td>
+      <td id="demo31"></td>
+    </tr>
+    <tr>
+      <td>
+        function (){}.constructor; &nbsp;&nbsp;<i>// Returns function Function() {}</i>
+      </td>
+      <td id="demo32"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can check the constructor property to find out if an object is an Array (contains the word "Array"):
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const myArray = [1, 2, 3]; <br>
+        (myArray.constructor === Array);
+      </td>
+      <td id="demo33"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Or if an object is a Date (contains the word "Date"):
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const myDate = new Date(); <br>
+        (myDate.constructor === Date);
+      </td>
+      <td id="demo34"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>All Together</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A summary of the results from the examples above:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>typeof "John"</td><td id="demo35"></td></tr>
+    <tr><td>typeof ("John"+"Doe")</td><td id="demo36"></td></tr>
+    <tr><td>typeof 3.14</td><td id="demo37"></td></tr>
+    <tr><td>typeof (33 + 66)</td><td id="demo38"></td></tr>
+    <tr><td>typeof NaN</td><td id="demo39"></td></tr>
+    <tr><td>typeof 1234n</td><td id="demo40"></td></tr>
+    <tr><td>typeof true</td><td id="demo41"></td></tr>
+    <tr><td>typeof false</td><td id="demo42"></td></tr>
+    <tr><td>typeof {name:'John'}</td><td id="demo43"></td></tr>
+    <tr><td>typeof [1,2,3,4]</td><td id="demo44"></td></tr>
+    <tr><td>typeof {}</td><td id="demo45"></td></tr>
+    <tr><td>typeof []</td><td id="demo46"></td></tr>
+    <tr><td>typeof new Object()</td><td id="demo47"></td></tr>
+    <tr><td>typeof new Array()</td><td id="demo48"></td></tr>
+    <tr><td>typeof new Date()</td><td id="demo49"></td></tr>
+    <tr><td>typeof new Set()</td><td id="demo50"></td></tr>
+    <tr><td>typeof new Map()</td><td id="demo51"></td></tr>
+    <tr><td>typeof function () {}</td><td id="demo52"></td></tr>
+    <tr><td>typeof x</td><td id="demo53"></td></tr>
+    <tr><td>typeof null</td><td id="demo54"></td></tr>
+    </tbody>
+  </table>
+
+  <h3>The void Operator</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">void</span> operator evaluates an expression and returns undefined. This operator is often used to obtain the undefined primitive value, using "void(0)" when there is no global variable "undefined". <br>
+    <span class="code">&lt;a href="javascript:void(0);"&gt;</span> &nbsp; Useful link <br>
+    <span class="code">&lt;a href="javascript:void(document.body.style.backgroundColor='red');"&gt;</span> &nbsp; Click me to change background color
   </p>
 </section>
 <br>
@@ -369,7 +779,113 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = typeof "John";
+  document.getElementById("demo2").innerHTML = typeof 3.14;
+  document.getElementById("demo3").innerHTML = typeof true;
+  document.getElementById("demo4").innerHTML = typeof 1234n;
+  document.getElementById("demo5").innerHTML = typeof Symbol();
+  (function () { let x; document.getElementById("demo6").innerHTML = typeof x; })();
+  document.getElementById("demo7").innerHTML = typeof null;
 
+  document.getElementById("demo8").innerHTML = typeof {name: 'John'};
+  document.getElementById("demo9").innerHTML = typeof [1, 2, 3, 4];
+  document.getElementById("demo10").innerHTML = typeof new Map();
+  document.getElementById("demo11").innerHTML = typeof new Set();
+  document.getElementById("demo12").innerHTML = typeof function () {};
+
+  (function () {
+    const fruits = ["apples", "bananas", "oranges"];
+    document.getElementById("demo13").innerHTML = Array.isArray(fruits);
+  })();
+
+  (function () {
+    const time = new Date();
+    document.getElementById("demo14").innerHTML = (time instanceof Date);
+  })();
+  (function () {
+    const fruits = ["apples", "bananas", "oranges"];
+    document.getElementById("demo15").innerHTML = (fruits instanceof Array);
+  })();
+  (function () {
+    const fruits = new Map([
+      ["apples", 500],
+      ["bananas", 300],
+      ["oranges", 200]
+    ]);
+    document.getElementById("demo16").innerHTML = (fruits instanceof Map);
+  })();
+  (function () {
+    const fruits = new Set(["apples", "bananas", "oranges"]);
+    document.getElementById("demo17").innerHTML = (fruits instanceof Set);
+  })();
+
+  (function () {
+    let car;
+    document.getElementById("demo18").innerHTML = typeof car;
+  })();
+  (function () {
+    let car = "Volvo";
+    car = undefined;
+    document.getElementById("demo19").innerHTML = typeof car;
+  })();
+
+  (function () {
+    let car = "";
+    document.getElementById("demo20").innerHTML = typeof car;
+  })();
+
+  (function () {
+    let person = {firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue"};
+    person = null;
+    document.getElementById("demo21").innerHTML = typeof person;
+  })();
+  (function () {
+    let person = {firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue"};
+    person = undefined;
+    document.getElementById("demo22").innerHTML = typeof person;
+  })();
+
+  document.getElementById("demo23").innerHTML = typeof undefined;
+  document.getElementById("demo24").innerHTML = typeof null;
+  document.getElementById("demo25").innerHTML = (null === undefined);
+  document.getElementById("demo26").innerHTML = (null == undefined);
+
+  document.getElementById("demo27").innerHTML = {name: 'John', age: 34}.constructor.toString();
+  document.getElementById("demo28").innerHTML = [1, 2, 3, 4].constructor.toString();
+  document.getElementById("demo29").innerHTML = new Date().constructor.toString();
+  document.getElementById("demo30").innerHTML = new Set().constructor.toString();
+  document.getElementById("demo31").innerHTML = new Map().constructor.toString();
+  document.getElementById("demo32").innerHTML = (function () {}).constructor.toString();
+
+  (function () {
+    const myArray = [1, 2, 3];
+    document.getElementById("demo33").innerHTML = (myArray.constructor === Array);
+  })();
+  (function () {
+    const myDate = new Date();
+    document.getElementById("demo34").innerHTML = (myDate.constructor === Date);
+  })();
+
+  document.getElementById("demo35").innerHTML = typeof "John";
+  document.getElementById("demo36").innerHTML = typeof ("John" + "Doe");
+  document.getElementById("demo37").innerHTML = typeof 3.14;
+  document.getElementById("demo38").innerHTML = typeof (33 + 66);
+  document.getElementById("demo39").innerHTML = typeof NaN;
+  document.getElementById("demo40").innerHTML = typeof 1234n;
+  document.getElementById("demo41").innerHTML = typeof true;
+  document.getElementById("demo42").innerHTML = typeof false;
+  document.getElementById("demo43").innerHTML = typeof {name: 'John'};
+  document.getElementById("demo44").innerHTML = typeof [1, 2, 3, 4];
+  document.getElementById("demo45").innerHTML = typeof {};
+  document.getElementById("demo46").innerHTML = typeof [];
+  document.getElementById("demo47").innerHTML = typeof new Object();
+  document.getElementById("demo48").innerHTML = typeof new Array();
+  document.getElementById("demo49").innerHTML = typeof new Date();
+  document.getElementById("demo50").innerHTML = typeof new Set();
+  document.getElementById("demo51").innerHTML = typeof new Map();
+  document.getElementById("demo52").innerHTML = typeof function () {};
+  (function () { document.getElementById("demo53").innerHTML = typeof x; })();
+  document.getElementById("demo54").innerHTML = typeof null;
 </script>
 <!--Page Specific JavaScript End-->
 </body>
