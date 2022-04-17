@@ -322,20 +322,18 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Type Conversion</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    JavaScript variables can be converted to a new variable and another data type: <br>
+    By the use of a JavaScript function, or automatically by JavaScript itself.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Converting Strings to Numbers</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The global method <span class="code">Number()</span> converts a value to a number. A numeric string converts to a number. An empty string converts to 0. Anything else converts to NaN.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +344,473 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>Number("3.14");</td>
+      <td id="demo1"></td>
+    </tr>
+    <tr>
+      <td>Number("");</td>
+      <td id="demo2"></td>
+    </tr>
+    <tr>
+      <td>Number("99 88");</td>
+      <td id="demo3"></td>
+    </tr>
+    <tr>
+      <td>Number("John");</td>
+      <td id="demo4"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <table>
+    <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">Number()</span></td><td>Returns a number, converted from its argument</td></tr>
+    <tr><td><span class="code">parseFloat()</span></td><td>Parses a string and returns a floating point number</td></tr>
+    <tr><td><span class="code">parseInt()</span></td><td>Parses a string and returns an integer</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The Unary + Operator</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The unary <span class="code">+</span> operator can be used to convert a variable to a number.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let y = "5"; &nbsp;&nbsp;<i>// y is a string</i> <br>
+        let x = + y; &nbsp;&nbsp;<i>// x is a number</i>
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    <tr>
+      <td>
+        let y = "John"; &nbsp;&nbsp;<i>// y is a string</i> <br>
+        let x = + y; &nbsp;&nbsp;<i>// x is a number (NaN)</i>
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Converting Numbers to Strings</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The global method <span class="code">String()</span> can convert numbers to strings. It can be used on any type of numbers, literals, variables, or expressions.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        String(x); &nbsp;&nbsp;<i>// returns a string from a number variable x</i>
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    <tr>
+      <td>
+        String(100 + 23); &nbsp;&nbsp;<i>// returns a string from a number from an expression</i>
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The Number method <span class="code">toString()</span> does the same.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>x.toString();</td>
+      <td id="demo9"></td>
+    </tr>
+    <tr>
+      <td>(123).toString();</td>
+      <td id="demo10"></td>
+    </tr>
+    <tr>
+      <td>(100 + 23).toString();</td>
+      <td id="demo11"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>More Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Methods that can be used to convert numbers to strings:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">toExponential()</span></td><td>Returns a string, with a number rounded and written using exponential notation</td></tr>
+    <tr><td><span class="code">toFixed()</span></td><td>Returns a string, with a number rounded and written with a specified number of decimals</td></tr>
+    <tr><td><span class="code">toPrecision()</span></td><td>Returns a string, with a number written with a specified length</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Converting Dates to Numbers</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The global method <span class="code">Number()</span> can be used to convert dates to numbers.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let d = new Date(); <br>
+        Number(d); &nbsp;&nbsp;<i>// returns the number of milliseconds since 1970</i>
+      </td>
+      <td id="demo12"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Date objects can be converted to a number by using the method <span class="code">getTime()</span>.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let d = new Date(); <br>
+        d.getTime();
+      </td>
+      <td id="demo13"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Converting Dates to Strings</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The global method <span class="code">String()</span> can convert dates to strings.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>String(Date());</td>
+      <td id="demo14"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">toString()</span> method does the same.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Date().toString();</td>
+      <td id="demo15"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Date Parts</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript has methods to get each part of a date, as a number:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">getFullYear()</span></td><td>Get the year</td></tr>
+    <tr><td><span class="code">getMonth()</span></td><td>Get the month</td></tr>
+    <tr><td><span class="code">getDate()</span></td><td>Get the day</td></tr>
+    <tr><td><span class="code">getDay()</span></td><td>Get the weekday</td></tr>
+    <tr><td><span class="code">getHours()</span></td><td>Get the hour</td></tr>
+    <tr><td><span class="code">getMinutes()</span></td><td>Get the minute</td></tr>
+    <tr><td><span class="code">getSeconds()</span></td><td>Get the second</td></tr>
+    <tr><td><span class="code">getMilliseconds()</span></td><td>Get the millisecond</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Month is Zero Based</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In JavaScript, the first month (January), has index 0. <br>
+    To compensate, add 1 after conversion:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let date = new Date(); <br>
+        (date.getMonth() + 1).toString();
+      </td>
+      <td id="demo16"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Month Name</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Converting a month number to a name is done with a built-in method, or a lookup list.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let date = new Date(); <br>
+        date.toLocaleString('default', { month: 'long' });
+      </td>
+      <td id="demo17"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Converting Booleans to Numbers</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The global method <span class="code">Number()</span> can also convert booleans to numbers.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Number(false); &nbsp;&nbsp;<i>// returns 0</i></td>
+      <td id="demo18"></td>
+    </tr>
+    <tr>
+      <td>Number(true); &nbsp;&nbsp;<i>// returns 1</i></td>
+      <td id="demo19"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Converting Booleans to Strings</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The global method <span class="code">String()</span> can convert booleans to strings.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>String(false);</td>
+      <td id="demo20"></td>
+    </tr>
+    <tr>
+      <td>String(true);</td>
+      <td id="demo21"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The boolean method <span class="code">toString()</span> does the same.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>false.toString();</td>
+      <td id="demo22"></td>
+    </tr>
+    <tr>
+      <td>true.toString();</td>
+      <td id="demo23"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Automatic Type Conversion</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    When JavaScript tries to operate on a "wrong" data type, it will try to convert the value to a "right" type.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>5 + null; &nbsp;&nbsp;<i>// returns 5</i></td>
+      <td id="demo24"></td>
+    </tr>
+    <tr>
+      <td>"5" + null; &nbsp;&nbsp;<i>// returns "5null"</i></td>
+      <td id="demo25"></td>
+    </tr>
+    <tr>
+      <td>"5" - 2; &nbsp;&nbsp;<i>// returns 3</i></td>
+      <td id="demo26"></td>
+    </tr>
+    <tr>
+      <td>"5" * "2"; &nbsp;&nbsp;<i>// returns 10</i></td>
+      <td id="demo27"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Strings can be added, subtracted, multiplied and divided. If you add a number and a string, JavaScript will treat the number as a string.</p>
+
+  <h3>Automatic String Conversion</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript automatically calls the variable's <span class="code">toString()</span> function when you try to "output" an object or a variable.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>document.getElementById("demo").innerHTML = myVar; &nbsp;&nbsp;<i>// if myVar = {name:"Fjohn"} // toString converts to "[object Object]"</i></td>
+      <td id="demo28"></td>
+    </tr>
+    <tr>
+      <td>document.getElementById("demo").innerHTML = myVar; &nbsp;&nbsp;<i>// if myVar = [1,2,3,4] // toString converts to "1,2,3,4"</i></td>
+      <td id="demo29"></td>
+    </tr>
+    <tr>
+      <td>document.getElementById("demo").innerHTML = myVar; &nbsp;&nbsp;<i>// if myVar = new Date() // toString converts to the date string</i></td>
+      <td id="demo30"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JavaScript Type Conversion Table</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This table shows the result of converting different JavaScript values to Number, String, and Boolean. <br>
+    Values marked with a <strong><i>*</i></strong> are results some programmers would not expect.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Original Value</th>
+      <th>Converted to Number</th>
+      <th>Converted to String</th>
+      <th>Converted to Boolean</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>false</td><td>0</td><td>"false"</td><td>false</td></tr>
+    <tr><td>true</td><td>1</td><td>"true"</td><td>true</td></tr>
+    <tr><td>0</td><td>0</td><td>"0"</td><td>false</td></tr>
+    <tr><td>1</td><td>1</td><td>"1"</td><td>true</td></tr>
+    <tr><td>"0"</td><td>0</td><td>"0"</td><td>true <strong><i>*</i></strong></td></tr>
+    <tr><td>"000"</td><td>0</td><td>"000"</td><td>true <strong><i>*</i></strong></td></tr>
+    <tr><td>"1"</td><td>1</td><td>"1"</td><td>true</td></tr>
+    <tr><td>NaN</td><td>NaN</td><td>"NaN"</td><td>false</td></tr>
+    <tr><td>Infinity</td><td>Infinity</td><td>"Infinity"</td><td>true</td></tr>
+    <tr><td>-Infinity</td><td>-Infinity</td><td>"-Infinity"</td><td>true</td></tr>
+    <tr><td>""</td><td>0</td><td>""</td><td>false</td></tr>
+    <tr><td>"20"</td><td>20</td><td>"20"</td><td>true</td></tr>
+    <tr><td>"twenty"</td><td>NaN</td><td>"twenty"</td><td>true</td></tr>
+    <tr><td>[ ]</td><td>0 <strong><i>*</i></strong></td><td>""</td><td>true</td></tr>
+    <tr><td>[20]</td><td>20 <strong><i>*</i></strong></td><td>"20"</td><td>true</td></tr>
+    <tr><td>[10,20]</td><td>NaN</td><td>"10,20"</td><td>true</td></tr>
+    <tr><td>["twenty"]</td><td>NaN</td><td>"twenty"</td><td>true</td></tr>
+    <tr><td>["ten","twenty"]</td><td>NaN</td><td>"ten,twenty"</td><td>true</td></tr>
+    <tr><td>function(){}</td><td>NaN</td><td>"function(){}"</td><td>true</td></tr>
+    <tr><td>{ }</td><td>NaN</td><td>"[object Object]"</td><td>true</td></tr>
+    <tr><td>null</td><td>0 <strong><i>*</i></strong></td><td>"null"</td><td>false</td></tr>
+    <tr><td>undefined</td><td>NaN</td><td>"undefined"</td><td>false</td></tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +825,82 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = Number("3.14");
+  document.getElementById("demo2").innerHTML = Number("") + " (empty string)";
+  document.getElementById("demo3").innerHTML = Number("99 88");
+  document.getElementById("demo4").innerHTML = Number("John");
 
+  (function () {
+    let y = "5";
+    let x = +y;
+    document.getElementById("demo5").innerHTML = x;
+  })();
+  (function () {
+    let y = "John";
+    let x = +y;
+    document.getElementById("demo6").innerHTML = x;
+  })();
+
+  (function () {
+    let x = 123;
+    document.getElementById("demo7").innerHTML = String(x);
+  })();
+  document.getElementById("demo8").innerHTML = String(100 + 23);
+
+  (function () {
+    let x = 123;
+    document.getElementById("demo9").innerHTML = x.toString();
+  })();
+  document.getElementById("demo10").innerHTML = (123).toString();
+  document.getElementById("demo11").innerHTML = (100 + 23).toString();
+
+  (function () {
+    let d = new Date();
+    document.getElementById("demo12").innerHTML = Number(d);
+  })();
+  (function () {
+    let d = new Date();
+    document.getElementById("demo13").innerHTML = d.getTime();
+  })();
+
+  document.getElementById("demo14").innerHTML = String(Date());
+  document.getElementById("demo15").innerHTML = Date().toString();
+
+  (function () {
+    let date = new Date();
+    document.getElementById("demo16").innerHTML = (date.getMonth() + 1).toString();
+  })();
+
+  (function () {
+    let date = new Date();
+    document.getElementById("demo17").innerHTML = date.toLocaleString('default', { month: 'long' });
+  })();
+
+  document.getElementById("demo18").innerHTML = Number(false);
+  document.getElementById("demo19").innerHTML = Number(true);
+
+  document.getElementById("demo20").innerHTML = String(false);
+  document.getElementById("demo21").innerHTML = String(true);
+  document.getElementById("demo22").innerHTML = false.toString();
+  document.getElementById("demo23").innerHTML = true.toString();
+
+  document.getElementById("demo24").innerHTML = 5 + null;
+  document.getElementById("demo25").innerHTML = "5" + null;
+  document.getElementById("demo26").innerHTML = "5" - 2;
+  document.getElementById("demo27").innerHTML = "5" * "2";
+
+  (function () {
+    let myVar = {name: "Fjohn"};
+    document.getElementById("demo28").innerHTML = myVar;
+  })();
+  (function () {
+    let myVar = [1, 2, 3, 4];
+    document.getElementById("demo29").innerHTML = myVar;
+  })();
+  (function () {
+    let myVar = new Date();
+    document.getElementById("demo30").innerHTML = myVar;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
