@@ -322,20 +322,12 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Regular Expressions</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    A regular expression is a sequence of characters that forms a search pattern. When you search for data in a text, you can use this search pattern to describe what you are searching for. <br>
+    A regular expression can be a single character, or a more complicated pattern. Regular expressions can be used to perform all types of text search and text replace operations.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +338,457 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        let text = "Visit W3Schools"; <br>
+        let n = text.search(/w3schools/i);
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Regular Expression Syntax</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    <span class="code">/pattern/modifiers;</span> <br>
+    <span class="code">pattern</span> describes a pattern of an expression, <span class="code">modifiers</span> can modify the search to be, for instance, global or case insensitive.
   </p>
+
+  <h3>Using String Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In JavaScript, regular expressions are often used with the two string methods: <span class="code">match()</span> and <span class="code">replace()</span>, and the search() method that uses a regular expression.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">match()</span></td><td>Returns an array containing all of the matches, including capturing groups, or null if no match is found</td></tr>
+    <tr><td><span class="code">replace()</span></td><td>Returns a new string with some or all matches of a pattern replaced by a replacement</td></tr>
+    <tr><td><span class="code">search()</span></td><td>Returns the index of the first match between a regular expression and a string, or -1 if no match is found</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Using String match()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">match()</span> method searches a string for a match against a regular expression, and returns the matches.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text = "Visit W3Schools"; <br>
+        let n = text.match(/W3schools/);
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Because there is no "i" modifier, "W3schools" (with lower case "s") does not match "W3Schools" (with upper case "S"), so the result is null.</p>
+
+  <h3>Using String replace()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">replace()</span> method replaces a specified value with another value in a string.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text = "Visit Microsoft!"; <br>
+        let result = text.replace(/Microsoft/i, "W3Schools");
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>By using a regular expression with the "i" flag, the case of the string to be replaced is ignored.</p>
+
+  <h3>Using String search()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">search()</span> method searches a string for a specified value and returns the position of the match.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text = "Visit W3Schools"; <br>
+        let n = text.search(/W3Schools/);
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>RegExp Alternation (OR)</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">|</span> metacharacter is used to specify alternative patterns.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text = "Black, white, red, green, blue, yellow."; <br>
+        let result = text.match(/red|green|blue/g);
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JavaScript Regex Flags</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Flags can be used to perform case-insensitive and global searches:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Flag</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">g</span></td><td>Global search (find all matches, not just the first)</td></tr>
+    <tr><td><span class="code">i</span></td><td>Case-insensitive search</td></tr>
+    <tr><td><span class="code">u</span></td><td>Enables Unicode support</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The /g Flag (Global)</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">g</span> flag is used to find all matches, rather than just the first match.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text = "Is this all there is?"; <br>
+        const pattern = /is/g; <br>
+        let result = text.match(pattern);
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The /i Flag (Insensitive)</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">i</span> flag is used to perform case-insensitive matching.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text = "Visit W3Schools"; <br>
+        const pattern = /w3schools/i; <br>
+        let result = text.match(pattern);
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>RegExp Metacharacters</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Metacharacters are characters with a special meaning.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Metacharacter</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">\d</span></td><td>Find a digit</td></tr>
+    <tr><td><span class="code">\w</span></td><td>Find a word character</td></tr>
+    <tr><td><span class="code">\s</span></td><td>Find a whitespace character</td></tr>
+    </tbody>
+  </table>
+
+  <h3>RegExp \d (digits) Metacharacter</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">\d</span> metacharacter is used to find a digit in a string.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text = "Give 100%!"; <br>
+        const pattern = /\d/g; <br>
+        let result = text.match(pattern);
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>RegExp \w (word) Metacharacter</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">\w</span> metacharacter is used to find a word character. A word character is a character a-z, A-Z, 0-9, including the underscore character.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text = "Give 100%!"; <br>
+        const pattern = /\w/g; <br>
+        let result = text.match(pattern);
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JavaScript RegExp Quantifiers</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Quantifiers define quantities.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Quantifier</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">n+</span></td><td>Matches any string that contains at least one n</td></tr>
+    <tr><td><span class="code">n*</span></td><td>Matches any string that contains zero or more occurrences of n</td></tr>
+    <tr><td><span class="code">n?</span></td><td>Matches any string that contains zero or one occurrences of n</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The ? Quantifier</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">?</span> quantifier makes the preceding character optional.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text = "1, 100 or 1000?"; <br>
+        const pattern = /10?/g; <br>
+        let result = text.match(pattern);
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Regular Expression Assertions</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Assertions include boundaries, which indicate the beginnings and endings of lines and words, and other patterns indicating in some way that a match is possible.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Assertion</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">^</span></td><td>Start of string</td></tr>
+    <tr><td><span class="code">$</span></td><td>End of string</td></tr>
+    <tr><td><span class="code">\b</span></td><td>A word boundary</td></tr>
+    <tr><td><span class="code">(?=...)</span></td><td>Lookahead assertion</td></tr>
+    <tr><td><span class="code">(?&lt;=...)</span></td><td>Lookbehind assertion</td></tr>
+    </tbody>
+  </table>
+
+  <h3>RegExp ^ Metacharacter</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">^</span> metacharacter is used to find a match at the beginning of a string.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const pattern = /^W3Schools/; <br>
+        let text = "W3Schools Tutorial"; <br>
+        let result = pattern.test(text); &nbsp;&nbsp;<i>// true</i>
+      </td>
+      <td id="demo11"></td>
+    </tr>
+    <tr>
+      <td>
+        const pattern = /^W3Schools/; <br>
+        let text = "Hello W3Schools"; <br>
+        let result = pattern.test(text); &nbsp;&nbsp;<i>// false</i>
+      </td>
+      <td id="demo12"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>RegExp $ Metacharacter</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">$</span> metacharacter is used to find a match at the end of a string.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const pattern = /W3Schools$/; <br>
+        let text = "Hello W3Schools"; <br>
+        let result = pattern.test(text); &nbsp;&nbsp;<i>// true</i>
+      </td>
+      <td id="demo13"></td>
+    </tr>
+    <tr>
+      <td>
+        const pattern = /W3Schools$/; <br>
+        let text = "W3Schools tutorial"; <br>
+        let result = pattern.test(text); &nbsp;&nbsp;<i>// false</i>
+      </td>
+      <td id="demo14"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JavaScript RegExp Character Classes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Character classes define a set of characters, any of which can occur in an input string to fulfill a match.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Expression</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">[abc]</span></td><td>Find any of the characters between the brackets</td></tr>
+    <tr><td><span class="code">[0-9]</span></td><td>Find any of the digits between the brackets</td></tr>
+    <tr><td><span class="code">(x|y)</span></td><td>Find any of the alternatives separated with |</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Example [0-9]</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The character class <span class="code">[0-9]</span> can be used to find digits in a text.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text = "More than 1000 times"; <br>
+        const pattern = /[0-9]/g; <br>
+        let result = text.match(pattern);
+      </td>
+      <td id="demo15"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +803,103 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    let text = "Visit W3Schools";
+    let n = text.search(/w3schools/i);
+    document.getElementById("demo1").innerHTML = n;
+  })();
 
+  (function () {
+    let text = "Visit W3Schools";
+    let n = text.match(/W3schools/);
+    document.getElementById("demo2").innerHTML = n;
+  })();
+
+  (function () {
+    let text = "Visit Microsoft!";
+    let result = text.replace(/Microsoft/i, "W3Schools");
+    document.getElementById("demo3").innerHTML = result;
+  })();
+
+  (function () {
+    let text = "Visit W3Schools";
+    let n = text.search(/W3Schools/);
+    document.getElementById("demo4").innerHTML = n;
+  })();
+
+  (function () {
+    let text = "Black, white, red, green, blue, yellow.";
+    let result = text.match(/red|green|blue/g);
+    document.getElementById("demo5").innerHTML = result;
+  })();
+
+  (function () {
+    let text = "Is this all there is?";
+    const pattern = /is/g;
+    let result = text.match(pattern);
+    document.getElementById("demo6").innerHTML = result;
+  })();
+
+  (function () {
+    let text = "Visit W3Schools";
+    const pattern = /w3schools/i;
+    let result = text.match(pattern);
+    document.getElementById("demo7").innerHTML = result;
+  })();
+
+  (function () {
+    let text = "Give 100%!";
+    const pattern = /\d/g;
+    let result = text.match(pattern);
+    document.getElementById("demo8").innerHTML = result;
+  })();
+
+  (function () {
+    let text = "Give 100%!";
+    const pattern = /\w/g;
+    let result = text.match(pattern);
+    document.getElementById("demo9").innerHTML = result;
+  })();
+
+  (function () {
+    let text = "1, 100 or 1000?";
+    const pattern = /10?/g;
+    let result = text.match(pattern);
+    document.getElementById("demo10").innerHTML = result;
+  })();
+
+  (function () {
+    const pattern = /^W3Schools/;
+    let text = "W3Schools Tutorial";
+    let result = pattern.test(text);
+    document.getElementById("demo11").innerHTML = result;
+  })();
+  (function () {
+    const pattern = /^W3Schools/;
+    let text = "Hello W3Schools";
+    let result = pattern.test(text);
+    document.getElementById("demo12").innerHTML = result;
+  })();
+
+  (function () {
+    const pattern = /W3Schools$/;
+    let text = "Hello W3Schools";
+    let result = pattern.test(text);
+    document.getElementById("demo13").innerHTML = result;
+  })();
+  (function () {
+    const pattern = /W3Schools$/;
+    let text = "W3Schools tutorial";
+    let result = pattern.test(text);
+    document.getElementById("demo14").innerHTML = result;
+  })();
+
+  (function () {
+    let text = "More than 1000 times";
+    const pattern = /[0-9]/g;
+    let result = text.match(pattern);
+    document.getElementById("demo15").innerHTML = result;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
