@@ -322,20 +322,21 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Operator Precedence</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Operator precedence describes the order operations are performed in an arithmetic expression.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Order of Operation</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Is the result of the example below 15 or 20? <br>
+    Is it like adding 10 + 5 and multiplying with 3, or is like multiplying 5 * 3 and adding 10? <br>
+    As in traditional school mathematics, multiplication is done first. <br>
+    Multiplication (*) and division (/) have higher precedence than addition (+) and subtraction (-). <br>
+    And (as in school mathematics) the precedence can be changed by using parentheses.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +347,129 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>let x = 100 + 50 * 3;</td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    When using parentheses, the operations inside the parentheses are computed first.
   </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>let x = (100 + 50) * 3;</td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    When many operations have the same precedence (like addition and subtraction, or multiplication and division), they are computed from left to right.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>let x = 100 / 50 * 3;</td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Operator Precedence Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The table below lists the operator precedence of all arithmetic, logical, comparison, bitwise and assignment operators, from highest (18) to lowest (1) precedence.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Value</th>
+      <th>Operator</th>
+      <th>Description</th>
+      <th>Example</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>18</td><td><span class="code">( )</span></td><td>Expression grouping</td><td>(100 + 50) * 3</td></tr>
+    <tr><td>17</td><td><span class="code">.</span></td><td>Member access</td><td>person.name</td></tr>
+    <tr><td>17</td><td><span class="code">[]</span></td><td>Member access (bracket notation)</td><td>person["name"]</td></tr>
+    <tr><td>17</td><td><span class="code">?.</span></td><td>Optional chaining</td><td>x ?. y</td></tr>
+    <tr><td>17</td><td><span class="code">()</span></td><td>Function call</td><td>myFunction()</td></tr>
+    <tr><td>17</td><td><span class="code">new</span></td><td>New with argument list</td><td>new Date("June 5,2022")</td></tr>
+    <tr><td>16</td><td><span class="code">new</span></td><td>New without argument list</td><td>new Date()</td></tr>
+    <tr><td>15</td><td><span class="code">++</span></td><td>Postfix increment</td><td>i++</td></tr>
+    <tr><td>15</td><td><span class="code">--</span></td><td>Postfix decrement</td><td>i--</td></tr>
+    <tr><td>14</td><td><span class="code">++</span></td><td>Prefix increment</td><td>++i</td></tr>
+    <tr><td>14</td><td><span class="code">--</span></td><td>Prefix decrement</td><td>--i</td></tr>
+    <tr><td>14</td><td><span class="code">!</span></td><td>Logical NOT</td><td>!(x==y)</td></tr>
+    <tr><td>14</td><td><span class="code">~</span></td><td>Bitwise NOT</td><td>~x</td></tr>
+    <tr><td>14</td><td><span class="code">+</span></td><td>Unary plus</td><td>+x</td></tr>
+    <tr><td>14</td><td><span class="code">-</span></td><td>Unary minus</td><td>-x</td></tr>
+    <tr><td>14</td><td><span class="code">typeof</span></td><td>Data type</td><td>typeof x</td></tr>
+    <tr><td>14</td><td><span class="code">void</span></td><td>Evaluate void</td><td>void(0)</td></tr>
+    <tr><td>14</td><td><span class="code">delete</span></td><td>Property delete</td><td>delete myCar.color</td></tr>
+    <tr><td>13</td><td><span class="code">**</span></td><td>Exponentiation</td><td>10 ** 2</td></tr>
+    <tr><td>12</td><td><span class="code">*</span></td><td>Multiplication</td><td>10 * 5</td></tr>
+    <tr><td>12</td><td><span class="code">/</span></td><td>Division</td><td>10 / 5</td></tr>
+    <tr><td>12</td><td><span class="code">%</span></td><td>Remainder</td><td>10 % 5</td></tr>
+    <tr><td>11</td><td><span class="code">+</span></td><td>Addition</td><td>10 + 5</td></tr>
+    <tr><td>11</td><td><span class="code">-</span></td><td>Subtraction</td><td>10 - 5</td></tr>
+    <tr><td>11</td><td><span class="code">+</span></td><td>Concatenation</td><td>"John" + "Doe"</td></tr>
+    <tr><td>10</td><td><span class="code">&lt;&lt;</span></td><td>Shift left</td><td>x &lt;&lt; 2</td></tr>
+    <tr><td>10</td><td><span class="code">&gt;&gt;</span></td><td>Shift right (signed)</td><td>x &gt;&gt; 2</td></tr>
+    <tr><td>10</td><td><span class="code">&gt;&gt;&gt;</span></td><td>Shift right (unsigned)</td><td>x &gt;&gt;&gt; 2</td></tr>
+    <tr><td>9</td><td><span class="code">in</span></td><td>Property in object</td><td>"PI" in Math</td></tr>
+    <tr><td>9</td><td><span class="code">instanceof</span></td><td>Instance of object</td><td>x instanceof Array</td></tr>
+    <tr><td>9</td><td><span class="code">&lt;</span></td><td>Less than</td><td>x &lt; y</td></tr>
+    <tr><td>9</td><td><span class="code">&lt;=</span></td><td>Less than or equal</td><td>x &lt;= y</td></tr>
+    <tr><td>9</td><td><span class="code">&gt;</span></td><td>Greater than</td><td>x &gt; y</td></tr>
+    <tr><td>9</td><td><span class="code">&gt;=</span></td><td>Greater than or equal</td><td>x &gt;= y</td></tr>
+    <tr><td>8</td><td><span class="code">==</span></td><td>Equal</td><td>x == y</td></tr>
+    <tr><td>8</td><td><span class="code">===</span></td><td>Strict equal</td><td>x === y</td></tr>
+    <tr><td>8</td><td><span class="code">!=</span></td><td>Unequal</td><td>x != y</td></tr>
+    <tr><td>8</td><td><span class="code">!==</span></td><td>Strict unequal</td><td>x !== y</td></tr>
+    <tr><td>7</td><td><span class="code">&amp;</span></td><td>Bitwise AND</td><td>x &amp; y</td></tr>
+    <tr><td>6</td><td><span class="code">^</span></td><td>Bitwise XOR</td><td>x ^ y</td></tr>
+    <tr><td>5</td><td><span class="code">|</span></td><td>Bitwise OR</td><td>x | y</td></tr>
+    <tr><td>4</td><td><span class="code">&amp;&amp;</span></td><td>Logical AND</td><td>x &amp;&amp; y</td></tr>
+    <tr><td>3</td><td><span class="code">||</span></td><td>Logical OR</td><td>x || y</td></tr>
+    <tr><td>3</td><td><span class="code">??</span></td><td>Nullish coalescing</td><td>x ?? y</td></tr>
+    <tr><td>2</td><td><span class="code">? :</span></td><td>Conditional (ternary)</td><td>? "yes" : "no"</td></tr>
+    <tr><td>2</td><td><span class="code">=</span></td><td>Simple assignment</td><td>x = y</td></tr>
+    <tr><td>2</td><td><span class="code">+=</span></td><td>Addition assignment</td><td>x += y</td></tr>
+    <tr><td>2</td><td><span class="code">-=</span></td><td>Subtraction assignment</td><td>x -= y</td></tr>
+    <tr><td>2</td><td><span class="code">*=</span></td><td>Multiplication assignment</td><td>x *= y</td></tr>
+    <tr><td>2</td><td><span class="code">**=</span></td><td>Exponentiation assignment</td><td>x **= y</td></tr>
+    <tr><td>2</td><td><span class="code">/=</span></td><td>Division assignment</td><td>x /= y</td></tr>
+    <tr><td>2</td><td><span class="code">%=</span></td><td>Remainder assignment</td><td>x %= y</td></tr>
+    <tr><td>2</td><td><span class="code">&lt;&lt;=</span></td><td>Left shift assignment</td><td>x &lt;&lt;= y</td></tr>
+    <tr><td>2</td><td><span class="code">&gt;&gt;=</span></td><td>Right shift assignment</td><td>x &gt;&gt;= y</td></tr>
+    <tr><td>2</td><td><span class="code">&gt;&gt;&gt;=</span></td><td>Unsigned right shift assignment</td><td>x &gt;&gt;&gt;= y</td></tr>
+    <tr><td>2</td><td><span class="code">&amp;=</span></td><td>Bitwise AND assignment</td><td>x &amp;= y</td></tr>
+    <tr><td>2</td><td><span class="code">|=</span></td><td>Bitwise OR assignment</td><td>x |= y</td></tr>
+    <tr><td>2</td><td><span class="code">^=</span></td><td>Bitwise XOR assignment</td><td>x ^= y</td></tr>
+    <tr><td>2</td><td><span class="code">&amp;&amp;=</span></td><td>Logical AND assignment</td><td>x &amp;&amp;= y</td></tr>
+    <tr><td>2</td><td><span class="code">||=</span></td><td>Logical OR assignment</td><td>x ||= y</td></tr>
+    <tr><td>2</td><td><span class="code">=&gt;</span></td><td>Arrow</td><td>x =&gt; y</td></tr>
+    <tr><td>2</td><td><span class="code">yield</span></td><td>Pause / resume</td><td>yield x</td></tr>
+    <tr><td>2</td><td><span class="code">yield*</span></td><td>Delegate</td><td>yield* x</td></tr>
+    <tr><td>2</td><td><span class="code">...</span></td><td>Spread</td><td>...x</td></tr>
+    <tr><td>1</td><td><span class="code">,</span></td><td>Comma</td><td>x , y</td></tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +484,20 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    let x = 100 + 50 * 3;
+    document.getElementById("demo1").innerHTML = x;
+  })();
 
+  (function () {
+    let x = (100 + 50) * 3;
+    document.getElementById("demo2").innerHTML = x;
+  })();
+
+  (function () {
+    let x = 100 / 50 * 3;
+    document.getElementById("demo3").innerHTML = x;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
