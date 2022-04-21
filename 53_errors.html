@@ -322,20 +322,32 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The try Statement</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The <span class="code">try</span> statement allows you to define a block of code to be tested for errors while it is being executed. <br>
+    The try statement allows you to define a block of code to be tested for errors while it is being executed. The catch statement allows you to define a block of code to be executed, if an error occurs in the try block. The finally statement lets you execute code, after try and catch, regardless of the result.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>The Try Block</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The try block lets you test a block of code for errors. <br>
+    <strong>Syntax</strong> <br>
+    try { <br>
+    &nbsp;&nbsp;<i>// Code that may cause an error</i> <br>
+    } catch (error) { <br>
+    &nbsp;&nbsp;<i>// Code to handle the error</i> <br>
+    }
+  </p>
+
+  <h3>The Catch Block</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The catch block lets you handle the error. <br>
+    The catch statement allows you to define a block of code to be executed, if an error occurs in the try block. <br>
+    JavaScript catches <span class="code">x</span> as an error object with the error information.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +358,159 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        try { <br>
+        &nbsp;&nbsp;adddlert("Welcome guest!"); <br>
+        } catch(err) { <br>
+        &nbsp;&nbsp;document.getElementById("demo").innerHTML = err.message; <br>
+        }
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>The Finally Block (Optional)</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The finally statement lets you execute code, after try and catch, regardless of the result. <br>
+    <strong>Syntax</strong> <br>
+    try { <br>
+    &nbsp;&nbsp;<i>// Code that may cause an error</i> <br>
+    } catch (error) { <br>
+    &nbsp;&nbsp;<i>// Code to handle the error</i> <br>
+    } finally { <br>
+    &nbsp;&nbsp;<i>// Code that always runs, no matter what</i> <br>
+    }
   </p>
+
+  <h3>JavaScript Throws Errors</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    When an error occurs, JavaScript will normally stop and generate an error message. <br>
+    The technical term for this is: JavaScript will throw an exception (throw an error). <br>
+    JavaScript will actually create an Error object with two properties: <span class="code">name</span> and <span class="code">message</span>.
+  </p>
+
+  <h3>The throw Statement</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The throw statement allows you to create a custom error. <br>
+    Technically you can throw an exception (throw an error). The exception can be a JavaScript String, a Number, a Boolean or an Object.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        try { <br>
+        &nbsp;&nbsp;throw "Too big"; &nbsp;&nbsp;<i>// throw a text</i> <br>
+        } catch(err) { <br>
+        &nbsp;&nbsp;document.getElementById("demo2").innerHTML = err; <br>
+        }
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    <tr>
+      <td>
+        try { <br>
+        &nbsp;&nbsp;throw 500; &nbsp;&nbsp;<i>// throw a number</i> <br>
+        } catch(err) { <br>
+        &nbsp;&nbsp;document.getElementById("demo3").innerHTML = err; <br>
+        }
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>If you use throw together with try and catch, you can control program flow and generate custom error messages.</p>
+
+  <h3>Input Validation Example</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This example examines input. If the value is wrong, an exception (err) is thrown. The exception (err) is caught by the catch statement and a custom error message is displayed:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myFunction(x) { <br>
+        &nbsp;&nbsp;let message; <br>
+        &nbsp;&nbsp;try { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (x.trim() == "") throw "empty"; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (isNaN(x)) throw "not a number"; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;x = Number(x); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (x &lt; 5) throw "too low"; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (x &gt; 10) throw "too high"; <br>
+        &nbsp;&nbsp;} catch(err) { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;message = "Input is " + err; <br>
+        &nbsp;&nbsp;} <br>
+        &nbsp;&nbsp;return message; <br>
+        } <br>
+        myFunction("2");
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>HTML Validation</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    HTML form validation can be performed automatically by the browser, without using JavaScript: if a number in an input field is less than 5 or greater than 10, the input is invalid. <br>
+    <span class="code">&lt;input id="demo" type="number" min="5" max="10"&gt;</span>
+  </p>
+
+  <h3>Finally Example</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The code in the finally block is executed regardless of the try / catch result:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myFunction(x) { <br>
+        &nbsp;&nbsp;let message, input = x; <br>
+        &nbsp;&nbsp;try { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (input.trim() == "") throw "is empty"; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (isNaN(input)) throw "is not a number"; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;input = Number(input); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (input &gt; 10) throw "is too high"; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (input &lt; 5) throw "is too low"; <br>
+        &nbsp;&nbsp;} catch(err) { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;message = "Error: " + err + "."; <br>
+        &nbsp;&nbsp;} finally { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;input = ""; &nbsp;&nbsp;<i>// clear the input field</i> <br>
+        &nbsp;&nbsp;} <br>
+        &nbsp;&nbsp;return message; <br>
+        } <br>
+        myFunction("12");
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +525,64 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    try {
+      adddlert("Welcome guest!");
+    } catch (err) {
+      document.getElementById("demo1").innerHTML = err.message;
+    }
+  })();
 
+  (function () {
+    try {
+      throw "Too big";
+    } catch (err) {
+      document.getElementById("demo2").innerHTML = err;
+    }
+  })();
+  (function () {
+    try {
+      throw 500;
+    } catch (err) {
+      document.getElementById("demo3").innerHTML = err;
+    }
+  })();
+
+  (function () {
+    function myFunction(x) {
+      let message;
+      try {
+        if (x.trim() == "") throw "empty";
+        if (isNaN(x)) throw "not a number";
+        x = Number(x);
+        if (x < 5) throw "too low";
+        if (x > 10) throw "too high";
+      } catch (err) {
+        message = "Input is " + err;
+      }
+      return message;
+    }
+    document.getElementById("demo4").innerHTML = myFunction("2");
+  })();
+
+  (function () {
+    function myFunction(x) {
+      let message, input = x;
+      try {
+        if (input.trim() == "") throw "is empty";
+        if (isNaN(input)) throw "is not a number";
+        input = Number(input);
+        if (input > 10) throw "is too high";
+        if (input < 5) throw "is too low";
+      } catch (err) {
+        message = "Error: " + err + ".";
+      } finally {
+        input = "";
+      }
+      return message;
+    }
+    document.getElementById("demo5").innerHTML = myFunction("12");
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
