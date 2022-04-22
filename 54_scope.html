@@ -322,20 +322,19 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Scope = Visibility</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    In JavaScript, scope is the set of variables, objects, and functions you have access to. <br>
+    JavaScript has function scope: each function creates a new scope. Scope determines the accessibility (visibility) of these variables. <br>
+    Variables defined inside a function are not accessible (visible) from outside the function. Variables declared with var, let, and const are quite similar when declared inside a function.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Global Scope</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Variables declared outside a function, become global.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +345,249 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        var x = 1; &nbsp;&nbsp;<i>// Global scope</i> <br>
+        let y = 2; &nbsp;&nbsp;<i>// Global scope</i> <br>
+        const z = 3; &nbsp;&nbsp;<i>// Global scope</i>
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    A global variable has global scope. All scripts and functions on a web page can access it.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let carName = "Volvo"; <br>
+        <i>// code here can use carName</i> <br>
+        function myFunction() { <br>
+        &nbsp;&nbsp;<i>// code here can also use carName</i> <br>
+        }
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Function Scope</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Variables declared within a JavaScript function, become local to the function.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myFunction1() { <br>
+        &nbsp;&nbsp;var carName = "Volvo"; &nbsp;&nbsp;<i>// Function Scope</i> <br>
+        } <br>
+        <br>
+        function myFunction2() { <br>
+        &nbsp;&nbsp;let carName = "Volvo"; &nbsp;&nbsp;<i>// Function Scope</i> <br>
+        } <br>
+        <br>
+        function myFunction3() { <br>
+        &nbsp;&nbsp;const carName = "Volvo"; &nbsp;&nbsp;<i>// Function Scope</i> <br>
+        }
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Local variables are deleted when the function is completed. Local variables have Function scope: they can only be accessed from within the function.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// code here can NOT use carName</i> <br>
+        <br>
+        function myFunction() { <br>
+        &nbsp;&nbsp;let carName = "Volvo"; <br>
+        &nbsp;&nbsp;<i>// code here CAN use carName</i> <br>
+        } <br>
+        <br>
+        <i>// code here can NOT use carName</i>
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Local Variables have Function Scope</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Since local variables are only recognized inside their functions, variables with the same name can be used in different functions. <br>
+    Local variables are created when a function starts, and deleted when the function is completed.
+  </p>
+
+  <h3>Block Scope</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Before ES6 (2015), JavaScript had only Global Scope and Function Scope. <br>
+    ES6 introduced two important new JavaScript keywords: <span class="code">let</span> and <span class="code">const</span>. These two keywords provide Block Scope in JavaScript. Variables declared inside a { } block cannot be accessed from outside the block.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        { <br>
+        &nbsp;&nbsp;let x = 2; <br>
+        } <br>
+        <i>// x can NOT be used here</i>
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Variables declared with the var keyword can NOT have block scope.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        { <br>
+        &nbsp;&nbsp;var x = 2; <br>
+        } <br>
+        <i>// x CAN be used here</i>
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Variables declared with var, inside a block, can be accessed from outside the block. This behavior is not recommended.</p>
+
+  <h3>Automatically Global</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you assign a value to a variable that has not been declared, it will automatically become a GLOBAL variable.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        myFunction(); <br>
+        <br>
+        <i>// code here can use carName</i> <br>
+        <br>
+        function myFunction() { <br>
+        &nbsp;&nbsp;carName = "Volvo"; <br>
+        }
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>This example, for simplicity, is not in strict mode. This would not have worked if the assignment carName = "Volvo" had happened in strict mode.</p>
+
+  <h3>Strict Mode</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    All modern browsers support running JavaScript in "Strict Mode". Strict mode makes it easier to write "secure" JavaScript. Strict mode changes previously accepted "bad syntax" into real errors. In strict mode, you will get an error if you try to use an undeclared variable.
+  </p>
+
+  <h3>Global Variables in HTML</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    With JavaScript, the global scope is the JavaScript environment. <br>
+    In HTML, the global scope is the window object. Global variables defined with the var keyword belong to the window object.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        var carName = "Volvo"; <br>
+        <i>// code here can use window.carName</i>
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Global variables defined with the let keyword do not belong to the window object.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let carName = "Volvo"; <br>
+        <i>// code here can NOT use window.carName</i>
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Warning</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Global variables and functions can be overwritten by other scripts. All JavaScript (and HTML) files executed on the same page, share the same global scope. In an HTML program, global variables are Window Object properties.
+  </p>
+
+  <h3>The Lifetime of JavaScript Variables</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The lifetime of a JavaScript variable starts when it is declared. <br>
+    Function (local) variables are deleted when the function is completed. <br>
+    In a web browser, global variables are deleted when you close the browser window (or tab). <br>
+    Function arguments (parameters) work as local variables inside functions.
   </p>
 </section>
 <br>
@@ -369,7 +603,82 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    var x = 1;
+    let y = 2;
+    const z = 3;
+    document.getElementById("demo1").innerHTML = x + ", " + y + ", " + z;
+  })();
 
+  (function () {
+    let carName = "Volvo";
+    function myFunction() {
+      return carName;
+    }
+    document.getElementById("demo2").innerHTML = "carName accessible inside function: " + myFunction();
+  })();
+
+  (function () {
+    function myFunction1() {
+      var carName = "Volvo";
+      return carName;
+    }
+    function myFunction2() {
+      let carName = "Volvo";
+      return carName;
+    }
+    function myFunction3() {
+      const carName = "Volvo";
+      return carName;
+    }
+    document.getElementById("demo3").innerHTML = myFunction1() + ", " + myFunction2() + ", " + myFunction3();
+  })();
+
+  (function () {
+    function myFunction() {
+      let carName = "Volvo";
+      return carName;
+    }
+    document.getElementById("demo4").innerHTML = "carName CAN be used inside: " + myFunction() + " — but not outside";
+  })();
+
+  (function () {
+    {
+      let x = 2;
+    }
+    let result;
+    try {
+      result = x;
+    } catch (err) {
+      result = "ReferenceError: x is not defined outside the block";
+    }
+    document.getElementById("demo5").innerHTML = result;
+  })();
+
+  (function () {
+    {
+      var x = 2;
+    }
+    document.getElementById("demo6").innerHTML = "x CAN be used here: " + x;
+  })();
+
+  (function () {
+    myFunction();
+    document.getElementById("demo7").innerHTML = "carName is now global: " + carName;
+    function myFunction() {
+      carName = "Volvo";
+    }
+  })();
+
+  (function () {
+    var carName = "Volvo";
+    document.getElementById("demo8").innerHTML = "window.carName: " + window.carName;
+  })();
+
+  (function () {
+    let carName2 = "Volvo";
+    document.getElementById("demo9").innerHTML = "window.carName2: " + window.carName2;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
