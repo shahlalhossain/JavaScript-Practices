@@ -322,20 +322,19 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The "use strict" Directive</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The <span class="code">"use strict";</span> directive was new in ECMAScript version 5. <br>
+    It is not a statement, but a literal expression, ignored by earlier versions of JavaScript. <br>
+    The purpose of <span class="code">"use strict"</span> is to indicate that the code should be executed in "strict mode". With strict mode, you can not, for example, use undeclared variables.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Declaring Strict Mode</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Strict mode is declared by adding <span class="code">"use strict";</span> to the beginning of a script or a function. Declared at the beginning of a script, it has global scope (all code in the script will execute in strict mode).
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +345,90 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        "use strict"; <br>
+        x = 3.14; &nbsp;&nbsp;<i>// This will cause an error because x is not declared</i>
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Strict mode declared inside a function has local scope (only the code inside the function is in strict mode).
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        x = 3.14; &nbsp;&nbsp;<i>// This will not cause an error.</i> <br>
+        myFunction(); <br>
+        <br>
+        function myFunction() { <br>
+        &nbsp;&nbsp;"use strict"; <br>
+        &nbsp;&nbsp;y = 3.14; &nbsp;&nbsp;<i>// This will cause an error</i> <br>
+        }
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The "use strict"; Syntax</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The syntax was designed this way (as a string literal, and not actual syntax) to be compatible with older browsers that do not support strict mode. <br>
+    A script or function with <span class="code">"use strict";</span> on a line before any other statements signals that the code should be executed in strict mode.
+  </p>
+
+  <h3>Why Strict Mode?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Strict mode makes it easier to write "secure" JavaScript. <br>
+    Strict mode changes previously accepted "bad syntax" into real errors. As an example, in normal JavaScript, mistyping a variable name creates a new global variable. In strict mode, this will throw an error, making it impossible to accidentally create a global variable. <br>
+    In normal JavaScript, a developer will not receive any error feedback assigning values to non-writable properties. In strict mode, any assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object, will throw an error.
+  </p>
+
+  <h3>Not Allowed in Strict Mode</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Using a variable or an object, without declaring it, is not allowed; deleting a variable (or object) is not allowed; deleting a function is not allowed; duplicating a parameter name is not allowed; octal numeric literals are not allowed; octal escape characters are not allowed; writing to a read-only or a get-only property is not allowed; deleting an undeletable property is not allowed; using the word <span class="code">eval</span> or <span class="code">arguments</span> as a variable name is not allowed; the <span class="code">with</span> statement is not allowed; <span class="code">eval()</span> creating variables in the scope from which it was called is not allowed.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Not Allowed Case</th>
+      <th>Code</th>
+      <th>Result</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>Undeclared variable</td><td>x = 3.14;</td><td id="demo3"></td></tr>
+    <tr><td>Undeclared object</td><td>x = &#123;p1:10, p2:20&#125;;</td><td id="demo4"></td></tr>
+    <tr><td>Deleting a variable</td><td>let x = 3.14; delete x;</td><td id="demo5"></td></tr>
+    <tr><td>Deleting a function</td><td>function x(p1, p2) &#123;&#125;; delete x;</td><td id="demo6"></td></tr>
+    <tr><td>Duplicate parameter name</td><td>function x(p1, p1) &#123;&#125;;</td><td id="demo7"></td></tr>
+    <tr><td>Octal numeric literal</td><td>let x = 010;</td><td id="demo8"></td></tr>
+    <tr><td>Writing to a read-only property</td><td>obj.x = 3.14; &nbsp;<i>(x is writable:false)</i></td><td id="demo9"></td></tr>
+    <tr><td>Writing to a get-only property</td><td>obj.x = 3.14; &nbsp;<i>(x has only a getter)</i></td><td id="demo10"></td></tr>
+    <tr><td>"eval" as a variable name</td><td>let eval = 3.14;</td><td id="demo11"></td></tr>
+    <tr><td>"arguments" as a variable name</td><td>let arguments = 3.14;</td><td id="demo12"></td></tr>
+    <tr><td>this in a function (not an object method)</td><td>function myFunction() &#123; return this; &#125;</td><td id="demo13"></td></tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The <span class="code">with</span> statement and octal escape characters (like <span class="code">"\010"</span>) are also not allowed in strict mode. <span class="code">eval()</span> is not allowed to declare variables (with <span class="code">var</span> or <span class="code">let</span>) that leak into the surrounding scope.</p>
+
+  <h3>Watch Out!</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Strict mode is supported in all modern browsers. <br>
+    Using strict mode in older unsupported browsers will not generate errors. The script will just run with different results. Avoid relying on strict mode if the specific errors it produces are important for your code.
   </p>
 </section>
 <br>
@@ -369,7 +444,134 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    try {
+      eval('"use strict"; x = 3.14;');
+      document.getElementById("demo1").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo1").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
 
+  (function () {
+    try {
+      eval('x = 3.14; myFunction(); function myFunction() { "use strict"; y = 3.14; }');
+      document.getElementById("demo2").innerHTML = "outer assignment OK, inner threw";
+    } catch (err) {
+      document.getElementById("demo2").innerHTML = "outer OK, inner: " + err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    "use strict";
+    try {
+      eval("x = 3.14;");
+      document.getElementById("demo3").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo3").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    "use strict";
+    try {
+      eval("x = {p1:10, p2:20};");
+      document.getElementById("demo4").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo4").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    "use strict";
+    try {
+      eval("let x = 3.14; delete x;");
+      document.getElementById("demo5").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo5").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    "use strict";
+    try {
+      eval("function x(p1, p2) {}; delete x;");
+      document.getElementById("demo6").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo6").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    "use strict";
+    try {
+      eval("function x(p1, p1) {};");
+      document.getElementById("demo7").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo7").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    "use strict";
+    try {
+      eval("let x = 010;");
+      document.getElementById("demo8").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo8").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    "use strict";
+    try {
+      const obj = {};
+      Object.defineProperty(obj, "x", { value: 0, writable: false });
+      obj.x = 3.14;
+      document.getElementById("demo9").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo9").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    "use strict";
+    try {
+      const obj = { get x() { return 0; } };
+      obj.x = 3.14;
+      document.getElementById("demo10").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo10").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    "use strict";
+    try {
+      eval("let eval = 3.14;");
+      document.getElementById("demo11").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo11").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    "use strict";
+    try {
+      eval("let arguments = 3.14;");
+      document.getElementById("demo12").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo12").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    "use strict";
+    function myFunction() {
+      return this;
+    }
+    document.getElementById("demo13").innerHTML = "this = " + myFunction();
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
