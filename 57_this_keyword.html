@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>"this" in an Object Method</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    When used in an object method, <span class="code">this</span> refers to the object.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +337,184 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;id: 5566, <br>
+        &nbsp;&nbsp;fullName: function() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return this.firstName + " " + this.lastName; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;; <br>
+        person.fullName();
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Note: </i></strong>Alone, <span class="code">this</span> refers to the global object. In a function, in the global scope, <span class="code">this</span> refers to the global object. In a function, in strict mode, <span class="code">this</span> is undefined. In an event, <span class="code">this</span> refers to the element that received the event. Methods like <span class="code">call()</span>, <span class="code">apply()</span>, and <span class="code">bind()</span> can refer <span class="code">this</span> to any object.</p>
+
+  <h3>Object Method Binding</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    In an object method, <span class="code">this</span> refers to the "owner" of the method. In the example above, <span class="code">this</span> is the person object that "owns" the <span class="code">fullName</span> function.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;id: 5566, <br>
+        &nbsp;&nbsp;myFunction: function() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return this; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;; <br>
+        person.myFunction();
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In other words, <span class="code">this.firstName</span> means the <span class="code">firstName</span> property of <span class="code">this</span> object.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;id: 5566, <br>
+        &nbsp;&nbsp;fullName: function() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return this.firstName + " " + this.lastName; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;; <br>
+        person.fullName();
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Explicit Function Binding</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">call()</span> and <span class="code">apply()</span> methods are predefined JavaScript methods. They can both be used to call an object method with another object as an argument.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person1 = &#123; <br>
+        &nbsp;&nbsp;fullName: function() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return this.firstName + " " + this.lastName; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125; <br>
+        <br>
+        const person2 = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &#125; <br>
+        <br>
+        <i>// Return "John Doe":</i> <br>
+        person1.fullName.call(person2);
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Function Borrowing</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    With the <span class="code">bind()</span> method, an object can borrow a method from another object.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;fullName: function () &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return this.firstName + " " + this.lastName; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125; <br>
+        <br>
+        const member = &#123; <br>
+        &nbsp;&nbsp;firstName: "Hege", <br>
+        &nbsp;&nbsp;lastName: "Nilsen", <br>
+        &#125; <br>
+        <br>
+        let fullName = person.fullName.bind(member); <br>
+        fullName();
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>What is "this"?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In JavaScript, the <span class="code">this</span> keyword refers to an object. <br>
+    Which object depends on how <span class="code">this</span> is being invoked (used or called). <br>
+    The <span class="code">this</span> keyword refers to different objects depending on how it is used: <br>
+    In an object method, <span class="code">this</span> refers to the object. Alone, <span class="code">this</span> refers to the global object. In a function, <span class="code">this</span> refers to the global object. In a function, in strict mode, <span class="code">this</span> is undefined. In an event, <span class="code">this</span> refers to the element that received the event. Methods like <span class="code">call()</span>, <span class="code">apply()</span>, and <span class="code">bind()</span> can refer <span class="code">this</span> to any object.
+  </p>
+
+  <h3>"this" Precedence</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This is the precedence order for determining <span class="code">this</span> in a function:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Order</th>
+      <th>Object</th>
+      <th>Because</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>1</td><td><span class="code">bind()</span></td><td>this is in a function being called using bind()</td></tr>
+    <tr><td>2</td><td><span class="code">apply()</span></td><td>this is in a function being called using apply()</td></tr>
+    <tr><td>2</td><td><span class="code">call()</span></td><td>this is in a function being called using call()</td></tr>
+    <tr><td>3</td><td>Object method</td><td>this is in an object function (method)</td></tr>
+    <tr><td>4</td><td>Global scope</td><td>this is in a function in the global scope</td></tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +529,70 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      id: 5566,
+      fullName: function() {
+        return this.firstName + " " + this.lastName;
+      }
+    };
+    document.getElementById("demo1").innerHTML = person.fullName();
+  })();
 
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      id: 5566,
+      myFunction: function() {
+        return this;
+      }
+    };
+    document.getElementById("demo2").innerHTML = person.myFunction() === person;
+  })();
+
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      id: 5566,
+      fullName: function() {
+        return this.firstName + " " + this.lastName;
+      }
+    };
+    document.getElementById("demo3").innerHTML = person.fullName();
+  })();
+
+  (function () {
+    const person1 = {
+      fullName: function() {
+        return this.firstName + " " + this.lastName;
+      }
+    };
+    const person2 = {
+      firstName: "John",
+      lastName: "Doe",
+    };
+    document.getElementById("demo4").innerHTML = person1.fullName.call(person2);
+  })();
+
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      fullName: function () {
+        return this.firstName + " " + this.lastName;
+      }
+    };
+    const member = {
+      firstName: "Hege",
+      lastName: "Nilsen",
+    };
+    let fullName = person.fullName.bind(member);
+    document.getElementById("demo5").innerHTML = fullName();
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
