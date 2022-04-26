@@ -322,20 +322,18 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Arrow Functions</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Arrow functions allows a short syntax for writing function expressions. <br>
+    You don't need the <span class="code">function</span> keyword, the <span class="code">return</span> keyword, and the curly brackets.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Arrow Function Syntax</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Arrow function syntax has many forms depending on the number of arguments and the type of body.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +344,321 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const add = (a, b) =&gt; { <br>
+        &nbsp;&nbsp;return a + b; <br>
+        }; <br>
+        add(3, 4);
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Shorter Syntax</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Here is how you write a regular function, and the same function using an arrow function.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Before Arrow</i> <br>
+        const multiply = function(a, b) { return a * b; }; <br>
+        multiply(3, 4);
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// With Arrow</i> <br>
+        const multiply = (a, b) =&gt; a * b; <br>
+        multiply(3, 4);
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// With Arrow</i> <br>
+        const hello = () =&gt; "Hello World!"; <br>
+        hello();
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// Before Arrow</i> <br>
+        const hello = function() { return "Hello World!"; }; <br>
+        hello();
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Arrow Functions with One Parameter</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If an arrow function has a single parameter, you can skip the parentheses.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// With Parentheses</i> <br>
+        const square = (x) =&gt; x * x; <br>
+        square(5);
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// Without Parentheses</i> <br>
+        const square = x =&gt; x * x; <br>
+        square(5);
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// With Parentheses</i> <br>
+        const hello = (val) =&gt; "Hello " + val; <br>
+        hello("World");
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// Without Parentheses</i> <br>
+        const hello = val =&gt; "Hello " + val; <br>
+        hello("World");
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Arrow Functions Return Value by Default</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If the function body has only one statement, and the statement returns a value, you can remove the brackets and the return keyword.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const hello = () =&gt; "Hello World!"; <br>
+        hello();
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Having no return keyword and curly brackets is only allowed in a one line function body.</p>
+
+  <h3>Arrow Function Parameters</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Arrow functions can have parameters, with or without parentheses.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const hello = (val) =&gt; "Hello " + val; <br>
+        hello("World");
+      </td>
+      <td id="demo11"></td>
+    </tr>
+    <tr>
+      <td>
+        const hello = val =&gt; "Hello " + val; <br>
+        hello("World");
+      </td>
+      <td id="demo12"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Arrow Functions with No Parameters</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Arrow functions with no parameters require parentheses.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const hello = () =&gt; "Hello World!"; <br>
+        hello();
+      </td>
+      <td id="demo13"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Using multiple statements requires curly brackets and the <span class="code">return</span> keyword, just like regular functions.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// This will return undefined</i> <br>
+        const myFunction = (x, y) =&gt; { x * y }; <br>
+        myFunction(2, 3);
+      </td>
+      <td id="demo14"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// This will return the expected result</i> <br>
+        const myFunction = (x, y) =&gt; { return x * y }; <br>
+        myFunction(2, 3);
+      </td>
+      <td id="demo15"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Arrow Functions Are Not Declarations</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Regular function declarations are hoisted. Arrow functions are expressions, and are not hoisted.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        hello(); &nbsp;&nbsp;<i>// Error</i> <br>
+        <br>
+        const hello = () =&gt; "Hello";
+      </td>
+      <td id="demo16"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>You must create the function before you use it, otherwise you will get a ReferenceError.</p>
+
+  <h3>Arrow Functions and the this Keyword</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In a regular function, the <span class="code">this</span> keyword represented the object that called the function, which could be the window, the document, a button, or whatever.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;name: "John", <br>
+        &nbsp;&nbsp;greet: function() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return this.name; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;; <br>
+        person.greet();
+      </td>
+      <td id="demo17"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    With arrow functions, <span class="code">this</span> keyword always represents the object that defined the arrow function (the surrounding scope), not the object that called it.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;name: "John", <br>
+        &nbsp;&nbsp;greet: () =&gt; &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return this.name; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;; <br>
+        person.greet();
+      </td>
+      <td id="demo18"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Arrow functions do not have their own <span class="code">this</span>. They are not well suited for defining object methods.</p>
+
+  <h3>When to Use Arrow Functions</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Arrow functions are great for short, simple functions that can be written in one line, especially when used as callback functions (like inside array methods: map, filter, reduce).
+  </p>
+
+  <h3>When Not to Use Arrow Functions</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Arrow functions are not suited for defining object methods (because of how <span class="code">this</span> behaves), and they cannot be used as constructors (they cannot be called with the <span class="code">new</span> keyword).
+  </p>
+
+  <h3>Common Mistakes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Developers often forget that arrow functions change the meaning of <span class="code">this</span> inside object methods, causing unexpected bugs when used as a shorthand replacement for every regular function.
   </p>
 </section>
 <br>
@@ -369,7 +674,102 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const add = (a, b) => { return a + b; };
+    document.getElementById("demo1").innerHTML = add(3, 4);
+  })();
 
+  (function () {
+    const multiply = function (a, b) { return a * b; };
+    document.getElementById("demo2").innerHTML = multiply(3, 4);
+  })();
+  (function () {
+    const multiply = (a, b) => a * b;
+    document.getElementById("demo3").innerHTML = multiply(3, 4);
+  })();
+  (function () {
+    const hello = () => "Hello World!";
+    document.getElementById("demo4").innerHTML = hello();
+  })();
+  (function () {
+    const hello = function () { return "Hello World!"; };
+    document.getElementById("demo5").innerHTML = hello();
+  })();
+
+  (function () {
+    const square = (x) => x * x;
+    document.getElementById("demo6").innerHTML = square(5);
+  })();
+  (function () {
+    const square = x => x * x;
+    document.getElementById("demo7").innerHTML = square(5);
+  })();
+  (function () {
+    const hello = (val) => "Hello " + val;
+    document.getElementById("demo8").innerHTML = hello("World");
+  })();
+  (function () {
+    const hello = val => "Hello " + val;
+    document.getElementById("demo9").innerHTML = hello("World");
+  })();
+
+  (function () {
+    const hello = () => "Hello World!";
+    document.getElementById("demo10").innerHTML = hello();
+  })();
+
+  (function () {
+    const hello = (val) => "Hello " + val;
+    document.getElementById("demo11").innerHTML = hello("World");
+  })();
+  (function () {
+    const hello = val => "Hello " + val;
+    document.getElementById("demo12").innerHTML = hello("World");
+  })();
+
+  (function () {
+    const hello = () => "Hello World!";
+    document.getElementById("demo13").innerHTML = hello();
+  })();
+
+  (function () {
+    const myFunction = (x, y) => { x * y };
+    document.getElementById("demo14").innerHTML = myFunction(2, 3);
+  })();
+  (function () {
+    const myFunction = (x, y) => { return x * y };
+    document.getElementById("demo15").innerHTML = myFunction(2, 3);
+  })();
+
+  (function () {
+    try {
+      hello();
+      const hello = () => "Hello";
+      document.getElementById("demo16").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo16").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    const person = {
+      name: "John",
+      greet: function() {
+        return this.name;
+      }
+    };
+    document.getElementById("demo17").innerHTML = person.greet();
+  })();
+
+  (function () {
+    const person = {
+      name: "John",
+      greet: () => {
+        return this && this.name;
+      }
+    };
+    document.getElementById("demo18").innerHTML = "" + person.greet();
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
