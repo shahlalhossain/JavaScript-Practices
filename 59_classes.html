@@ -322,20 +322,23 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Classes</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    JavaScript classes are templates for JavaScript objects. <br>
+    JavaScript classes were introduced in ES6 (2015). Classes are not objects, they are templates for objects. <br>
+    Use the keyword <span class="code">class</span> to create a class. Always add a method named <span class="code">constructor()</span>.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>JavaScript Class Syntax</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Use the keyword <span class="code">class</span> to create a class. Always add a method named <span class="code">constructor()</span>: <br>
+    <strong>Syntax</strong> <br>
+    class ClassName { <br>
+    &nbsp;&nbsp;constructor() { ... } <br>
+    }
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +349,163 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        class Car { <br>
+        &nbsp;&nbsp;constructor(name, year) { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.name = name; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.year = year; <br>
+        &nbsp;&nbsp;} <br>
+        }
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Note: </i></strong>The example above creates a class named "Car". The class has two initial properties: "name" and "year".</p>
+
+  <h3>Using a Class</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    When you have a class, you can use the class to create objects.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        class Car { <br>
+        &nbsp;&nbsp;constructor(name, year) { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.name = name; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.year = year; <br>
+        &nbsp;&nbsp;} <br>
+        } <br>
+        <br>
+        const myCar1 = new Car("Ford", 2014); <br>
+        const myCar2 = new Car("Audi", 2019);
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The Constructor Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">constructor</span> method is a special method: <br>
+    It has to have the exact name "constructor". It is executed automatically when a new object is created. It is used to initialize object properties. If you do not define a constructor method, JavaScript will add an empty constructor method.
+  </p>
+
+  <h3>Class Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Methods are created with the same syntax as object methods. <br>
+    <strong>Syntax</strong> <br>
+    class ClassName { <br>
+    &nbsp;&nbsp;constructor() { ... } <br>
+    &nbsp;&nbsp;method_1() { ... } <br>
+    &nbsp;&nbsp;method_2() { ... } <br>
+    &nbsp;&nbsp;method_3() { ... } <br>
+    }
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        class Car { <br>
+        &nbsp;&nbsp;constructor(name, year) { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.name = name; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.year = year; <br>
+        &nbsp;&nbsp;} <br>
+        &nbsp;&nbsp;age() { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;let date = new Date(); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return date.getFullYear() - this.year; <br>
+        &nbsp;&nbsp;} <br>
+        } <br>
+        <br>
+        const myCar = new Car("Ford", 2014); <br>
+        myCar.age();
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can send parameters to class methods.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        class Car { <br>
+        &nbsp;&nbsp;constructor(name, year) { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.name = name; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.year = year; <br>
+        &nbsp;&nbsp;} <br>
+        &nbsp;&nbsp;age(x) { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return x - this.year; <br>
+        &nbsp;&nbsp;} <br>
+        } <br>
+        <br>
+        const myCar = new Car("Ford", 2014); <br>
+        let date = new Date(); <br>
+        myCar.age(date.getFullYear());
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>"use strict"</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Class definitions are automatically in strict mode. All code inside a class is executed in strict mode: syntax errors occur, and using undeclared variables inside a class will throw an error.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        class Car { <br>
+        &nbsp;&nbsp;constructor(name, year) { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.name = name; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.year = year; <br>
+        &nbsp;&nbsp;} <br>
+        &nbsp;&nbsp;age(x) { <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;carAge = x - this.year; &nbsp;&nbsp;<i>// undeclared variable, throws in strict mode</i> <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return carAge; <br>
+        &nbsp;&nbsp;} <br>
+        }
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The fix is to declare the variable with <span class="code">const</span>: <span class="code">const carAge = x - this.year;</span></p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +520,77 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    class Car {
+      constructor(name, year) {
+        this.name = name;
+        this.year = year;
+      }
+    }
+    const myCar = new Car("Ford", 2014);
+    document.getElementById("demo1").innerHTML = myCar.name + ", " + myCar.year;
+  })();
 
+  (function () {
+    class Car {
+      constructor(name, year) {
+        this.name = name;
+        this.year = year;
+      }
+    }
+    const myCar1 = new Car("Ford", 2014);
+    const myCar2 = new Car("Audi", 2019);
+    document.getElementById("demo2").innerHTML = myCar1.name + " " + myCar1.year + ", " + myCar2.name + " " + myCar2.year;
+  })();
+
+  (function () {
+    class Car {
+      constructor(name, year) {
+        this.name = name;
+        this.year = year;
+      }
+      age() {
+        let date = new Date();
+        return date.getFullYear() - this.year;
+      }
+    }
+    const myCar = new Car("Ford", 2014);
+    document.getElementById("demo3").innerHTML = myCar.age();
+  })();
+
+  (function () {
+    class Car {
+      constructor(name, year) {
+        this.name = name;
+        this.year = year;
+      }
+      age(x) {
+        return x - this.year;
+      }
+    }
+    const myCar = new Car("Ford", 2014);
+    let date = new Date();
+    document.getElementById("demo4").innerHTML = myCar.age(date.getFullYear());
+  })();
+
+  (function () {
+    class Car {
+      constructor(name, year) {
+        this.name = name;
+        this.year = year;
+      }
+      age(x) {
+        carAge = x - this.year;
+        return carAge;
+      }
+    }
+    try {
+      const myCar = new Car("Ford", 2014);
+      document.getElementById("demo5").innerHTML = myCar.age(2024);
+    } catch (err) {
+      document.getElementById("demo5").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
