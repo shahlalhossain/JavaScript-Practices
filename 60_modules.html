@@ -322,20 +322,19 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Modules</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    JavaScript modules allow you to break up your code into separate files. <br>
+    This makes it easier to maintain a code-base. Modules are imported from external files with the <span class="code">import</span> statement. Modules rely on the <span class="code">type="module"</span> attribute in the script tag.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <p><strong><i>Note: </i></strong>Modules only work with the <span class="code">http://</span> or <span class="code">https://</span> protocol (not <span class="code">file://</span>). The live demos on this page require the page to be served over HTTP(S), e.g. via a local web server.</p>
+
+  <h3>What are Modules?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Modules let you break up code into separate files, and export and import pieces of code between them.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +345,209 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <i>// Export an "add" function</i> <br>
+        export function add(a, b) { <br>
+        &nbsp;&nbsp;return a + b; <br>
+        } <br>
+        <br>
+        <i>// Import an "add" function</i> <br>
+        import &#123; add &#125; from './math.js'; <br>
+        let result = add(2, 3);
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Module Files</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Modules are stored in regular files. There is only one practical restriction: URLs need a relative path like "./" or "/", or an absolute path.
+  </p>
+
+  <h3>How to Use Modules</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You must specify <span class="code">type="module"</span> in the script tag to use JavaScript modules.
+  </p>
+
+  <h3>Module File "math.js"</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This example has a function, <span class="code">add()</span>, in a module file, that is exported:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// math.js</i> <br>
+        <i>// Export an "add" function</i> <br>
+        export function add(a, b) { <br>
+        &nbsp;&nbsp;return a + b; <br>
+        }
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Module Script:</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Now we can import the "add" function from "./math.js" and use it.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        &lt;script type="module"&gt; <br>
+        <br>
+        <i>// Import the add function</i> <br>
+        import &#123; add &#125; from './math.js'; <br>
+        <br>
+        let result = add(2, 3); <br>
+        <br>
+        &lt;/script&gt;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Module File "person.js"</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This example has a module file that exports two variables:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// person.js</i> <br>
+        <i>// Export name and age</i> <br>
+        export const name = "Jesse"; <br>
+        export const age = 40;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Module Script</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Now we can import "name" and "age" from "./person.js" and use them.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        &lt;script type="module"&gt; <br>
+        <br>
+        <i>// Import name and age</i> <br>
+        import &#123; name, age &#125; from "./person.js"; <br>
+        <br>
+        &lt;/script&gt;
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Modules Can Export</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Modules can export: Variables, functions, classes, or they can export a single "default" value.
+  </p>
+
+  <h3>Module File "message.js"</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This example creates a "default" export:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// message.js</i> <br>
+        const message = () =&gt; &#123; <br>
+        &nbsp;&nbsp;const name = "Jesse"; <br>
+        &nbsp;&nbsp;const age = 40; <br>
+        &nbsp;&nbsp;return name + ' is ' + age + ' years old.'; <br>
+        &#125;; <br>
+        <br>
+        export default message;
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Module Script:</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Since "message" is a default export, we can import it without curly braces, and name it anything.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        &lt;script type="module"&gt; <br>
+        import message from "./message.js"; <br>
+        &lt;/script&gt;
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Why Modules?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Re-using code is useful, and modules make it easy. By using modules, declarations in one module are kept local, unless explicitly exported using one of the export forms. Conversely, the variable, function, or class name imported by one of the import forms is local to the importing module, unless given a different name using an "as" clause.
   </p>
 </section>
 <br>
@@ -369,7 +563,27 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  if (location.protocol === "file:") {
+    const ids = ["demo1", "demo2", "demo3", "demo4", "demo5", "demo6", "demo7"];
+    ids.forEach(function (id) {
+      document.getElementById(id).innerHTML = "Modules require http(s):// — open this page via a local web server to see live output.";
+    });
+  }
+</script>
+<script type="module">
+  import { add } from "./js/modules/math.js";
+  import { name, age } from "./js/modules/person.js";
+  import message from "./js/modules/message.js";
 
+  document.getElementById("demo1").innerHTML = add(2, 3);
+  document.getElementById("demo2").innerHTML = add.toString();
+  document.getElementById("demo3").innerHTML = "result = " + add(2, 3);
+
+  document.getElementById("demo4").innerHTML = name + ", " + age;
+  document.getElementById("demo5").innerHTML = "name = " + name + ", age = " + age;
+
+  document.getElementById("demo6").innerHTML = message.toString();
+  document.getElementById("demo7").innerHTML = message();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
