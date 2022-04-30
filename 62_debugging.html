@@ -322,20 +322,48 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Debugging</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Programming code might contain syntax errors, or logical errors. Many of these errors are difficult to diagnose. <br>
+    Often, when programming code contains errors, nothing will happen. There are no error messages, and you will get no indications where to search for errors. Searching for (and fixing) errors in programming code is called code debugging.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Debugging for Beginners</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Debugging is a normal part of learning to code. Even experienced developers spend a lot of time debugging. Learning how to debug early will save you hours of frustration.
+  </p>
+
+  <h3>Why Code Does Not Work?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    There can be many reasons why code does not work: a typo in a variable or function name, a missing bracket or semicolon, a logical mistake in the order of operations, or using a variable before it has a value.
+  </p>
+
+  <h3>JavaScript Debuggers</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Debugging is not easy. But fortunately, all modern browsers have a built in JavaScript debugger. Built-in debuggers can be turned on and off, forcing errors to be reported to the user. With a debugger, you can also set breakpoints (places where code execution can be stopped), and examine variables while the code is executing.
+  </p>
+
+  <h3>Did You Know?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Normally, you activate debugging mode in your browser with the F12 key, and then select "Console" in the debugger menu.
+  </p>
+
+  <h3>Step 1: Look in the Console</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Before you touch your code, open your browser's console (usually F12 or right-click &gt; Inspect &gt; Console). This is where JavaScript tells you what went wrong, often with a file name and line number.
+  </p>
+
+  <h3>Step 2: Use console.log()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">console.log()</span> is your best friend when debugging. It lets you print messages, variable values, or objects directly into the console, so you can see what your code is doing step by step.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +374,167 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>console.log("Hello!");</td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    You can also log variables to see their current value.
   </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let price = 50; <br>
+        let quantity = 3; <br>
+        let total = price * quantity; <br>
+        <br>
+        console.log("Total:", total);
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Tip: </i></strong>Use multiple <span class="code">console.log()</span> statements to trace the flow of your program and narrow down exactly where things go wrong.</p>
+
+  <h3>Step 3: Confirm Your Assumptions</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A lot of bugs happen because the code is not doing what you think it is doing. Use <span class="code">console.log()</span> to confirm the type and value of your variables.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let x = 5; <br>
+        let y = "5"; <br>
+        <br>
+        console.log(x + y); &nbsp;&nbsp;<i>// 55 (string!)</i> <br>
+        console.log(x + Number(y)); &nbsp;&nbsp;<i>// 10 (number)</i>
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Reading Error Messages (Beginner Friendly)</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Error messages can look scary at first, but they are usually trying to help you.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        console.log(myValue); <br>
+        <i>// ReferenceError: myValue is not defined</i>
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    <tr>
+      <td>
+        let x; <br>
+        console.log(x.length); <br>
+        <i>// TypeError: Cannot read properties of undefined</i>
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>A ReferenceError usually means you used a variable that was never declared. A TypeError usually means you tried to use a property or method on a value that does not support it (often undefined or null).</p>
+
+  <h3>A Simple Debugging Checklist</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Check the console for errors, check spelling of variable and function names, check that brackets and parentheses are balanced, check that semicolons are not missing where required, use console.log() to confirm values, and read the error message carefully, including the file and line number.
+  </p>
+
+  <h3>Common Beginner Mistakes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A very common mistake is to use a single equal sign (<span class="code">=</span>, assignment) instead of a double or triple equal sign (<span class="code">==</span> or <span class="code">===</span>, comparison) inside a condition.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Mistake</i> <br>
+        let x = 10; <br>
+        if (x = 5) { <br>
+        &nbsp;&nbsp;console.log("This runs"); <br>
+        }
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// Fix</i> <br>
+        let x = 10; <br>
+        if (x === 5) { <br>
+        &nbsp;&nbsp;console.log("This runs only if x is 5"); <br>
+        }
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>In the mistake example, <span class="code">x = 5</span> is an assignment, which always evaluates to the assigned value (5, which is truthy), so the if block always runs and x is overwritten with 5.</p>
+
+  <h3>Major Browsers' Debugging Tools</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    All major browsers have a built-in debugger: Chrome DevTools, Firefox Developer Tools, Edge DevTools, Opera Dragonfly, and Safari Web Inspector. <br>
+    You can turn the debugger on and off, forcing errors to be reported to the user, set breakpoints, and examine variable values while the code is executing.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let a = 5; <br>
+        let b = 6; <br>
+        let c = a + b; <br>
+        <br>
+        console.log(c);
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +549,69 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    console.log("Hello!");
+    document.getElementById("demo1").innerHTML = "Hello! (also printed to console)";
+  })();
 
+  (function () {
+    let price = 50;
+    let quantity = 3;
+    let total = price * quantity;
+    console.log("Total:", total);
+    document.getElementById("demo2").innerHTML = "Total: " + total;
+  })();
+
+  (function () {
+    let x = 5;
+    let y = "5";
+    console.log(x + y);
+    console.log(x + Number(y));
+    document.getElementById("demo3").innerHTML = (x + y) + " (string), " + (x + Number(y)) + " (number)";
+  })();
+
+  (function () {
+    try {
+      console.log(myValue);
+    } catch (err) {
+      document.getElementById("demo4").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    try {
+      let x;
+      console.log(x.length);
+    } catch (err) {
+      document.getElementById("demo5").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    let x = 10;
+    let ran = false;
+    if (x = 5) {
+      ran = true;
+    }
+    document.getElementById("demo6").innerHTML = "ran: " + ran + ", x is now: " + x;
+  })();
+
+  (function () {
+    let x = 10;
+    let ran = false;
+    if (x === 5) {
+      ran = true;
+    }
+    document.getElementById("demo7").innerHTML = "ran: " + ran + ", x is still: " + x;
+  })();
+
+  (function () {
+    let a = 5;
+    let b = 6;
+    let c = a + b;
+    console.log(c);
+    document.getElementById("demo8").innerHTML = c;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
