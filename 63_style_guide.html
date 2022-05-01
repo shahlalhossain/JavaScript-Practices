@@ -322,20 +322,24 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Style Guide</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    JavaScript style guides provide general code style rules for how to organize and format JavaScript code.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>JavaScript Coding Conventions</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Coding conventions are style guidelines for programming. They typically cover: naming and declaration rules for variables and functions, rules for the use of white space, indentation, and comments, programming practices and principles, and general best practices. <br>
+    Coding conventions secure quality: improve code readability, make code maintenance easier. Coding conventions can be documented rules for teams to follow, or just be your individual coding practice.
+  </p>
+
+  <h3>Variable Names</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Use camelCase for identifier names (variables and functions). All names start with a letter.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +350,283 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        firstName = "John"; <br>
+        lastName = "Doe"; <br>
+        <br>
+        price = 19.90; <br>
+        tax = 0.20; <br>
+        <br>
+        fullPrice = price + (price * tax);
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Spaces Around Operators</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Always put spaces around operators ( = + - * / ), and after commas.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let x = y + z; <br>
+        const myArray = ["Volvo", "Saab", "Fiat"];
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Code Indentation</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Always use 2 spaces for indentation of code blocks.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function toCelsius(fahrenheit) &#123; <br>
+        &nbsp;&nbsp;return (5 / 9) * (fahrenheit - 32); <br>
+        &#125; <br>
+        toCelsius(98.6);
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Do not use tabs (tabulators) for indentation. Different editors interpret tabs differently.</p>
+
+  <h3>Statement Rules</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    General rules for simple statements: Always end a simple statement with a semicolon.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const cars = ["Volvo", "Saab", "Fiat"]; <br>
+        <br>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;age: 50, <br>
+        &nbsp;&nbsp;eyeColor: "blue" <br>
+        &#125;;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    General rules for complex (compound) statements: put the opening bracket at the end of the first line, use one space before the opening bracket, put the closing bracket on a new line, without leading spaces, do not end a complex statement with a semicolon.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function toCelsius(fahrenheit) &#123; <br>
+        &nbsp;&nbsp;return (5 / 9) * (fahrenheit - 32); <br>
+        &#125;
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    <tr>
+      <td>
+        for (let i = 0; i &lt; 5; i++) &#123; <br>
+        &nbsp;&nbsp;x += i; <br>
+        &#125;
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    <tr>
+      <td>
+        if (time &lt; 20) &#123; <br>
+        &nbsp;&nbsp;greeting = "Good day"; <br>
+        &#125; else &#123; <br>
+        &nbsp;&nbsp;greeting = "Good evening"; <br>
+        &#125;
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Object Rules</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    General rules for object definitions: place the opening bracket on the same line as the object name, use colon plus one space between each property and its value, use quotes around string values, not around numeric values, do not add a comma after the last property-value pair, place the closing bracket on a new line, without leading spaces, always end an object definition with a semicolon.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;age: 50, <br>
+        &nbsp;&nbsp;eyeColor: "blue" <br>
+        &#125;;
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Short objects can be written compressed, on one line, using spaces only between properties, like this:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123;firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"&#125;;
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Line Length &lt; 80</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    For readability, avoid lines longer than 80 characters. If a JavaScript statement does not fit on one line, the best place to break it is after an operator.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo10").innerHTML = <br>
+        &nbsp;&nbsp;"Hello Dolly.";
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Naming Conventions</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Always use the same naming convention for all your code. For example: variable and function names written as camelCase, lowercase with underscore, or PascalCase, but not a mixture. <br>
+    In general, most JavaScript projects use camelCase, with the first letter of each internal word capitalized.
+  </p>
+
+  <h3>Loading JavaScript in HTML</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Use simple syntax for loading external scripts (the type attribute is not necessary):
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        &lt;script src="myscript.js"&gt;&lt;/script&gt;
+      </td>
+      <td id="demo11"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Accessing HTML Elements</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A consequence of using "untidy" HTML styles, might result in JavaScript errors.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        These two JavaScript statements will produce different results: <br>
+        const obj = getElementById("Demo") <br>
+        const obj = getElementById("demo")
+      </td>
+      <td id="demo12"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Try, as often as possible, to use the same naming convention (as JavaScript) in HTML.</p>
+
+  <h3>File Extensions</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    HTML files should have a .html extension (.htm is also allowed). CSS files should have a .css extension. JavaScript files should have a .js extension.
+  </p>
+
+  <h3>Use Lower Case File Names</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Most web servers (Apache, Unix) are case sensitive about file names: london.jpg cannot be accessed as London.jpg. Other web servers (Microsoft, IIS) are not case sensitive: london.jpg can be accessed as London.jpg or london.jpg. You must use the same convention for all URLs. If you move from a case insensitive, to a case sensitive server, even small errors can break your web site. To avoid these problems, always use lower-case file names (if possible).
+  </p>
+
+  <h3>Performance</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Coding conventions are used to improve the understandability of code. In large production environments, the extra cost of fetching a few extra kilobytes of code is well compensated by the benefits of a cleaner, more readable, and easier to maintain code base. You should only minify scripts intended for production, not for development.
   </p>
 </section>
 <br>
@@ -369,7 +642,87 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    let firstName = "John";
+    let lastName = "Doe";
+    let price = 19.90;
+    let tax = 0.20;
+    let fullPrice = price + (price * tax);
+    document.getElementById("demo1").innerHTML = firstName + " " + lastName + ", fullPrice: " + fullPrice.toFixed(2);
+  })();
 
+  (function () {
+    let y = 2, z = 3;
+    let x = y + z;
+    const myArray = ["Volvo", "Saab", "Fiat"];
+    document.getElementById("demo2").innerHTML = "x = " + x + ", myArray = " + myArray.join(", ");
+  })();
+
+  (function () {
+    function toCelsius(fahrenheit) {
+      return (5 / 9) * (fahrenheit - 32);
+    }
+    document.getElementById("demo3").innerHTML = toCelsius(98.6);
+  })();
+
+  (function () {
+    const cars = ["Volvo", "Saab", "Fiat"];
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 50,
+      eyeColor: "blue"
+    };
+    document.getElementById("demo4").innerHTML = cars.join(", ") + " | " + JSON.stringify(person);
+  })();
+
+  (function () {
+    function toCelsius(fahrenheit) {
+      return (5 / 9) * (fahrenheit - 32);
+    }
+    document.getElementById("demo5").innerHTML = toCelsius(32);
+  })();
+
+  (function () {
+    let x = 0;
+    for (let i = 0; i < 5; i++) {
+      x += i;
+    }
+    document.getElementById("demo6").innerHTML = x;
+  })();
+
+  (function () {
+    let time = 15;
+    let greeting;
+    if (time < 20) {
+      greeting = "Good day";
+    } else {
+      greeting = "Good evening";
+    }
+    document.getElementById("demo7").innerHTML = greeting;
+  })();
+
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 50,
+      eyeColor: "blue"
+    };
+    document.getElementById("demo8").innerHTML = JSON.stringify(person);
+  })();
+
+  (function () {
+    const person = {firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue"};
+    document.getElementById("demo9").innerHTML = JSON.stringify(person);
+  })();
+
+  document.getElementById("demo10").innerHTML =
+    "Hello Dolly.";
+
+  document.getElementById("demo11").innerHTML = "&lt;script src=\"myscript.js\"&gt;&lt;/script&gt; (loads js/main.js on this page)";
+
+  document.getElementById("demo12").innerHTML = "getElementById is case-sensitive: \"Demo\" ≠ \"demo\"";
 </script>
 <!--Page Specific JavaScript End-->
 </body>
