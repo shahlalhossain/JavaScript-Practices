@@ -322,20 +322,23 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Avoid Global Variables</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Minimize the use of global variables. This includes all data types, objects, and functions. Global variables and functions can be overwritten by other scripts. Use local variables instead, and learn how to use closures.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Always Declare Local Variables</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    All variables used in a function should be declared as local variables. Local variables must be declared with the <span class="code">var</span>, <span class="code">let</span>, or <span class="code">const</span> keyword, otherwise they will become global variables.
+  </p>
+
+  <h3>Declarations on Top</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    It is a good coding practice to put all declarations at the top of each script or function. This will give cleaner code, provide a single place to look for local variables, make it easier to avoid unwanted (implied) global variables, and reduce the possibility of unwanted re-declarations.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +349,374 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <i>// Declare at the beginning</i> <br>
+        let firstName, lastName, price, discount, fullPrice;
+      </td>
+      <td id="demo1"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// Use them later</i> <br>
+        for (let i = 0; i &lt; 5; i++) &#123; <br>
+        &nbsp;&nbsp;<i>// use i here</i> <br>
+        &#125;
+      </td>
+      <td id="demo2"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Initialize Variables</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    It is a good coding practice to initialize variables when you declare them. This will give cleaner code, provide a single place to initialize variables, and avoid undefined values.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Declare and initiate at the beginning</i> <br>
+        let firstName = ""; <br>
+        const myArray = []; <br>
+        const myObject = &#123;&#125;;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Initializing variables provides an idea of the intended use (and intended data type) of the variable.</p>
+
+  <h3>Re-Declaring JavaScript Variables</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Re-declaring a JavaScript variable with <span class="code">var</span> is allowed, anywhere in a program.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        var carName = "Volvo"; &nbsp;&nbsp;<i>// Not Recommended</i> <br>
+        var carName;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Re-declaring, or reassigning an existing <span class="code">let</span> or <span class="code">const</span> variable, to <span class="code">undefined</span> is not allowed.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let carName = "Volvo"; &nbsp;&nbsp;<i>// This is OK</i> <br>
+        let carName; &nbsp;&nbsp;<i>// This will generate a Syntax error</i>
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    <tr>
+      <td>
+        const carName = "Volvo"; &nbsp;&nbsp;<i>// This is OK</i> <br>
+        const carName; &nbsp;&nbsp;<i>// This will generate a Syntax error</i>
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Declare Objects with const</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Declaring objects with <span class="code">const</span> will prevent any accidental change of type.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const car = &#123;type:"Fiat", model:"500", color:"white"&#125;; <br>
+        <br>
+        car = "Fiat"; &nbsp;&nbsp;<i>// Not possible, throws TypeError</i>
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Declare Arrays with const</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Declaring arrays with <span class="code">const</span> will prevent any accidental change of type.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const cars = ["Saab", "Volvo", "BMW"]; <br>
+        <br>
+        cars = 3; &nbsp;&nbsp;<i>// Not possible, throws TypeError</i>
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Don't Use new Object()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Use <span class="code">""</span> instead of <span class="code">new String()</span>, use <span class="code">0</span> instead of <span class="code">new Number()</span>, use <span class="code">false</span> instead of <span class="code">new Boolean()</span>, use <span class="code">&#123;&#125;</span> instead of <span class="code">new Object()</span>, use <span class="code">[]</span> instead of <span class="code">new Array()</span>, use <span class="code">/()/</span> instead of <span class="code">new RegExp()</span>, use <span class="code">function(){}</span> instead of <span class="code">new Function()</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let x1 = ""; &nbsp;&nbsp;<i>// new primitive string</i> <br>
+        let x2 = 0; &nbsp;&nbsp;<i>// new primitive number</i> <br>
+        let x3 = false; &nbsp;&nbsp;<i>// new primitive boolean</i> <br>
+        const x4 = &#123;&#125;; &nbsp;&nbsp;<i>// new object</i> <br>
+        const x5 = []; &nbsp;&nbsp;<i>// new array object</i> <br>
+        const x6 = /()/; &nbsp;&nbsp;<i>// new regexp object</i> <br>
+        const x7 = function(){}; &nbsp;&nbsp;<i>// new function object</i>
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Beware of Automatic Type Conversions</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript is loosely typed. A variable can contain different data types, and a variable can change its data type.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let x = 5 + "7"; &nbsp;&nbsp;<i>// x is now a string "57"</i>
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    <tr>
+      <td>
+        "Hello" - "Dolly"; &nbsp;&nbsp;<i>// returns NaN</i>
+      </td>
+      <td id="demo11"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Use === Comparison</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">==</span> comparison operator always converts (to matching types) before comparison. The <span class="code">===</span> operator forces comparison of values and type.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        0 == ""; &nbsp;&nbsp;<i>// true</i> <br>
+        0 === ""; &nbsp;&nbsp;<i>// false</i>
+      </td>
+      <td id="demo12"></td>
+    </tr>
+    <tr>
+      <td>
+        1 == "1"; &nbsp;&nbsp;<i>// true</i> <br>
+        1 === "1"; &nbsp;&nbsp;<i>// false</i>
+      </td>
+      <td id="demo13"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Use Parameter Defaults</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If a function is called with a missing argument, the value of the missing argument is set to <span class="code">undefined</span>. Undefined values can break your code. It is a good habit to assign default values to arguments.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myFunction(x, y) &#123; <br>
+        &nbsp;&nbsp;if (y === undefined) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;y = 0; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125; <br>
+        myFunction(5);
+      </td>
+      <td id="demo14"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    ES2015 (ES6) added default parameter values to the language.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myFunction(a = 1, b = 1) &#123; <br>
+        &nbsp;&nbsp;return a + b; <br>
+        &#125; <br>
+        myFunction();
+      </td>
+      <td id="demo15"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>End Your Switches with Defaults</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Always end your <span class="code">switch</span> statements with a <span class="code">default</span>. Even if you think there is no need for it.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let day; <br>
+        switch (new Date().getDay()) &#123; <br>
+        &nbsp;&nbsp;case 0: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;day = "Sunday"; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;break; <br>
+        &nbsp;&nbsp;case 1: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;day = "Monday"; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;break; <br>
+        &nbsp;&nbsp;default: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;day = "Unknown"; <br>
+        &#125;
+      </td>
+      <td id="demo16"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Avoid Number, String, and Boolean as Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Always treat numbers, strings, or booleans as primitive values. Not as objects. Declaring these types as objects, slows down execution speed, and produces nasty side effects.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let x = "John"; &nbsp;&nbsp;<i>// typeof x will return string</i> <br>
+        let y = new String("John"); &nbsp;&nbsp;<i>// typeof y will return object</i> <br>
+        (x === y); &nbsp;&nbsp;<i>// is false, because x is a string and y is an object</i>
+      </td>
+      <td id="demo17"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Or even worse:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let x = new String("John"); <br>
+        let y = new String("John"); <br>
+        (x == y); &nbsp;&nbsp;<i>// is false, because you cannot compare objects</i>
+      </td>
+      <td id="demo18"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Avoid Using eval()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">eval()</span> function is used to run text as code. In almost all cases, it should not be necessary to use it. Because it allows arbitrary code to be run, it also represents a security problem.
   </p>
 </section>
 <br>
@@ -369,7 +732,130 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    let firstName, lastName, price, discount, fullPrice;
+    firstName = "John"; price = 10; discount = 0.1; fullPrice = price - (price * discount);
+    document.getElementById("demo1").innerHTML = firstName + ", fullPrice: " + fullPrice;
+  })();
 
+  (function () {
+    let text = "";
+    for (let i = 0; i < 5; i++) {
+      text += i;
+    }
+    document.getElementById("demo2").innerHTML = text;
+  })();
+
+  (function () {
+    let firstName = "";
+    const myArray = [];
+    const myObject = {};
+    document.getElementById("demo3").innerHTML = JSON.stringify({firstName, myArray, myObject});
+  })();
+
+  (function () {
+    var carName = "Volvo";
+    var carName;
+    document.getElementById("demo4").innerHTML = carName;
+  })();
+
+  (function () {
+    try {
+      eval("let carName = 'Volvo'; let carName;");
+      document.getElementById("demo5").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo5").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+  (function () {
+    try {
+      eval("const carName = 'Volvo'; const carName;");
+      document.getElementById("demo6").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo6").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    try {
+      const car = {type: "Fiat", model: "500", color: "white"};
+      car = "Fiat";
+      document.getElementById("demo7").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo7").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    try {
+      const cars = ["Saab", "Volvo", "BMW"];
+      cars = 3;
+      document.getElementById("demo8").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo8").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    let x1 = "";
+    let x2 = 0;
+    let x3 = false;
+    const x4 = {};
+    const x5 = [];
+    const x6 = /()/;
+    const x7 = function(){};
+    document.getElementById("demo9").innerHTML = [typeof x1, typeof x2, typeof x3, typeof x4, typeof x5, typeof x6, typeof x7].join(", ");
+  })();
+
+  document.getElementById("demo10").innerHTML = 5 + "7";
+  document.getElementById("demo11").innerHTML = "Hello" - "Dolly";
+
+  document.getElementById("demo12").innerHTML = (0 == "") + ", " + (0 === "");
+  document.getElementById("demo13").innerHTML = (1 == "1") + ", " + (1 === "1");
+
+  (function () {
+    function myFunction(x, y) {
+      if (y === undefined) {
+        y = 0;
+      }
+      return x + y;
+    }
+    document.getElementById("demo14").innerHTML = myFunction(5);
+  })();
+
+  (function () {
+    function myFunction(a = 1, b = 1) {
+      return a + b;
+    }
+    document.getElementById("demo15").innerHTML = myFunction();
+  })();
+
+  (function () {
+    let day;
+    switch (new Date().getDay()) {
+      case 0:
+        day = "Sunday";
+        break;
+      case 1:
+        day = "Monday";
+        break;
+      default:
+        day = "Unknown";
+    }
+    document.getElementById("demo16").innerHTML = day;
+  })();
+
+  (function () {
+    let x = "John";
+    let y = new String("John");
+    document.getElementById("demo17").innerHTML = (x === y) + " (typeof x: " + typeof x + ", typeof y: " + typeof y + ")";
+  })();
+
+  (function () {
+    let x = new String("John");
+    let y = new String("John");
+    document.getElementById("demo18").innerHTML = (x == y);
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
