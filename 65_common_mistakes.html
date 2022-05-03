@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Accidentally Using the Assignment Operator</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    JavaScript programs may generate unexpected results if a programmer uses an assignment operator (=), instead of a comparison operator (==) in an if statement.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +337,368 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        let x = 0; <br>
+        if (x == 10)
+      </td>
+      <td id="demo1"></td>
+    </tr>
+    <tr>
+      <td>
+        let x; <br>
+        if (x = 10)
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    <tr>
+      <td>
+        let x; <br>
+        if (x = 0)
+      </td>
+      <td id="demo3"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Expecting Loose Comparison</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    In regular comparison, data type does not matter. In strict comparison, data type does matter.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>10 == "10";</td>
+      <td id="demo4"></td>
+    </tr>
+    <tr>
+      <td>10 === "10";</td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Comparing with switch case also uses strict comparison, so a <span class="code">case "10":</span> will not match a value of <span class="code">10</span>.</p>
+
+  <h3>Confusing Addition &amp; Concatenation</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Addition is adding (numbers). Concatenation is joining (strings). <br>
+    In JavaScript, both operations use the same <span class="code">+</span> operator.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let x = 10 + 5; &nbsp;&nbsp;<i>// x is 15</i>
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    <tr>
+      <td>
+        let y = 10; <br>
+        y += "5"; &nbsp;&nbsp;<i>// y is "105"</i>
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>When adding two variables, if one variable is a string, the result will be a concatenation.</p>
+
+  <h3>Misunderstanding Floats</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    All numbers in JavaScript are stored as 64-bit floating-point numbers. With floating point calculations you can get small rounding errors.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>let x = 0.1 + 0.2;</td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To solve the problem above, it helps to multiply and divide.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let x = 0.1; <br>
+        let y = 0.2; <br>
+        let z = (x * 10 + y * 10) / 10;
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Breaking a JavaScript String</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript will allow you to break a statement into two lines, but breaking a statement in the middle of a string will not work.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let x = <br>
+        "Hello World!";
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You must use a "backslash" if you have to break a statement inside a string.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let x = "Hello \ <br>
+        World!";
+      </td>
+      <td id="demo11"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Misplacing Semicolon</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Due to a misplaced semicolon, this code block will execute regardless of the value of x.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let x = 0; <br>
+        if (x == 19); &#123; <br>
+        &nbsp;&nbsp;<i>// code block always executes</i> <br>
+        &#125;
+      </td>
+      <td id="demo12"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Breaking a Return Statement</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    It is a default JavaScript behavior to automatically close a statement with a semicolon. Due to this behavior, these examples will all return the same result:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myFunction(a) &#123; <br>
+        &nbsp;&nbsp;let power = 10; <br>
+        &nbsp;&nbsp;return a * power; <br>
+        &#125;
+      </td>
+      <td id="demo13"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// JavaScript will also return the same result</i> <br>
+        function myFunction(a) &#123; <br>
+        &nbsp;&nbsp;let power = 10; <br>
+        &nbsp;&nbsp;return a * power; <br>
+        &#125;
+      </td>
+      <td id="demo14"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// JavaScript will change the result if you break the return statement:</i> <br>
+        function myFunction(a) &#123; <br>
+        &nbsp;&nbsp;let power = 10; &nbsp;&nbsp;<i>// let power = 10</i> <br>
+        &nbsp;&nbsp;return <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;a * power; <br>
+        &#125;
+      </td>
+      <td id="demo15"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Explanation</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript will, automatically, close the statement at the end of the line, because of the rule of automatic semicolon insertion, since this is what the previous example looks like, after JavaScript has fixed it: <br>
+    <span class="code">return;</span> <br>
+    &nbsp;&nbsp;<span class="code">a * power;</span> <br>
+    <strong><i>Note: </i></strong>Because of this, it is a common JavaScript practice to put the opening bracket on the same line as the beginning statement, and never break a return statement.
+  </p>
+
+  <h3>Accessing Arrays with Named Indexes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript does not support arrays with named indexes. In JavaScript, arrays always use numbered indexes.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = []; <br>
+        person[0] = "John"; <br>
+        person[1] = "Jane"; <br>
+        person[2] = "Jim"; <br>
+        person.length; &nbsp;&nbsp;<i>// person.length returns 3</i>
+      </td>
+      <td id="demo16"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you use named indexes, JavaScript will redefine the array to a standard object. After that, some array methods and properties will produce incorrect results.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = []; <br>
+        person["firstName"] = "John"; <br>
+        person["lastName"] = "Jane"; <br>
+        person.length; &nbsp;&nbsp;<i>// person.length returns 0</i> <br>
+        person[0]; &nbsp;&nbsp;<i>// person[0] returns undefined</i>
+      </td>
+      <td id="demo17"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Ending Definitions with a Comma</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Trailing commas in object and array literals are legal in ECMAScript 5 (and ECMAScript 3), but can crash Internet Explorer 8 and earlier browsers, and cause a problem if an object (or an array) is converted to JSON, since JSON does not allow trailing commas.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;age: 50, <br>
+        &#125;; &nbsp;&nbsp;<i>// trailing comma after age, legal but not recommended</i>
+      </td>
+      <td id="demo18"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Undefined is Not Null</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript objects, variables, properties, and methods can be undefined. In addition, JavaScript empty objects can have the value <span class="code">null</span>. This can make it a little bit difficult to test if an object is empty.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        typeof myObj === "undefined"
+      </td>
+      <td id="demo19"></td>
+    </tr>
+    <tr>
+      <td>
+        myObj === null
+      </td>
+      <td id="demo20"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// You can test for both:</i> <br>
+        if (typeof myObj !== "undefined" &amp;&amp; myObj !== null)
+      </td>
+      <td id="demo21"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>You have to check for typeof first (or wrap in try/catch), because testing <span class="code">myObj === null</span> on an undeclared variable throws a ReferenceError.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +713,109 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () { let x = 0; document.getElementById("demo1").innerHTML = (x == 10); })();
+  (function () { let x; document.getElementById("demo2").innerHTML = !!(x = 10); })();
+  (function () { let x; document.getElementById("demo3").innerHTML = !!(x = 0); })();
 
+  document.getElementById("demo4").innerHTML = 10 == "10";
+  document.getElementById("demo5").innerHTML = 10 === "10";
+
+  (function () {
+    let x = 10 + 5;
+    document.getElementById("demo6").innerHTML = x;
+  })();
+  (function () {
+    let y = 10;
+    y += "5";
+    document.getElementById("demo7").innerHTML = y;
+  })();
+
+  (function () {
+    let x = 0.1 + 0.2;
+    document.getElementById("demo8").innerHTML = x;
+  })();
+  (function () {
+    let x = 0.1;
+    let y = 0.2;
+    let z = (x * 10 + y * 10) / 10;
+    document.getElementById("demo9").innerHTML = z;
+  })();
+
+  (function () {
+    let x =
+      "Hello World!";
+    document.getElementById("demo10").innerHTML = x;
+  })();
+  (function () {
+    let x = "Hello \
+World!";
+    document.getElementById("demo11").innerHTML = x;
+  })();
+
+  (function () {
+    let x = 0;
+    let ran = false;
+    if (x == 19); {
+      ran = true;
+    }
+    document.getElementById("demo12").innerHTML = "block ran: " + ran;
+  })();
+
+  (function () {
+    function myFunction(a) {
+      let power = 10;
+      return a * power;
+    }
+    document.getElementById("demo13").innerHTML = myFunction(5);
+  })();
+  (function () {
+    function myFunction(a) {
+      let power = 10;
+      return a * power;
+    }
+    document.getElementById("demo14").innerHTML = myFunction(5);
+  })();
+  (function () {
+    function myFunction(a) {
+      let power = 10;
+      return
+        a * power;
+    }
+    document.getElementById("demo15").innerHTML = myFunction(5);
+  })();
+
+  (function () {
+    const person = [];
+    person[0] = "John";
+    person[1] = "Jane";
+    person[2] = "Jim";
+    document.getElementById("demo16").innerHTML = person.length;
+  })();
+  (function () {
+    const person = [];
+    person["firstName"] = "John";
+    person["lastName"] = "Jane";
+    document.getElementById("demo17").innerHTML = "length: " + person.length + ", person[0]: " + person[0];
+  })();
+
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 50,
+    };
+    document.getElementById("demo18").innerHTML = JSON.stringify(person);
+  })();
+
+  document.getElementById("demo19").innerHTML = typeof myObj === "undefined";
+  (function () {
+    try {
+      document.getElementById("demo20").innerHTML = (myObj === null);
+    } catch (err) {
+      document.getElementById("demo20").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+  document.getElementById("demo21").innerHTML = (typeof myObj !== "undefined" && myObj !== null);
 </script>
 <!--Page Specific JavaScript End-->
 </body>
