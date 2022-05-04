@@ -322,20 +322,17 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Performance</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    How to speed up your JavaScript code.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Reduce Activity in Loops</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Loops are often used in programming. Each statement in a loop, including the for statement, is executed for each iteration of the loop. Statements or assignments that can be placed outside the loop will make the loop execute faster.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +343,121 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <i>// Bad: arr.length is evaluated for EVERY loop iteration</i> <br>
+        for (let i = 0; i &lt; arr.length; i++) &#123; <br>
+        &nbsp;&nbsp;<i>// code block</i> <br>
+        &#125;
+      </td>
+      <td id="demo1"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// Better: arr.length is evaluated only ONCE</i> <br>
+        let l = arr.length; <br>
+        for (let i = 0; i &lt; l; i++) &#123; <br>
+        &nbsp;&nbsp;<i>// code block</i> <br>
+        &#125;
+      </td>
+      <td id="demo2"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Note: </i></strong>The "bad" example is not necessarily bad for short arrays.</p>
+
+  <h3>Reduce DOM Access</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Accessing the HTML DOM is very slow, compared to other JavaScript statements. If you expect to access a DOM element several times, access it once, and use it as a local variable.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const obj = document.getElementById("demo3"); <br>
+        obj.innerHTML = "Hello";
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Reduce DOM Size</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Keep the number of elements in the HTML DOM small. This will always improve page loading, and speed up rendering (page display), especially important for smaller devices.
+  </p>
+
+  <h3>Avoid Unnecessary Variables</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If your program creates variables you don't ever save, do not create them.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Before</i> <br>
+        let fullName = firstName + " " + lastName; <br>
+        document.getElementById("demo4").innerHTML = fullName;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// After</i> <br>
+        document.getElementById("demo5").innerHTML = firstName + " " + lastName;
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Delay JavaScript Loading</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Putting your scripts at the bottom of the page body lets the browser load the page first. You can also postpone the execution of code, by using the <span class="code">window.onload</span> event, or by setting a <span class="code">setTimeout()</span> in your code, or by attaching the <span class="code">defer</span> attribute to script elements, or by letting your script create the script element.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        window.onload = function() &#123; <br>
+        &nbsp;&nbsp;const element = document.createElement("script"); <br>
+        &nbsp;&nbsp;element.src = "myScript.js"; <br>
+        &nbsp;&nbsp;document.body.appendChild(element); <br>
+        &#125;;
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Avoid Using with</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Avoid using the <span class="code">with</span> keyword. It has a negative effect on speed. It also clutters up JavaScript scopes. The <span class="code">with</span> keyword is not allowed in strict mode.
   </p>
 </section>
 <br>
@@ -369,7 +473,44 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const arr = [1, 2, 3, 4, 5];
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+      sum += arr[i];
+    }
+    document.getElementById("demo1").innerHTML = sum;
+  })();
 
+  (function () {
+    const arr = [1, 2, 3, 4, 5];
+    let sum = 0;
+    let l = arr.length;
+    for (let i = 0; i < l; i++) {
+      sum += arr[i];
+    }
+    document.getElementById("demo2").innerHTML = sum;
+  })();
+
+  (function () {
+    const obj = document.getElementById("demo3");
+    obj.innerHTML = "Hello";
+  })();
+
+  (function () {
+    let firstName = "John";
+    let lastName = "Doe";
+    let fullName = firstName + " " + lastName;
+    document.getElementById("demo4").innerHTML = fullName;
+  })();
+
+  (function () {
+    let firstName = "John";
+    let lastName = "Doe";
+    document.getElementById("demo5").innerHTML = firstName + " " + lastName;
+  })();
+
+  document.getElementById("demo6").innerHTML = "window.onload defers script creation until after page load (see Delay JavaScript Loading above)";
 </script>
 <!--Page Specific JavaScript End-->
 </body>
