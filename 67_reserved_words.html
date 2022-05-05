@@ -322,20 +322,23 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Reserved Words</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    In JavaScript you cannot use these reserved words as variables, labels, or function names: <br>
+    Words marked with <strong><i>*</i></strong> were added in ECMAScript 5 and/or ECMAScript 6.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Reserved Words</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>abstract, arguments, async <strong><i>*</i></strong>, await <strong><i>*</i></strong>, boolean, break, byte, case, catch, char, class <strong><i>*</i></strong>, const <strong><i>*</i></strong>, continue, debugger, default, delete, do, double, else, enum <strong><i>*</i></strong>, eval, export <strong><i>*</i></strong>, extends <strong><i>*</i></strong>, false, final, finally, float, for, function, goto, if, implements, import <strong><i>*</i></strong>, in, instanceof, int, interface, let <strong><i>*</i></strong>, long, native, new, null, package, private, protected, public <strong><i>*</i></strong>, return, short, static <strong><i>*</i></strong>, super <strong><i>*</i></strong>, switch, synchronized, this, throw, throws, transient, true, try, typeof, using <strong><i>*</i></strong>, var, void, volatile, while, with, yield <strong><i>*</i></strong></td></tr>
+    </tbody>
+  </table>
   <br>
   <table>
     <thead>
@@ -346,15 +349,103 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        try &#123; <br>
+        &nbsp;&nbsp;eval("let class = 'foo';"); <br>
+        &#125; catch (err) &#123; <br>
+        &nbsp;&nbsp;err.message; <br>
+        &#125;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Removed Reserved Words</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The following reserved words were removed from the ECMAScript 5/6 standard:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Removed Reserved Words</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>abstract, boolean, byte, char, double, final, float, goto, int, long, native, short, synchronized, throws, transient, volatile</td></tr>
+    </tbody>
+  </table>
+
+  <h3>JavaScript Objects, Properties, and Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You should also avoid using the name of JavaScript built-in objects, properties, and methods:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Objects, Properties, Methods</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>Array, Date, eval, function, hasOwnProperty, Infinity, isFinite, isNaN, isPrototypeOf, length, Math, NaN, name, Number, Object, prototype, String, toString, undefined, valueOf</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Java Reserved Words</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You should avoid using some Java objects and properties as JavaScript identifiers:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Java Reserved Words</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>getClass, java, JavaArray, javaClass, JavaObject, JavaPackage</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Other Reserved Words</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript can be used as the programming language in many applications. You should also avoid using the name of HTML and Window objects and properties:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Other Reserved Words</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>alert, all, anchor, anchors, area, assign, blur, button, checkbox, clearInterval, clearTimeout, clientInformation, close, closed, confirm, constructor, crypto, decodeURI, decodeURIComponent, defaultStatus, document, element, elements, embed, embeds, encodeURI, encodeURIComponent, escape, event, fileUpload, focus, form, forms, frame, innerHeight, innerWidth, layer, layers, link, location, mimeTypes, navigate, navigator, frames, frameRate, hidden, history, image, images, offscreenBuffering, open, opener, option, outerHeight, outerWidth, packages, pageXOffset, pageYOffset, parent, parseFloat, parseInt, password, pkcs11, plugin, prompt, propertyIsEnum, radio, reset, screenX, screenY, scroll, secure, select, self, setInterval, setTimeout, status, submit, taint, text, textarea, top, unescape, untaint, window</td></tr>
+    </tbody>
+  </table>
+
+  <h3>HTML Event Handlers</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In addition you should avoid using the name of all HTML event handlers, such as:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>HTML Event Handlers</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>onblur, onclick, onerror, onfocus, onkeydown, onkeypress, onkeyup, onmouseover, onload, onmouseup, onmousedown, onsubmit</td></tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Even though it is possible, we discourage the use of the names above as variables, or function names. There can be conflicts in some browsers.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +460,14 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
-
+  (function () {
+    try {
+      eval("let class = 'foo';");
+      document.getElementById("demo1").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo1").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
