@@ -322,20 +322,18 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Object Definitions</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Methods for Defining JavaScript Objects: <br>
+    Using an Object Literal, using the <span class="code">new</span> Keyword, using an Object Constructor, using <span class="code">Object.assign()</span>, using <span class="code">Object.create()</span>, using <span class="code">Object.fromEntries()</span>.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Using an Object Literal</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This is the most common, and easiest, way to create a JavaScript Object.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +344,259 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <i>// Create an Object</i> <br>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;age: 50, <br>
+        &nbsp;&nbsp;eyeColor: "blue" <br>
+        &#125;;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Using the new Keyword</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    This example also creates a new JavaScript object with four properties.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Create an Object</i> <br>
+        const person = new Object(&#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;age: 50, <br>
+        &nbsp;&nbsp;eyeColor: "blue" <br>
+        &#125;);
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The example above is exactly the same as the example above. There is no need to use <span class="code">new Object()</span>. For readability, simplicity, and execution speed, use the object literal method.</p>
+
+  <h3>JavaScript Object.create()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">Object.create()</span> method creates a new object, using an existing object as the prototype of the newly created object.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Create an Object:</i> <br>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe" <br>
+        &#125;; <br>
+        <br>
+        <i>// Create new Object</i> <br>
+        const man = Object.create(person); <br>
+        man.firstName = "Peter";
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JavaScript Object fromEntries()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Object.fromEntries()</span> takes an iterable of key/value pairs and returns a new object.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const fruits = [ <br>
+        &nbsp;&nbsp;["apples", 300], <br>
+        &nbsp;&nbsp;["pears", 900], <br>
+        &nbsp;&nbsp;["bananas", 500] <br>
+        ]; <br>
+        <br>
+        const myObj = Object.fromEntries(fruits);
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Browser Support</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">fromEntries()</span> is an ES2019 feature. It is supported in all modern browsers since June 2019:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Browser</th>
+      <th>Version</th>
+      <th>Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>Chrome</td><td>66</td><td>Apr 2018</td></tr>
+    <tr><td>Edge</td><td>79</td><td>Jan 2020</td></tr>
+    <tr><td>Firefox</td><td>61</td><td>Jun 2018</td></tr>
+    <tr><td>Safari</td><td>12</td><td>Sep 2018</td></tr>
+    <tr><td>Opera</td><td>50</td><td>May 2018</td></tr>
+    </tbody>
+  </table>
+
+  <h3>JavaScript Object.assign()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">Object.assign()</span> method copies properties from one or more source objects to a target object.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Create Target Object</i> <br>
+        const person1 = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;age: 50, <br>
+        &nbsp;&nbsp;eyeColor: "blue" <br>
+        &#125;; <br>
+        <br>
+        <i>// Create Source Object</i> <br>
+        const person2 = &#123;firstName: "Anne", lastName: "Smith"&#125;; <br>
+        <br>
+        <i>// Assign Source to Target</i> <br>
+        Object.assign(person1, person2);
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>In JavaScript, Objects are King.</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you understand objects, you understand JavaScript. <br>
+    In JavaScript, almost "everything" is an object. Booleans can be objects (if defined with the new keyword). Numbers can be objects (if defined with the new keyword). Strings can be objects (if defined with the new keyword). Dates are always objects. Maths are always objects. Regular expressions are always objects. Arrays are always objects. Functions are always objects. Objects are always objects. <br>
+    All JavaScript values, except primitives, are objects.
+  </p>
+
+  <h3>JavaScript Primitives</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A primitive value is a value that has no properties or methods, and is not an object. There are 7 primitive data types:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Type</th>
+      <th>Example Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">string</span></td><td>"Hello"</td></tr>
+    <tr><td><span class="code">number</span></td><td>3.14</td></tr>
+    <tr><td><span class="code">boolean</span></td><td>true</td></tr>
+    <tr><td><span class="code">bigint</span></td><td>12345678901234n</td></tr>
+    <tr><td><span class="code">null</span></td><td>null</td></tr>
+    <tr><td><span class="code">undefined</span></td><td>undefined</td></tr>
+    <tr><td><span class="code">symbol</span></td><td>symbol</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Immutable</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Primitive values are immutable (they are hardcoded and cannot be changed).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Value</th>
+      <th>Type</th>
+      <th>Comment</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>"Hello"</td><td>string</td><td>"Hello" is always "Hello"</td></tr>
+    <tr><td>3.14</td><td>number</td><td>3.14 is always 3.14</td></tr>
+    <tr><td>true</td><td>boolean</td><td>true is always true</td></tr>
+    <tr><td>false</td><td>boolean</td><td>false is always false</td></tr>
+    <tr><td>null</td><td>null</td><td>null is always null</td></tr>
+    <tr><td>undefined</td><td>undefined</td><td>undefined is always undefined</td></tr>
+    </tbody>
+  </table>
+
+  <h3>JavaScript Objects are Mutable</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Objects, Arrays, Functions, Dates, etc are mutable (they can be changed, even though they are declared constant). <br>
+    This is because objects, arrays, and functions are referred to as object types, not primitive types. <br>
+    In JavaScript, object values are passed by reference. In the example below, <span class="code">x</span> is not a copy of <span class="code">person</span>, it IS <span class="code">person</span>, in the sense that they both point to the same object in memory.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Create an Object</i> <br>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;age: 50, eyeColor: "blue" <br>
+        &#125; <br>
+        <br>
+        <i>// Try to create a copy</i> <br>
+        const x = person; <br>
+        <br>
+        <i>// This will change age in person:</i> <br>
+        x.age = 10;
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +611,68 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 50,
+      eyeColor: "blue"
+    };
+    document.getElementById("demo1").innerHTML = JSON.stringify(person);
+  })();
 
+  (function () {
+    const person = new Object({
+      firstName: "John",
+      lastName: "Doe",
+      age: 50,
+      eyeColor: "blue"
+    });
+    document.getElementById("demo2").innerHTML = JSON.stringify(person);
+  })();
+
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe"
+    };
+    const man = Object.create(person);
+    man.firstName = "Peter";
+    document.getElementById("demo3").innerHTML = man.firstName + " " + man.lastName;
+  })();
+
+  (function () {
+    const fruits = [
+      ["apples", 300],
+      ["pears", 900],
+      ["bananas", 500]
+    ];
+    const myObj = Object.fromEntries(fruits);
+    document.getElementById("demo4").innerHTML = JSON.stringify(myObj);
+  })();
+
+  (function () {
+    const person1 = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 50,
+      eyeColor: "blue"
+    };
+    const person2 = { firstName: "Anne", lastName: "Smith" };
+    Object.assign(person1, person2);
+    document.getElementById("demo5").innerHTML = JSON.stringify(person1);
+  })();
+
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 50, eyeColor: "blue"
+    };
+    const x = person;
+    x.age = 10;
+    document.getElementById("demo6").innerHTML = "person.age is now: " + person.age;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
