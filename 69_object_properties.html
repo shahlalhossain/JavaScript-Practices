@@ -322,20 +322,18 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Properties are key:value Pairs</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    JavaScript properties are the values associated with a JavaScript object. <br>
+    A JavaScript object is a collection of unordered properties. Properties can usually be changed, added, and deleted, but some are read only.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Accessing JavaScript Properties</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The syntax for accessing the property of an object is: <span class="code">objectName.property</span> or <span class="code">objectName["property"]</span> or <span class="code">objectName[expression]</span>
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +344,272 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <i>// objectName.property</i> <br>
+        let age = person.age;
+      </td>
+      <td id="demo1"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// objectName["property"]</i> <br>
+        let age = person["age"];
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// objectName[expression]</i> <br>
+        let x = "age"; <br>
+        let age = person[x];
+      </td>
+      <td id="demo3"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    You can access object properties in two ways: Dot Notation, or Bracket Notation.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Dot Notation</i> <br>
+        person.firstname + " is " + person.age;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// Bracket Notation</i> <br>
+        person["firstname"] + " is " + person["age"];
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The bracket notation <span class="code">[expression]</span> allows you to use variables to access properties.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let n1 = "firstName"; <br>
+        let n2 = "lastName"; <br>
+        <br>
+        let name = person[n1] + " " + person[n2];
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Changing Properties</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This statement changes the value of the age property of person.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>person.age = 10;</td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Adding New Properties</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can add new properties to an existing object simply by giving it a value.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>person.nationality = "English";</td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Deleting Properties</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">delete</span> keyword deletes a property from an object.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;age: 50, <br>
+        &#125;; <br>
+        <br>
+        delete person.age;
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The delete keyword deletes both the value of the property and the property itself. After deletion, the property cannot be used before it is added back again.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;age: 50, <br>
+        &#125;; <br>
+        <br>
+        delete person["age"];
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The delete operator works only on object properties. It has no effect on variables or functions.</p>
+
+  <h3>Check if a Property Exists</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can use the <span class="code">in</span> operator to find out if a property exists in an object.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe" <br>
+        &#125;; <br>
+        <br>
+        let result = ("firstName" in person);
+      </td>
+      <td id="demo11"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Nested Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Values in an object can be another object.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        myObj = &#123; <br>
+        &nbsp;&nbsp;name: "John", <br>
+        &nbsp;&nbsp;age: 30, <br>
+        &nbsp;&nbsp;myCars: &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;car1: "Ford", <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;car2: "BMW", <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;car3: "Fiat" <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;
+      </td>
+      <td id="demo12"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can access nested objects using either the dot notation or the bracket notation.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>myObj.myCars.car2;</td>
+      <td id="demo13"></td>
+    </tr>
+    <tr>
+      <td>myObj.myCars["car2"];</td>
+      <td id="demo14"></td>
+    </tr>
+    <tr>
+      <td>myObj["myCars"]["car2"];</td>
+      <td id="demo15"></td>
+    </tr>
+    <tr>
+      <td>
+        let p1 = "myCars"; <br>
+        let p2 = "car2"; <br>
+        myObj[p1][p2];
+      </td>
+      <td id="demo16"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Summary</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Properties are the values associated with a JavaScript object. A JavaScript object is a container of named values, called properties or methods. You can add, change, or delete object properties. Use the <span class="code">in</span> operator to check if a property exists, and remember that object values can themselves be objects (nested objects).
   </p>
 </section>
 <br>
@@ -369,7 +625,73 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  const person = { firstname: "John", age: 50 };
 
+  document.getElementById("demo1").innerHTML = person.age;
+  document.getElementById("demo2").innerHTML = person["age"];
+  (function () {
+    let x = "age";
+    document.getElementById("demo3").innerHTML = person[x];
+  })();
+
+  document.getElementById("demo4").innerHTML = person.firstname + " is " + person.age;
+  document.getElementById("demo5").innerHTML = person["firstname"] + " is " + person["age"];
+
+  (function () {
+    const p = { firstName: "John", lastName: "Doe" };
+    let n1 = "firstName";
+    let n2 = "lastName";
+    document.getElementById("demo6").innerHTML = p[n1] + " " + p[n2];
+  })();
+
+  (function () {
+    const p = { age: 5 };
+    p.age = 10;
+    document.getElementById("demo7").innerHTML = p.age;
+  })();
+
+  (function () {
+    const p = {};
+    p.nationality = "English";
+    document.getElementById("demo8").innerHTML = p.nationality;
+  })();
+
+  (function () {
+    const p = { firstName: "John", lastName: "Doe", age: 50 };
+    delete p.age;
+    document.getElementById("demo9").innerHTML = "age" in p ? "still has age" : "age removed, typeof p.age: " + typeof p.age;
+  })();
+
+  (function () {
+    const p = { firstName: "John", lastName: "Doe", age: 50 };
+    delete p["age"];
+    document.getElementById("demo10").innerHTML = "age" in p ? "still has age" : "age removed, typeof p.age: " + typeof p.age;
+  })();
+
+  (function () {
+    const p = { firstName: "John", lastName: "Doe" };
+    let result = ("firstName" in p);
+    document.getElementById("demo11").innerHTML = result;
+  })();
+
+  (function () {
+    const myObj = {
+      name: "John",
+      age: 30,
+      myCars: {
+        car1: "Ford",
+        car2: "BMW",
+        car3: "Fiat"
+      }
+    };
+    document.getElementById("demo12").innerHTML = JSON.stringify(myObj);
+    document.getElementById("demo13").innerHTML = myObj.myCars.car2;
+    document.getElementById("demo14").innerHTML = myObj.myCars["car2"];
+    document.getElementById("demo15").innerHTML = myObj["myCars"]["car2"];
+    let p1 = "myCars";
+    let p2 = "car2";
+    document.getElementById("demo16").innerHTML = myObj[p1][p2];
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
