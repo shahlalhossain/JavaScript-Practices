@@ -322,20 +322,26 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>What are Object Methods?</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Object methods are actions that can be performed on objects. An object method is an object property containing a function definition.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Property</th>
+      <th>Value</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>firstName</td><td>John</td></tr>
+    <tr><td>lastName</td><td>Doe</td></tr>
+    <tr><td>age</td><td>50</td></tr>
+    <tr><td>fullName</td><td><span class="code">function() &#123; return this.firstName + " " + this.lastName; &#125;</span></td></tr>
+    </tbody>
+  </table>
   <br>
   <table>
     <thead>
@@ -346,14 +352,155 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;age: 50, <br>
+        &nbsp;&nbsp;fullName: function() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return this.firstName + " " + this.lastName; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>The this Keyword</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    In a function definition, <span class="code">this</span> refers to the "owner" of the function. In the example above, <span class="code">this</span> is the person object that "owns" the <span class="code">fullName</span> function. In other words, <span class="code">this.firstName</span> means the <span class="code">firstName</span> property of <span class="code">this</span> object.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;id: 5566, <br>
+        &nbsp;&nbsp;getId: function() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return this.id; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;; <br>
+        <br>
+        let number = person.getId();
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Read more about the <span class="code">this</span> keyword on the "JS - 'this' Keyword" page.
+  </p>
+
+  <h3>Accessing Object Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You access an object method with the following syntax: <br>
+    <span class="code">objectName.methodName()</span>
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        name = person.fullName();
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you access the <span class="code">fullName</span> property, without <span class="code">()</span>, it will return the function definition:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        name = person.fullName;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Adding a Method to an Object</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Adding a new method to an object is easy.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Assign person.name to a function</i> <br>
+        person.name = function () &#123; <br>
+        &nbsp;&nbsp;return this.firstName + " " + this.lastName; <br>
+        &#125;;
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Adding a JavaScript Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Methods are functions stored as object properties.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        person.name = function () &#123; <br>
+        &nbsp;&nbsp;return (this.firstName + " " + this.lastName).toUpperCase(); <br>
+        &#125;;
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>This type of method requires parentheses when being called, as part of the object, like <span class="code">this.firstName</span>, and not just <span class="code">firstName</span>.</p>
+
+  <h3>Summary</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Methods are actions that can be performed on objects. Methods are stored in properties as function definitions. <span class="code">this</span> refers to the owner object. Methods must be invoked as a function of the object.
   </p>
 </section>
 <br>
@@ -369,7 +516,54 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  const person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 50,
+    fullName: function() {
+      return this.firstName + " " + this.lastName;
+    }
+  };
+  document.getElementById("demo1").innerHTML = person.fullName();
 
+  (function () {
+    const p = {
+      firstName: "John",
+      lastName: "Doe",
+      id: 5566,
+      getId: function() {
+        return this.id;
+      }
+    };
+    let number = p.getId();
+    document.getElementById("demo2").innerHTML = number;
+  })();
+
+  (function () {
+    let name = person.fullName();
+    document.getElementById("demo3").innerHTML = name;
+  })();
+
+  (function () {
+    let name = person.fullName;
+    document.getElementById("demo4").innerHTML = "typeof: " + typeof name;
+  })();
+
+  (function () {
+    const p = { firstName: "John", lastName: "Doe" };
+    p.name = function () {
+      return this.firstName + " " + this.lastName;
+    };
+    document.getElementById("demo5").innerHTML = p.name();
+  })();
+
+  (function () {
+    const p = { firstName: "John", lastName: "Doe" };
+    p.name = function () {
+      return (this.firstName + " " + this.lastName).toUpperCase();
+    };
+    document.getElementById("demo6").innerHTML = p.name();
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
