@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>How to Display JavaScript Objects?</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Displaying a JavaScript object will output <span class="code">[object Object]</span>.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +337,150 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const person = &#123;name: "John", age: 50, city: "New York"&#125;; <br>
+        let text = person;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Why do I See [Object Object]?</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    This is a common result many new JavaScript programmers experience. Browsers will not display an error, but by default alert objects as "[object Object]". <br>
+    This happens because JavaScript objects should be converted into the proper format before display.
   </p>
+
+  <h3>Displaying Object Properties</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can access object properties with: <span class="code">objectName.property</span> or <span class="code">objectName["property"]</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123;name: "John", age: 50, city: "New York"&#125;; <br>
+        let text = person.name + "," + person.age + "," + person.city;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Using a For .. In Loop</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The JavaScript <span class="code">for...in</span> statement loops through the properties of an object.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123;name: "John", age: 50, city: "New York"&#125;; <br>
+        let text = ""; <br>
+        for (let x in person) &#123; <br>
+        &nbsp;&nbsp;text += person[x] + " "; <br>
+        &#125;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>You have to use <span class="code">person[x]</span> in the loop. <span class="code">person.x</span> does not produce any result (because x is a variable).</p>
+
+  <h3>Using Object.values()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can use the <span class="code">Object.values()</span> method to convert an object's values into an array.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123;name: "John", age: 50, city: "New York"&#125;; <br>
+        const myArray = Object.values(person); <br>
+        let text = myArray.toString();
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Using Object.entries()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can use the <span class="code">Object.entries()</span> method to loop over the properties of an object.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const fruits = &#123;apples: 5, bananas: 3&#125;; <br>
+        let text = ""; <br>
+        for (let [fruit, value] of Object.entries(fruits)) &#123; <br>
+        &nbsp;&nbsp;text += fruit + ": " + value + " "; <br>
+        &#125;
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Using JSON.stringify()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Objects can be converted into a string with <span class="code">JSON.stringify()</span>. This is useful for displaying the object, and for sending objects to a server.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123;name: "John", age: 50, city: "New York"&#125;; <br>
+        let text = JSON.stringify(person);
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The result will be a string written in JSON notation: <span class="code">&#123;"name":"John","age":50,"city":"New York"&#125;</span></p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +495,48 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const person = { name: "John", age: 50, city: "New York" };
+    let text = person;
+    document.getElementById("demo1").innerHTML = text;
+  })();
 
+  (function () {
+    const person = { name: "John", age: 50, city: "New York" };
+    let text = person.name + "," + person.age + "," + person.city;
+    document.getElementById("demo2").innerHTML = text;
+  })();
+
+  (function () {
+    const person = { name: "John", age: 50, city: "New York" };
+    let text = "";
+    for (let x in person) {
+      text += person[x] + " ";
+    }
+    document.getElementById("demo3").innerHTML = text;
+  })();
+
+  (function () {
+    const person = { name: "John", age: 50, city: "New York" };
+    const myArray = Object.values(person);
+    let text = myArray.toString();
+    document.getElementById("demo4").innerHTML = text;
+  })();
+
+  (function () {
+    const fruits = { apples: 5, bananas: 3 };
+    let text = "";
+    for (let [fruit, value] of Object.entries(fruits)) {
+      text += fruit + ": " + value + " ";
+    }
+    document.getElementById("demo5").innerHTML = text;
+  })();
+
+  (function () {
+    const person = { name: "John", age: 50, city: "New York" };
+    let text = JSON.stringify(person);
+    document.getElementById("demo6").innerHTML = text;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
