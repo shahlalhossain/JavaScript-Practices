@@ -322,20 +322,18 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Getters and Setters</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    ECMAScript 5 (ES5 2009) introduced getters and setters. <br>
+    Getters and setters allow you to define Object Accessors (Computed Properties).
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>JavaScript Getter (The get Keyword)</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This example uses the <span class="code">lang</span> property to get the value of the <span class="code">language</span> property.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +344,200 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;language: "en", <br>
+        &nbsp;&nbsp;get lang() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return this.language; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;; <br>
+        <br>
+        <i>// Display data from the object using a getter:</i> <br>
+        person.lang;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>JavaScript Setter (The set Keyword)</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    This example uses the <span class="code">lang</span> property to set the value of the <span class="code">language</span> property.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;language: "", <br>
+        &nbsp;&nbsp;set lang(lang) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.language = lang; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;; <br>
+        <br>
+        <i>// Set an object property using a setter:</i> <br>
+        person.lang = "en"; <br>
+        person.language;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Even though the setter method takes one argument (lang), when you call it as <span class="code">person.lang = "en"</span>, you only provide the value, "en". The parameter in the function represents the value, "en" in this case.</p>
+
+  <h3>JavaScript Function or Getter?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Compare these two examples, the last one uses a getter, the first one does not.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Create an object:</i> <br>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;fullName: function() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return this.firstName + " " + this.lastName; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;; <br>
+        <br>
+        <i>// Display data from the object using a method:</i> <br>
+        person.fullName();
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// Create an object:</i> <br>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;get fullName() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return this.firstName + " " + this.lastName; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;; <br>
+        <br>
+        <i>// Display data from the object using a getter:</i> <br>
+        person.fullName;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>In the first example you access the property as a function: <span class="code">person.fullName()</span>. In the last example you access the property as a property, without <span class="code">()</span>: <span class="code">person.fullName</span>. The last example also gives a shorter syntax.</p>
+
+  <h3>Data Quality</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript getters and setters can be used to define Computed Properties, or to monitor changes done to properties, to secure better data quality.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;language: "EN", <br>
+        &nbsp;&nbsp;get lang() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return this.language.toUpperCase(); <br>
+        &nbsp;&nbsp;&#125;, <br>
+        &nbsp;&nbsp;set lang(lang) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.language = lang.toUpperCase(); <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;; <br>
+        <br>
+        person.lang = "en"; <br>
+        person.lang;
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Why Using Getters and Setters?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    It gives simpler syntax, it allows equal syntax for properties and methods, it can secure better data quality, and it is useful for doing things behind-the-scenes. <br>
+    <strong><i>Note: </i></strong>If you don't need an object to do anything more than what you can do with a normal literal, do not use getters and setters. Normal syntax is often better and it will be more compatible with other JavaScript programmers.
+  </p>
+
+  <h3>Object.defineProperty()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">Object.defineProperty()</span> method can also be used to add Getters and Setters.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const obj = &#123;counter: 0&#125;; <br>
+        <br>
+        <i>// Define Getters</i> <br>
+        Object.defineProperty(obj, "reset", &#123; <br>
+        &nbsp;&nbsp;get: function () &#123;this.counter = 0;&#125; <br>
+        &#125;); <br>
+        Object.defineProperty(obj, "increment", &#123; <br>
+        &nbsp;&nbsp;get: function () &#123;this.counter++;&#125; <br>
+        &#125;); <br>
+        Object.defineProperty(obj, "decrement", &#123; <br>
+        &nbsp;&nbsp;get: function () &#123;this.counter--;&#125; <br>
+        &#125;); <br>
+        <br>
+        <i>// Define Setters</i> <br>
+        Object.defineProperty(obj, "add", &#123; <br>
+        &nbsp;&nbsp;set: function (value) &#123;this.counter += value;&#125; <br>
+        &#125;); <br>
+        Object.defineProperty(obj, "subtract", &#123; <br>
+        &nbsp;&nbsp;set: function (value) &#123;this.counter -= value;&#125; <br>
+        &#125;); <br>
+        <br>
+        <i>// Play With The Counter:</i> <br>
+        obj.reset; <br>
+        obj.add = 5; <br>
+        obj.subtract = 1; <br>
+        obj.increment; <br>
+        obj.increment;
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +552,94 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      language: "en",
+      get lang() {
+        return this.language;
+      }
+    };
+    document.getElementById("demo1").innerHTML = person.lang;
+  })();
 
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      language: "",
+      set lang(lang) {
+        this.language = lang;
+      }
+    };
+    person.lang = "en";
+    document.getElementById("demo2").innerHTML = person.language;
+  })();
+
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      fullName: function() {
+        return this.firstName + " " + this.lastName;
+      }
+    };
+    document.getElementById("demo3").innerHTML = person.fullName();
+  })();
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      get fullName() {
+        return this.firstName + " " + this.lastName;
+      }
+    };
+    document.getElementById("demo4").innerHTML = person.fullName;
+  })();
+
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      language: "EN",
+      get lang() {
+        return this.language.toUpperCase();
+      },
+      set lang(lang) {
+        this.language = lang.toUpperCase();
+      }
+    };
+    person.lang = "en";
+    document.getElementById("demo5").innerHTML = person.lang;
+  })();
+
+  (function () {
+    const obj = { counter: 0 };
+
+    Object.defineProperty(obj, "reset", {
+      get: function () { this.counter = 0; }
+    });
+    Object.defineProperty(obj, "increment", {
+      get: function () { this.counter++; }
+    });
+    Object.defineProperty(obj, "decrement", {
+      get: function () { this.counter--; }
+    });
+    Object.defineProperty(obj, "add", {
+      set: function (value) { this.counter += value; }
+    });
+    Object.defineProperty(obj, "subtract", {
+      set: function (value) { this.counter -= value; }
+    });
+
+    obj.reset;
+    obj.add = 5;
+    obj.subtract = 1;
+    obj.increment;
+    obj.increment;
+    document.getElementById("demo6").innerHTML = obj.counter;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
