@@ -322,20 +322,12 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Object Constructor Functions</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Sometimes we need a "blueprint" for creating many objects of the same "type". <br>
+    The way to create an "object type", is to use an object constructor function.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +338,336 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        function Person(first, last, age, eye) &#123; <br>
+        &nbsp;&nbsp;this.firstName = first; <br>
+        &nbsp;&nbsp;this.lastName = last; <br>
+        &nbsp;&nbsp;this.age = age; <br>
+        &nbsp;&nbsp;this.eyeColor = eye; <br>
+        &#125;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    It is considered good practice to name constructor functions with an upper-case first letter. Objects of the same type are created by calling the constructor function with the <span class="code">new</span> keyword.
   </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const myFather = new Person("John", "Doe", 50, "blue"); <br>
+        const myMother = new Person("Sally", "Rally", 48, "green"); <br>
+        const mySister = new Person("Anna", "Rally", 18, "green"); <br>
+        <br>
+        const mySelf = new Person("Johnny", "Rally", 22, "green");
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The <span class="code">this</span> keyword is not a value. It is what is called a function context. In an object constructor function, this does not have a value. It becomes a reference to the new object when the function is used to create objects.</p>
+
+  <h3>Property Default Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can add a default property value to a constructor function.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function Person(first, last, age, eyecolor) &#123; <br>
+        &nbsp;&nbsp;this.firstName = first; <br>
+        &nbsp;&nbsp;this.lastName = last; <br>
+        &nbsp;&nbsp;this.age = age; <br>
+        &nbsp;&nbsp;this.eyeColor = eyecolor; <br>
+        &nbsp;&nbsp;this.nationality = "English"; <br>
+        &#125;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Adding a Property to an Object</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Adding a new property to an existing object is easy.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        myFather.nationality = "English";
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The new property is added only to this object. Not to any other objects.</p>
+
+  <h3>Adding a Property to a Constructor</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You cannot add a new property to an object constructor the same way you add a new property to an existing object, because the constructor is not an object:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Person.nationality = "English"; &nbsp;&nbsp;<i>// You can NOT do this</i>
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To add a new property to a constructor, you must add it to the constructor function's prototype.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Person.prototype.nationality = "English";
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Constructor Function Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Constructor functions can also define methods.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function Person(first, last, age, eyecolor) &#123; <br>
+        &nbsp;&nbsp;this.firstName = first; <br>
+        &nbsp;&nbsp;this.lastName = last; <br>
+        &nbsp;&nbsp;this.age = age; <br>
+        &nbsp;&nbsp;this.eyeColor = eyecolor; <br>
+        &nbsp;&nbsp;this.fullName = function() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return this.firstName + " " + this.lastName; <br>
+        &nbsp;&nbsp;&#125;; <br>
+        &#125;
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Functions do not have to be objects: they can also hold methods, simply because a method is just a function assigned as a property.</p>
+
+  <h3>Adding a Method to an Object</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Adding a new method to an existing object is easy.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        myMother.changeName = function (name) &#123; <br>
+        &nbsp;&nbsp;this.lastName = name; <br>
+        &#125;
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The new method is added only to this object. Not to any other objects.</p>
+
+  <h3>Adding a Method to a Constructor</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Your own methods have to be added to the prototype of the constructor function:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Person.changeName = function (name) &#123; <br>
+        &nbsp;&nbsp;this.lastName = name; <br>
+        &#125; <br>
+        <br>
+        myMother.changeName("Doe"); &nbsp;&nbsp;<i>// will produce an error</i>
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">changeName()</span> function assigned to <span class="code">Person</span> belongs to the constructor's function scope, not to the object scope. The <span class="code">changeName()</span> method has to be added to the prototype:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Person.prototype.changeName = function (name) &#123; <br>
+        &nbsp;&nbsp;this.lastName = name; <br>
+        &#125; <br>
+        <br>
+        myMother.changeName("Doe");
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Built-in JavaScript Constructors</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript has built-in constructor functions for native objects:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>new Object(); &nbsp;&nbsp;<i>// A new Object object</i></td>
+      <td id="demo11"></td>
+    </tr>
+    <tr>
+      <td>new Array(); &nbsp;&nbsp;<i>// A new Array object</i></td>
+      <td id="demo12"></td>
+    </tr>
+    <tr>
+      <td>new Map(); &nbsp;&nbsp;<i>// A new Map object</i></td>
+      <td id="demo13"></td>
+    </tr>
+    <tr>
+      <td>new Set(); &nbsp;&nbsp;<i>// A new Set object</i></td>
+      <td id="demo14"></td>
+    </tr>
+    <tr>
+      <td>new Date(); &nbsp;&nbsp;<i>// A new Date object</i></td>
+      <td id="demo15"></td>
+    </tr>
+    <tr>
+      <td>new RegExp(); &nbsp;&nbsp;<i>// A new RegExp object</i></td>
+      <td id="demo16"></td>
+    </tr>
+    <tr>
+      <td>new Function(); &nbsp;&nbsp;<i>// A new Function object</i></td>
+      <td id="demo17"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The Math() object is not in the list. Math is not a constructor.</p>
+
+  <h3>Did You Know?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Function constructors should NOT be used to create "new" JavaScript objects of type Number, String, or Boolean. The new keyword complicates the code and can produce some unexpected results.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>""; &nbsp;&nbsp;<i>// primitive string</i></td>
+      <td id="demo18"></td>
+    </tr>
+    <tr>
+      <td>0; &nbsp;&nbsp;<i>// primitive number</i></td>
+      <td id="demo19"></td>
+    </tr>
+    <tr>
+      <td>false; &nbsp;&nbsp;<i>// primitive boolean</i></td>
+      <td id="demo20"></td>
+    </tr>
+    <tr>
+      <td>&#123;&#125;; &nbsp;&nbsp;<i>// object object</i></td>
+      <td id="demo21"></td>
+    </tr>
+    <tr>
+      <td>[]; &nbsp;&nbsp;<i>// array object</i></td>
+      <td id="demo22"></td>
+    </tr>
+    <tr>
+      <td>/()/; &nbsp;&nbsp;<i>// regexp object</i></td>
+      <td id="demo23"></td>
+    </tr>
+    <tr>
+      <td>function(){}; &nbsp;&nbsp;<i>// function</i></td>
+      <td id="demo24"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +682,111 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  function Person(first, last, age, eye) {
+    this.firstName = first;
+    this.lastName = last;
+    this.age = age;
+    this.eyeColor = eye;
+  }
+  document.getElementById("demo1").innerHTML = "function Person(...) defined";
 
+  const myFather = new Person("John", "Doe", 50, "blue");
+  const myMother = new Person("Sally", "Rally", 48, "green");
+  const mySister = new Person("Anna", "Rally", 18, "green");
+  const mySelf = new Person("Johnny", "Rally", 22, "green");
+  document.getElementById("demo2").innerHTML = myFather.firstName + ", " + myMother.firstName + ", " + mySister.firstName + ", " + mySelf.firstName;
+
+  (function () {
+    function PersonD(first, last, age, eyecolor) {
+      this.firstName = first;
+      this.lastName = last;
+      this.age = age;
+      this.eyeColor = eyecolor;
+      this.nationality = "English";
+    }
+    const p = new PersonD("John", "Doe", 50, "blue");
+    document.getElementById("demo3").innerHTML = p.nationality;
+  })();
+
+  myFather.nationality = "English";
+  document.getElementById("demo4").innerHTML = myFather.nationality;
+
+  (function () {
+    function PersonN(first, last) { this.firstName = first; this.lastName = last; }
+    const sister = new PersonN("Anna", "Rally");
+    PersonN.nationality = "English";
+    document.getElementById("demo5").innerHTML = "Person.nationality: " + PersonN.nationality + ", but sister.nationality: " + sister.nationality;
+  })();
+
+  (function () {
+    function PersonN(first, last) { this.firstName = first; this.lastName = last; }
+    const sister = new PersonN("Anna", "Rally");
+    PersonN.prototype.nationality = "English";
+    document.getElementById("demo6").innerHTML = "sister.nationality: " + sister.nationality;
+  })();
+
+  (function () {
+    function PersonM(first, last, age, eyecolor) {
+      this.firstName = first;
+      this.lastName = last;
+      this.age = age;
+      this.eyeColor = eyecolor;
+      this.fullName = function() {
+        return this.firstName + " " + this.lastName;
+      };
+    }
+    const p = new PersonM("John", "Doe", 50, "blue");
+    document.getElementById("demo7").innerHTML = p.fullName();
+  })();
+
+  (function () {
+    const mother = new Person("Sally", "Rally", 48, "green");
+    mother.changeName = function (name) {
+      this.lastName = name;
+    };
+    mother.changeName("DoeViaObject");
+    document.getElementById("demo8").innerHTML = mother.lastName;
+  })();
+
+  (function () {
+    function PersonC(first, last) { this.firstName = first; this.lastName = last; }
+    const mother = new PersonC("Sally", "Rally");
+    PersonC.changeName = function (name) {
+      this.lastName = name;
+    };
+    try {
+      mother.changeName("Doe");
+      document.getElementById("demo9").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo9").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    function PersonC(first, last) { this.firstName = first; this.lastName = last; }
+    const mother = new PersonC("Sally", "Rally");
+    PersonC.prototype.changeName = function (name) {
+      this.lastName = name;
+    };
+    mother.changeName("Doe");
+    document.getElementById("demo10").innerHTML = mother.lastName;
+  })();
+
+  document.getElementById("demo11").innerHTML = typeof new Object();
+  document.getElementById("demo12").innerHTML = typeof new Array();
+  document.getElementById("demo13").innerHTML = typeof new Map();
+  document.getElementById("demo14").innerHTML = typeof new Set();
+  document.getElementById("demo15").innerHTML = typeof new Date();
+  document.getElementById("demo16").innerHTML = typeof new RegExp();
+  document.getElementById("demo17").innerHTML = typeof new Function();
+
+  document.getElementById("demo18").innerHTML = typeof "";
+  document.getElementById("demo19").innerHTML = typeof 0;
+  document.getElementById("demo20").innerHTML = typeof false;
+  document.getElementById("demo21").innerHTML = typeof {};
+  document.getElementById("demo22").innerHTML = typeof [];
+  document.getElementById("demo23").innerHTML = typeof /()/;
+  document.getElementById("demo24").innerHTML = typeof function(){};
 </script>
 <!--Page Specific JavaScript End-->
 </body>
