@@ -322,20 +322,25 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Object Prototypes</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    All JavaScript objects inherit properties and methods from a prototype. <br>
+    Objects created using an object literal, objects created with <span class="code">new Object()</span>, objects created with <span class="code">Object.create()</span> inherit from <span class="code">Object.prototype</span>.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Prototype Inheritance</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    All JavaScript objects inherit properties and methods from their prototype. <br>
+    Objects created using an object constructor, inherit their prototype from that constructor function.
+  </p>
+
+  <h3>Adding Properties and Methods to Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Sometimes you want to add new properties (or methods) to all existing objects of a given type. Sometimes you want to add new properties (or methods) to an object constructor.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +351,128 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        function Person(first, last, age, eyecolor) &#123; <br>
+        &nbsp;&nbsp;this.firstName = first; <br>
+        &nbsp;&nbsp;this.lastName = last; <br>
+        &nbsp;&nbsp;this.age = age; <br>
+        &nbsp;&nbsp;this.eyeColor = eyecolor; <br>
+        &#125; <br>
+        <br>
+        const myFather = new Person("John", "Doe", 50, "blue");
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    You cannot add a new property to a constructor function the same way you add a new property to an existing object:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Person.nationality = "English"; &nbsp;&nbsp;<i>// Not what you want</i>
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To add a new property to a constructor, you must add it to the constructor function:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function Person(first, last, age, eyecolor) &#123; <br>
+        &nbsp;&nbsp;this.firstName = first; <br>
+        &nbsp;&nbsp;this.lastName = last; <br>
+        &nbsp;&nbsp;this.age = age; <br>
+        &nbsp;&nbsp;this.eyeColor = eyecolor; <br>
+        &nbsp;&nbsp;this.nationality = "English"; <br>
+        &#125;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>All objects created with this constructor, from now on, will also get this new property.</p>
+
+  <h3>Using the prototype Property</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The JavaScript <span class="code">prototype</span> property allows you to add new properties to object constructors.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function Person(first, last, age, eyecolor) &#123; <br>
+        &nbsp;&nbsp;this.firstName = first; <br>
+        &nbsp;&nbsp;this.lastName = last; <br>
+        &nbsp;&nbsp;this.age = age; <br>
+        &nbsp;&nbsp;this.eyeColor = eyecolor; <br>
+        &#125; <br>
+        <br>
+        Person.prototype.nationality = "English";
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">prototype</span> property also allows you to add new methods to objects constructors:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function Person(first, last, age, eyecolor) &#123; <br>
+        &nbsp;&nbsp;this.firstName = first; <br>
+        &nbsp;&nbsp;this.lastName = last; <br>
+        &nbsp;&nbsp;this.age = age; <br>
+        &nbsp;&nbsp;this.eyeColor = eyecolor; <br>
+        &#125; <br>
+        <br>
+        Person.prototype.name = function() &#123; <br>
+        &nbsp;&nbsp;return this.firstName + " " + this.lastName; <br>
+        &#125;;
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Warning</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Do not overuse the <span class="code">prototype</span> property. When you add new properties or methods, or change existing ones, to a JavaScript prototype, it will affect ALL objects created from that prototype, even existing objects. Only add properties and methods that are supposed to be shared by all instances of the object type.
   </p>
 </section>
 <br>
@@ -369,7 +488,64 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    function Person(first, last, age, eyecolor) {
+      this.firstName = first;
+      this.lastName = last;
+      this.age = age;
+      this.eyeColor = eyecolor;
+    }
+    const myFather = new Person("John", "Doe", 50, "blue");
+    document.getElementById("demo1").innerHTML = myFather.firstName + " " + myFather.lastName;
+  })();
 
+  (function () {
+    function Person(first, last) {
+      this.firstName = first;
+      this.lastName = last;
+    }
+    const myFather = new Person("John", "Doe");
+    Person.nationality = "English";
+    document.getElementById("demo2").innerHTML = "Person.nationality: " + Person.nationality + ", myFather.nationality: " + myFather.nationality;
+  })();
+
+  (function () {
+    function Person(first, last, age, eyecolor) {
+      this.firstName = first;
+      this.lastName = last;
+      this.age = age;
+      this.eyeColor = eyecolor;
+      this.nationality = "English";
+    }
+    const myFather = new Person("John", "Doe", 50, "blue");
+    document.getElementById("demo3").innerHTML = myFather.nationality;
+  })();
+
+  (function () {
+    function Person(first, last, age, eyecolor) {
+      this.firstName = first;
+      this.lastName = last;
+      this.age = age;
+      this.eyeColor = eyecolor;
+    }
+    Person.prototype.nationality = "English";
+    const myFather = new Person("John", "Doe", 50, "blue");
+    document.getElementById("demo4").innerHTML = myFather.nationality;
+  })();
+
+  (function () {
+    function Person(first, last, age, eyecolor) {
+      this.firstName = first;
+      this.lastName = last;
+      this.age = age;
+      this.eyeColor = eyecolor;
+    }
+    Person.prototype.name = function() {
+      return this.firstName + " " + this.lastName;
+    };
+    const myFather = new Person("John", "Doe", 50, "blue");
+    document.getElementById("demo5").innerHTML = myFather.name();
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
