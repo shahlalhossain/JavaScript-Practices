@@ -322,20 +322,24 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Sets</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    A JavaScript <span class="code">Set</span> is a collection of unique values. Each value can only occur once in a Set.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>How to Create a Set</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can create a JavaScript Set by: <br>
+    Passing an Array to <span class="code">new Set()</span>, creating a new Set and then using <span class="code">add()</span> to add values.
+  </p>
+
+  <h3>The new Set() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can create a Set by passing an Array to the <span class="code">new Set()</span> constructor.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +350,196 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <i>// Create a Set</i> <br>
+        const letters = new Set(["a", "b", "c"]);
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    You can create an empty Set and then add values with <span class="code">add()</span>.
   </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Create a Set</i> <br>
+        const letters = new Set(); <br>
+        <br>
+        <i>// Add Values to the Set</i> <br>
+        letters.add("a"); <br>
+        letters.add("b"); <br>
+        letters.add("c");
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can also add variables to a Set.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Create a Set</i> <br>
+        const letters = new Set(); <br>
+        <br>
+        <i>// Create Variables</i> <br>
+        const a = "a"; <br>
+        const b = "b"; <br>
+        const c = "c"; <br>
+        <br>
+        <i>// Add Variables to the Set</i> <br>
+        letters.add(a); <br>
+        letters.add(b); <br>
+        letters.add(c);
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The add() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">add()</span> method adds a new element to a Set.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const letters = new Set(["a", "b", "c"]); <br>
+        letters.add("d"); <br>
+        letters.add("e");
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you add equal elements, only the first will be saved.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const letters = new Set(); <br>
+        letters.add("a"); <br>
+        letters.add("b"); <br>
+        letters.add("c"); <br>
+        letters.add("c"); <br>
+        letters.add("c"); <br>
+        letters.add("c"); <br>
+        letters.add("c"); <br>
+        letters.add("c");
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Equal values are overwritten, so a Set can never have duplicate values.</p>
+
+  <h3>Listing the Elements</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can list all of the elements in a Set with a <span class="code">for...of</span> loop.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Create a Set</i> <br>
+        const letters = new Set(["a", "b", "c"]); <br>
+        <br>
+        <i>// List all Elements</i> <br>
+        let text = ""; <br>
+        for (const x of letters) &#123; <br>
+        &nbsp;&nbsp;text += x; <br>
+        &#125;
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Sets are Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">typeof</span> operator returns object for a Set.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const letters = new Set(["a", "b", "c"]); <br>
+        typeof letters; &nbsp;&nbsp;<i>// Returns object</i>
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can use the <span class="code">instanceof</span> operator to check if an object is a Set.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const letters = new Set(["a", "b", "c"]); <br>
+        letters instanceof Set; &nbsp;&nbsp;<i>// Returns true</i>
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +554,68 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const letters = new Set(["a", "b", "c"]);
+    document.getElementById("demo1").innerHTML = [...letters].join(", ");
+  })();
 
+  (function () {
+    const letters = new Set();
+    letters.add("a");
+    letters.add("b");
+    letters.add("c");
+    document.getElementById("demo2").innerHTML = [...letters].join(", ");
+  })();
+
+  (function () {
+    const letters = new Set();
+    const a = "a";
+    const b = "b";
+    const c = "c";
+    letters.add(a);
+    letters.add(b);
+    letters.add(c);
+    document.getElementById("demo3").innerHTML = [...letters].join(", ");
+  })();
+
+  (function () {
+    const letters = new Set(["a", "b", "c"]);
+    letters.add("d");
+    letters.add("e");
+    document.getElementById("demo4").innerHTML = [...letters].join(", ");
+  })();
+
+  (function () {
+    const letters = new Set();
+    letters.add("a");
+    letters.add("b");
+    letters.add("c");
+    letters.add("c");
+    letters.add("c");
+    letters.add("c");
+    letters.add("c");
+    letters.add("c");
+    document.getElementById("demo5").innerHTML = [...letters].join(", ") + " (size: " + letters.size + ")";
+  })();
+
+  (function () {
+    const letters = new Set(["a", "b", "c"]);
+    let text = "";
+    for (const x of letters) {
+      text += x;
+    }
+    document.getElementById("demo6").innerHTML = text;
+  })();
+
+  (function () {
+    const letters = new Set(["a", "b", "c"]);
+    document.getElementById("demo7").innerHTML = typeof letters;
+  })();
+
+  (function () {
+    const letters = new Set(["a", "b", "c"]);
+    document.getElementById("demo8").innerHTML = letters instanceof Set;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
