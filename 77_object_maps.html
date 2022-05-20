@@ -322,20 +322,30 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The Map Object</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    A JavaScript <span class="code">Map</span> holds key-value pairs where the keys can be any datatype. <br>
+    A Map remembers the original insertion order of the keys.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Map Characteristics</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Map keys can be any type (strings, numbers, objects, etc). <br>
+    The Map remembers the original insertion order of the keys. <br>
+    The number of items in a Map is easily retrieved using the size property. <br>
+    Maps are optimized for frequent additions and removals of key-value pairs. <br>
+    Maps are iterable, allowing for direct use of for...of loops or methods like forEach(). <br>
+    The original order is preserved during iteration.
+  </p>
+
+  <h3>How to Create a Map</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You create a JavaScript Map by: <br>
+    Creating a new Map and adding elements with <span class="code">Map.set()</span>, or passing an existing Array to the <span class="code">new Map()</span> constructor.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +356,165 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <i>// Create an empty Map</i> <br>
+        const fruits = new Map(); <br>
+        <br>
+        <i>// Set Map Values</i> <br>
+        fruits.set("apples", 500); <br>
+        fruits.set("bananas", 300); <br>
+        fruits.set("oranges", 200);
+      </td>
+      <td id="demo1"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// Create a Map</i> <br>
+        const fruits = new Map([ <br>
+        &nbsp;&nbsp;["apples", 500], <br>
+        &nbsp;&nbsp;["bananas", 300], <br>
+        &nbsp;&nbsp;["oranges", 200] <br>
+        ]);
+      </td>
+      <td id="demo2"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Adding Map Values</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    New elements are added to a Map using the <span class="code">set()</span> method.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        fruits.set("mangos", 100);
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Changing Map Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">set()</span> method can also be used to change existing Map values.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        fruits.set("apples", 200);
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The get() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">get()</span> method gets the value of a key in a Map.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        fruits.get("apples"); &nbsp;&nbsp;<i>// Returns 500</i>
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Maps are Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">typeof</span> operator returns object for a Map.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Returns object:</i> <br>
+        typeof fruits;
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can use the <span class="code">instanceof</span> operator to check if an object is a Map.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Returns true:</i> <br>
+        fruits instanceof Map;
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JavaScript Objects vs Maps</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Differences between JavaScript Objects and Maps:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Object</th>
+      <th>Map</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>Not directly iterable</td><td>Directly iterable</td></tr>
+    <tr><td>Do not have a size property</td><td>Have a size property</td></tr>
+    <tr><td>Keys must be Strings (or Symbols)</td><td>Keys can be any datatype</td></tr>
+    <tr><td>Keys are not well ordered</td><td>Keys are ordered by insertion</td></tr>
+    <tr><td>Have default keys</td><td>Do not have default keys</td></tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +529,69 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const fruits = new Map();
+    fruits.set("apples", 500);
+    fruits.set("bananas", 300);
+    fruits.set("oranges", 200);
+    document.getElementById("demo1").innerHTML = JSON.stringify([...fruits]);
+  })();
 
+  (function () {
+    const fruits = new Map([
+      ["apples", 500],
+      ["bananas", 300],
+      ["oranges", 200]
+    ]);
+    document.getElementById("demo2").innerHTML = JSON.stringify([...fruits]);
+  })();
+
+  (function () {
+    const fruits = new Map([
+      ["apples", 500],
+      ["bananas", 300],
+      ["oranges", 200]
+    ]);
+    fruits.set("mangos", 100);
+    document.getElementById("demo3").innerHTML = JSON.stringify([...fruits]);
+  })();
+
+  (function () {
+    const fruits = new Map([
+      ["apples", 500],
+      ["bananas", 300],
+      ["oranges", 200]
+    ]);
+    fruits.set("apples", 200);
+    document.getElementById("demo4").innerHTML = JSON.stringify([...fruits]);
+  })();
+
+  (function () {
+    const fruits = new Map([
+      ["apples", 500],
+      ["bananas", 300],
+      ["oranges", 200]
+    ]);
+    document.getElementById("demo5").innerHTML = fruits.get("apples");
+  })();
+
+  (function () {
+    const fruits = new Map([
+      ["apples", 500],
+      ["bananas", 300],
+      ["oranges", 200]
+    ]);
+    document.getElementById("demo6").innerHTML = typeof fruits;
+  })();
+
+  (function () {
+    const fruits = new Map([
+      ["apples", 500],
+      ["bananas", 300],
+      ["oranges", 200]
+    ]);
+    document.getElementById("demo7").innerHTML = fruits instanceof Map;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
