@@ -322,20 +322,51 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Object Reference</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The complete Object object reference contains properties and methods available for object manipulation in JavaScript.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Object Methods and Properties</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The following table lists the properties and methods of the global JavaScript Object:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Property / Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">assign()</span></td><td>Copies properties from a source object to a target object</td></tr>
+    <tr><td><span class="code">constructor</span></td><td>Returns the function that created an object's prototype</td></tr>
+    <tr><td><span class="code">create()</span></td><td>Returns an object created from an existing object</td></tr>
+    <tr><td><span class="code">defineProperties()</span></td><td>Adds or changes properties</td></tr>
+    <tr><td><span class="code">defineProperty()</span></td><td>Adds or changes a property</td></tr>
+    <tr><td><span class="code">delete</span></td><td>Deletes a property from an object</td></tr>
+    <tr><td><span class="code">entries()</span></td><td>Returns an array of the key/value pairs of an object</td></tr>
+    <tr><td><span class="code">freeze()</span></td><td>Prevents any changes to an object</td></tr>
+    <tr><td><span class="code">fromEntries()</span></td><td>Returns an object created from an iterable list of key/value pairs</td></tr>
+    <tr><td><span class="code">getOwnPropertyDescriptor()</span></td><td>Returns the property descriptor for a property of an object</td></tr>
+    <tr><td><span class="code">getOwnPropertyDescriptors()</span></td><td>Returns all own property descriptors of an object</td></tr>
+    <tr><td><span class="code">getOwnPropertyNames()</span></td><td>Returns an array of the keys of an object</td></tr>
+    <tr><td><span class="code">groupBy()</span></td><td>Groups object elements according to returned callback values</td></tr>
+    <tr><td><span class="code">isExtensible()</span></td><td>Returns true if an object is extensible</td></tr>
+    <tr><td><span class="code">isFrozen()</span></td><td>Returns true if an object is frozen</td></tr>
+    <tr><td><span class="code">isSealed()</span></td><td>Returns true if an object is sealed</td></tr>
+    <tr><td><span class="code">keys()</span></td><td>Returns an array of the keys of an object</td></tr>
+    <tr><td><span class="code">preventExtensions()</span></td><td>Prevents adding new properties to an object</td></tr>
+    <tr><td><span class="code">prototype</span></td><td>Lets you add properties and methods to JavaScript objects</td></tr>
+    <tr><td><span class="code">seal()</span></td><td>Prevents adding new or deleting existing object properties</td></tr>
+    <tr><td><span class="code">toString()</span></td><td>Converts an object to a string and returns the result</td></tr>
+    <tr><td><span class="code">valueOf()</span></td><td>Returns the primitive value of an object</td></tr>
+    <tr><td><span class="code">values()</span></td><td>Returns an array of the property values of an object</td></tr>
+    </tbody>
+  </table>
   <br>
   <table>
     <thead>
@@ -346,15 +377,43 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const person = &#123;firstName: "John", lastName: "Doe"&#125;; <br>
+        Object.keys(person);
+      </td>
+      <td id="demo1"></td>
+    </tr>
+    <tr>
+      <td>
+        const person = &#123;firstName: "John", lastName: "Doe"&#125;; <br>
+        Object.values(person);
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    <tr>
+      <td>
+        const person = &#123;firstName: "John", lastName: "Doe"&#125;; <br>
+        Object.entries(person);
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    <tr>
+      <td>
+        const person = &#123;firstName: "John", lastName: "Doe"&#125;; <br>
+        Object.freeze(person); <br>
+        Object.isFrozen(person);
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    <tr>
+      <td>
+        const person = &#123;firstName: "John", lastName: "Doe"&#125;; <br>
+        Object.getOwnPropertyNames(person);
+      </td>
+      <td id="demo5"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
-  <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
-  </p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +428,31 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const person = { firstName: "John", lastName: "Doe" };
+    document.getElementById("demo1").innerHTML = Object.keys(person).join(", ");
+  })();
 
+  (function () {
+    const person = { firstName: "John", lastName: "Doe" };
+    document.getElementById("demo2").innerHTML = Object.values(person).join(", ");
+  })();
+
+  (function () {
+    const person = { firstName: "John", lastName: "Doe" };
+    document.getElementById("demo3").innerHTML = JSON.stringify(Object.entries(person));
+  })();
+
+  (function () {
+    const person = { firstName: "John", lastName: "Doe" };
+    Object.freeze(person);
+    document.getElementById("demo4").innerHTML = Object.isFrozen(person);
+  })();
+
+  (function () {
+    const person = { firstName: "John", lastName: "Doe" };
+    document.getElementById("demo5").innerHTML = Object.getOwnPropertyNames(person).join(", ");
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
