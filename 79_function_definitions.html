@@ -322,20 +322,13 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Function Definitions vs Function Declarations</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    A JavaScript function is defined with the <span class="code">function</span> keyword, followed by a name, followed by parentheses (). <br>
+    Function names can contain letters, digits, underscores, and dollar signs. The parentheses may include parameter names separated by commas: (parameter1, parameter2, ...) <br>
+    The code to be executed, by the function, is placed inside curly brackets: &#123;&#125;
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +339,300 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        function myFunction(x, y) &#123; <br>
+        &nbsp;&nbsp;return x * y; <br>
+        &#125;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Function Declarations</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Earlier in this tutorial, you learned that functions are declared with the following syntax: <br>
+    Declared functions are not executed immediately. They are "saved for later use", and will be executed later, when they are invoked (called upon).
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myFunction(a, b) &#123; <br>
+        &nbsp;&nbsp;return a * b; <br>
+        &#125;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Semicolons are used to separate executable JavaScript statements. Since a function declaration is not an executable statement, it is not common practice to end it with a semicolon.</p>
+
+  <h3>Function Expressions</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A JavaScript function can also be defined using an expression. <br>
+    A function expression can be stored in a variable.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const x = function (a, b) &#123;return a * b&#125;;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    After a function expression has been stored in a variable, the variable can be used as a function.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const x = function (a, b) &#123;return a * b&#125;; <br>
+        let z = x(4, 3);
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The function above is actually an anonymous function (a function without a name). Functions stored in variables do not need function names. They are always invoked (called) using the variable name.</p>
+
+  <h3>Hoisting</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Hoisting is JavaScript's default behavior of moving declarations to the top of the current scope. Functions declared using the function keyword can be called before being declared.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        myFunction(5); <br>
+        <br>
+        function myFunction(y) &#123; <br>
+        &nbsp;&nbsp;return y * 2; <br>
+        &#125;
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Function expressions are not hoisted, so calling a function expression before it is defined will throw an error.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        myFunction(5); &nbsp;&nbsp;<i>// Will give an error</i> <br>
+        <br>
+        const myFunction = function (y) &#123; <br>
+        &nbsp;&nbsp;return y * 2; <br>
+        &#125;;
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Key Differences</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A summary of the differences between function declarations and function expressions:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Aspect</th>
+      <th>Function Declaration</th>
+      <th>Function Expression</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>Syntax</td><td>A statement with a required function name</td><td>Part of an expression or assignment; can be anonymous</td></tr>
+    <tr><td>Hoisting</td><td>Moved to the top of the scope; callable before its definition</td><td>Variable may be hoisted, but the function assignment is not</td></tr>
+    <tr><td>Flexibility</td><td>General-purpose, scope-wide functions</td><td>Good for callbacks, IIFEs, and object methods</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Functions Stored in Variables</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can also store a function call in a variable.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myFunction(a, b) &#123; <br>
+        &nbsp;&nbsp;return a * b; <br>
+        &#125; <br>
+        let x = myFunction(4, 3);
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can treat the <span class="code">x</span> variable above, just as you would treat the function, including using it in other calculations.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myFunction(a, b) &#123; <br>
+        &nbsp;&nbsp;return a * b; <br>
+        &#125; <br>
+        let x = myFunction(4, 3) * 2;
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The Function() Constructor</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Functions can also be defined with a built-in JavaScript function constructor called <span class="code">Function()</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const myFunction = new Function("a", "b", "return a * b"); <br>
+        let x = myFunction(4, 3);
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You actually don't have to use the function constructor. The example above is the same as writing:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const myFunction = function (a, b) &#123;return a * b&#125;; <br>
+        let x = myFunction(4, 3);
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Most of the time, you can avoid using the new keyword in JavaScript.</p>
+
+  <h3>Functions are Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">typeof</span> operator in JavaScript returns "function" for functions. But, JavaScript functions can best be described as objects. JavaScript functions have both properties and methods. The <span class="code">arguments.length</span> property returns the number of arguments received when the function was invoked.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myFunction(a, b) &#123; <br>
+        &nbsp;&nbsp;return arguments.length; <br>
+        &#125; <br>
+        myFunction();
+      </td>
+      <td id="demo11"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">toString()</span> method returns the function as a string: with comments, and whitespaces.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myFunction(a, b) &#123; <br>
+        &nbsp;&nbsp;return a * b; <br>
+        &#125; <br>
+        myFunction.toString();
+      </td>
+      <td id="demo12"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>A function defined as a function expression, or by a function constructor, equals a function declaration, as long as the function body (the code block) is identical.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +647,90 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    function myFunction(x, y) {
+      return x * y;
+    }
+    document.getElementById("demo1").innerHTML = myFunction(5, 5);
+  })();
 
+  (function () {
+    function myFunction(a, b) {
+      return a * b;
+    }
+    document.getElementById("demo2").innerHTML = myFunction(5, 5);
+  })();
+
+  (function () {
+    const x = function (a, b) { return a * b; };
+    document.getElementById("demo3").innerHTML = "typeof x: " + typeof x;
+  })();
+
+  (function () {
+    const x = function (a, b) { return a * b; };
+    let z = x(4, 3);
+    document.getElementById("demo4").innerHTML = z;
+  })();
+
+  (function () {
+    document.getElementById("demo5").innerHTML = myFunction(5);
+    function myFunction(y) {
+      return y * 2;
+    }
+  })();
+
+  (function () {
+    try {
+      document.getElementById("demo6").innerHTML = myFunction(5);
+      const myFunction = function (y) {
+        return y * 2;
+      };
+    } catch (err) {
+      document.getElementById("demo6").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    function myFunction(a, b) {
+      return a * b;
+    }
+    let x = myFunction(4, 3);
+    document.getElementById("demo7").innerHTML = x;
+  })();
+
+  (function () {
+    function myFunction(a, b) {
+      return a * b;
+    }
+    let x = myFunction(4, 3) * 2;
+    document.getElementById("demo8").innerHTML = x;
+  })();
+
+  (function () {
+    const myFunction = new Function("a", "b", "return a * b");
+    let x = myFunction(4, 3);
+    document.getElementById("demo9").innerHTML = x;
+  })();
+
+  (function () {
+    const myFunction = function (a, b) { return a * b; };
+    let x = myFunction(4, 3);
+    document.getElementById("demo10").innerHTML = x;
+  })();
+
+  (function () {
+    function myFunction(a, b) {
+      return arguments.length;
+    }
+    document.getElementById("demo11").innerHTML = myFunction();
+  })();
+
+  (function () {
+    function myFunction(a, b) {
+      return a * b;
+    }
+    document.getElementById("demo12").innerHTML = myFunction.toString();
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
