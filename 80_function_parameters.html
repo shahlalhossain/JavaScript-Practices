@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Parameters (Function Input)</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    JavaScript function definitions list the parameters in parentheses, separated by commas. Parameters are listed inside the parentheses () in the function definition.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +337,149 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        function multiply(a, b) &#123; <br>
+        &nbsp;&nbsp;return a * b; <br>
+        &#125; <br>
+        <br>
+        let result = multiply(4, 5);
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Functions with One Parameter</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    A function with a single parameter is easy to define and use.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function sayHello(name) &#123; <br>
+        &nbsp;&nbsp;return "Hello " + name; <br>
+        &#125; <br>
+        <br>
+        let greeting = sayHello("John");
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    <tr>
+      <td>
+        function toCelsius(fahrenheit) &#123; <br>
+        &nbsp;&nbsp;return (5 / 9) * (fahrenheit - 32); <br>
+        &#125; <br>
+        <br>
+        let value = toCelsius(77);
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Functions with Multiple Parameters</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A function can have as many parameters as you like.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function fullName(firstName, lastName) &#123; <br>
+        &nbsp;&nbsp;return firstName + " " + lastName; <br>
+        &#125; <br>
+        <br>
+        let name = fullName("John", "Doe");
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The more parameters, the more arguments must be invoked for the function call to make sense.</p>
+
+  <h3>Parameters vs. Arguments</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Function parameters are the names listed in the function definition. Function arguments are the real values passed to (and received by) the function. <br>
+    Parameters are initialized with the values of the arguments supplied when the function is invoked.
+  </p>
+
+  <h3>Parameter Rules</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript function definitions do not specify data types for parameters. JavaScript functions do not perform type checking on the passed arguments. JavaScript functions do not check the number of arguments received.
+  </p>
+
+  <h3>Incorrect Parameters</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A function will produce the value <span class="code">NaN</span> (Not a Number), if the number of arguments differs from the number of parameters.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function toCelsius(fahrenheit) &#123; <br>
+        &nbsp;&nbsp;return (5 / 9) * (fahrenheit - 32); <br>
+        &#125; <br>
+        <br>
+        let value = toCelsius(); &nbsp;&nbsp;<i>// no argument supplied</i>
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Default Parameter Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    ES6 (JavaScript 2015) allows function parameters to have default values. If a function is called with a missing argument, the missing value is set to <span class="code">undefined</span>. <br>
+    Default parameter values let a function start with a default value if one is not provided.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myFunction(x, y = 10) &#123; <br>
+        &nbsp;&nbsp;return x + y; <br>
+        &#125; <br>
+        myFunction(5);
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +494,51 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    function multiply(a, b) {
+      return a * b;
+    }
+    let result = multiply(4, 5);
+    document.getElementById("demo1").innerHTML = result;
+  })();
 
+  (function () {
+    function sayHello(name) {
+      return "Hello " + name;
+    }
+    let greeting = sayHello("John");
+    document.getElementById("demo2").innerHTML = greeting;
+  })();
+  (function () {
+    function toCelsius(fahrenheit) {
+      return (5 / 9) * (fahrenheit - 32);
+    }
+    let value = toCelsius(77);
+    document.getElementById("demo3").innerHTML = value;
+  })();
+
+  (function () {
+    function fullName(firstName, lastName) {
+      return firstName + " " + lastName;
+    }
+    let name = fullName("John", "Doe");
+    document.getElementById("demo4").innerHTML = name;
+  })();
+
+  (function () {
+    function toCelsius(fahrenheit) {
+      return (5 / 9) * (fahrenheit - 32);
+    }
+    let value = toCelsius();
+    document.getElementById("demo5").innerHTML = value;
+  })();
+
+  (function () {
+    function myFunction(x, y = 10) {
+      return x + y;
+    }
+    document.getElementById("demo6").innerHTML = myFunction(5);
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
