@@ -322,20 +322,24 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Calling a Function</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The code inside a function is executed when the function is invoked. It is common to use the term "call a function" instead of "invoke a function". <br>
+    It is also common to say "call upon a function", "start a function", or "execute a function". In this tutorial, we will use "invoke", since a function must be "invoked" before it can be "run" (executed).
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Function Invocation</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The code inside a function is not executed when the function is defined. The code inside a function is executed when the function is invoked.
+  </p>
+
+  <h3>Examples</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Here is a simple function that returns the product of two numbers:
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +350,164 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        function sayHello() &#123; <br>
+        &nbsp;&nbsp;return "Hello World"; <br>
+        &#125;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Using the Returned Value</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    When JavaScript reaches a <span class="code">return</span> statement, the function will stop executing. If the function was invoked from a statement, JavaScript will "return" to execute the code after the invoking statement. Functions often compute a return value. The return value is "returned" back to the "caller".
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function greet() &#123; <br>
+        &nbsp;&nbsp;return "Hi"; <br>
+        &#125; <br>
+        let message = greet();
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Displaying the Result</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript variables can be used to display data multiple times.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function greet() &#123; <br>
+        &nbsp;&nbsp;return "Hi"; <br>
+        &#125; <br>
+        console.log(greet());
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Calling a Function Many Times</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you call the same function multiple times, it will be invoked, and it will return a value, each time.
+  </p>
+
+  <h3>Functions are Invoked with ()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">()</span> operator invokes (calls) the function.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function toCelsius(f) &#123; <br>
+        &nbsp;&nbsp;return (5 / 9) * (f - 32); <br>
+        &#125; <br>
+        <br>
+        let value = toCelsius(77); &nbsp;&nbsp;<i>// invokes the function</i> <br>
+        let ref = toCelsius; &nbsp;&nbsp;<i>// references the function itself</i>
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Calling vs Referencing a Function</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Accessing a function without <span class="code">()</span> returns the function object instead of the function result.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function sayHello() &#123; <br>
+        &nbsp;&nbsp;return "Hello World"; <br>
+        &#125; <br>
+        <br>
+        typeof sayHello; &nbsp;&nbsp;<i>// "function"</i> <br>
+        typeof sayHello(); &nbsp;&nbsp;<i>// "string"</i>
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Functions Can Be Called from Anywhere</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Functions can be invoked by: an event, when a user clicks a button, when the program calls it directly, automatically (self invoked), or by other functions.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function greet() &#123; <br>
+        &nbsp;&nbsp;return "Hi"; <br>
+        &#125; <br>
+        <br>
+        function show() &#123; <br>
+        &nbsp;&nbsp;document.getElementById("demo6").innerHTML = greet(); <br>
+        &#125; <br>
+        show();
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Common Mistakes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Common beginner mistakes: forgetting the <span class="code">()</span>, which just references the function instead of invoking it; expecting a return value from a function that has no <span class="code">return</span> statement; and expecting to see output without actually displaying the result (e.g. via <span class="code">innerHTML</span> or <span class="code">console.log()</span>).
   </p>
 </section>
 <br>
@@ -369,7 +523,53 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    function sayHello() {
+      return "Hello World";
+    }
+    document.getElementById("demo1").innerHTML = sayHello();
+  })();
 
+  (function () {
+    function greet() {
+      return "Hi";
+    }
+    let message = greet();
+    document.getElementById("demo2").innerHTML = message;
+  })();
+
+  (function () {
+    function greet() {
+      return "Hi";
+    }
+    document.getElementById("demo3").innerHTML = greet();
+  })();
+
+  (function () {
+    function toCelsius(f) {
+      return (5 / 9) * (f - 32);
+    }
+    let value = toCelsius(77);
+    let ref = toCelsius;
+    document.getElementById("demo4").innerHTML = "value: " + value + ", typeof ref: " + typeof ref;
+  })();
+
+  (function () {
+    function sayHello() {
+      return "Hello World";
+    }
+    document.getElementById("demo5").innerHTML = "typeof sayHello: " + typeof sayHello + ", typeof sayHello(): " + typeof sayHello();
+  })();
+
+  (function () {
+    function greet() {
+      return "Hi";
+    }
+    function show() {
+      document.getElementById("demo6").innerHTML = greet();
+    }
+    show();
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
