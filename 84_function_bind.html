@@ -322,20 +322,25 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Method Borrowing</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    With the JavaScript <span class="code">bind()</span> method, an object can borrow a method from another object. <br>
+    Unlike <span class="code">call()</span> and <span class="code">apply()</span>, <span class="code">bind()</span> does not invoke the function immediately: it returns a new function, with <span class="code">this</span> permanently bound.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Basic bind() Syntax</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <strong>Syntax</strong> <br>
+    const newFunction = functionName.bind(thisArg, arg1, arg2, ...);
+  </p>
+
+  <h3>Using bind() to Fix this</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">bind()</span> method allows an object to borrow a method from another object, without copying the method, and returns a new function with <span class="code">this</span> permanently set.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +351,275 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const person1 = &#123; name: "John" &#125;; <br>
+        const person2 = &#123; name: "Paul" &#125;; <br>
+        const person3 = &#123; name: "Ringo" &#125;; <br>
+        <br>
+        function greet() &#123; <br>
+        &nbsp;&nbsp;return "Hello " + this.name; <br>
+        &#125; <br>
+        <br>
+        const greetJohn = greet.bind(person1); <br>
+        <br>
+        greetJohn();
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    With <span class="code">bind()</span>, an object can borrow a method from another object.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Create person Object</i> <br>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;fullName: function () &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return this.firstName + " " + this.lastName; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125; <br>
+        <br>
+        <i>// Create member Object</i> <br>
+        const member = &#123; <br>
+        &nbsp;&nbsp;firstName: "Hege", <br>
+        &nbsp;&nbsp;lastName: "Nilsen", <br>
+        &#125; <br>
+        <br>
+        <i>// Bind the fullName method to the member Object</i> <br>
+        let fullName = person.fullName.bind(member); <br>
+        <br>
+        <i>// Later call fullName()</i> <br>
+        fullName();
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>bind() vs call() and apply()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    With the <span class="code">call()</span> and <span class="code">apply()</span> methods you can call a function, with an object, right away. With the <span class="code">bind()</span> method, the function is not invoked, it is only prepared and returned, to be invoked later.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Call a function</i> <br>
+        greet.call(person); <br>
+        <br>
+        <i>// Call a function</i> <br>
+        greet.apply(person); <br>
+        <br>
+        <i>// Create a new function</i> <br>
+        const greetLater = greet.bind(person); <br>
+        <br>
+        <i>// Call the new function</i> <br>
+        greetLater();
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>bind() for Functions Called Later</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    When a function is detached from its object (as a plain reference), <span class="code">this</span> is lost when the function is called later.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;name: "John", <br>
+        &nbsp;&nbsp;sayHello: function() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return "Hello " + this.name; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;; <br>
+        <br>
+        const hello = person.sayHello; <br>
+        hello(); &nbsp;&nbsp;<i>// this is not person</i>
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">bind()</span> fixes this by creating a new function with <span class="code">this</span> locked in.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const hello = person.sayHello.bind(person); <br>
+        hello();
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Using bind() for Preserving this</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    When a method is called directly on its object, <span class="code">this</span> works fine.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123; <br>
+        &nbsp;&nbsp;firstName: "John", <br>
+        &nbsp;&nbsp;lastName: "Doe", <br>
+        &nbsp;&nbsp;display: function () &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return this.firstName + " " + this.lastName; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125; <br>
+        <br>
+        person.display();
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    But if you pass the method as a callback (e.g. to <span class="code">setTimeout()</span>), without binding, <span class="code">this</span> is lost.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        setTimeout(person.display, 3000); &nbsp;&nbsp;<i>// this is not person</i>
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Use <span class="code">bind()</span> to preserve <span class="code">this</span> for a callback invoked later.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let display = person.display.bind(person); <br>
+        setTimeout(display, 3000);
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>bind() with Arguments</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">bind()</span> can also be used to preset leading arguments of a function, creating a new function with those arguments fixed.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function multiply(a, b) &#123; <br>
+        &nbsp;&nbsp;return a * b; <br>
+        &#125; <br>
+        <br>
+        const double = multiply.bind(null, 2); <br>
+        <br>
+        double(5);
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>bind() Does Not Change the Original Function</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">bind()</span> returns a new function each time it is called. The original function remains unchanged, and can still be bound again with a different object.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const greetJohn = greet.bind(&#123; name: "John" &#125;); <br>
+        const greetAnna = greet.bind(&#123; name: "Anna" &#125;);
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Common Mistakes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <strong>Expecting bind() to Call the Function:</strong> <span class="code">bind()</span> returns a new function, it does not call it. <br>
+    <strong>Forgetting to Call the Returned Function:</strong> remember to invoke the function returned by <span class="code">bind()</span> with <span class="code">()</span>. <br>
+    <strong>Overusing bind():</strong> only use <span class="code">bind()</span> when you actually need to fix <span class="code">this</span> for later use, such as with callbacks or event handlers.
   </p>
 </section>
 <br>
@@ -369,7 +635,112 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const person1 = { name: "John" };
+    function greet() {
+      return "Hello " + this.name;
+    }
+    const greetJohn = greet.bind(person1);
+    document.getElementById("demo1").innerHTML = greetJohn();
+  })();
 
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      fullName: function () {
+        return this.firstName + " " + this.lastName;
+      }
+    };
+    const member = {
+      firstName: "Hege",
+      lastName: "Nilsen",
+    };
+    let fullName = person.fullName.bind(member);
+    document.getElementById("demo2").innerHTML = fullName();
+  })();
+
+  (function () {
+    const person = { name: "John" };
+    function greet() {
+      return "Hello " + this.name;
+    }
+    const greetLater = greet.bind(person);
+    document.getElementById("demo3").innerHTML = greet.call(person) + " / " + greet.apply(person) + " / " + greetLater();
+  })();
+
+  (function () {
+    const person = {
+      name: "John",
+      sayHello: function() {
+        return "Hello " + this.name;
+      }
+    };
+    const hello = person.sayHello;
+    document.getElementById("demo4").innerHTML = hello();
+  })();
+
+  (function () {
+    const person = {
+      name: "John",
+      sayHello: function() {
+        return "Hello " + this.name;
+      }
+    };
+    const hello = person.sayHello.bind(person);
+    document.getElementById("demo5").innerHTML = hello();
+  })();
+
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      display: function () {
+        document.getElementById("demo6").innerHTML = this.firstName + " " + this.lastName;
+      }
+    };
+    person.display();
+  })();
+
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      display: function () {
+        document.getElementById("demo7").innerHTML = this.firstName + " " + this.lastName;
+      }
+    };
+    setTimeout(person.display, 100);
+  })();
+
+  (function () {
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      display: function () {
+        document.getElementById("demo8").innerHTML = this.firstName + " " + this.lastName;
+      }
+    };
+    let display = person.display.bind(person);
+    setTimeout(display, 100);
+  })();
+
+  (function () {
+    function multiply(a, b) {
+      return a * b;
+    }
+    const double = multiply.bind(null, 2);
+    document.getElementById("demo9").innerHTML = double(5);
+  })();
+
+  (function () {
+    function greet() {
+      return "Hello " + this.name;
+    }
+    const greetJohn = greet.bind({ name: "John" });
+    const greetAnna = greet.bind({ name: "Anna" });
+    document.getElementById("demo10").innerHTML = greetJohn() + " / " + greetAnna();
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
