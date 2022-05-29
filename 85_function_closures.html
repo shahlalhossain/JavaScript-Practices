@@ -322,20 +322,17 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Closures</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    A closure is a function having access to the parent scope, even after the parent function has closed.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Local Variables</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A variable declared within a JavaScript function, becomes LOCAL to the function. It can only be accessed from within that function. It has local scope.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +343,286 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        function myFunction() &#123; <br>
+        &nbsp;&nbsp;let a = 4; <br>
+        &nbsp;&nbsp;return a * a; <br>
+        &#125;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Note: </i></strong>Local variables are created when a function starts, and deleted when the function is completed. As long as a function is running, the local variables are in scope (they are visible/usable).</p>
+
+  <h3>Global Variables</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    A variable declared outside a function, becomes GLOBAL.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let a = 4; <br>
+        function myFunction() &#123; <br>
+        &nbsp;&nbsp;return a * a; <br>
+        &#125;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A global variable has global scope. All scripts and functions on a web page can access it. Variables declared, without the keyword, inside any function, become global variables, even if it is declared inside the function.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        myFunction(); <br>
+        <br>
+        function myFunction() &#123; <br>
+        &nbsp;&nbsp;a = 4; &nbsp;&nbsp;<i>// Will become a global variable</i> <br>
+        &#125;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Variable Lifetime</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Global variables live until the page is discarded, like when you navigate to another page or close the window. Local variables have short lives. They are created when the function is invoked, and deleted when the function is finished.
+  </p>
+
+  <h3>A Counter Dilemma</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Suppose you want to use a variable for counting something, and you want this counter to be available to all functions.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let counter = 0; <br>
+        <br>
+        function add() &#123; <br>
+        &nbsp;&nbsp;counter += 1; <br>
+        &#125; <br>
+        <br>
+        add(); <br>
+        add(); <br>
+        add(); <br>
+        <br>
+        <i>// The counter should now be 3</i>
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>There is a problem with this: any code on the page can change counter, without calling add().</p>
+
+  <h3>Warning !</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you declare the counter variable inside the function, you remove the problem, but you are now unable to increment the counter from outside the function.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function add() &#123; <br>
+        &nbsp;&nbsp;let counter = 0; <br>
+        &nbsp;&nbsp;counter += 1; <br>
+        &#125; <br>
+        <br>
+        add(); <br>
+        add(); <br>
+        add(); <br>
+        <br>
+        <i>// The counter should now be 3. But it is 0</i>
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A function returning its local counter also does not solve the problem:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function add() &#123; <br>
+        &nbsp;&nbsp;let counter = 0; <br>
+        &nbsp;&nbsp;counter += 1; <br>
+        &nbsp;&nbsp;return counter; <br>
+        &#125; <br>
+        <br>
+        add(); <br>
+        add(); <br>
+        add(); <br>
+        <br>
+        <i>// The counter should now be 3. But it is 1.</i>
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Solution</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The solution is a JavaScript inner function. By using a closure, you can preserve the state of a local variable between function calls.
+  </p>
+
+  <h3>JavaScript Nested Functions</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    All functions have access to the global scope. In fact, in JavaScript, all functions have access to the scope "above" them. <br>
+    JavaScript supports nested functions. Nested functions have access to the scope "above" them.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function add() &#123; <br>
+        &nbsp;&nbsp;let counter = 0; <br>
+        &nbsp;&nbsp;function plus() &#123;counter += 1;&#125; <br>
+        &nbsp;&nbsp;plus(); <br>
+        &nbsp;&nbsp;return counter; <br>
+        &#125;
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p>In this example, the <span class="code">plus()</span> function has access to the counter variable in the parent function.</p>
+
+  <h3>JavaScript Closures</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    As demonstrated above, nested functions have access to the scope "above" them. <br>
+    This is called a closure. It makes it possible for a function to have "private" variables.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const add = (function () &#123; <br>
+        &nbsp;&nbsp;let counter = 0; <br>
+        &nbsp;&nbsp;return function () &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;counter += 1; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return counter; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;)(); <br>
+        <br>
+        add(); <br>
+        add(); <br>
+        add();
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Example Explained</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The variable <span class="code">add</span> is assigned the return value of a self-invoking function. The self-invoking function only runs once. It sets the counter to zero (0), and returns a function expression. <br>
+    This way <span class="code">add</span> becomes a function. The "wonderful" part is that it can access the counter in the parent scope. This is called a JavaScript closure. It makes it possible for a function to have "private" variables. <br>
+    The counter is protected by the scope of the anonymous function, and can only be changed using the <span class="code">add</span> function.
+  </p>
+
+  <h3>Conclusion</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Closures are useful for: data privacy, encapsulating related functionality, creating function factories, and in event handlers and callbacks. <br>
+    Modern JavaScript also offers alternatives, such as private class fields, modules, and the <span class="code">let</span>/<span class="code">const</span> block-scoped variables.
+  </p>
+
+  <h3>Modern Alternative: Private Class Fields</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    ES2022 introduced private class fields (prefixed with <span class="code">#</span>), which offer another way to achieve data privacy, without needing a closure.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        class Counter &#123; <br>
+        &nbsp;&nbsp;#count = 0; <br>
+        &nbsp;&nbsp;increment() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.#count++; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return this.#count; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125; <br>
+        <br>
+        const counter = new Counter(); <br>
+        counter.increment(); <br>
+        counter.increment(); <br>
+        counter.increment();
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +637,106 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    function myFunction() {
+      let a = 4;
+      return a * a;
+    }
+    document.getElementById("demo1").innerHTML = myFunction();
+  })();
 
+  (function () {
+    let a = 4;
+    function myFunction() {
+      return a * a;
+    }
+    document.getElementById("demo2").innerHTML = myFunction();
+  })();
+
+  (function () {
+    myFunction();
+    document.getElementById("demo3").innerHTML = "a is now global: " + a;
+    function myFunction() {
+      a = 4;
+    }
+  })();
+
+  (function () {
+    let counter = 0;
+    function add() {
+      counter += 1;
+    }
+    add();
+    add();
+    add();
+    document.getElementById("demo4").innerHTML = counter;
+  })();
+
+  (function () {
+    let counter = 0;
+    function add() {
+      let counter = 0;
+      counter += 1;
+    }
+    add();
+    add();
+    add();
+    document.getElementById("demo5").innerHTML = counter;
+  })();
+
+  (function () {
+    function add() {
+      let counter = 0;
+      counter += 1;
+      return counter;
+    }
+    let result;
+    result = add();
+    result = add();
+    result = add();
+    document.getElementById("demo6").innerHTML = result;
+  })();
+
+  (function () {
+    function add() {
+      let counter = 0;
+      function plus() { counter += 1; }
+      plus();
+      return counter;
+    }
+    document.getElementById("demo7").innerHTML = add();
+  })();
+
+  (function () {
+    const add = (function () {
+      let counter = 0;
+      return function () {
+        counter += 1;
+        return counter;
+      };
+    })();
+    let result;
+    result = add();
+    result = add();
+    result = add();
+    document.getElementById("demo8").innerHTML = result;
+  })();
+
+  (function () {
+    class Counter {
+      #count = 0;
+      increment() {
+        this.#count++;
+        return this.#count;
+      }
+    }
+    const counter = new Counter();
+    let result;
+    result = counter.increment();
+    result = counter.increment();
+    result = counter.increment();
+    document.getElementById("demo9").innerHTML = result;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
