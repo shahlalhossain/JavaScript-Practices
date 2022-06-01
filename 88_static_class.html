@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Static Methods</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Static class methods are defined on the class itself. You cannot call a static method on an object, only on an object class.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +337,58 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        class Car &#123; <br>
+        &nbsp;&nbsp;constructor(name) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.name = name; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &nbsp;&nbsp;static hello() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return "Hello!!"; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125; <br>
+        <br>
+        const myCar = new Car("Ford"); <br>
+        <br>
+        <i>// You can call 'hello()' on the Car Class:</i> <br>
+        document.getElementById("demo1").innerHTML = Car.hello(); <br>
+        <br>
+        <i>// But NOT on a Car Object:</i> <br>
+        <i>// document.getElementById("demo1").innerHTML = myCar.hello();</i> <br>
+        <i>// this will raise an error.</i>
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    If you want to use the <span class="code">myCar</span> object inside the static method, you can send it as a parameter.
   </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        class Car &#123; <br>
+        &nbsp;&nbsp;constructor(name) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.name = name; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &nbsp;&nbsp;static hello(x) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return "Hello " + x.name; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125; <br>
+        const myCar = new Car("Ford"); <br>
+        document.getElementById("demo2").innerHTML = Car.hello(myCar);
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Calling <span class="code">myCar.hello()</span> directly would throw a TypeError, because <span class="code">hello()</span> is static and only exists on the class itself, not on instances.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +403,31 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    class Car {
+      constructor(name) {
+        this.name = name;
+      }
+      static hello() {
+        return "Hello!!";
+      }
+    }
+    const myCar = new Car("Ford");
+    document.getElementById("demo1").innerHTML = Car.hello();
+  })();
 
+  (function () {
+    class Car {
+      constructor(name) {
+        this.name = name;
+      }
+      static hello(x) {
+        return "Hello " + x.name;
+      }
+    }
+    const myCar = new Car("Ford");
+    document.getElementById("demo2").innerHTML = Car.hello(myCar);
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
