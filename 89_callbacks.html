@@ -322,20 +322,26 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>What is a Callback Function?</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    A callback function is a function passed as an argument to another function. <br>
+    "I will call back later!" <br>
+    Simply put: a callback is a function passed as an argument to another function. This technique allows a function to call another function. A callback function can run after another function has finished.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Types of Callbacks</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <strong>Asynchronous Callbacks:</strong> run after an operation completes, often used for tasks like fetching data or handling events. <br>
+    <strong>Synchronous Callbacks:</strong> run immediately during the execution of the higher-order function that uses them.
+  </p>
+
+  <h3>Event Handling</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript callback functions are extensively used in event handling, where functions are triggered in response to events such as clicks, mouse movements, or keyboard input.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +352,165 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        document.getElementById("myButton").addEventListener("click", displayDate); <br>
+        <button id="myButton" type="button">Click Me</button>
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Asynchronous Operations</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Callbacks are essential in handling asynchronous operations, like fetching data from a server, reading files, or timers.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myFunction() &#123; <br>
+        &nbsp;&nbsp;document.getElementById("demo2").innerHTML = "I love You !!"; <br>
+        &#125; <br>
+        <br>
+        setTimeout(myFunction, 1000);
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Array Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Many array methods, such as <span class="code">forEach()</span> and <span class="code">map()</span>, accept a callback function to be executed for each array element.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const numbers = [4, 9, 16, 25]; <br>
+        let txt = ""; <br>
+        numbers.forEach(myFunction); <br>
+        <br>
+        function myFunction(value) &#123; <br>
+        &nbsp;&nbsp;txt += value + "&lt;br&gt;"; <br>
+        &#125;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    <tr>
+      <td>
+        const numbers = [4, 9, 16, 25]; <br>
+        const numbersDoubled = numbers.map(myFunction); <br>
+        <br>
+        function myFunction(value) &#123; <br>
+        &nbsp;&nbsp;return value * 2; <br>
+        &#125;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Sequence Control</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Here is a function with a display function, that displays a number:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myDisplayer(some) &#123; <br>
+        &nbsp;&nbsp;document.getElementById("demo5").innerHTML = some; <br>
+        &#125;
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Here is a function with a calculator function, that adds two numbers, and calls the displayer function with the result:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myCalculator(num1, num2) &#123; <br>
+        &nbsp;&nbsp;let sum = num1 + num2; <br>
+        &nbsp;&nbsp;myDisplayer(sum); <br>
+        &#125; <br>
+        <br>
+        myCalculator(5, 5);
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Instead of calling <span class="code">myDisplayer()</span> directly, we can pass it as an argument to <span class="code">myCalculator()</span>, which calls it when ready:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myDisplayer(some) &#123; <br>
+        &nbsp;&nbsp;document.getElementById("demo7").innerHTML = some; <br>
+        &#125; <br>
+        <br>
+        function myCalculator(num1, num2, myCallback) &#123; <br>
+        &nbsp;&nbsp;let sum = num1 + num2; <br>
+        &nbsp;&nbsp;myCallback(sum); <br>
+        &#125; <br>
+        <br>
+        myCalculator(5, 5, myDisplayer);
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>In the example above, <span class="code">myDisplayer</span> is a function passed as an argument to <span class="code">myCalculator()</span>. Functions that accept other functions as arguments are called higher-order functions. Functions passed as arguments are called callback functions.</p>
+
+  <h3>Callback Key Concepts</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <strong>Function as an Argument:</strong> a function is passed as an argument to another function. <br>
+    <strong>Deferred Execution:</strong> the callback function can be executed immediately (synchronous), or at a later time (asynchronous), such as after a network request completes, or a user action occurs.
   </p>
 </section>
 <br>
@@ -369,7 +526,67 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    function displayDate() {
+      document.getElementById("demo1").innerHTML = Date();
+    }
+    document.getElementById("myButton").addEventListener("click", displayDate);
+  })();
 
+  (function () {
+    function myFunction() {
+      document.getElementById("demo2").innerHTML = "I love You !!";
+    }
+    setTimeout(myFunction, 1000);
+  })();
+
+  (function () {
+    const numbers = [4, 9, 16, 25];
+    let txt = "";
+    numbers.forEach(myFunction);
+    function myFunction(value) {
+      txt += value + "<br>";
+    }
+    document.getElementById("demo3").innerHTML = txt;
+  })();
+
+  (function () {
+    const numbers = [4, 9, 16, 25];
+    const numbersDoubled = numbers.map(myFunction);
+    function myFunction(value) {
+      return value * 2;
+    }
+    document.getElementById("demo4").innerHTML = numbersDoubled.join(", ");
+  })();
+
+  (function () {
+    function myDisplayer(some) {
+      document.getElementById("demo5").innerHTML = some;
+    }
+    myDisplayer("Ready");
+  })();
+
+  (function () {
+    function myDisplayer(some) {
+      document.getElementById("demo6").innerHTML = some;
+    }
+    function myCalculator(num1, num2) {
+      let sum = num1 + num2;
+      myDisplayer(sum);
+    }
+    myCalculator(5, 5);
+  })();
+
+  (function () {
+    function myDisplayer(some) {
+      document.getElementById("demo7").innerHTML = some;
+    }
+    function myCalculator(num1, num2, myCallback) {
+      let sum = num1 + num2;
+      myCallback(sum);
+    }
+    myCalculator(5, 5, myDisplayer);
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
