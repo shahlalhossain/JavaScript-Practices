@@ -322,20 +322,24 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Asynchronous Programming</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has finished, your program is presented with the result.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>What Does "Async" Mean?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    "Async" is short for "asynchronous", which simply describes a way for a computer to process tasks. <br>
+    "Async" means that things can happen independently of the main program flow.
+  </p>
+
+  <h3>Synchronous JavaScript</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To understand asynchronous programming, it helps to first understand synchronous programming. By default, JavaScript is synchronous, executing code line by line, in order.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +350,189 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        let x = 5; <br>
+        let y = x * 2;
+      </td>
+      <td id="demo1"></td>
+    </tr>
+    <tr>
+      <td>
+        myDisplayer("A"); <br>
+        myDisplayer("B"); <br>
+        myDisplayer("C");
+      </td>
+      <td id="demo2"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Control Flow</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    When a program is executed, the computer's CPU executes it, statement by statement, in the order they were written. <br>
+    JavaScript is single threaded, meaning two statements can't be executed simultaneously, they are executed one after the other.
+  </p>
+
+  <h3>Function Sequence</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript functions are executed in the sequence they are called, not in the sequence they are defined.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myFirst() &#123; <br>
+        &nbsp;&nbsp;myDisplayer("Hello"); <br>
+        &#125; <br>
+        <br>
+        function mySecond() &#123; <br>
+        &nbsp;&nbsp;myDisplayer("Goodbye"); <br>
+        &#125; <br>
+        <br>
+        myFirst(); <br>
+        mySecond();
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// Same functions, called in reverse order:</i> <br>
+        mySecond(); <br>
+        myFirst();
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Blocking Code</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Execution of code goes according to the plan, line by line. If a statement takes a long time to execute, waiting code must wait.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function wait() &#123; <br>
+        &nbsp;&nbsp;let i = 2e9; <br>
+        &nbsp;&nbsp;while (--i &gt; 0); <br>
+        &#125; <br>
+        <br>
+        wait(); <br>
+        myDisplayer("Done!");
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>On a slow computer, this example can take a long time to execute. The same problem can occur with browser loading of resources, where "slow" scripts cause usability problems.</p>
+
+  <h3>Why Async Programming?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Browser functions like network requests, resource loading, timers, and geolocation are inherently asynchronous. Without async programming, JavaScript's single thread would freeze the whole page while waiting for these long-running tasks to finish.
+  </p>
+
+  <h3>Asynchronous Concepts</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript has several tools for dealing with asynchronous programming:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Concept</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>Synchronous</td><td>JavaScript standard flow is executing line by line.</td></tr>
+    <tr><td>Timers</td><td>Allows code to run while other code is waiting.</td></tr>
+    <tr><td>Callbacks</td><td>Callbacks were the first solution for async JavaScript.</td></tr>
+    <tr><td>Events</td><td>Stores callback function waiting to be executed.</td></tr>
+    <tr><td>Promises</td><td>Tools to handle asynchronous operations cleanly.</td></tr>
+    <tr><td>Async/Await</td><td>The clean and modern way to handle async code.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Common Asynchronous Operations</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Common operations that use asynchronous programming:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Operation</th>
+      <th>Example</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>Timer</td><td><span class="code">setTimeout()</span></td></tr>
+    <tr><td>Network request</td><td><span class="code">fetch()</span></td></tr>
+    <tr><td>User interaction</td><td>click events</td></tr>
+    <tr><td>Animation</td><td><span class="code">requestAnimationFrame()</span></td></tr>
+    <tr><td>Web Workers</td><td>Background processing</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Ways to Handle Async Results</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript provides several ways to handle the result of an asynchronous operation: callback functions, Promises, and the <span class="code">async</span>/<span class="code">await</span> keywords.
+  </p>
+
+  <h3>Summary</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript is single threaded and synchronous by default, but provides tools, such as callbacks, Promises, and async/await, to perform operations asynchronously, so that long-running tasks do not block the rest of the program.
+  </p>
+
+  <h3>Asynchronous vs Parallel</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Asynchronous and parallel programming solve different problems:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Async (Deferred)</th>
+      <th>Parallel (Simultaneous)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>Goal</td><td>Responsiveness (Don't freeze)</td><td>Performance (Get it done faster)</td></tr>
+    <tr><td>Execution</td><td>Non-blocking (waiting for I/O)</td><td>Simultaneous (crunching many numbers)</td></tr>
+    <tr><td>Hardware</td><td>Can run on 1 processor</td><td>Requires multiple processors</td></tr>
+    <tr><td>Example</td><td>Running code while the user scrolls</td><td>Processing 10,000 images at once</td></tr>
+    </tbody>
+  </table>
+
+  <h3>What You Will Learn</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The next pages in this tutorial cover Promises and the async/await syntax, which are the modern, recommended ways of writing asynchronous JavaScript code.
   </p>
 </section>
 <br>
@@ -369,7 +548,61 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    let x = 5;
+    let y = x * 2;
+    document.getElementById("demo1").innerHTML = y;
+  })();
 
+  (function () {
+    let txt = "";
+    function myDisplayer(val) { txt += val + " "; }
+    myDisplayer("A");
+    myDisplayer("B");
+    myDisplayer("C");
+    document.getElementById("demo2").innerHTML = txt;
+  })();
+
+  (function () {
+    let txt = "";
+    function myDisplayer(val) { txt += val + " "; }
+    function myFirst() {
+      myDisplayer("Hello");
+    }
+    function mySecond() {
+      myDisplayer("Goodbye");
+    }
+    myFirst();
+    mySecond();
+    document.getElementById("demo3").innerHTML = txt;
+  })();
+
+  (function () {
+    let txt = "";
+    function myDisplayer(val) { txt += val + " "; }
+    function myFirst() {
+      myDisplayer("Hello");
+    }
+    function mySecond() {
+      myDisplayer("Goodbye");
+    }
+    mySecond();
+    myFirst();
+    document.getElementById("demo4").innerHTML = txt;
+  })();
+
+  (function () {
+    function myDisplayer(val) {
+      document.getElementById("demo5").innerHTML = val;
+    }
+    function wait() {
+      let i = 2e7;
+      while (--i > 0);
+    }
+    const start = performance.now();
+    wait();
+    myDisplayer("Done! (blocked for " + Math.round(performance.now() - start) + "ms)");
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
