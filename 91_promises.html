@@ -322,20 +322,18 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>"I Promise a Result!"</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    "I Promise a Result!" <br>
+    A JavaScript Promise is an object that represents the eventual completion (or failure) of an asynchronous operation. A Promise is a placeholder for a future result. It starts in a pending state, and settles into either fulfilled (the operation succeeded) or rejected (the operation failed).
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Why Promises?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Before Promises, asynchronous code relied on nested callbacks, where each step waits for the previous one using a callback function. Deeply nested callbacks are hard to read and maintain, a pattern often called "callback hell".
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +344,418 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <i>// Callback hell</i> <br>
+        step1(function(result1) &#123; <br>
+        &nbsp;&nbsp;step2(result1, function(result2) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;step3(result2, function(result3) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display(result3); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&#125;); <br>
+        &nbsp;&nbsp;&#125;); <br>
+        &#125;);
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The same flow, with Promises, reads as a flat chain:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        step1() <br>
+        &nbsp;&nbsp;.then(step2) <br>
+        &nbsp;&nbsp;.then(step3) <br>
+        &nbsp;&nbsp;.then(display);
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Promise States</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A Promise is always in one of these states:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>State</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>Pending</td><td>Operation started, not finished</td></tr>
+    <tr><td>Fulfilled</td><td>Completed successfully</td></tr>
+    <tr><td>Rejected</td><td>Failed</td></tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>A Promise is "settled" once it becomes either fulfilled or rejected. A settled Promise never changes state again.</p>
+
+  <h3>Promises Returned by JavaScript APIs</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Many browser APIs, like <span class="code">fetch()</span>, return a Promise immediately, while the actual work (such as a network download) continues in the background.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        fetch("https://example.com/data.txt") <br>
+        &nbsp;&nbsp;.then(response =&gt; response.text()) <br>
+        &nbsp;&nbsp;.then(text =&gt; display(text)) <br>
+        &nbsp;&nbsp;.catch(error =&gt; display(error));
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>How then() Works</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">fetch()</span> returns a Promise. <span class="code">then()</span> registers a callback for when the Promise is fulfilled. JavaScript continues executing the rest of the script. Once the Promise is fulfilled, the registered callback runs.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const promise = fetch("https://example.com/data.txt"); <br>
+        promise.then(response =&gt; response.text()); <br>
+        console.log("This runs before the fetch is done");
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Creating a Promise</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <strong>Syntax</strong> <br>
+    new Promise(function(resolve, reject) &#123; <br>
+    &nbsp;&nbsp;<i>// "Producing Code" (may take some time)</i> <br>
+    &nbsp;&nbsp;if (success) &#123; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;resolve(value); <br>
+    &nbsp;&nbsp;&#125; else &#123; <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;reject(error); <br>
+    &nbsp;&nbsp;&#125; <br>
+    &#125;);
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Parameter</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">resolve</span></td><td>Fulfills the Promise with a value</td></tr>
+    <tr><td><span class="code">reject</span></td><td>Rejects the Promise with an error</td></tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The function passed to <span class="code">new Promise()</span> should call exactly one of <span class="code">resolve()</span> or <span class="code">reject()</span>. A Promise settles only once.</p>
+
+  <h3>Example: Create and Use a Promise</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This example creates a Promise with a hardcoded success flag, resolving with a success message, or rejecting with a failure message.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const myPromise = new Promise(function(resolve, reject) &#123; <br>
+        &nbsp;&nbsp;let success = true; <br>
+        &nbsp;&nbsp;if (success) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;resolve("The operation was successful!"); <br>
+        &nbsp;&nbsp;&#125; else &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;reject("The operation failed!"); <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;); <br>
+        <br>
+        myPromise.then( <br>
+        &nbsp;&nbsp;function(value) &#123; display(value); &#125;, <br>
+        &nbsp;&nbsp;function(error) &#123; display(error); &#125; <br>
+        );
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The then() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">then()</span> method takes two functions as arguments: one for when the Promise is fulfilled, and one for when it is rejected. It returns a new Promise, which is why multiple <span class="code">.then()</span> calls can be chained.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        fetch("https://example.com/data.txt") <br>
+        &nbsp;&nbsp;.then(response =&gt; response.text()) <br>
+        &nbsp;&nbsp;.then(text =&gt; display(text));
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The catch() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">catch()</span> method takes one function, and is called when the Promise is rejected, or an error is thrown anywhere earlier in the chain.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        fetch("https://example.com/data.txt") <br>
+        &nbsp;&nbsp;.then(response =&gt; &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (!response.ok) throw new Error("Not found"); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return response.text(); <br>
+        &nbsp;&nbsp;&#125;) <br>
+        &nbsp;&nbsp;.catch(error =&gt; display(error.message));
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The finally() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">finally()</span> method is called, whether the Promise is fulfilled or rejected.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        fetch("https://example.com/data.txt") <br>
+        &nbsp;&nbsp;.then(response =&gt; response.text()) <br>
+        &nbsp;&nbsp;.then(text =&gt; display(text)) <br>
+        &nbsp;&nbsp;.catch(error =&gt; display(error)) <br>
+        &nbsp;&nbsp;.finally(() =&gt; display("Finished."));
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Promise Chaining</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Promises can be chained, with each step building on the result of the previous one.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function step1() &#123; return Promise.resolve("A"); &#125; <br>
+        function step2(v) &#123; return Promise.resolve(v + "B"); &#125; <br>
+        function step3(v) &#123; return Promise.resolve(v + "C"); &#125; <br>
+        <br>
+        step1() <br>
+        &nbsp;&nbsp;.then(step2) <br>
+        &nbsp;&nbsp;.then(step3) <br>
+        &nbsp;&nbsp;.then(result =&gt; display(result)) <br>
+        &nbsp;&nbsp;.catch(error =&gt; display(error));
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Returning a Promise</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If a <span class="code">then()</span> callback returns a Promise, the next <span class="code">then()</span> in the chain waits for it to settle before running.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        step1() <br>
+        &nbsp;&nbsp;.then(value =&gt; step2(value)) <br>
+        &nbsp;&nbsp;.then(result =&gt; display(result));
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Common Promise Mistakes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <strong>Forgetting to Return a Promise:</strong> if a <span class="code">then()</span> callback starts another async step but doesn't return it, the chain moves on before that step finishes.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Incorrect: step2's result is not returned</i> <br>
+        step1() <br>
+        &nbsp;&nbsp;.then(value =&gt; &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;step2(value); &nbsp;&nbsp;<i>// not returned</i> <br>
+        &nbsp;&nbsp;&#125;) <br>
+        &nbsp;&nbsp;.then(result =&gt; display(result)); &nbsp;&nbsp;<i>// result is undefined</i>
+      </td>
+      <td id="demo11"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// Correct: step2's Promise is returned</i> <br>
+        step1() <br>
+        &nbsp;&nbsp;.then(value =&gt; &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return step2(value); <br>
+        &nbsp;&nbsp;&#125;) <br>
+        &nbsp;&nbsp;.then(result =&gt; display(result));
+      </td>
+      <td id="demo12"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <strong>Forgetting to Handle Errors:</strong> always add a <span class="code">.catch()</span> at the end of a Promise chain.
+  </p>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <strong>Expecting Promises to Block JavaScript:</strong> Promises do not pause the rest of your script. Code after a Promise chain keeps running immediately.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        display("Start"); <br>
+        <br>
+        Promise.resolve().then(function() &#123; <br>
+        &nbsp;&nbsp;display("Finished."); <br>
+        &#125;); <br>
+        <br>
+        display("JavaScript continues");
+      </td>
+      <td id="demo13"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The output order is: "Start", "JavaScript continues", "Finished." The <span class="code">.then()</span> callback always runs after the current script has finished, even if the Promise is already resolved.</p>
+
+  <h3>Promises and Asynchronous Programming</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Promises do not, by themselves, make code asynchronous. They represent the eventual result of operations that are already asynchronous, such as <span class="code">fetch()</span> or <span class="code">setTimeout()</span>.
+  </p>
+
+  <h3>Promises and the Event Loop</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Promise callbacks (passed to <span class="code">then()</span>, <span class="code">catch()</span>, <span class="code">finally()</span>) are placed on the microtask queue, and run only after the current synchronous code has finished, via the Event Loop.
+  </p>
+
+  <h3>Promises vs Callbacks</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Promises address several problems with plain callbacks:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Callbacks</th>
+      <th>Promises</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>Can nest deeply</td><td>Can be chained</td></tr>
+    <tr><td>Error handling is scattered</td><td>One catch() covers the whole chain</td></tr>
+    <tr><td>Harder to read for complex flows</td><td>Clearer for multi-step async code</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Summary</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A Promise has 3 states: pending, fulfilled, rejected. Use <span class="code">then()</span> to handle a fulfilled Promise. Use <span class="code">catch()</span> to handle a rejected Promise. Use <span class="code">finally()</span> for code that must run regardless of outcome. Returning a Promise from a <span class="code">then()</span> callback lets the chain wait for it. Functions like <span class="code">fetch()</span> return Promises.
   </p>
 </section>
 <br>
@@ -369,7 +771,113 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    function step1(callback) { setTimeout(() => callback("A"), 10); }
+    function step2(value, callback) { setTimeout(() => callback(value + "B"), 10); }
+    function step3(value, callback) { setTimeout(() => callback(value + "C"), 10); }
+    function display(value) { document.getElementById("demo1").innerHTML = value; }
 
+    step1(function(result1) {
+      step2(result1, function(result2) {
+        step3(result2, function(result3) {
+          display(result3);
+        });
+      });
+    });
+  })();
+
+  (function () {
+    function step1() { return new Promise(resolve => setTimeout(() => resolve("A"), 10)); }
+    function step2(v) { return new Promise(resolve => setTimeout(() => resolve(v + "B"), 10)); }
+    function step3(v) { return new Promise(resolve => setTimeout(() => resolve(v + "C"), 10)); }
+    function display(value) { document.getElementById("demo2").innerHTML = value; }
+
+    step1().then(step2).then(step3).then(display);
+  })();
+
+  document.getElementById("demo3").innerHTML = "(requires a real server; not runnable in this static file-based tutorial)";
+  document.getElementById("demo4").innerHTML = "(requires a real server; not runnable in this static file-based tutorial)";
+
+  (function () {
+    function display(value) { document.getElementById("demo5").innerHTML = value; }
+    const myPromise = new Promise(function(resolve, reject) {
+      let success = true;
+      if (success) {
+        resolve("The operation was successful!");
+      } else {
+        reject("The operation failed!");
+      }
+    });
+
+    myPromise.then(
+      function(value) { display(value); },
+      function(error) { display(error); }
+    );
+  })();
+
+  document.getElementById("demo6").innerHTML = "(requires a real server; not runnable in this static file-based tutorial)";
+  document.getElementById("demo7").innerHTML = "(requires a real server; not runnable in this static file-based tutorial)";
+  document.getElementById("demo8").innerHTML = "(requires a real server; not runnable in this static file-based tutorial)";
+
+  (function () {
+    function step1() { return Promise.resolve("A"); }
+    function step2(v) { return Promise.resolve(v + "B"); }
+    function step3(v) { return Promise.resolve(v + "C"); }
+    function display(value) { document.getElementById("demo9").innerHTML = value; }
+
+    step1()
+      .then(step2)
+      .then(step3)
+      .then(result => display(result))
+      .catch(error => display(error));
+  })();
+
+  (function () {
+    function step1() { return Promise.resolve(1); }
+    function step2(value) { return Promise.resolve(value + 1); }
+    function display(value) { document.getElementById("demo10").innerHTML = value; }
+
+    step1()
+      .then(value => step2(value))
+      .then(result => display(result));
+  })();
+
+  (function () {
+    function step1() { return Promise.resolve(1); }
+    function step2(value) { return Promise.resolve(value + 1); }
+    function display(value) { document.getElementById("demo11").innerHTML = value; }
+
+    step1()
+      .then(value => {
+        step2(value);
+      })
+      .then(result => display(result));
+  })();
+
+  (function () {
+    function step1() { return Promise.resolve(1); }
+    function step2(value) { return Promise.resolve(value + 1); }
+    function display(value) { document.getElementById("demo12").innerHTML = value; }
+
+    step1()
+      .then(value => {
+        return step2(value);
+      })
+      .then(result => display(result));
+  })();
+
+  (function () {
+    function display(value) {
+      document.getElementById("demo13").innerHTML += (document.getElementById("demo13").innerHTML ? ", " : "") + value;
+    }
+    display("Start");
+
+    Promise.resolve().then(function() {
+      display("Finished.");
+    });
+
+    display("JavaScript continues");
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
