@@ -322,20 +322,18 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript async and await</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    <span class="code">async</span> and <span class="code">await</span> make promises easier to write. <br>
+    <span class="code">async</span> makes a function return a Promise. <span class="code">await</span> makes a function wait for a Promise.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>The async Keyword</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The keyword <span class="code">async</span> before a function makes the function return a Promise.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +344,297 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        async function myFunction() &#123; <br>
+        &nbsp;&nbsp;return "Hello"; <br>
+        &#125; <br>
+        <br>
+        myFunction().then( <br>
+        &nbsp;&nbsp;function(value) &#123; display(value); &#125;, <br>
+        &nbsp;&nbsp;function(error) &#123; display(error); &#125; <br>
+        );
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Note: </i></strong>This is the same as: <span class="code">function myFunction() &#123; return Promise.resolve("Hello"); &#125;</span></p>
+
+  <h3>The await Keyword</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The <span class="code">await</span> keyword can only be used inside an <span class="code">async</span> function. It makes the function pause until a Promise settles, and returns the resolved value.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        async function getData() &#123; <br>
+        &nbsp;&nbsp;let response = await fetch("https://example.com/data.txt"); <br>
+        &nbsp;&nbsp;let text = await response.text(); <br>
+        &nbsp;&nbsp;return text; <br>
+        &#125;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>What Happens During await?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">await</span> only pauses the <span class="code">async</span> function it's in. The rest of the program keeps running.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function resolveAfter(value, ms) &#123; <br>
+        &nbsp;&nbsp;return new Promise(resolve =&gt; setTimeout(() =&gt; resolve(value), ms)); <br>
+        &#125; <br>
+        <br>
+        async function myDisplay() &#123; <br>
+        &nbsp;&nbsp;let value = await resolveAfter("Done", 50); <br>
+        &nbsp;&nbsp;display(value); <br>
+        &#125; <br>
+        <br>
+        display("Start"); <br>
+        myDisplay(); <br>
+        display("Continue");
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The function waits, not JavaScript. Output order: "Start", "Continue", "Done".</p>
+
+  <h3>Compare Promise and await</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The following two examples do exactly the same thing: one using <span class="code">.then()</span> chaining, the other using <span class="code">async</span>/<span class="code">await</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Promise Version</i> <br>
+        function getData() &#123; <br>
+        &nbsp;&nbsp;return fetch("https://example.com/data.txt") <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;.then(response =&gt; response.text()) <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;.then(text =&gt; text); <br>
+        &#125;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// async/await Version</i> <br>
+        async function getData() &#123; <br>
+        &nbsp;&nbsp;let response = await fetch("https://example.com/data.txt"); <br>
+        &nbsp;&nbsp;let text = await response.text(); <br>
+        &nbsp;&nbsp;return text; <br>
+        &#125;
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">async</span>/<span class="code">await</span> reads like synchronous code, which many developers find easier to follow than a chain of <span class="code">.then()</span> calls.</p>
+
+  <h3>Handling Errors</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Use <span class="code">try...catch</span> to handle a rejected Promise inside an <span class="code">async</span> function.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function rejectAfter(err, ms) &#123; <br>
+        &nbsp;&nbsp;return new Promise((resolve, reject) =&gt; setTimeout(() =&gt; reject(err), ms)); <br>
+        &#125; <br>
+        <br>
+        async function run() &#123; <br>
+        &nbsp;&nbsp;try &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;let value = await rejectAfter("Oops", 20); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;display(value); <br>
+        &nbsp;&nbsp;&#125; catch (err) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;display("Caught: " + err); <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Without <span class="code">try...catch</span>, an awaited rejection becomes an unhandled Promise rejection, which can crash a Node.js process or log an uncaught error in the browser console.</p>
+
+  <h3>Multiple await</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Multiple sequential <span class="code">await</span> statements will run one after another, each one waiting for the previous to settle, which can add up in total time.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function resolveAfter(value, ms) &#123; <br>
+        &nbsp;&nbsp;return new Promise(resolve =&gt; setTimeout(() =&gt; resolve(value), ms)); <br>
+        &#125; <br>
+        <br>
+        async function sequential() &#123; <br>
+        &nbsp;&nbsp;let a = await resolveAfter("A", 30); <br>
+        &nbsp;&nbsp;let b = await resolveAfter("B", 30); <br>
+        &nbsp;&nbsp;let c = await resolveAfter("C", 30); <br>
+        &nbsp;&nbsp;display(a + b + c); <br>
+        &#125;
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Three sequential 30ms awaits take about 90ms total, not 30ms. If the operations do not depend on each other, start them together with <span class="code">Promise.all()</span> instead.</p>
+
+  <h3>Summary</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">async</span> makes a function return a Promise. <span class="code">await</span> makes a function wait for a Promise, and can only be used inside an async function. <span class="code">async</span>/<span class="code">await</span> makes promise-based code read like synchronous code. Use <span class="code">try...catch</span> to handle errors. Sequential awaits run one after another; independent operations should be started together.
+  </p>
+
+  <h3>More Examples</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    An <span class="code">async</span> function's <span class="code">return</span> value is automatically wrapped in a resolved Promise, the same as writing <span class="code">Promise.resolve()</span> explicitly.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        async function myFunction() &#123; <br>
+        &nbsp;&nbsp;return "Hello"; <br>
+        &#125; <br>
+        myFunction().then(value =&gt; display(value));
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    <tr>
+      <td>
+        function myFunction() &#123; <br>
+        &nbsp;&nbsp;return Promise.resolve("Hello"); <br>
+        &#125; <br>
+        myFunction().then(value =&gt; display(value));
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Why async and await Exist</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">async</span>/<span class="code">await</span> was introduced to reduce the nesting and chaining needed with plain Promises.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <i>// Promises Example</i> <br>
+        function getData() &#123; <br>
+        &nbsp;&nbsp;return step1() <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;.then(result =&gt; step2(result)) <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;.then(result =&gt; step3(result)); <br>
+        &#125;
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// The same flow with await</i> <br>
+        async function getData() &#123; <br>
+        &nbsp;&nbsp;let result = await step1(); <br>
+        &nbsp;&nbsp;result = await step2(result); <br>
+        &nbsp;&nbsp;result = await step3(result); <br>
+        &nbsp;&nbsp;return result; <br>
+        &#125;
+      </td>
+      <td id="demo11"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Common Beginner Mistakes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Using <span class="code">await</span> outside of an <span class="code">async</span> function (this is a SyntaxError, except at the top level of a module). Forgetting to wrap awaited code in <span class="code">try...catch</span>, leaving rejections unhandled.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function notAsync() &#123; <br>
+        &nbsp;&nbsp;let value = await Promise.resolve("Hi"); &nbsp;&nbsp;<i>// SyntaxError</i> <br>
+        &#125;
+      </td>
+      <td id="demo12"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +649,118 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    function display(value) { document.getElementById("demo1").innerHTML = value; }
+    async function myFunction() {
+      return "Hello";
+    }
+    myFunction().then(
+      function(value) { display(value); },
+      function(error) { display(error); }
+    );
+  })();
 
+  document.getElementById("demo2").innerHTML = "(requires a real server; not runnable in this static file-based tutorial)";
+
+  (function () {
+    function display(value) {
+      const el = document.getElementById("demo3");
+      el.innerHTML += (el.innerHTML ? ", " : "") + value;
+    }
+    function resolveAfter(value, ms) {
+      return new Promise(resolve => setTimeout(() => resolve(value), ms));
+    }
+    async function myDisplay() {
+      let value = await resolveAfter("Done", 50);
+      display(value);
+    }
+    display("Start");
+    myDisplay();
+    display("Continue");
+  })();
+
+  document.getElementById("demo4").innerHTML = "(requires a real server; not runnable in this static file-based tutorial)";
+  document.getElementById("demo5").innerHTML = "(requires a real server; not runnable in this static file-based tutorial)";
+
+  (function () {
+    function display(value) { document.getElementById("demo6").innerHTML = value; }
+    function rejectAfter(err, ms) {
+      return new Promise((resolve, reject) => setTimeout(() => reject(err), ms));
+    }
+    async function run() {
+      try {
+        let value = await rejectAfter("Oops", 20);
+        display(value);
+      } catch (err) {
+        display("Caught: " + err);
+      }
+    }
+    run();
+  })();
+
+  (function () {
+    function display(value) { document.getElementById("demo7").innerHTML = value; }
+    function resolveAfter(value, ms) {
+      return new Promise(resolve => setTimeout(() => resolve(value), ms));
+    }
+    async function sequential() {
+      let a = await resolveAfter("A", 30);
+      let b = await resolveAfter("B", 30);
+      let c = await resolveAfter("C", 30);
+      display(a + b + c);
+    }
+    sequential();
+  })();
+
+  (function () {
+    function display(value) { document.getElementById("demo8").innerHTML = value; }
+    async function myFunction() {
+      return "Hello";
+    }
+    myFunction().then(value => display(value));
+  })();
+
+  (function () {
+    function display(value) { document.getElementById("demo9").innerHTML = value; }
+    function myFunction() {
+      return Promise.resolve("Hello");
+    }
+    myFunction().then(value => display(value));
+  })();
+
+  (function () {
+    function step1() { return Promise.resolve(1); }
+    function step2(result) { return Promise.resolve(result + 1); }
+    function step3(result) { return Promise.resolve(result + 1); }
+    function getData() {
+      return step1()
+        .then(result => step2(result))
+        .then(result => step3(result));
+    }
+    getData().then(result => document.getElementById("demo10").innerHTML = result);
+  })();
+
+  (function () {
+    function step1() { return Promise.resolve(1); }
+    function step2(result) { return Promise.resolve(result + 1); }
+    function step3(result) { return Promise.resolve(result + 1); }
+    async function getData() {
+      let result = await step1();
+      result = await step2(result);
+      result = await step3(result);
+      return result;
+    }
+    getData().then(result => document.getElementById("demo11").innerHTML = result);
+  })();
+
+  (function () {
+    try {
+      eval("function notAsync() { let value = await Promise.resolve(1); }");
+      document.getElementById("demo12").innerHTML = "no error";
+    } catch (err) {
+      document.getElementById("demo12").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
