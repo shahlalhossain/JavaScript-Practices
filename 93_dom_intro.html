@@ -322,20 +322,46 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>HTML Document Object Model</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The HTML DOM (HTML Document Object Model) is an Object Model for HTML Documents. <br>
+    The HTML DOM is a tree of Nodes that represents an HTML Page.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>The DOM Tree</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    When a web page loads, the browser creates a tree-like representation of the HTML document: <br>
+    <span class="code">Document</span> is the owner of all nodes in the document. <br>
+    Under it, <span class="code">&lt;html&gt;</span> is the root element, containing <span class="code">&lt;head&gt;</span> and <span class="code">&lt;body&gt;</span>. <br>
+    Inside <span class="code">&lt;body&gt;</span>, there can be elements like <span class="code">&lt;a&gt;</span> (with an <span class="code">href</span> attribute node) and <span class="code">&lt;h1&gt;</span> (containing a text node, "My Header").
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Node</th>
+      <th>Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>Document</td><td>Owner of all nodes in the document</td></tr>
+    <tr><td><span class="code">&lt;html&gt;</span></td><td>Element node (root)</td></tr>
+    <tr><td><span class="code">&lt;head&gt;</span></td><td>Element node</td></tr>
+    <tr><td><span class="code">&lt;body&gt;</span></td><td>Element node</td></tr>
+    <tr><td><span class="code">&lt;a&gt;</span></td><td>Element node</td></tr>
+    <tr><td><span class="code">href</span></td><td>Attribute node of &lt;a&gt;</td></tr>
+    <tr><td><span class="code">&lt;h1&gt;</span></td><td>Element node</td></tr>
+    <tr><td>"My Header"</td><td>Text node, inside &lt;h1&gt;</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Accessing HTML Elements</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The HTML DOM can be accessed with JavaScript (and with other programming languages). In the DOM, all HTML elements are defined as objects. The programming interface is the properties and methods of each object. A property is a value that you can get or set (like changing the content of an HTML element). A method is an action you can do (like add or deleting an HTML element).
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +372,32 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const myPara = document.getElementById("demo1"); <br>
+        myPara.innerHTML = "Hello World!";
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>What You Will Learn</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    In the following chapters you will learn: <br>
+    How to change the content of HTML elements. <br>
+    How to change the style (CSS) of HTML elements. <br>
+    How to add and delete HTML elements. <br>
+    How to react to events in HTML elements.
+  </p>
+
+  <h3>The World Wide Web Consortium</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The DOM is a W3C Standard (World Wide Web Consortium): <br>
+    The W3C Document Object Model (DOM) is a platform and language-neutral interface that allows programs and scripts to dynamically access and update the content, structure, and style of a document. <br>
+    The W3C DOM standard is separated into 3 different parts: Core DOM (standard model for all document types), XML DOM (standard model for XML documents), HTML DOM (standard model for HTML documents). <br>
+    The HTML DOM is a language independent standard developed by the W3C and WHATWG.
   </p>
 </section>
 <br>
@@ -369,7 +413,10 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
-
+  (function () {
+    const myPara = document.getElementById("demo1");
+    myPara.innerHTML = "Hello World!";
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
