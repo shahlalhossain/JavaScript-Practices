@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>HTML DOM API</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    With the HTML DOM, JavaScript can access and change all the elements of an HTML document.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +337,163 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const myPara = document.getElementById("demo1"); <br>
+        myPara.innerHTML = "Hello World!";
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Application Programming Interface</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The HTML DOM can be accessed with JavaScript (and with other programming languages). The DOM is an Application Programming Interface (API). It defines: <br>
+    The HTML elements as Objects. The properties of all HTML elements. The methods to access all HTML elements. The events for all HTML elements.
   </p>
+
+  <h3>Example Explained</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The HTML document above contains an HTML element with id="demo1". The DOM is used to select this element. A JavaScript (using the innerHTML property) is used to change the content of this HTML element. This example demonstrates how to change the content of an HTML element.
+  </p>
+
+  <h3>HTML DOM API Abilities</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In other words: The HTML DOM is an API (Application Programming Interface) that allows JavaScript to: <br>
+    Change all the HTML elements in the page, change all the HTML attributes in the page, change all the CSS styles in the page, remove existing HTML elements and attributes, add new HTML elements and attributes, react to all existing HTML events in the page, create new HTML events in the page.
+  </p>
+
+  <h3>JavaScript is the Language</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript is the scripting language that implements the HTML DOM API, giving programs and scripts a way to dynamically access and update the content, structure, and style of a document.
+  </p>
+
+  <h3>API Methods and Properties</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The API methods below can be used to select, access, and change HTML elements in a page.
+  </p>
+
+  <h3>Selecting HTML Elements</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The following methods are used to select HTML elements:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">document.getElementById(id)</span></td><td>Find an element by element id</td></tr>
+    <tr><td><span class="code">document.getElementsByTagName(name)</span></td><td>Find elements by tag name</td></tr>
+    <tr><td><span class="code">document.getElementsByClassName(name)</span></td><td>Find elements by class name</td></tr>
+    <tr><td><span class="code">document.querySelector(selector)</span></td><td>Find the first element that matches a CSS selector</td></tr>
+    <tr><td><span class="code">document.querySelectorAll(selector)</span></td><td>Find all elements that match a CSS selector</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Accessing Element Content</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The following properties are used to access an element's content:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">element.innerHTML</span></td><td>The HTML content of an element</td></tr>
+    <tr><td><span class="code">element.textContent</span></td><td>The text content of an element</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Accessing Element Attributes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The following are used to access an element's attributes:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">element.attribute</span></td><td>Change the attribute value of an HTML element</td></tr>
+    <tr><td><span class="code">element.style.property</span></td><td>The style of an HTML element</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Changing Element Attributes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The following method is used to change an element's attributes:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">element.setAttribute()</span></td><td>Create or set a new attribute</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Manipulating Structure</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The following methods are used to manipulate the document structure:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">document.createElement()</span></td><td>Creates a new HTML element</td></tr>
+    <tr><td><span class="code">document.removeChild()</span></td><td>Remove an HTML element</td></tr>
+    <tr><td><span class="code">document.appendChild()</span></td><td>Add an HTML element</td></tr>
+    <tr><td><span class="code">document.replaceChild()</span></td><td>Replace an HTML element</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Adding Event Handlers</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The following pattern is used to add event handler code to an element:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Pattern</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">document.getElementById(id).onclick = function() &#123;code&#125;</span></td><td>Adding event handler code to an onclick event</td></tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +508,10 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
-
+  (function () {
+    const myPara = document.getElementById("demo1");
+    myPara.innerHTML = "Hello World!";
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
