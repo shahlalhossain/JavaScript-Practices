@@ -322,20 +322,74 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>HTML DOM Document</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    In the HTML DOM, the <span class="code">document</span> object represents your web page. If you want to access any element in an HTML page, you always start with accessing the <span class="code">document</span> object.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Document Properties and Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The following table lists the most commonly used properties and methods of the document object:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Property / Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">activeElement</span></td><td>Currently focused element in the document</td></tr>
+    <tr><td><span class="code">addEventListener()</span></td><td>Attaches an event handler to the document</td></tr>
+    <tr><td><span class="code">adoptNode()</span></td><td>Takes a node from another document</td></tr>
+    <tr><td><span class="code">baseURI</span></td><td>Absolute base URI of the document</td></tr>
+    <tr><td><span class="code">body</span></td><td>Gets or sets the body element</td></tr>
+    <tr><td><span class="code">characterSet</span></td><td>Character encoding of the document</td></tr>
+    <tr><td><span class="code">close()</span></td><td>Closes a stream opened by document.open()</td></tr>
+    <tr><td><span class="code">cookie</span></td><td>Name/value pairs of the document's cookies</td></tr>
+    <tr><td><span class="code">createAttribute()</span></td><td>Creates an attribute node</td></tr>
+    <tr><td><span class="code">createComment()</span></td><td>Creates a comment node with given text</td></tr>
+    <tr><td><span class="code">createDocumentFragment()</span></td><td>Creates an empty DocumentFragment node</td></tr>
+    <tr><td><span class="code">createElement()</span></td><td>Creates an element node</td></tr>
+    <tr><td><span class="code">createEvent()</span></td><td>Creates a new event</td></tr>
+    <tr><td><span class="code">createTextNode()</span></td><td>Creates a text node</td></tr>
+    <tr><td><span class="code">defaultView</span></td><td>Window associated with the document, or null</td></tr>
+    <tr><td><span class="code">designMode</span></td><td>Controls whether the whole document is editable</td></tr>
+    <tr><td><span class="code">doctype</span></td><td>The document's doctype declaration</td></tr>
+    <tr><td><span class="code">documentElement</span></td><td>The root element (html)</td></tr>
+    <tr><td><span class="code">documentURI</span></td><td>Gets or sets the document's location</td></tr>
+    <tr><td><span class="code">domain</span></td><td>Domain of the server that loaded the document</td></tr>
+    <tr><td><span class="code">embeds</span></td><td>Collection of embed elements</td></tr>
+    <tr><td><span class="code">forms</span></td><td>Collection of form elements</td></tr>
+    <tr><td><span class="code">getElementById()</span></td><td>Element with the specified ID</td></tr>
+    <tr><td><span class="code">getElementsByClassName()</span></td><td>HTMLCollection of elements with the specified class name</td></tr>
+    <tr><td><span class="code">getElementsByName()</span></td><td>Live NodeList of elements with the specified name</td></tr>
+    <tr><td><span class="code">getElementsByTagName()</span></td><td>HTMLCollection of elements with the specified tag name</td></tr>
+    <tr><td><span class="code">hasFocus()</span></td><td>Whether the document has focus</td></tr>
+    <tr><td><span class="code">head</span></td><td>The head element</td></tr>
+    <tr><td><span class="code">images</span></td><td>Collection of img elements</td></tr>
+    <tr><td><span class="code">implementation</span></td><td>DOMImplementation object handling the document</td></tr>
+    <tr><td><span class="code">importNode()</span></td><td>Imports a node from another document</td></tr>
+    <tr><td><span class="code">lastModified</span></td><td>Date and time the document was last modified</td></tr>
+    <tr><td><span class="code">links</span></td><td>Collection of a and area elements with an href attribute</td></tr>
+    <tr><td><span class="code">normalize()</span></td><td>Removes empty text nodes and joins adjacent nodes</td></tr>
+    <tr><td><span class="code">open()</span></td><td>Opens an output stream to collect document.write() output</td></tr>
+    <tr><td><span class="code">querySelector()</span></td><td>First element matching the CSS selector(s)</td></tr>
+    <tr><td><span class="code">querySelectorAll()</span></td><td>Static NodeList of elements matching the CSS selector(s)</td></tr>
+    <tr><td><span class="code">readyState</span></td><td>Loading status of the document</td></tr>
+    <tr><td><span class="code">referrer</span></td><td>URL of the document that loaded the current document</td></tr>
+    <tr><td><span class="code">removeEventListener()</span></td><td>Removes a handler attached with addEventListener()</td></tr>
+    <tr><td><span class="code">scripts</span></td><td>Collection of script elements</td></tr>
+    <tr><td><span class="code">title</span></td><td>Gets or sets the document title</td></tr>
+    <tr><td><span class="code">URL</span></td><td>Full URL of the document</td></tr>
+    <tr><td><span class="code">write()</span></td><td>Writes HTML or JavaScript to the document</td></tr>
+    <tr><td><span class="code">writeln()</span></td><td>Same as write(), adds a newline after each statement</td></tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Several older document members are deprecated and should be avoided in new code: <span class="code">anchors</span>, <span class="code">applets</span>, <span class="code">charset</span>, <span class="code">documentMode</span>, <span class="code">domConfig</span>, <span class="code">execCommand()</span>, <span class="code">inputEncoding</span>, <span class="code">normalizeDocument()</span>, <span class="code">renameNode()</span>, and <span class="code">strictErrorChecking</span>.</p>
   <br>
   <table>
     <thead>
@@ -346,15 +400,31 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>document.title;</td>
+      <td id="demo1"></td>
+    </tr>
+    <tr>
+      <td>document.URL;</td>
+      <td id="demo2"></td>
+    </tr>
+    <tr>
+      <td>document.characterSet;</td>
+      <td id="demo3"></td>
+    </tr>
+    <tr>
+      <td>document.lastModified;</td>
+      <td id="demo4"></td>
+    </tr>
+    <tr>
+      <td>document.getElementById("demo5").tagName;</td>
+      <td id="demo5"></td>
+    </tr>
+    <tr>
+      <td>document.getElementsByTagName("table").length;</td>
+      <td id="demo6"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
-  <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
-  </p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +439,12 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
-
+  document.getElementById("demo1").innerHTML = document.title;
+  document.getElementById("demo2").innerHTML = document.URL;
+  document.getElementById("demo3").innerHTML = document.characterSet;
+  document.getElementById("demo4").innerHTML = document.lastModified;
+  document.getElementById("demo5").innerHTML = document.getElementById("demo5").tagName;
+  document.getElementById("demo6").innerHTML = document.getElementsByTagName("table").length;
 </script>
 <!--Page Specific JavaScript End-->
 </body>
