@@ -322,20 +322,18 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Finding HTML Elements</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Often, with JavaScript, you want to manipulate HTML elements. To do so, you have to find the elements first. There are several ways to do this: <br>
+    Finding HTML elements by id, by tag name, by class name, by CSS selectors, by HTML object collections.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Finding HTML Element by Id</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The easiest way to find an HTML element in the DOM, is by using the element id.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +344,185 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <p id="intro1">This is the intro paragraph.</p>
+        const element = document.getElementById("intro1");
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Note: </i></strong>If the element does not exist, <span class="code">getElementById()</span> returns <span class="code">null</span>.</p>
+
+  <h3>Finding HTML Elements by Tag Name</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    This example finds all <span class="code">&lt;p&gt;</span> elements.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const element = document.getElementsByTagName("p"); <br>
+        element.length;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This example finds the element with id="main", and then finds all &lt;p&gt; elements inside "main":
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <div id="main2"><p>Inside main</p></div>
+        const main = document.getElementById("main2"); <br>
+        const element = main.getElementsByTagName("p"); <br>
+        element.length;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Finding HTML Elements by Class Name</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you want to find all HTML elements with the same class name, use <span class="code">getElementsByClassName()</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <p class="intro2">One.</p><p class="intro2">Two.</p>
+        const x = document.getElementsByClassName("intro2"); <br>
+        x.length;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Searching by class name does not work in Internet Explorer 8 and earlier versions.</p>
+
+  <h3>Finding HTML Elements by CSS Selectors</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If you want to find all HTML elements that match a specified CSS selector (id, class names, types, attributes, values of attributes, etc), use the <span class="code">querySelectorAll()</span> method.
+  </p>
+
+  <h3>The querySelector() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">querySelector()</span> method returns the first element that matches a specified CSS selector(s) in the document.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <p class="demo1">Original text.</p>
+        document.querySelector(".demo1").innerHTML = "Hello World!";
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The querySelectorAll() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">querySelectorAll()</span> method returns all elements that match a specified CSS selector(s), as a static NodeList.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <p class="demo2">First.</p><p class="demo2">Second.</p>
+        const x = document.querySelectorAll(".demo2"); <br>
+        x[0].innerHTML = "First";
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    <tr>
+      <td>
+        const x = document.querySelectorAll("p.intro2"); <br>
+        x.length;
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Common Mistakes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Passing a CSS-style id selector (like <span class="code">"#demo"</span>) to <span class="code">getElementById()</span> is wrong. It expects the bare id, without the <span class="code">#</span>. <span class="code">querySelector()</span> returns only the first matching element, not all matches; use <span class="code">querySelectorAll()</span> for that.
+  </p>
+
+  <h3>Finding HTML Elements by HTML Object Collections</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Finding HTML Objects by Collections is useful for finding (and value-listing) HTML form elements.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <form id="frm1"><input type="text" value="John"><input type="text" value="Doe"></form>
+        const x = document.forms["frm1"]; <br>
+        let text = ""; <br>
+        for (let i = 0; i &lt; x.length; i++) &#123; <br>
+        &nbsp;&nbsp;text += x.elements[i].value + "&lt;br&gt;"; <br>
+        &#125;
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript can also access the following HTML object collections: <span class="code">document.anchors</span>, <span class="code">document.body</span>, <span class="code">document.documentElement</span>, <span class="code">document.embeds</span>, <span class="code">document.forms</span>, <span class="code">document.head</span>, <span class="code">document.images</span>, <span class="code">document.links</span>, <span class="code">document.scripts</span>, <span class="code">document.title</span>.
   </p>
 </section>
 <br>
@@ -369,7 +538,51 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const element = document.getElementById("intro1");
+    document.getElementById("demo1").innerHTML = element ? element.innerHTML : "null";
+  })();
 
+  (function () {
+    const element = document.getElementsByTagName("p");
+    document.getElementById("demo2").innerHTML = element.length;
+  })();
+
+  (function () {
+    const main = document.getElementById("main2");
+    const element = main.getElementsByTagName("p");
+    document.getElementById("demo3").innerHTML = element.length;
+  })();
+
+  (function () {
+    const x = document.getElementsByClassName("intro2");
+    document.getElementById("demo4").innerHTML = x.length;
+  })();
+
+  (function () {
+    document.querySelector(".demo1").innerHTML = "Hello World!";
+    document.getElementById("demo5").innerHTML = document.querySelector(".demo1").innerHTML;
+  })();
+
+  (function () {
+    const x = document.querySelectorAll(".demo2");
+    x[0].innerHTML = "First";
+    document.getElementById("demo6").innerHTML = x[0].innerHTML + ", " + x[1].innerHTML;
+  })();
+
+  (function () {
+    const x = document.querySelectorAll("p.intro2");
+    document.getElementById("demo7").innerHTML = x.length;
+  })();
+
+  (function () {
+    const x = document.forms["frm1"];
+    let text = "";
+    for (let i = 0; i < x.length; i++) {
+      text += x.elements[i].value + "<br>";
+    }
+    document.getElementById("demo8").innerHTML = text;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
