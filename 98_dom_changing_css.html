@@ -322,20 +322,12 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Changing HTML Style</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    To change the style of an HTML element, use this syntax: <br>
+    <span class="code">document.getElementById(id).style.property = new style</span>
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,14 +338,68 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <p id="p2">Hello World!</p>
+        document.getElementById("p2").style.color = "blue";
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Using Events</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The HTML DOM allows you to execute code when an event occurs, like when a user clicks on an HTML element.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <h1 id="id1" style="font-size: 1.2em; margin: 0;">My Heading 1</h1>
+        <button type="button" onclick="document.getElementById('id1').style.color = 'red'">Click Me!</button>
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>More Examples</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can use <span class="code">style.visibility</span> to hide and show HTML elements, without removing them from the layout.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <p id="p1">Click Me!</p>
+        <input type="button" value="Hide text" onclick="document.getElementById('p1').style.visibility='hidden'">
+        <input type="button" value="Show text" onclick="document.getElementById('p1').style.visibility='visible'">
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>HTML DOM Style Object Reference</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    For a complete list of all the available HTML DOM style properties (like <span class="code">color</span>, <span class="code">visibility</span>, <span class="code">fontSize</span>, <span class="code">backgroundColor</span>, and more), see the HTML DOM Style Object reference.
   </p>
 </section>
 <br>
@@ -369,7 +415,18 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    document.getElementById("p2").style.color = "blue";
+    document.getElementById("demo1").innerHTML = "p2 color set to: " + document.getElementById("p2").style.color;
+  })();
 
+  (function () {
+    document.getElementById("demo2").innerHTML = "Click \"Click Me!\" above to turn the heading red.";
+  })();
+
+  (function () {
+    document.getElementById("demo3").innerHTML = "Use the buttons above to hide/show the paragraph.";
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
