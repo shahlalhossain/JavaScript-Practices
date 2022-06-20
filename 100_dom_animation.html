@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>A Basic Web Page</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    This example will teach you how to create a basic "raw" JavaScript animation.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +337,148 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        &lt;h1&gt;My First JavaScript Animation&lt;/h1&gt; <br>
+        &lt;div id="animation1"&gt;My animation will go here&lt;/div&gt;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Create an Animation Container</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    An animation needs a container element, with CSS position: relative, and a div to animate, with CSS position: absolute.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        &lt;div id="container"&gt; <br>
+        &nbsp;&nbsp;&lt;div id="animate"&gt;My animation will go here&lt;/div&gt; <br>
+        &lt;/div&gt;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Style the Elements</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The container element needs fixed width and height, and the animated element needs position: absolute, so it can be moved freely inside the container.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        #container &#123; <br>
+        &nbsp;&nbsp;width: 400px; <br>
+        &nbsp;&nbsp;height: 400px; <br>
+        &nbsp;&nbsp;position: relative; <br>
+        &nbsp;&nbsp;background: yellow; <br>
+        &#125; <br>
+        #animate &#123; <br>
+        &nbsp;&nbsp;width: 50px; <br>
+        &nbsp;&nbsp;height: 50px; <br>
+        &nbsp;&nbsp;position: absolute; <br>
+        &nbsp;&nbsp;background: red; <br>
+        &#125;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Animation Code</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript animations are often done with programmed HTML style changes, often performed by using a JavaScript timing event, with the help of <span class="code">setInterval()</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        id = setInterval(frame, 5); <br>
+        <br>
+        function frame() &#123; <br>
+        &nbsp;&nbsp;if (/* test for finished */) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;clearInterval(id); <br>
+        &nbsp;&nbsp;&#125; else &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;/* code to change the element style */ <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">setInterval()</span> calls the <span class="code">frame</span> function every 5 milliseconds. To create an animation, the position of the element has to change a little bit, many times per second.</p>
+
+  <h3>Create the Full Animation Using JavaScript</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Click the button below to run the full animation example:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function myMove() &#123; <br>
+        &nbsp;&nbsp;let id = null; <br>
+        &nbsp;&nbsp;const elem = document.getElementById("animate2"); <br>
+        &nbsp;&nbsp;let pos = 0; <br>
+        &nbsp;&nbsp;clearInterval(id); <br>
+        &nbsp;&nbsp;id = setInterval(frame, 5); <br>
+        &nbsp;&nbsp;function frame() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (pos == 100) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clearInterval(id); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&#125; else &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pos++; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elem.style.top = pos + 'px'; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elem.style.left = pos + 'px'; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&#125; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125; <br>
+        <br>
+        <div id="container" style="width: 150px; height: 150px; position: relative; background: #f0f0f0; border: 1px solid #ccc;">
+          <div id="animate2" style="width: 30px; height: 30px; position: absolute; background: red;"></div>
+        </div>
+        <button type="button" onclick="myMove()">Click Me</button>
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +493,29 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = "My animation will go here";
+  document.getElementById("demo2").innerHTML = "Container + inner div created (see Style the Elements and Create the Full Animation below).";
+  document.getElementById("demo3").innerHTML = "#container is relative + yellow, #animate is absolute + red (applied in the live demo below).";
+  document.getElementById("demo4").innerHTML = "setInterval(frame, 5) repeatedly calls frame() every 5ms until clearInterval(id) stops it.";
 
+  function myMove() {
+    let id = null;
+    const elem = document.getElementById("animate2");
+    let pos = 0;
+    clearInterval(id);
+    id = setInterval(frame, 5);
+    function frame() {
+      if (pos == 100) {
+        clearInterval(id);
+        document.getElementById("demo5").innerHTML = "Animation finished.";
+      } else {
+        pos++;
+        elem.style.top = pos + 'px';
+        elem.style.left = pos + 'px';
+      }
+    }
+  }
+  document.getElementById("demo5").innerHTML = "Click the button to animate the red box.";
 </script>
 <!--Page Specific JavaScript End-->
 </body>
