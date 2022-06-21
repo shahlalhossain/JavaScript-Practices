@@ -322,20 +322,13 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Reacting to Events</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    A JavaScript can be executed when an event occurs, like when a user clicks on an HTML element. <br>
+    <span class="code">onclick=JavaScript</span> <br>
+    HTML event attributes can execute JavaScript code directly:
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,14 +339,208 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <h1 onclick="this.innerHTML = 'Ooops!'" style="font-size: 1.2em; margin: 0;">Click on this text!</h1>
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Or they can call a JavaScript function:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <h1 onclick="changeText(this)" style="font-size: 1.2em; margin: 0;">Click on this text!</h1>
+        function changeText(id) &#123; <br>
+        &nbsp;&nbsp;id.innerHTML = "Ooops!"; <br>
+        &#125;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>HTML Event Attributes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To assign events to HTML elements, you can use event attributes.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <button type="button" id="dateBtn" onclick="document.getElementById('dateDemo').innerHTML = Date()">Try it</button> <span id="dateDemo"></span>
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Assign Events Using the HTML DOM</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The HTML DOM allows you to assign events to HTML elements using JavaScript.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <button type="button" id="myBtn">Try it (DOM assigned)</button>
+        document.getElementById("myBtn").onclick = displayDate;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The onload and onunload Events</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">onload</span> and <span class="code">onunload</span> events are triggered when the user enters or leaves the page. The <span class="code">onload</span> event can be used to check the visitor's browser type and browser version, and load the proper version of the web page based on the information. It can also be used to check cookies.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        &lt;body onload="checkCookies()"&gt;
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The oninput Event</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">oninput</span> event is triggered every time you change the value of an input field.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <input type="text" id="fname1" oninput="document.getElementById('demo6').innerHTML = this.value.toUpperCase()" placeholder="Type here">
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The onchange Event</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">onchange</span> event is often used together with validation of input fields, and fires once the field loses focus after being changed.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <input type="text" id="fname2" onchange="document.getElementById('demo7').innerHTML = this.value.toUpperCase()" placeholder="Type then click away">
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The onmouseover and onmouseout Events</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">onmouseover</span> and <span class="code">onmouseout</span> events can be used to trigger a function when the user mouses over, or out of, an HTML element.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <div onmouseover="document.getElementById('demo8').innerHTML='Mouse Over Me'" onmouseout="document.getElementById('demo8').innerHTML='Mouse Out'" style="padding: 10px; background: #eee; display: inline-block;">Mouse over this div</div>
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The onmousedown, onmouseup and onclick Events</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">onmousedown</span>, <span class="code">onmouseup</span>, and <span class="code">onclick</span> events are all parts of a mouse-click. First when a mouse button is clicked, the <span class="code">onmousedown</span> event is triggered, then, when the mouse button is released, the <span class="code">onmouseup</span> event is triggered, finally, when the mouse click is completed, the <span class="code">onclick</span> event is triggered.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <div onmousedown="document.getElementById('demo9').innerHTML='Mouse Down'" onmouseup="document.getElementById('demo9').innerHTML='Mouse Up'" style="padding: 10px; background: #eee; display: inline-block;">Press and release the mouse here</div>
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>More Examples</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript event handlers can be attached to many more events: focus, blur, keydown, keyup, submit, scroll, resize, and more.
+  </p>
+
+  <h3>HTML DOM Event Object Reference</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    For a complete reference of all HTML DOM events, see our HTML DOM Event Object Reference.
   </p>
 </section>
 <br>
@@ -369,7 +556,29 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = "Click the heading above to change its text.";
 
+  function changeText(id) {
+    id.innerHTML = "Ooops!";
+  }
+  document.getElementById("demo2").innerHTML = "Click the heading above to change its text via a function.";
+
+  document.getElementById("demo3").innerHTML = "Click the button above to show the current date.";
+
+  function displayDate() {
+    document.getElementById("demo4").innerHTML = Date();
+  }
+  document.getElementById("myBtn").onclick = displayDate;
+
+  document.getElementById("demo5").innerHTML = "onload fires once, when the page (or this frame) finishes loading.";
+
+  document.getElementById("demo6").innerHTML = "Type in the box above — updates live on every keystroke.";
+
+  document.getElementById("demo7").innerHTML = "Type in the box above and click away — updates only after the field loses focus.";
+
+  document.getElementById("demo8").innerHTML = "Hover over the box above.";
+
+  document.getElementById("demo9").innerHTML = "Press and release the mouse on the box above.";
 </script>
 <!--Page Specific JavaScript End-->
 </body>
