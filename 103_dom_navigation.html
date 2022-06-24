@@ -322,20 +322,30 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>DOM Nodes</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    According to the W3C HTML DOM standard, everything in an HTML document is a node: the entire document is a document node, every HTML element is an element node, the text inside HTML elements is a text node, every HTML attribute is an attribute node (deprecated), comments are comment nodes.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Node Relationships</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The nodes in a node tree have a hierarchical relationship to each other. The terms parent, child, and sibling are used to describe the relationships. Parent nodes have children. Children on the same level are called siblings (brothers or sisters). <br>
+    In a node tree, the top node is called the root (or root node). Every node, except the root, has exactly one parent node. A node can have any number of children. A leaf is a node with no children. Siblings are nodes with the same parent.
+  </p>
+
+  <h3>Navigating Between Nodes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can use the following node properties to navigate between nodes with JavaScript: <span class="code">parentNode</span>, <span class="code">childNodes[nodenumber]</span>, <span class="code">firstChild</span>, <span class="code">lastChild</span>, <span class="code">nextSibling</span>, <span class="code">previousSibling</span>.
+  </p>
+
+  <h3>Child Nodes and Node Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A common error in DOM processing is to expect an element node to contain text. The element node below (<span class="code">&lt;h1&gt;</span>) does not contain text, but it does contain a text node with the text "DOM Lesson one".
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +356,165 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <h1 id="id01a" style="font-size: 1.1em; margin: 0;">DOM Lesson one</h1>
+        document.getElementById("id01a").innerHTML;
+      </td>
+      <td id="demo1"></td>
+    </tr>
+    <tr>
+      <td>
+        document.getElementById("id01a").firstChild.nodeValue;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    <tr>
+      <td>
+        document.getElementById("id01a").childNodes[0].nodeValue;
+      </td>
+      <td id="demo3"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    All 3 statements above read the value of the first child node of a specified element, but with different properties.
   </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo4").innerHTML = document.getElementById("id01a").innerHTML;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    <tr>
+      <td>
+        document.getElementById("demo5").innerHTML = document.getElementById("id01a").firstChild.nodeValue;
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    <tr>
+      <td>
+        document.getElementById("demo6").innerHTML = document.getElementById("id01a").childNodes[0].nodeValue;
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>InnerHTML</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Using the <span class="code">innerHTML</span> property is the easiest way to get the content of an element. It is also the easiest way to change the content of an HTML element.
+  </p>
+
+  <h3>DOM Root Nodes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    There are two special properties that allow access to the full document: <span class="code">document.body</span> provides access to the body element, and <span class="code">document.documentElement</span> provides access to the full document.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo7").innerHTML = "typeof document.body: " + typeof document.body;
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    <tr>
+      <td>
+        document.getElementById("demo8").innerHTML = "typeof document.documentElement: " + typeof document.documentElement;
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The nodeName Property</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">nodeName</span> property specifies the name of a node. <span class="code">nodeName</span> is read only, for element nodes it contains the same as the tag name, for attribute nodes it contains the attribute name, for text nodes it is always #text, for the document node it is always #document.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo9").innerHTML = document.getElementById("id01a").nodeName;
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">nodeName</span> always contains the uppercase tag name of an HTML element.</p>
+
+  <h3>The nodeValue Property</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">nodeValue</span> property specifies the value of a node. For text nodes, the nodeValue property contains the text. For element nodes, the nodeValue property is null.
+  </p>
+
+  <h3>The nodeType Property</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">nodeType</span> property is read only. It returns the type of a node.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo10").innerHTML = document.getElementById("id01a").nodeType;
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The most important node types are:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Node</th>
+      <th>Type</th>
+      <th>Example</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>ELEMENT_NODE</td><td>1</td><td><span class="code">&lt;h1 class="heading"&gt;W3Schools&lt;/h1&gt;</span></td></tr>
+    <tr><td>ATTRIBUTE_NODE</td><td>2</td><td><span class="code">class = "heading"</span> (deprecated)</td></tr>
+    <tr><td>TEXT_NODE</td><td>3</td><td>W3Schools</td></tr>
+    <tr><td>COMMENT_NODE</td><td>8</td><td><span class="code">&lt;!-- This is a comment --&gt;</span></td></tr>
+    <tr><td>DOCUMENT_NODE</td><td>9</td><td>The HTML document itself (parent of &lt;html&gt;)</td></tr>
+    <tr><td>DOCUMENT_TYPE_NODE</td><td>10</td><td><span class="code">&lt;!Doctype html&gt;</span></td></tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +529,20 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = document.getElementById("id01a").innerHTML;
+  document.getElementById("demo2").innerHTML = document.getElementById("id01a").firstChild.nodeValue;
+  document.getElementById("demo3").innerHTML = document.getElementById("id01a").childNodes[0].nodeValue;
 
+  document.getElementById("demo4").innerHTML = document.getElementById("id01a").innerHTML;
+  document.getElementById("demo5").innerHTML = document.getElementById("id01a").firstChild.nodeValue;
+  document.getElementById("demo6").innerHTML = document.getElementById("id01a").childNodes[0].nodeValue;
+
+  document.getElementById("demo7").innerHTML = "typeof document.body: " + typeof document.body;
+  document.getElementById("demo8").innerHTML = "typeof document.documentElement: " + typeof document.documentElement;
+
+  document.getElementById("demo9").innerHTML = document.getElementById("id01a").nodeName;
+
+  document.getElementById("demo10").innerHTML = document.getElementById("id01a").nodeType;
 </script>
 <!--Page Specific JavaScript End-->
 </body>
