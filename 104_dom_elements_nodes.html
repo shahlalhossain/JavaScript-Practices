@@ -322,20 +322,18 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Adding and Removing Nodes (HTML Elements)</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    To remove an HTML element, you must know the parent of the element. <br>
+    To add a new element to the HTML DOM, you must create the element (element node) first, then append it to an existing element.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Creating New HTML Elements (Nodes)</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To add a new element to the HTML DOM, you must create the element (element node) first, and then append it to an existing element.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +344,130 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <div id="div1a" style="padding: 10px; background: #eee;"><p id="p1a" style="margin:0;">This is a paragraph.</p></div>
+        const para = document.createElement("p"); <br>
+        const node = document.createTextNode("This is new."); <br>
+        para.appendChild(node); <br>
+        const element = document.getElementById("div1a"); <br>
+        element.appendChild(para);
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Note: </i></strong>You must create a text node before you can append it to an existing element. The <span class="code">appendChild()</span> method adds a child node as the LAST child node of the specified element.</p>
+
+  <h3>Creating new HTML Elements - insertBefore()</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The <span class="code">appendChild()</span> method in the previous example added the new element as the last child of the specified element. If you do not want that, you can use the <span class="code">insertBefore()</span> method.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <div id="div2a" style="padding: 10px; background: #eee;"><p id="p2a" style="margin:0;">This is a paragraph.</p></div>
+        const para = document.createElement("p"); <br>
+        const node = document.createTextNode("This is new."); <br>
+        para.appendChild(node); <br>
+        const element = document.getElementById("div2a"); <br>
+        const child = document.getElementById("p2a"); <br>
+        element.insertBefore(para, child);
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Removing Existing HTML Elements</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To remove an HTML element, use the <span class="code">remove()</span> method.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <div id="div3a" style="padding: 10px; background: #eee;"><p id="p3a" style="margin:0;">This is a paragraph.</p></div>
+        const elem = document.getElementById("p3a"); <br>
+        elem.remove();
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The <span class="code">remove()</span> method does not work in older browsers (IE), and in jQuery, <span class="code">remove()</span> does something else.</p>
+
+  <h3>Removing a Child Node</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    For browsers that do not support the <span class="code">remove()</span> method, you must use <span class="code">parentNode.removeChild(child)</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <div id="div4a" style="padding: 10px; background: #eee;"><p id="p4a" style="margin:0;">This is a paragraph.</p></div>
+        const parent = document.getElementById("div4a"); <br>
+        const child = document.getElementById("p4a"); <br>
+        parent.removeChild(child);
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>You have to go to the parent of the element you want to remove, to be able to remove it. This "walk" in the DOM tree is often necessary when working with the HTML DOM.</p>
+
+  <h3>Replacing HTML Elements</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To replace an element in the HTML DOM, use the <span class="code">replaceChild()</span> method.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <div id="div5a" style="padding: 10px; background: #eee;"><p id="p5a" style="margin:0;">This is a paragraph.</p></div>
+        const para = document.createElement("p"); <br>
+        const node = document.createTextNode("This is new."); <br>
+        para.appendChild(node); <br>
+        const parent = document.getElementById("div5a"); <br>
+        const child = document.getElementById("p5a"); <br>
+        parent.replaceChild(para, child);
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +482,48 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const para = document.createElement("p");
+    const node = document.createTextNode("This is new.");
+    para.appendChild(node);
+    const element = document.getElementById("div1a");
+    element.appendChild(para);
+    document.getElementById("demo1").innerHTML = element.innerHTML;
+  })();
 
+  (function () {
+    const para = document.createElement("p");
+    const node = document.createTextNode("This is new.");
+    para.appendChild(node);
+    const element = document.getElementById("div2a");
+    const child = document.getElementById("p2a");
+    element.insertBefore(para, child);
+    document.getElementById("demo2").innerHTML = element.innerHTML;
+  })();
+
+  (function () {
+    const elem = document.getElementById("p3a");
+    const parentHtmlBefore = document.getElementById("div3a").innerHTML;
+    elem.remove();
+    document.getElementById("demo3").innerHTML = "After remove(): " + (document.getElementById("div3a").innerHTML || "(empty)");
+  })();
+
+  (function () {
+    const parent = document.getElementById("div4a");
+    const child = document.getElementById("p4a");
+    parent.removeChild(child);
+    document.getElementById("demo4").innerHTML = "After removeChild(): " + (parent.innerHTML || "(empty)");
+  })();
+
+  (function () {
+    const para = document.createElement("p");
+    const node = document.createTextNode("This is new.");
+    para.appendChild(node);
+    const parent = document.getElementById("div5a");
+    const child = document.getElementById("p5a");
+    parent.replaceChild(para, child);
+    document.getElementById("demo5").innerHTML = parent.innerHTML;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
