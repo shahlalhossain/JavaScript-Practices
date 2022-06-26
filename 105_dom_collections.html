@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The HTMLCollection Object</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The <span class="code">getElementsByTagName()</span> method returns an HTMLCollection object. An HTMLCollection object is an array-like list (collection) of HTML elements. The following code selects all <span class="code">&lt;p&gt;</span> elements in a document:
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +337,66 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <p class="coll1" style="margin:2px 0;">Paragraph 0.</p>
+        <p class="coll1" style="margin:2px 0;">Paragraph 1.</p>
+        <p class="coll1" style="margin:2px 0;">Paragraph 2.</p>
+        const myCollection = document.getElementsByTagName("p"); <br>
+        myCollection[1];
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Note: </i></strong>The elements in the collection can be accessed by index (starting at 0). An HTMLCollection is NOT an array! An HTMLCollection looks like an array, but it is not. You can loop through the list, and refer to elements with a number (just like an array), but you cannot use array methods like <span class="code">valueOf()</span>, <span class="code">pop()</span>, or <span class="code">push()</span> on it.</p>
+
+  <h3>HTML HTMLCollection Length</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The <span class="code">length</span> property specifies the number of elements in an HTMLCollection.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const myCollection = document.getElementsByTagName("p"); <br>
+        myCollection.length;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">length</span> property is useful when you want to loop through the elements of a collection. Change the text color of all <span class="code">&lt;p&gt;</span> elements (scoped here to class="coll2", to avoid recoloring the rest of this page):
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <p class="coll2" style="margin:2px 0;">Paragraph A.</p>
+        <p class="coll2" style="margin:2px 0;">Paragraph B.</p>
+        const myCollection = document.getElementsByClassName("coll2"); <br>
+        for (let i = 0; i &lt; myCollection.length; i++) &#123; <br>
+        &nbsp;&nbsp;myCollection[i].style.color = "red"; <br>
+        &#125;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +411,23 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const myCollection = document.getElementsByClassName("coll1");
+    document.getElementById("demo1").innerHTML = myCollection[1].innerHTML;
+  })();
 
+  (function () {
+    const myCollection = document.getElementsByClassName("coll1");
+    document.getElementById("demo2").innerHTML = myCollection.length;
+  })();
+
+  (function () {
+    const myCollection = document.getElementsByClassName("coll2");
+    for (let i = 0; i < myCollection.length; i++) {
+      myCollection[i].style.color = "red";
+    }
+    document.getElementById("demo3").innerHTML = "Colored " + myCollection.length + " paragraph(s) red.";
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
