@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The HTML DOM NodeList Object</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    A NodeList object is a list (collection) of nodes extracted from a document. A NodeList object is almost the same as an HTMLCollection object. Some (older) browsers return a NodeList object instead of an HTMLCollection for methods like <span class="code">getElementsByClassName()</span>. All browsers return a NodeList object for the property <span class="code">childNodes</span>. Most browsers return a NodeList object for the method <span class="code">querySelectorAll()</span>.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,14 +337,80 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <p class="nlist1" style="margin:2px 0;">Paragraph 0.</p>
+        <p class="nlist1" style="margin:2px 0;">Paragraph 1.</p>
+        <p class="nlist1" style="margin:2px 0;">Paragraph 2.</p>
+        const myNodeList = document.querySelectorAll("p.nlist1"); <br>
+        myNodeList[1];
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Note: </i></strong>The index starts at 0.</p>
+
+  <h3>HTML DOM Node List Length</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The <span class="code">length</span> property specifies the number of nodes in a node list.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        myNodelist.length;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">length</span> property is useful when you want to loop through the nodes in a node list:
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <p class="nlist2" style="margin:2px 0;">Paragraph A.</p>
+        <p class="nlist2" style="margin:2px 0;">Paragraph B.</p>
+        const myNodelist = document.querySelectorAll("p.nlist2"); <br>
+        for (let i = 0; i &lt; myNodelist.length; i++) &#123; <br>
+        &nbsp;&nbsp;myNodelist[i].style.color = "red"; <br>
+        &#125;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The Difference Between an HTMLCollection and a NodeList</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A NodeList and an HTMLCollection is very much the same thing. Both are array-like collections (lists) of nodes (elements) extracted from a document. The nodes can be accessed by index numbers. The index starts at 0. Both have a length property that returns the number of elements in the list (collection). <br>
+    An HTMLCollection is a collection of document elements. A NodeList is a collection of document nodes (element nodes, attribute nodes, and text nodes). <br>
+    HTMLCollection elements can be accessed by name, id, or index number. NodeList elements can only be accessed by index numbers. <br>
+    An HTMLCollection is always a live collection. It updates itself if the document changes. A NodeList is most often a static collection (not always). It does not update itself if the document changes. <br>
+    <span class="code">getElementsByClassName()</span> and <span class="code">getElementsByTagName()</span> return a live HTMLCollection. <span class="code">querySelectorAll()</span> returns a static NodeList. <span class="code">childNodes</span> returns a live NodeList.
+  </p>
+
+  <h3>Not an Array!</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A NodeList may look like an array, but it is not. You can loop through a NodeList and refer to the nodes with a number (just like an array). But, you cannot use array methods like <span class="code">valueOf()</span>, <span class="code">pop()</span>, <span class="code">push()</span>, or <span class="code">join()</span> on a NodeList.
   </p>
 </section>
 <br>
@@ -369,7 +426,23 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const myNodeList = document.querySelectorAll("p.nlist1");
+    document.getElementById("demo1").innerHTML = myNodeList[1].innerHTML;
+  })();
 
+  (function () {
+    const myNodelist = document.querySelectorAll("p.nlist1");
+    document.getElementById("demo2").innerHTML = myNodelist.length;
+  })();
+
+  (function () {
+    const myNodelist = document.querySelectorAll("p.nlist2");
+    for (let i = 0; i < myNodelist.length; i++) {
+      myNodelist[i].style.color = "red";
+    }
+    document.getElementById("demo3").innerHTML = "Colored " + myNodelist.length + " paragraph(s) red.";
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
