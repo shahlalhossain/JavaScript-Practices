@@ -322,20 +322,18 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The Browser Object Model (BOM)</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    There are no official standards for the Browser Object Model (BOM), but modern browsers have implemented (almost) the same methods and properties for JavaScript interactivity.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>The Window Object</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The window object is supported by all browsers. It represents the browser's window. <br>
+    All global JavaScript objects, functions, and variables automatically become members of the window object. Global variables are properties of the window object. Global functions are methods of the window object. Even the document object (of the HTML DOM) is a property of the window object.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +344,66 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        <h1 id="header1" style="font-size: 1.1em; margin: 0;">Header Example</h1>
+        window.document.getElementById("header1");
+      </td>
+      <td id="demo1"></td>
+    </tr>
+    <tr>
+      <td>
+        <i>// is the same as:</i> <br>
+        document.getElementById("header1");
+      </td>
+      <td id="demo2"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Window Size</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Two properties can be used to determine the size of the browser window. Both properties return the sizes in pixels: <span class="code">window.innerHeight</span> (the inner height of the browser window, including the horizontal scrollbar, if present) and <span class="code">window.innerWidth</span> (the inner width of the browser window, including the vertical scrollbar, if present).
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let w = window.innerWidth; <br>
+        let h = window.innerHeight;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Other Window Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Some other methods:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">window.open()</span></td><td>Open a new window</td></tr>
+    <tr><td><span class="code">window.close()</span></td><td>Close the current window</td></tr>
+    <tr><td><span class="code">window.moveTo()</span></td><td>Move the current window</td></tr>
+    <tr><td><span class="code">window.resizeTo()</span></td><td>Resize the current window</td></tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +418,14 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = window.document.getElementById("header1").innerHTML;
+  document.getElementById("demo2").innerHTML = document.getElementById("header1").innerHTML;
 
+  (function () {
+    let w = window.innerWidth;
+    let h = window.innerHeight;
+    document.getElementById("demo3").innerHTML = w + " x " + h;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
