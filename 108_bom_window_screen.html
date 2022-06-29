@@ -322,20 +322,18 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Window Screen</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The built-in <span class="code">screen</span> object contains information about the visitor's screen. <br>
+    <span class="code">screen.width</span>, <span class="code">screen.height</span>, <span class="code">screen.availWidth</span>, <span class="code">screen.availHeight</span>, <span class="code">screen.colorDepth</span>, <span class="code">screen.pixelDepth</span>.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Window Screen Width</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">screen.width</span> property returns the width of the visitor's screen, in pixels.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +344,137 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        document.getElementById("demo1").innerHTML = <br>
+        "Screen Width: " + screen.width;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Window Screen Height</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The <span class="code">screen.height</span> property returns the height of the visitor's screen, in pixels.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo2").innerHTML = <br>
+        "Screen Height: " + screen.height;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Window Screen Available Width</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">screen.availWidth</span> property returns the width of the visitor's screen, in pixels, minus interface features like the Taskbar.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo3").innerHTML = <br>
+        "Available Screen Width: " + screen.availWidth;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Window Screen Available Height</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">screen.availHeight</span> property returns the height of the visitor's screen, in pixels, minus interface features like the Taskbar.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo4").innerHTML = <br>
+        "Available Screen Height: " + screen.availHeight;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Window Screen Color Depth</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">screen.colorDepth</span> property returns the number of bits used to display one color. <br>
+    Possible values are 24, 32, 16, or 8 bits: 24 bits = 16,777,216 different "True Colors", 32 bits = 4,294,967,296 different "Deep Colors", 16 bits = 65,536 different "High Colors", 8 bits = 256 different "VGA colors".
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo5").innerHTML = <br>
+        "Screen Color Depth: " + screen.colorDepth;
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>All modern computers use 24 bit or 32 bit hardware for color resolution.</p>
+
+  <h3>Window Screen Pixel Depth</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">screen.pixelDepth</span> property returns the pixel depth of the screen.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo6").innerHTML = <br>
+        "Screen Pixel Depth: " + screen.pixelDepth;
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>For most computers, pixel depth and color depth are the same.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +489,12 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
-
+  document.getElementById("demo1").innerHTML = "Screen Width: " + screen.width;
+  document.getElementById("demo2").innerHTML = "Screen Height: " + screen.height;
+  document.getElementById("demo3").innerHTML = "Available Screen Width: " + screen.availWidth;
+  document.getElementById("demo4").innerHTML = "Available Screen Height: " + screen.availHeight;
+  document.getElementById("demo5").innerHTML = "Screen Color Depth: " + screen.colorDepth;
+  document.getElementById("demo6").innerHTML = "Screen Pixel Depth: " + screen.pixelDepth;
 </script>
 <!--Page Specific JavaScript End-->
 </body>
