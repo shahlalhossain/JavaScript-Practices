@@ -322,20 +322,18 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Window Location</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The <span class="code">window.location</span> object can be used to get the current page address (URL) and to redirect the browser to a new page. <br>
+    <span class="code">window.location.href</span> returns the href (URL) of the current page. <span class="code">window.location.hostname</span> returns the domain name of the web host. <span class="code">window.location.pathname</span> returns the path and filename of the current page. <span class="code">window.location.protocol</span> returns the web protocol used (http: or https:). <span class="code">window.location.assign()</span> loads a new document.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Window Location Href</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">window.location.href</span> property returns the URL of the current page.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +344,138 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        document.getElementById("demo1").innerHTML = <br>
+        "Page location is " + window.location.href;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Window Location Hostname</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The <span class="code">window.location.hostname</span> property returns the name of the internet host (of the current page).
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo2").innerHTML = <br>
+        "Page hostname is " + window.location.hostname;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Window Location Pathname</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">window.location.pathname</span> property returns the pathname of the current page.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo3").innerHTML = <br>
+        "Page path is " + window.location.pathname;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Window Location Protocol</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">window.location.protocol</span> property returns the web protocol used (http: or https:).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo4").innerHTML = <br>
+        "Page protocol is " + window.location.protocol;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Window Location Port</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">window.location.port</span> property returns the number of the internet host port (of the current page).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo5").innerHTML = <br>
+        "Port number is " + window.location.port;
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Most browsers will NOT display default port numbers (80 for http and 443 for https).</p>
+
+  <h3>Window Location Assign</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">window.location.assign()</span> method loads a new document.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function newDoc() &#123; <br>
+        &nbsp;&nbsp;window.location.assign("https://www.w3schools.com"); <br>
+        &#125; <br>
+        <button type="button" id="assignBtn">Load new document</button>
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Clicking the button above is disabled in this tutorial page to avoid navigating away.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +490,16 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = "Page location is " + window.location.href;
+  document.getElementById("demo2").innerHTML = "Page hostname is " + window.location.hostname;
+  document.getElementById("demo3").innerHTML = "Page path is " + window.location.pathname;
+  document.getElementById("demo4").innerHTML = "Page protocol is " + window.location.protocol;
+  document.getElementById("demo5").innerHTML = "Port number is " + (window.location.port || "(default, hidden by browser)");
 
+  document.getElementById("assignBtn").addEventListener("click", function () {
+    document.getElementById("demo6").innerHTML = 'Would call: window.location.assign("https://www.w3schools.com") (disabled here to avoid navigating away from the tutorial)';
+  });
+  document.getElementById("demo6").innerHTML = "Click the button to see what it would do.";
 </script>
 <!--Page Specific JavaScript End-->
 </body>
