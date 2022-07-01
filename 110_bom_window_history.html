@@ -322,20 +322,60 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The History Object</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The <span class="code">window.history</span> object contains the browser's history. The <span class="code">window</span> prefix can be omitted, written simply as <span class="code">history</span>.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>History Object Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The history object has several methods:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">back()</span></td><td>Loads the previous entry in the history list</td></tr>
+    <tr><td><span class="code">forward()</span></td><td>Loads the next entry in the history list</td></tr>
+    <tr><td><span class="code">go(n)</span></td><td>Loads an entry relative to the current one</td></tr>
+    <tr><td><span class="code">pushState()</span></td><td>Adds a new entry without loading a page</td></tr>
+    <tr><td><span class="code">replaceState()</span></td><td>Changes the current entry without loading a page</td></tr>
+    </tbody>
+  </table>
+
+  <h3>History Object Properties</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The history object has several properties:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">length</span></td><td>Number of entries in the history list</td></tr>
+    <tr><td><span class="code">state</span></td><td>The state of the current entry</td></tr>
+    <tr><td><span class="code">scrollRestoration</span></td><td>Gets or sets the scroll restoration behavior</td></tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note! </i></strong>For security/privacy reasons, JavaScript cannot access the actual URLs in the browser history.</p>
+
+  <h3>The history.back() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">history.back()</span> method loads the previous URL in the history list. This is the same as clicking the "Back" arrow in the browser.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +386,251 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        &lt;button onclick="history.back()"&gt;Go Back&lt;/button&gt;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>The history.forward() Method</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The <span class="code">history.forward()</span> method loads the next URL in the history list. This is the same as clicking the "Forward" arrow in the browser.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        &lt;button onclick="history.forward()"&gt;Go Forward&lt;/button&gt;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The history.go() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">history.go()</span> method loads a specific URL from the history list, relative to the current entry (a negative value goes back, a positive value goes forward).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        &lt;button onclick="history.go(-2)"&gt;Go Back 2 Pages&lt;/button&gt;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    <tr>
+      <td>
+        &lt;button onclick="history.go(1)"&gt;Go Forward 1 Page&lt;/button&gt;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The history.length Property</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">history.length</span> property returns the number of URLs in the history list.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let length = window.history.length;
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The history.state Property</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">history.state</span> property returns the current state object.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let state = history.state;
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Changing the Browser History</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The HTML5 standard introduced two new methods that can change the browser history, without reloading a new page: <span class="code">history.pushState()</span> and <span class="code">history.replaceState()</span>.
+  </p>
+
+  <h3>The history.pushState() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">history.pushState()</span> method adds a new entry to the browser history. <br>
+    <strong>Syntax</strong> <br>
+    history.pushState(state, title, url);
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let state = &#123;name: "example", page: 2&#125;; <br>
+        let url = "page2.html"; <br>
+        history.pushState(state, "", url);
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">pushState()</span> does not load a new page, it only updates the browser's URL and history. The title parameter is largely ignored by most browsers.</p>
+
+  <h3>The history.replaceState() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">history.replaceState()</span> method replaces the current history entry. <br>
+    <strong>Syntax</strong> <br>
+    history.replaceState(state, title, url);
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let state = &#123;name: "example", page: 3&#125;; <br>
+        let url = "page3.html"; <br>
+        history.replaceState(state, "", url);
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">replaceState()</span> also does not load a new page, and does not add a new entry to the history list (unlike pushState).</p>
+
+  <h3>The popstate Event</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Every time the active history entry changes (due to the user navigating, or due to <span class="code">history.back()</span>/<span class="code">forward()</span>/<span class="code">go()</span>), a <span class="code">popstate</span> event is fired on the window.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        window.addEventListener("popstate", function(event) &#123; <br>
+        &nbsp;&nbsp;if (event.state) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo9").innerHTML = JSON.stringify(event.state); <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;);
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>A Simple History API Example</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Click the button below to change the page state with <span class="code">pushState()</span>, without reloading the page.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <button type="button" id="pageBtn">Change Page State</button>
+        function showPage(pageNum) &#123; <br>
+        &nbsp;&nbsp;const state = &#123;page: pageNum&#125;; <br>
+        &nbsp;&nbsp;history.pushState(state, "", "?page=" + pageNum); <br>
+        &#125;
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Scroll Restoration</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">history.scrollRestoration</span> property allows web applications to explicitly set the default scroll restoration behavior, overriding the browser's default. <br>
+    <span class="code">"auto"</span>: the scroll position is automatically restored on back/forward navigation. <span class="code">"manual"</span>: the scroll position is not restored; the application must handle it.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        history.scrollRestoration = "manual";
+      </td>
+      <td id="demo11"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +645,66 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = "(disabled in this tutorial, to avoid navigating away)";
+  document.getElementById("demo2").innerHTML = "(disabled in this tutorial, to avoid navigating away)";
+  document.getElementById("demo3").innerHTML = "(disabled in this tutorial, to avoid navigating away)";
+  document.getElementById("demo4").innerHTML = "(disabled in this tutorial, to avoid navigating away)";
 
+  document.getElementById("demo5").innerHTML = "history.length: " + window.history.length;
+  document.getElementById("demo6").innerHTML = "history.state: " + JSON.stringify(history.state);
+
+  (function () {
+    let state = { name: "example", page: 2 };
+    let url = "page2.html";
+    try {
+      history.pushState(state, "", url);
+      document.getElementById("demo7").innerHTML = "Pushed state: " + JSON.stringify(state) + ", url now: " + location.href;
+    } catch (err) {
+      document.getElementById("demo7").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  (function () {
+    let state = { name: "example", page: 3 };
+    let url = "page3.html";
+    try {
+      history.replaceState(state, "", url);
+      document.getElementById("demo8").innerHTML = "Replaced state: " + JSON.stringify(state) + ", url now: " + location.href;
+    } catch (err) {
+      document.getElementById("demo8").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
+
+  window.addEventListener("popstate", function(event) {
+    if (event.state) {
+      document.getElementById("demo9").innerHTML = JSON.stringify(event.state);
+    }
+  });
+  document.getElementById("demo9").innerHTML = "Waiting for a popstate event (triggered by back/forward navigation).";
+
+  (function () {
+    const btn = document.getElementById("pageBtn");
+    let pageNum = 1;
+    function showPage(n) {
+      const state = { page: n };
+      history.pushState(state, "", "?page=" + n);
+      document.getElementById("demo10").innerHTML = "Pushed state: " + JSON.stringify(state) + ", url now: " + location.href;
+    }
+    btn.addEventListener("click", function() {
+      pageNum++;
+      showPage(pageNum);
+    });
+    document.getElementById("demo10").innerHTML = "Click the button to push a new state.";
+  })();
+
+  (function () {
+    try {
+      history.scrollRestoration = "manual";
+      document.getElementById("demo11").innerHTML = "history.scrollRestoration is now: " + history.scrollRestoration;
+    } catch (err) {
+      document.getElementById("demo11").innerHTML = err.constructor.name + ": " + err.message;
+    }
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
