@@ -322,20 +322,17 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The Navigator Object</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The window.navigator object contains information about the visitor's browser.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Browser Cookies</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">cookieEnabled</span> property returns true if cookies are enabled, otherwise false.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +343,231 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        document.getElementById("demo1").innerHTML = <br>
+        "cookiesEnabled is " + navigator.cookieEnabled;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>The Browser Language</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The <span class="code">language</span> property returns the browser's language.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo2").innerHTML = navigator.language;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Is The Browser Online?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">onLine</span> property returns true if the browser is online.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo3").innerHTML = navigator.onLine;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Browser Application Name</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">appName</span> property returns the application name of the browser.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo4").innerHTML = <br>
+        "navigator.appName is " + navigator.appName;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Warning: </i></strong>This property is removed (deprecated) in the latest web standard. Most browsers (Chrome, Edge, Firefox, Safari) return "Netscape" as appName.</p>
+
+  <h3>Browser Application Code Name</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">appCodeName</span> property returns the application code name of the browser.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo5").innerHTML = <br>
+        "navigator.appCodeName is " + navigator.appCodeName;
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Warning: </i></strong>This property is removed (deprecated) in the latest web standard. Most browsers (Chrome, Edge, Firefox, Safari) return "Mozilla" as appCodeName.</p>
+
+  <h3>The Browser Engine</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">product</span> property returns the product name of the browser engine.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo6").innerHTML = <br>
+        "navigator.product is " + navigator.product;
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Warning: </i></strong>This property is removed (deprecated) in the latest web standard. Most browsers return "Gecko" as product.</p>
+
+  <h3>The Browser Version</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">appVersion</span> property returns version information about the browser.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo7").innerHTML = navigator.appVersion;
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Warning: </i></strong>This property is removed (deprecated) in the latest web standard. Do not rely on appVersion to return the correct browser version.</p>
+
+  <h3>The Browser Agent</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">userAgent</span> property returns the user agent string for the browser.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo8").innerHTML = navigator.userAgent;
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Warning: </i></strong>The information from the navigator object can often be misleading. The navigator object should not be used to detect browser versions because the data can be altered, and different browsers can use the same name.</p>
+
+  <h3>The Browser Platform</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">platform</span> property returns the browser platform (operating system).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo9").innerHTML = navigator.platform;
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Warning: </i></strong>This property is removed (deprecated) in the latest web standard. Do not rely on platform to return the correct browser platform in all browsers.</p>
+
+  <h3>Is Java Enabled?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">javaEnabled()</span> method returns true if Java is enabled.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("demo10").innerHTML = navigator.javaEnabled();
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Warning: </i></strong>This method is removed (deprecated) in the latest web standard. javaEnabled() always returns false.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +582,23 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = "cookiesEnabled is " + navigator.cookieEnabled;
+  document.getElementById("demo2").innerHTML = navigator.language;
+  document.getElementById("demo3").innerHTML = navigator.onLine;
+  document.getElementById("demo4").innerHTML = "navigator.appName is " + navigator.appName;
+  document.getElementById("demo5").innerHTML = "navigator.appCodeName is " + navigator.appCodeName;
+  document.getElementById("demo6").innerHTML = "navigator.product is " + navigator.product;
+  document.getElementById("demo7").innerHTML = navigator.appVersion;
+  document.getElementById("demo8").innerHTML = navigator.userAgent;
+  document.getElementById("demo9").innerHTML = navigator.platform;
 
+  (function () {
+    try {
+      document.getElementById("demo10").innerHTML = navigator.javaEnabled();
+    } catch (err) {
+      document.getElementById("demo10").innerHTML = "(javaEnabled() not available in this browser: " + err.constructor.name + ")";
+    }
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
