@@ -322,20 +322,14 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Alert Box</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    An alert box is often used if you want to make sure information comes through to the user. <br>
+    <strong>Syntax</strong> <br>
+    window.alert("sometext"); <br>
+    The <span class="code">window.alert()</span> method can be written without the <span class="code">window</span> prefix.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +340,102 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        alert("I am an alert box!");
+        <button type="button" id="alertBtn">Try it</button>
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Confirm Box</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    A confirm box is often used if you want the user to verify or accept something. <br>
+    <strong>Syntax</strong> <br>
+    window.confirm("sometext");
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let txt; <br>
+        if (confirm("Press a button!")) &#123; <br>
+        &nbsp;&nbsp;txt = "You pressed OK!"; <br>
+        &#125; else &#123; <br>
+        &nbsp;&nbsp;txt = "You pressed Cancel!"; <br>
+        &#125;
+        <button type="button" id="confirmBtn">Try it</button>
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Prompt Box</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A prompt box is often used if you want the user to input a value before entering a page. <br>
+    <strong>Syntax</strong> <br>
+    window.prompt("sometext", "defaultText"); <br>
+    If the user clicks "OK" the input value is returned. If the user clicks "cancel" the box returns null.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let text; <br>
+        let person = prompt("Please enter your name", "Harry Potter"); <br>
+        if (person == null || person == "") &#123; <br>
+        &nbsp;&nbsp;text = "User cancelled the prompt."; <br>
+        &#125; else &#123; <br>
+        &nbsp;&nbsp;text = "Hello " + person + "! How are you today?"; <br>
+        &#125;
+        <button type="button" id="promptBtn">Try it</button>
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Line Breaks</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To display line breaks inside a popup box, use a back-slash followed by the character n.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        alert("Hello\nHow are you?");
+        <button type="button" id="alertBreakBtn">Try it</button>
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +450,40 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("alertBtn").addEventListener("click", function () {
+    alert("I am an alert box!");
+    document.getElementById("demo1").innerHTML = "Alert box shown and dismissed.";
+  });
+  document.getElementById("demo1").innerHTML = "Click the button to show an alert box.";
 
+  document.getElementById("confirmBtn").addEventListener("click", function () {
+    let txt;
+    if (confirm("Press a button!")) {
+      txt = "You pressed OK!";
+    } else {
+      txt = "You pressed Cancel!";
+    }
+    document.getElementById("demo2").innerHTML = txt;
+  });
+  document.getElementById("demo2").innerHTML = "Click the button to show a confirm box.";
+
+  document.getElementById("promptBtn").addEventListener("click", function () {
+    let text;
+    let person = prompt("Please enter your name", "Harry Potter");
+    if (person == null || person == "") {
+      text = "User cancelled the prompt.";
+    } else {
+      text = "Hello " + person + "! How are you today?";
+    }
+    document.getElementById("demo3").innerHTML = text;
+  });
+  document.getElementById("demo3").innerHTML = "Click the button to show a prompt box.";
+
+  document.getElementById("alertBreakBtn").addEventListener("click", function () {
+    alert("Hello\nHow are you?");
+    document.getElementById("demo4").innerHTML = "Alert box (with line break) shown and dismissed.";
+  });
+  document.getElementById("demo4").innerHTML = "Click the button to show an alert box with a line break.";
 </script>
 <!--Page Specific JavaScript End-->
 </body>
