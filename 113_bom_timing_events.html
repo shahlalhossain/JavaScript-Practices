@@ -322,20 +322,33 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Run a Function After a Delay</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    With JavaScript, it is possible to execute code, not immediately, but after a time interval. This is called "timing events".
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Function</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">setTimeout()</span></td><td>Runs a function once, after a delay</td></tr>
+    <tr><td><span class="code">setInterval()</span></td><td>Runs a function repeatedly, with a delay between each call</td></tr>
+    <tr><td><span class="code">clearTimeout()</span></td><td>Cancels a timer set with setTimeout()</td></tr>
+    <tr><td><span class="code">clearInterval()</span></td><td>Cancels a timer set with setInterval()</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The setTimeout() Function</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <strong>Syntax</strong> <br>
+    setTimeout(function, milliseconds);
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +359,377 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        function myFunction() &#123; <br>
+        &nbsp;&nbsp;document.getElementById("demo1").innerHTML = "I love You !!"; <br>
+        &#125; <br>
+        setTimeout(myFunction, 1000);
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Passing a Function</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Pass the name of the function, not a call to it. Using parentheses calls the function immediately.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        setTimeout(myFunction, 3000); &nbsp;&nbsp;<i>// Correct</i>
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    <tr>
+      <td>
+        setTimeout(myFunction(), 3000); &nbsp;&nbsp;<i>// Incorrect, calls myFunction immediately</i>
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Using an Anonymous Function</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    You can also pass an anonymous function directly to setTimeout().
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        setTimeout(function() &#123; <br>
+        &nbsp;&nbsp;document.getElementById("demo4").innerHTML = "I love You !!"; <br>
+        &#125;, 1000);
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Timers Do Not Pause JavaScript</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">setTimeout()</span> does not pause the execution of the rest of the code. The timer callback always runs after the current script finishes.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let order = ["Start"]; <br>
+        setTimeout(function() &#123; order.push("Timer"); &#125;, 500); <br>
+        order.push("End");
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>A Zero Delay</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Using <span class="code">setTimeout()</span> with a delay of 0 ms still defers the callback until after the current script finishes.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let order = ["Start"]; <br>
+        setTimeout(function() &#123; order.push("Timer"); &#125;, 0); <br>
+        order.push("End");
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The Delay Is a Minimum</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The delay parameter specifies the minimum time before the callback runs; it is not a guarantee. A long-running synchronous task will delay the timer further.
+  </p>
+
+  <h3>Canceling a Timeout</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">clearTimeout()</span> stops the execution of the function specified in <span class="code">setTimeout()</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <button type="button" id="startTimeoutBtn">Start</button>
+        <button type="button" id="stopTimeoutBtn">Stop</button>
+        let myTimeout; <br>
+        function myStart() &#123; <br>
+        &nbsp;&nbsp;myTimeout = setTimeout(myFunction, 3000); <br>
+        &#125; <br>
+        function myStop() &#123; <br>
+        &nbsp;&nbsp;clearTimeout(myTimeout); <br>
+        &#125;
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The setInterval() Function</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <strong>Syntax</strong> <br>
+    setInterval(function, milliseconds); <br>
+    <span class="code">setInterval()</span> repeats a given function at every given time interval.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <button type="button" id="startClockBtn">Start Clock</button>
+        <button type="button" id="stopClockBtn">Stop Clock</button>
+        setInterval(function() &#123; <br>
+        &nbsp;&nbsp;const d = new Date(); <br>
+        &nbsp;&nbsp;document.getElementById("demo8").innerHTML = d.toLocaleTimeString(); <br>
+        &#125;, 1000);
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Canceling an Interval</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <strong>Syntax</strong> <br>
+    clearInterval(intervalId); <br>
+    The "Stop Clock" button above calls <span class="code">clearInterval()</span> with the interval's ID, stopping the recurring updates.
+  </p>
+
+  <h3>Timeout or Interval?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Use the right tool for the task:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Task</th>
+      <th>Function</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>Run once after a delay</td><td><span class="code">setTimeout()</span></td></tr>
+    <tr><td>Run repeatedly</td><td><span class="code">setInterval()</span></td></tr>
+    <tr><td>Cancel a delayed call</td><td><span class="code">clearTimeout()</span></td></tr>
+    <tr><td>Stop a repeating call</td><td><span class="code">clearInterval()</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Passing Arguments</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Extra arguments to <span class="code">setTimeout()</span> (after the delay) are passed through to the callback function.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function showMessage(greeting, name) &#123; <br>
+        &nbsp;&nbsp;document.getElementById("demo9").innerHTML = greeting + ", " + name; <br>
+        &#125; <br>
+        setTimeout(showMessage, 1000, "Hello", "John");
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Repeated setTimeout()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A function can reschedule itself with <span class="code">setTimeout()</span> to create a repeating timer, as an alternative to <span class="code">setInterval()</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let count10 = 0; <br>
+        function repeat() &#123; <br>
+        &nbsp;&nbsp;count10++; <br>
+        &nbsp;&nbsp;document.getElementById("demo10").innerHTML = "Tick " + count10; <br>
+        &nbsp;&nbsp;if (count10 &lt; 3) setTimeout(repeat, 300); <br>
+        &#125; <br>
+        setTimeout(repeat, 300);
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>A Countdown Example</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    This example counts down from 10 to 0, using <span class="code">setInterval()</span>, stopping automatically at zero.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <button type="button" id="countdownBtn">Start Countdown</button>
+        let count = 10; <br>
+        const id = setInterval(function() &#123; <br>
+        &nbsp;&nbsp;document.getElementById("demo11").innerHTML = count; <br>
+        &nbsp;&nbsp;count--; <br>
+        &nbsp;&nbsp;if (count &lt; 0) clearInterval(id); <br>
+        &#125;, 200);
+      </td>
+      <td id="demo11"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Avoid Strings as Timer Code</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Never use strings as the first argument to <span class="code">setTimeout()</span> or <span class="code">setInterval()</span>: it evaluates like <span class="code">eval()</span>, which is a security risk.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        setTimeout("myFunction()", 1000); &nbsp;&nbsp;<i>// Not recommended</i>
+      </td>
+      <td id="demo12"></td>
+    </tr>
+    <tr>
+      <td>
+        setTimeout(myFunction, 1000); &nbsp;&nbsp;<i>// Recommended</i>
+      </td>
+      <td id="demo13"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Timers Run on the Main Thread</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript timers run on the same single thread as the rest of your page. A heavy, long-running callback can freeze the page's responsiveness while it runs.
+  </p>
+
+  <h3>Common Timer Mistakes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Calling the function immediately by adding <span class="code">()</span> instead of passing its name. Losing the timer ID, making it impossible to cancel later. Starting duplicate intervals by not checking if one is already running. Assuming the delay is exact, rather than a minimum. Forgetting to call <span class="code">clearInterval()</span> when a repeating timer is no longer needed.
+  </p>
+
+  <h3>A Slide Show Example</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Cycles through a sequence every interval, with Start/Stop buttons.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        <button type="button" id="startSlideBtn">Start Slideshow</button>
+        <button type="button" id="stopSlideBtn">Stop Slideshow</button>
+        const slides = ["Slide 1", "Slide 2", "Slide 3"]; <br>
+        let slideIndex = 0; <br>
+        let slideTimer; <br>
+        function showSlide() &#123; <br>
+        &nbsp;&nbsp;document.getElementById("demo14").innerHTML = slides[slideIndex]; <br>
+        &nbsp;&nbsp;slideIndex = (slideIndex + 1) % slides.length; <br>
+        &#125;
+      </td>
+      <td id="demo14"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Timers and Asynchronous JavaScript</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Timers are one of the simplest examples of asynchronous behavior in JavaScript: scheduling work to happen later, without blocking the rest of the script. <span class="code">setTimeout()</span> and <span class="code">setInterval()</span> work alongside callbacks, Promises, and async/await to coordinate work that happens over time.
   </p>
 </section>
 <br>
@@ -369,7 +745,144 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    function myFunction() {
+      document.getElementById("demo1").innerHTML = "I love You !!";
+    }
+    setTimeout(myFunction, 1000);
+  })();
 
+  (function () {
+    function myFunction() {
+      document.getElementById("demo2").innerHTML = "Ran via correct reference.";
+    }
+    setTimeout(myFunction, 1000);
+  })();
+
+  (function () {
+    function myFunction() {
+      document.getElementById("demo3").innerHTML = "Called immediately (wrong) — setTimeout received its return value, not the function.";
+      return "ignored by setTimeout";
+    }
+    setTimeout(myFunction(), 3000);
+  })();
+
+  (function () {
+    setTimeout(function() {
+      document.getElementById("demo4").innerHTML = "I love You !!";
+    }, 1000);
+  })();
+
+  (function () {
+    let order = ["Start"];
+    setTimeout(function() {
+      order.push("Timer");
+      document.getElementById("demo5").innerHTML = order.join(", ");
+    }, 500);
+    order.push("End");
+    document.getElementById("demo5").innerHTML = order.join(", ") + " (timer still pending)";
+  })();
+
+  (function () {
+    let order = ["Start"];
+    setTimeout(function() {
+      order.push("Timer");
+      document.getElementById("demo6").innerHTML = order.join(", ");
+    }, 0);
+    order.push("End");
+    document.getElementById("demo6").innerHTML = order.join(", ") + " (timer still pending)";
+  })();
+
+  (function () {
+    let myTimeout;
+    function myFunction() {
+      document.getElementById("demo7").innerHTML = "Timeout fired!";
+    }
+    function myStart() {
+      myTimeout = setTimeout(myFunction, 3000);
+      document.getElementById("demo7").innerHTML = "Timer started (3s)...";
+    }
+    function myStop() {
+      clearTimeout(myTimeout);
+      document.getElementById("demo7").innerHTML = "Timer stopped.";
+    }
+    document.getElementById("startTimeoutBtn").addEventListener("click", myStart);
+    document.getElementById("stopTimeoutBtn").addEventListener("click", myStop);
+    document.getElementById("demo7").innerHTML = "Click Start, then Stop before 3s to cancel it.";
+  })();
+
+  (function () {
+    let clockInterval;
+    document.getElementById("startClockBtn").addEventListener("click", function () {
+      if (clockInterval) return;
+      clockInterval = setInterval(function() {
+        const d = new Date();
+        document.getElementById("demo8").innerHTML = d.toLocaleTimeString();
+      }, 1000);
+    });
+    document.getElementById("stopClockBtn").addEventListener("click", function () {
+      clearInterval(clockInterval);
+      clockInterval = null;
+    });
+    document.getElementById("demo8").innerHTML = "Click Start Clock to begin.";
+  })();
+
+  (function () {
+    function showMessage(greeting, name) {
+      document.getElementById("demo9").innerHTML = greeting + ", " + name;
+    }
+    setTimeout(showMessage, 1000, "Hello", "John");
+  })();
+
+  (function () {
+    let count10 = 0;
+    function repeat() {
+      count10++;
+      document.getElementById("demo10").innerHTML = "Tick " + count10;
+      if (count10 < 3) setTimeout(repeat, 300);
+    }
+    setTimeout(repeat, 300);
+  })();
+
+  (function () {
+    document.getElementById("countdownBtn").addEventListener("click", function () {
+      let count = 10;
+      const id = setInterval(function() {
+        document.getElementById("demo11").innerHTML = count;
+        count--;
+        if (count < 0) clearInterval(id);
+      }, 200);
+    });
+    document.getElementById("demo11").innerHTML = "Click Start Countdown.";
+  })();
+
+  document.getElementById("demo12").innerHTML = "String-based timer code is not executed here (security risk, avoided).";
+  (function () {
+    function myFunction() {
+      document.getElementById("demo13").innerHTML = "Ran via correct function reference.";
+    }
+    setTimeout(myFunction, 1000);
+  })();
+
+  (function () {
+    const slides = ["Slide 1", "Slide 2", "Slide 3"];
+    let slideIndex = 0;
+    let slideTimer;
+    function showSlide() {
+      document.getElementById("demo14").innerHTML = slides[slideIndex];
+      slideIndex = (slideIndex + 1) % slides.length;
+    }
+    document.getElementById("startSlideBtn").addEventListener("click", function () {
+      if (slideTimer) return;
+      showSlide();
+      slideTimer = setInterval(showSlide, 1000);
+    });
+    document.getElementById("stopSlideBtn").addEventListener("click", function () {
+      clearInterval(slideTimer);
+      slideTimer = null;
+    });
+    document.getElementById("demo14").innerHTML = "Click Start Slideshow.";
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
