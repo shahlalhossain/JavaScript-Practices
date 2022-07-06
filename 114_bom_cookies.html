@@ -322,20 +322,24 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>What are Cookies?</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Cookies are data, stored in small text files, on your computer. When a web server has sent a web page to a browser, the connection is shut down, and the server forgets everything about the user. Cookies were invented to solve the problem "how to remember information about the user". <br>
+    When a server receives an HTTP request, there is no way to know if the request comes from a user that visited the website before or if it is the first time. Cookies work as a memory for the web server; with cookies, web servers can deliver a page tailored to a particular user, or the page itself can contain some script that knows about the history of the user to present the user some old history information.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>How does JavaScript Handle Cookies?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript can create, read, and delete cookies with the <span class="code">document.cookie</span> property.
+  </p>
+
+  <h3>Create a Cookie with JavaScript</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    With JavaScript, a cookie can be created like this:
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +350,259 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        document.cookie = "username=John Doe";
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    You can also add an expiry date (in UTC time). By default, the cookie is deleted when the browser is closed:
   </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.cookie = "username=John Doe; expires=Thu, 18 Dec 2025 12:00:00 UTC";
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    With a <span class="code">path</span> parameter, you can tell the browser what path the cookie belongs to. By default, the cookie belongs to the current page.
+  </p>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.cookie = "username=John Doe; expires=Thu, 18 Dec 2025 12:00:00 UTC; path=/";
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Read a Cookie with JavaScript</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    With JavaScript, cookies can be read like this:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let x = document.cookie;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">document.cookie</span> will return all cookies in one string, much like: cookie1=value; cookie2=value; cookie3=value;</p>
+
+  <h3>Change a Cookie with JavaScript</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    With JavaScript, you can change a cookie the same way you created it:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.cookie = "username=John Smith; expires=Thu, 18 Dec 2025 12:00:00 UTC; path=/";
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The old cookie is overwritten by the new cookie.</p>
+
+  <h3>Delete a Cookie with JavaScript</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Deleting a cookie is very simple. You don't have to specify a cookie value when you delete a cookie. Just set the <span class="code">expires</span> parameter to a passed date:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>You should define the cookie path to ensure that you delete the right cookie. Some browsers will not let you delete a cookie if you don't specify the path.</p>
+
+  <h3>The Cookie String</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">document.cookie</span> property looks like a normal text string. But it is not. Even if you write a whole cookie string to <span class="code">document.cookie</span>, when you read it out again, you can only see the name-value pair of it. If you set a new cookie, older cookies are not overwritten. The new cookie is added to <span class="code">document.cookie</span>, so if you read <span class="code">document.cookie</span> again you will get something like: cookie1=value; cookie2=value;
+  </p>
+
+  <h3>JavaScript Cookie Example</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In the example to follow, we will create a cookie that stores the name of a visitor. The first time a visitor arrives to the web page, he/she will be asked to fill in his/her name. The name is then stored in a cookie. The next time the visitor arrives at the same page, he/she will get a welcome message.
+  </p>
+
+  <h3>A Function to Set a Cookie</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    First, we create a function that stores the name of the visitor in a cookie variable:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function setCookie(cname, cvalue, exdays) &#123; <br>
+        &nbsp;&nbsp;const d = new Date(); <br>
+        &nbsp;&nbsp;d.setTime(d.getTime() + (exdays*24*60*60*1000)); <br>
+        &nbsp;&nbsp;let expires = "expires=" + d.toUTCString(); <br>
+        &nbsp;&nbsp;document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/"; <br>
+        &#125;
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>A Function to Get a Cookie</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Then, we create a function that returns the value of a specified cookie:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function getCookie(cname) &#123; <br>
+        &nbsp;&nbsp;let name = cname + "="; <br>
+        &nbsp;&nbsp;let decodedCookie = decodeURIComponent(document.cookie); <br>
+        &nbsp;&nbsp;let ca = decodedCookie.split(';'); <br>
+        &nbsp;&nbsp;for (let i = 0; i &lt; ca.length; i++) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;let c = ca[i]; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;while (c.charAt(0) == ' ') &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c = c.substring(1); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&#125; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (c.indexOf(name) == 0) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return c.substring(name.length, c.length); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&#125; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &nbsp;&nbsp;return ""; <br>
+        &#125;
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>A Function to Check a Cookie</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Next, we create the function that checks if a cookie has been set:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function checkCookie() &#123; <br>
+        &nbsp;&nbsp;let username = getCookie("username"); <br>
+        &nbsp;&nbsp;if (username != "") &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;alert("Welcome again " + username); <br>
+        &nbsp;&nbsp;&#125; else &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;username = prompt("Please enter your name:", ""); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (username != "" &amp;&amp; username != null) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setCookie("username", username, 365); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&#125; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;
+        <button type="button" id="checkCookieBtn">Try it</button>
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>All Together Now</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Here is the full example, wired to a live demo below.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        setCookie("username", "John Doe", 365); <br>
+        getCookie("username");
+        <button type="button" id="allTogetherBtn">Try it</button>
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +617,62 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("demo1").innerHTML = "(example only — not executed, to avoid overwriting this page's real cookies)";
+  document.getElementById("demo2").innerHTML = "(example only — not executed, to avoid overwriting this page's real cookies)";
+  document.getElementById("demo3").innerHTML = "(example only — not executed, to avoid overwriting this page's real cookies)";
 
+  document.getElementById("demo4").innerHTML = "document.cookie = " + JSON.stringify(document.cookie);
+
+  document.getElementById("demo5").innerHTML = "(example only — not executed, to avoid overwriting this page's real cookies)";
+  document.getElementById("demo6").innerHTML = "(example only — not executed, to avoid overwriting this page's real cookies)";
+
+  function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+  document.getElementById("demo7").innerHTML = "setCookie() function defined.";
+
+  function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+  document.getElementById("demo8").innerHTML = "getCookie() function defined.";
+
+  document.getElementById("checkCookieBtn").addEventListener("click", function () {
+    let username = getCookie("js_tutorial_username");
+    if (username != "") {
+      document.getElementById("demo9").innerHTML = "Welcome again " + username;
+    } else {
+      username = prompt("Please enter your name:", "");
+      if (username != "" && username != null) {
+        setCookie("js_tutorial_username", username, 365);
+        document.getElementById("demo9").innerHTML = "Cookie set for " + username + ". Click again to see the welcome message.";
+      } else {
+        document.getElementById("demo9").innerHTML = "No name entered.";
+      }
+    }
+  });
+  document.getElementById("demo9").innerHTML = "Click the button to check/set the cookie.";
+
+  document.getElementById("allTogetherBtn").addEventListener("click", function () {
+    setCookie("js_tutorial_username", "John Doe", 365);
+    const value = getCookie("js_tutorial_username");
+    document.getElementById("demo10").innerHTML = "Cookie set and read back: " + value;
+  });
+  document.getElementById("demo10").innerHTML = "Click the button to set and read a cookie.";
 </script>
 <!--Page Specific JavaScript End-->
 </body>
