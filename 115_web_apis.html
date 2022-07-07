@@ -322,20 +322,18 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>What is Web API?</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    A Web API is an application programming interface for the Web. <br>
+    Browser APIs extend the functionality of the browser. Server APIs extend the functionality of a web server.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Browser APIs</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    All browsers have a set of built-in Web APIs to support complex operations, and to help accessing data. For example, the Geolocation API can return the coordinates of where the browser is located.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +344,60 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const myElement = document.getElementById("demo1"); <br>
+        function getLocation() &#123; <br>
+        &nbsp;&nbsp;if (navigator.geolocation) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;navigator.geolocation.getCurrentPosition(showPosition); <br>
+        &nbsp;&nbsp;&#125; else &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;myElement.innerHTML = "Geolocation is not supported by this browser."; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125; <br>
+        function showPosition(position) &#123; <br>
+        &nbsp;&nbsp;myElement.innerHTML = "Latitude: " + position.coords.latitude + <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;"&lt;br&gt;Longitude: " + position.coords.longitude; <br>
+        &#125;
+        <button type="button" id="geoBtn">Try it</button>
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Most Important APIs</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    In HTML, the most commonly used APIs are: The DOM API, the Fetch API, the Web Storage API, and the History API.
+  </p>
+
+  <h3>The DOM API</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The DOM (Document Object Model) is the core API for HTML and XML documents. It defines the logical structure of a document, and the way the document is accessed and manipulated, giving scripts a structured view of the page so they can read and change elements and content.
+  </p>
+
+  <h3>The Fetch API</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The Fetch API provides a JavaScript interface for making HTTP requests and processing responses. It provides a more robust and flexible alternative to older methods like XMLHttpRequest, and is the current standard for requesting resources from servers or third-party services.
+  </p>
+
+  <h3>Web Storage API</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The Web Storage API offers mechanisms (<span class="code">localStorage</span> and <span class="code">sessionStorage</span>) to store key/value pairs of data in the browser. It is a more intuitive alternative to cookies, and the data survives reloads and sessions.
+  </p>
+
+  <h3>History API</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The History API enables manipulation of the browser's session history, allowing single-page applications (SPAs) to update the URL and navigate without triggering full page reloads.
+  </p>
+
+  <h3>Third Party APIs</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Third party APIs are not built into your browser. To use these APIs, you will have to download the code from the Web. Examples: YouTube API (allows you to display videos on a web site), Twitter API (allows you to display Tweets on a web site), Facebook API (allows you to display Facebook info on a web site).
   </p>
 </section>
 <br>
@@ -369,7 +413,25 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
-
+  (function () {
+    const myElement = document.getElementById("demo1");
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else {
+        myElement.innerHTML = "Geolocation is not supported by this browser.";
+      }
+    }
+    function showPosition(position) {
+      myElement.innerHTML = "Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude;
+    }
+    function showError(error) {
+      myElement.innerHTML = "Could not get location: " + error.message;
+    }
+    document.getElementById("geoBtn").addEventListener("click", getLocation);
+    myElement.innerHTML = "Click the button to request your location.";
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
