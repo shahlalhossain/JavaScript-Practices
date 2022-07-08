@@ -322,20 +322,36 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JavaScript Validation API</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The Constraint Validation API provides methods and properties to validate HTML form input elements.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Constraint Validation DOM Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The following table lists the DOM methods for constraint validation:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">checkValidity()</span></td><td>Returns true if an input element contains valid data</td></tr>
+    <tr><td><span class="code">setCustomValidity()</span></td><td>Sets the validationMessage property of an input element</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The checkValidity() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If the input element contains invalid data, display a message:
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +362,138 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        Enter a number between 100 and 300: <input id="id1a" type="number" min="100" max="300" required>
+        <button type="button" id="checkValidityBtn">OK</button>
+        function myFunction() &#123; <br>
+        &nbsp;&nbsp;const inpObj = document.getElementById("id1a"); <br>
+        &nbsp;&nbsp;if (!inpObj.checkValidity()) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo1").innerHTML = inpObj.validationMessage; <br>
+        &nbsp;&nbsp;&#125; else &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo1").innerHTML = "Input OK"; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Constraint Validation DOM Properties</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The following table lists the DOM properties for constraint validation:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">validity</span></td><td>Contains boolean properties related to the validity of an input element</td></tr>
+    <tr><td><span class="code">validationMessage</span></td><td>Contains the message a browser will display when the validity is false</td></tr>
+    <tr><td><span class="code">willValidate</span></td><td>Indicates if an input element will be validated</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Validity Properties</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">validity</span> property of an input element contains a number of properties related to the validity of its data:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td><span class="code">customError</span></td><td>Set to true, if a custom validity message is set</td></tr>
+    <tr><td><span class="code">patternMismatch</span></td><td>Set to true, if an element's value does not match its pattern attribute</td></tr>
+    <tr><td><span class="code">rangeOverflow</span></td><td>Set to true, if an element's value is greater than its max attribute</td></tr>
+    <tr><td><span class="code">rangeUnderflow</span></td><td>Set to true, if an element's value is less than its min attribute</td></tr>
+    <tr><td><span class="code">stepMismatch</span></td><td>Set to true, if an element's value is invalid per its step attribute</td></tr>
+    <tr><td><span class="code">tooLong</span></td><td>Set to true, if an element's value exceeds its maxLength attribute</td></tr>
+    <tr><td><span class="code">typeMismatch</span></td><td>Set to true, if an element's value is invalid per its type attribute</td></tr>
+    <tr><td><span class="code">valueMissing</span></td><td>Set to true, if an element (with a required attribute) has no value</td></tr>
+    <tr><td><span class="code">valid</span></td><td>Set to true, if an element's value is valid</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Examples</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Two of the validity properties are demonstrated below: <span class="code">rangeOverflow</span> and <span class="code">rangeUnderflow</span>.
+  </p>
+
+  <h3>The rangeOverflow Property</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If the value of an input element is greater than its <span class="code">max</span> attribute, the <span class="code">rangeOverflow</span> property is true.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Enter a number (max 100): <input id="id2a" type="number" max="100">
+        <button type="button" id="rangeOverflowBtn">OK</button>
+        function myFunction() &#123; <br>
+        &nbsp;&nbsp;const inpObj = document.getElementById("id2a"); <br>
+        &nbsp;&nbsp;let text = "Value OK"; <br>
+        &nbsp;&nbsp;if (inpObj.validity.rangeOverflow) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;text = "Value too large"; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &nbsp;&nbsp;document.getElementById("demo2").innerHTML = text; <br>
+        &#125;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The rangeUnderflow Property</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    If the value of an input element is less than its <span class="code">min</span> attribute, the <span class="code">rangeUnderflow</span> property is true.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Enter a number (min 100): <input id="id3a" type="number" min="100">
+        <button type="button" id="rangeUnderflowBtn">OK</button>
+        function myFunction() &#123; <br>
+        &nbsp;&nbsp;const inpObj = document.getElementById("id3a"); <br>
+        &nbsp;&nbsp;let text = "Value OK"; <br>
+        &nbsp;&nbsp;if (inpObj.validity.rangeUnderflow) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;text = "Value too small"; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &nbsp;&nbsp;document.getElementById("demo3").innerHTML = text; <br>
+        &#125;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +508,35 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  document.getElementById("checkValidityBtn").addEventListener("click", function () {
+    const inpObj = document.getElementById("id1a");
+    if (!inpObj.checkValidity()) {
+      document.getElementById("demo1").innerHTML = inpObj.validationMessage;
+    } else {
+      document.getElementById("demo1").innerHTML = "Input OK";
+    }
+  });
+  document.getElementById("demo1").innerHTML = "Enter a value and click OK.";
 
+  document.getElementById("rangeOverflowBtn").addEventListener("click", function () {
+    const inpObj = document.getElementById("id2a");
+    let text = "Value OK";
+    if (inpObj.validity.rangeOverflow) {
+      text = "Value too large";
+    }
+    document.getElementById("demo2").innerHTML = text;
+  });
+  document.getElementById("demo2").innerHTML = "Enter a value and click OK.";
+
+  document.getElementById("rangeUnderflowBtn").addEventListener("click", function () {
+    const inpObj = document.getElementById("id3a");
+    let text = "Value OK";
+    if (inpObj.validity.rangeUnderflow) {
+      text = "Value too small";
+    }
+    document.getElementById("demo3").innerHTML = text;
+  });
+  document.getElementById("demo3").innerHTML = "Enter a value and click OK.";
 </script>
 <!--Page Specific JavaScript End-->
 </body>
