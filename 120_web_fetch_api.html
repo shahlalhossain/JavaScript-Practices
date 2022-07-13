@@ -322,20 +322,17 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>What is Fetch API</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The Fetch API is a modern browser interface for making asynchronous network requests. It is a more powerful and flexible replacement for the older <span class="code">XMLHttpRequest</span>, and it is built on Promises.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Fetching a Text File</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">fetch()</span> takes a URL and returns a Promise. The example below fetches a real text file (<span class="code">data/fetch_demo.txt</span>) served from this site, reads the response as text with <span class="code">.text()</span>, and displays it.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +343,256 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        fetch("data/fetch_demo.txt") <br>
+        &nbsp;&nbsp;.then(response =&gt; response.text()) <br>
+        &nbsp;&nbsp;.then(text =&gt; display(text));
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p><strong><i>Note: </i></strong>This example, and the ones below, require this page to be served over http(s):// (a local web server), not opened directly via file://, because Fetch is blocked for file:// URLs.</p>
+
+  <h3>Using an Asynchronous Function</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The same request can be written with <span class="code">async</span>/<span class="code">await</span>, which reads top-to-bottom instead of using chained <span class="code">.then()</span> calls.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        async function getText() { <br>
+        &nbsp;&nbsp;let response = await fetch("data/fetch_demo.txt"); <br>
+        &nbsp;&nbsp;let text = await response.text(); <br>
+        &nbsp;&nbsp;display(text); <br>
+        }
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The Response Object</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">fetch()</span> resolves to a Response object holding the server's response. Logged directly, it displays as <span class="code">[object Response]</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let response = await fetch("data/fetch_demo.txt"); <br>
+        display(response);
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The ok Property</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">ok</span> property is <span class="code">true</span> if the request succeeded.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let response = await fetch("data/fetch_demo.txt"); <br>
+        display(response.ok);
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The status Property</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">status</span> property holds the HTTP status code of the response, such as 200 for a success.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let response = await fetch("data/fetch_demo.txt"); <br>
+        display(response.status);
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The url Property</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">url</span> property holds the full URL of the response.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let response = await fetch("data/fetch_demo.txt"); <br>
+        display(response.url);
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Asynchronous Output</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JavaScript keeps running while a fetch is pending. The example below calls an async loader function, then immediately displays a second message — the "Loading..." message appears before the fetched result, proving the fetch did not block execution.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        async function loadText() { <br>
+        &nbsp;&nbsp;let response = await fetch("data/fetch_demo.txt"); <br>
+        &nbsp;&nbsp;let text = await response.text(); <br>
+        &nbsp;&nbsp;display(text); <br>
+        } <br>
+        loadText(); <br>
+        displayMessage("Loading...");
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Watch the output area above: "Loading..." is shown first, then replaced a moment later by the fetched file's text, demonstrating that the fetch runs asynchronously.</p>
+
+  <h3>Response Object Properties and Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The Response object exposes these properties and methods for reading request results and the response body:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>ok</td><td>True if the request succeeded</td></tr>
+    <tr><td>status</td><td>The HTTP status code</td></tr>
+    <tr><td>statusText</td><td>The HTTP status message</td></tr>
+    <tr><td>url</td><td>The HTTP url address</td></tr>
+    </tbody>
+  </table>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>text()</td><td>Reads the response as text</td></tr>
+    <tr><td>json()</td><td>Reads the response as JSON</td></tr>
+    <tr><td>blob()</td><td>Reads the response as binary data</td></tr>
+    <tr><td>bytes()</td><td>Reads the response as bytes</td></tr>
+    <tr><td>arrayBuffer()</td><td>Reads the response as an ArrayBuffer</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Checking for HTTP Errors</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    HTTP errors like 404 do NOT reject the fetch Promise — the request still "succeeds" at the network level. The <span class="code">ok</span> property must be checked explicitly to detect them. The example below deliberately fetches a file that does not exist.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        let response = await fetch("data/does_not_exist.txt"); <br>
+        if (!response.ok) { <br>
+        &nbsp;&nbsp;display(response.status + " " + response.statusText); <br>
+        } else { <br>
+        &nbsp;&nbsp;display(await response.text()); <br>
+        }
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Most fetch problems are path or response issues, not JavaScript errors. Check the browser console, then the Network tab, for the file name, path, and status code.</p>
+
+  <h3>Fetch API vs. XMLHttpRequest (XHR)</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Fetch is the modern replacement for XHR, with a cleaner Promise-based syntax:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Fetch</th>
+      <th>XHR</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>Syntax</td><td>Promise-based</td><td>Callback-based</td></tr>
+    <tr><td>Error Handling</td><td>Rejects on network failure</td><td>Needs manual checking</td></tr>
+    <tr><td>Streams</td><td>Supports streams</td><td>Does not support streams</td></tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +607,90 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    function display(value) {
+      document.getElementById("demo1").innerHTML = value;
+    }
+    fetch("data/fetch_demo.txt")
+      .then(response => response.text())
+      .then(text => display(text))
+      .catch(err => display("Fetch failed: " + err.message));
+  })();
 
+  (async function () {
+    async function getText() {
+      let response = await fetch("data/fetch_demo.txt");
+      let text = await response.text();
+      document.getElementById("demo2").innerHTML = text;
+    }
+    try {
+      await getText();
+    } catch (err) {
+      document.getElementById("demo2").innerHTML = "Fetch failed: " + err.message;
+    }
+  })();
+
+  (async function () {
+    try {
+      let response = await fetch("data/fetch_demo.txt");
+      document.getElementById("demo3").innerHTML = response;
+    } catch (err) {
+      document.getElementById("demo3").innerHTML = "Fetch failed: " + err.message;
+    }
+  })();
+
+  (async function () {
+    try {
+      let response = await fetch("data/fetch_demo.txt");
+      document.getElementById("demo4").innerHTML = response.ok;
+    } catch (err) {
+      document.getElementById("demo4").innerHTML = "Fetch failed: " + err.message;
+    }
+  })();
+
+  (async function () {
+    try {
+      let response = await fetch("data/fetch_demo.txt");
+      document.getElementById("demo5").innerHTML = response.status;
+    } catch (err) {
+      document.getElementById("demo5").innerHTML = "Fetch failed: " + err.message;
+    }
+  })();
+
+  (async function () {
+    try {
+      let response = await fetch("data/fetch_demo.txt");
+      document.getElementById("demo6").innerHTML = response.url;
+    } catch (err) {
+      document.getElementById("demo6").innerHTML = "Fetch failed: " + err.message;
+    }
+  })();
+
+  (function () {
+    function displayMessage(msg) {
+      document.getElementById("demo7").innerHTML = msg;
+    }
+    async function loadText() {
+      let response = await fetch("data/fetch_demo.txt");
+      let text = await response.text();
+      displayMessage(text);
+    }
+    loadText();
+    displayMessage("Loading...");
+  })();
+
+  (async function () {
+    try {
+      let response = await fetch("data/does_not_exist.txt");
+      if (!response.ok) {
+        document.getElementById("demo8").innerHTML = response.status + " " + response.statusText;
+      } else {
+        document.getElementById("demo8").innerHTML = await response.text();
+      }
+    } catch (err) {
+      document.getElementById("demo8").innerHTML = "Fetch failed: " + err.message;
+    }
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
