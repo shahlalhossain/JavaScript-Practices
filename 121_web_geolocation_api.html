@@ -322,20 +322,23 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Locate the User's Position</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The HTML Geolocation API lets you get the geographical position of a user. Since this can compromise privacy, the position is only available if the user approves it. Geolocation is most accurate for devices with GPS, like smartphones.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Browser Support</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Geolocation is supported in all modern browsers, but only works in secure contexts (HTTPS). Requests made from a plain HTTP origin will fail.
+  </p>
+
+  <h3>Using the Geolocation API</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">getCurrentPosition()</span> method is used to return the user's current position. <span class="code">getLocation()</span> checks whether <span class="code">navigator.geolocation</span> exists, then calls <span class="code">getCurrentPosition(showPosition)</span>; <span class="code">showPosition()</span> writes the latitude and longitude. This basic example has no error handling.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +349,156 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        function getLocation() &#123; <br>
+        &nbsp;&nbsp;if (navigator.geolocation) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;navigator.geolocation.getCurrentPosition(showPosition); <br>
+        &nbsp;&nbsp;&#125; else &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;display("Geolocation is not supported by this browser."); <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125; <br>
+        function showPosition(position) &#123; <br>
+        &nbsp;&nbsp;display("Latitude: " + position.coords.latitude + <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;"&lt;br&gt;Longitude: " + position.coords.longitude); <br>
+        &#125;
+        <button type="button" id="geoBtn">Try it</button>
+      </td>
+      <td id="demo1">Click the button to request your location.</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Handling Errors and Rejections</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The second parameter of <span class="code">getCurrentPosition()</span> is a function that runs if it fails to get the user's location, for example because the user denied permission. <span class="code">showError(error)</span> switches on <span class="code">error.code</span>:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code</th>
+      <th>Message shown</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>error.PERMISSION_DENIED</td><td>User denied the request for Geolocation.</td></tr>
+    <tr><td>error.POSITION_UNAVAILABLE</td><td>Location information is unavailable.</td></tr>
+    <tr><td>error.TIMEOUT</td><td>The request to get user location timed out.</td></tr>
+    <tr><td>error.UNKNOWN_ERROR</td><td>An unknown error occurred.</td></tr>
+    </tbody>
+  </table>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        navigator.geolocation.getCurrentPosition(showPosition, showError); <br>
+        function showError(error) &#123; <br>
+        &nbsp;&nbsp;switch(error.code) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;case error.PERMISSION_DENIED: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display("User denied the request for Geolocation."); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;// ...other cases <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;
+        <button type="button" id="geoErrBtn">Try it</button>
+      </td>
+      <td id="demo2">Click the button to request your location.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Displaying the Result in a Map</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To display the result in a map, a map service such as Google Maps is needed. <span class="code">showPosition()</span> joins the latitude/longitude into a "lat,lon" string and builds a Google Static Maps image URL from it.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function showPosition(position) &#123; <br>
+        &nbsp;&nbsp;let latlon = position.coords.latitude + "," + position.coords.longitude; <br>
+        &nbsp;&nbsp;let img_url = "https://maps.googleapis.com/maps/api/staticmap?center=" <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;+ latlon + "&zoom=14&size=400x300&sensor=false&key=YOUR_KEY"; <br>
+        &nbsp;&nbsp;document.getElementById("mapholder").innerHTML = "&lt;img src='" + img_url + "'&gt;"; <br>
+        &#125;
+      </td>
+      <td id="demo3">Illustrative only &mdash; requires a Google Maps API key, not runnable in this tutorial.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Location-specific Information</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Besides showing the position on a map, Geolocation can be used for: up-to-date local information, showing points of interest near the user, and turn-by-turn GPS navigation.
+  </p>
+
+  <h3>The getCurrentPosition() Method - Return Data</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    On success, a <span class="code">coordinates</span> object is returned to the function specified as a parameter. The latitude, longitude, and accuracy properties are always returned; the other properties are returned if available.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Property</th>
+      <th>Returns</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>coords.latitude</td><td>The latitude as a decimal number (always returned)</td></tr>
+    <tr><td>coords.longitude</td><td>The longitude as a decimal number (always returned)</td></tr>
+    <tr><td>coords.accuracy</td><td>The accuracy of position (always returned)</td></tr>
+    <tr><td>coords.altitude</td><td>The altitude in meters above the mean sea level (returned if available)</td></tr>
+    <tr><td>coords.altitudeAccuracy</td><td>The altitude accuracy of position (returned if available)</td></tr>
+    <tr><td>coords.heading</td><td>The heading as degrees clockwise from North (returned if available)</td></tr>
+    <tr><td>coords.speed</td><td>The speed in meters per second (returned if available)</td></tr>
+    <tr><td>timestamp</td><td>The date/time of the response (returned if available)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Geolocation Object - Other Interesting Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">watchPosition()</span> returns the current position and keeps returning updated positions as the user moves (like a GPS in a car). <span class="code">clearWatch()</span> stops <span class="code">watchPosition()</span>. The example below has the same structure as the basic example, but calls <span class="code">watchPosition(showPosition)</span> instead, so <span class="code">showPosition</span> runs repeatedly as the position changes.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        navigator.geolocation.watchPosition(showPosition); <br>
+        // keeps calling showPosition() as the position updates <br>
+        navigator.geolocation.clearWatch(id); // stops watching
+      </td>
+      <td id="demo4">Illustrative only &mdash; requires a real, moving GPS device to observe updates.</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>This page requires http(s):// (a local web server) to request location, since Geolocation only works in secure contexts.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +513,57 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    function display(value) {
+      document.getElementById("demo1").innerHTML = value;
+    }
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      } else {
+        display("Geolocation is not supported by this browser.");
+      }
+    }
+    function showPosition(position) {
+      display("Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude);
+    }
+    document.getElementById("geoBtn").addEventListener("click", getLocation);
+  })();
 
+  (function () {
+    function display(value) {
+      document.getElementById("demo2").innerHTML = value;
+    }
+    function showError(error) {
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          display("User denied the request for Geolocation.");
+          break;
+        case error.POSITION_UNAVAILABLE:
+          display("Location information is unavailable.");
+          break;
+        case error.TIMEOUT:
+          display("The request to get user location timed out.");
+          break;
+        default:
+          display("An unknown error occurred.");
+          break;
+      }
+    }
+    function showPosition(position) {
+      display("Latitude: " + position.coords.latitude +
+        "<br>Longitude: " + position.coords.longitude);
+    }
+    function getLocationWithError() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+      } else {
+        display("Geolocation is not supported by this browser.");
+      }
+    }
+    document.getElementById("geoErrBtn").addEventListener("click", getLocationWithError);
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
