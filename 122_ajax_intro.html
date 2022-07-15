@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>AJAX Example</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Click the button below to let an AJAX call change the text content below it, by fetching a real text file (<span class="code">data/ajax_info.txt</span>) from this site.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,14 +337,105 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        &lt;button type="button" onclick="loadDoc()"&gt;Change Content&lt;/button&gt;
+      </td>
+      <td>
+        <h2 id="ajaxDemoHeading" style="font-size: 18px;">Let AJAX change this text</h2>
+        <button type="button" id="ajaxBtn">Change Content</button>
+        <div id="demo1" style="padding-top: 10px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>AJAX Example Explained</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The example above has two parts: the HTML page, and the JavaScript function that performs the request.
+  </p>
+
+  <h3>HTML Page</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The HTML markup has a <span class="code">div</span> (id="demo") holding an <span class="code">h2</span> and a button whose <span class="code">onclick</span> attribute calls <span class="code">loadDoc()</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        &lt;div id="demo"&gt; <br>
+        &nbsp;&nbsp;&lt;h2&gt;Let AJAX change this text&lt;/h2&gt; <br>
+        &nbsp;&nbsp;&lt;button type="button" onclick="loadDoc()"&gt;Change Content&lt;/button&gt; <br>
+        &lt;/div&gt;
+      </td>
+      <td id="demo2">Plain HTML &mdash; no logic to run.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Function loadDoc()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">loadDoc()</span> creates an <span class="code">XMLHttpRequest</span> object, sets an <span class="code">onload</span> handler that copies the response text into the "demo" div, opens an asynchronous GET request, and sends it.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function loadDoc() &#123; <br>
+        &nbsp;&nbsp;const xhttp = new XMLHttpRequest(); <br>
+        &nbsp;&nbsp;xhttp.onload = function() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = this.responseText; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &nbsp;&nbsp;xhttp.open("GET", "ajax_info.txt"); <br>
+        &nbsp;&nbsp;xhttp.send(); <br>
+        &#125;
+      </td>
+      <td id="demo3">See the live demo above &mdash; clicking "Change Content" runs this exact logic.</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>What is AJAX?</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    AJAX = Asynchronous JavaScript And XML. AJAX is not a programming language. AJAX just uses a combination of a browser built-in <span class="code">XMLHttpRequest</span> object to request data from a web server, and JavaScript/HTML DOM to display or use the data. AJAX allows web pages to be updated asynchronously by exchanging data with a server behind the scenes, carrying plain text, XML, or JSON, and letting parts of a page update without reloading the whole page.
+  </p>
+
+  <h3>How AJAX Works</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    AJAX works in these steps:
+  </p>
+  <ul style="padding-left: 40px;">
+    <li>An event occurs in a web page (the page is loaded, a button is clicked)</li>
+    <li>An XMLHttpRequest object is created by JavaScript</li>
+    <li>The XMLHttpRequest object sends a request to a web server</li>
+    <li>The server processes the request</li>
+    <li>The server sends a response back to the web page</li>
+    <li>The response is read by JavaScript</li>
+    <li>Proper action (like page update) is performed by JavaScript</li>
+  </ul>
+
+  <h3>Modern Browsers (Fetch API)</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    All modern browsers also support the <span class="code">fetch()</span> method, which can be used instead of <span class="code">XMLHttpRequest</span> to send asynchronous requests with simpler, Promise-based syntax. See <a href="120_web_fetch_api.html">JS Web API - Fetch</a> for details.
   </p>
 </section>
 <br>
@@ -369,7 +451,20 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
-
+  (function () {
+    function loadDoc() {
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function () {
+        document.getElementById("demo1").innerHTML = this.responseText;
+      };
+      xhttp.onerror = function () {
+        document.getElementById("demo1").innerHTML = "Request failed.";
+      };
+      xhttp.open("GET", "data/ajax_info.txt");
+      xhttp.send();
+    }
+    document.getElementById("ajaxBtn").addEventListener("click", loadDoc);
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
