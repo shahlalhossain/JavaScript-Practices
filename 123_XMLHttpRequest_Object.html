@@ -322,20 +322,34 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The XMLHttpRequest Object</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The <span class="code">XMLHttpRequest</span> object is used to exchange data with a server behind the scenes. This means that it is possible to update parts of a web page, without reloading the whole page; request data from a server after the page has loaded; receive data from a server after the page has loaded; and send data to a server in the background.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>XMLHttpRequest Object Methods</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    These are the methods available on an <span class="code">XMLHttpRequest</span> object:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>abort()</td><td>Cancels the current request</td></tr>
+    <tr><td>getAllResponseHeaders()</td><td>Returns header information</td></tr>
+    <tr><td>getResponseHeader()</td><td>Returns specific header information</td></tr>
+    <tr><td>open(method,url,async,uname,pswd)</td><td>Specifies the request: <span class="code">method</span> (GET or POST), <span class="code">url</span>, whether the request is <span class="code">async</span> (true/false), and optional username/password</td></tr>
+    <tr><td>send(string)</td><td>Sends the request off to the server. <span class="code">string</span> is used for POST requests only</td></tr>
+    <tr><td>setRequestHeader()</td><td>Adds a label/value pair to the header to be sent</td></tr>
+    </tbody>
+  </table>
   <br>
   <table>
     <thead>
@@ -346,15 +360,60 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const xhttp = new XMLHttpRequest(); <br>
+        xhttp.open("GET", "data/ajax_info.txt", true); <br>
+        xhttp.send();
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>XMLHttpRequest Object Properties</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    These are the properties available on an <span class="code">XMLHttpRequest</span> object:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>onreadystatechange</td><td>Defines a function to be called when the <span class="code">readyState</span> property changes</td></tr>
+    <tr><td>readyState</td><td>Holds the status of the XMLHttpRequest: 0 = request not initialized, 1 = server connection established, 2 = request received, 3 = processing request, 4 = request finished and response is ready</td></tr>
+    <tr><td>responseText</td><td>Returns the response data as a string</td></tr>
+    <tr><td>responseXML</td><td>Returns the response data as XML data</td></tr>
+    <tr><td>status</td><td>Returns the status number of a request (e.g. 200 for "OK", 404 for "Page not found")</td></tr>
+    <tr><td>statusText</td><td>Returns the status text (e.g. "OK" or "Not Found")</td></tr>
+    </tbody>
+  </table>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        xhttp.onreadystatechange = function() &#123; <br>
+        &nbsp;&nbsp;if (this.readyState == 4 &amp;&amp; this.status == 200) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = this.responseText; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Checking <span class="code">readyState == 4</span> (finished) and <span class="code">status == 200</span> (OK) together confirms the request fully completed <em>and</em> succeeded, before using the response.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +428,34 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+      document.getElementById("demo1").innerHTML =
+        "status: " + this.status + ", statusText: " + this.statusText +
+        "<br>responseText length: " + this.responseText.length + " characters";
+    };
+    xhttp.onerror = function () {
+      document.getElementById("demo1").innerHTML = "Request failed.";
+    };
+    xhttp.open("GET", "data/ajax_info.txt", true);
+    xhttp.send();
+  })();
 
+  (function () {
+    const xhttp = new XMLHttpRequest();
+    const states = [];
+    xhttp.onreadystatechange = function () {
+      states.push(this.readyState);
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("demo2").innerHTML =
+          "readyState sequence seen: " + states.join(", ") +
+          "<br>Final response: " + this.responseText.substring(0, 40) + "...";
+      }
+    };
+    xhttp.open("GET", "data/ajax_info.txt", true);
+    xhttp.send();
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
