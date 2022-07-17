@@ -322,20 +322,17 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The XMLHttpRequest Object</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    All modern browsers support the <span class="code">XMLHttpRequest</span> object, which is used to exchange data with a server behind the scenes. This means it is possible to update parts of a web page without reloading the whole page.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Create an XMLHttpRequest Object</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    All modern browsers have a built-in <span class="code">XMLHttpRequest</span> object, created like this:
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +343,200 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const xhttp = new XMLHttpRequest();
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Define a Callback Function</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    A callback function is a function passed as a parameter to another function &mdash; here, the code to be executed when the response is ready.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        xhttp.onload = function() &#123; <br>
+        &nbsp;&nbsp;// what to do when the response is ready <br>
+        &#125;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Send a Request</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To send a request to a server, use the <span class="code">open()</span> and <span class="code">send()</span> methods:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        xhttp.open("GET", "data/ajax_info.txt"); <br>
+        xhttp.send();
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Access Across Domains</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    For security reasons, modern browsers do not allow access across domains. This means that both the web page and the file it tries to load must be located on the same server.
+  </p>
+
+  <h3>XMLHttpRequest Object Methods</h3>
+  <hr>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>new XMLHttpRequest()</td><td>Creates a new XMLHttpRequest object</td></tr>
+    <tr><td>abort()</td><td>Cancels the current request</td></tr>
+    <tr><td>getAllResponseHeaders()</td><td>Returns header information</td></tr>
+    <tr><td>getResponseHeader()</td><td>Returns specific header information</td></tr>
+    <tr><td>open(method,url,async,user,psw)</td><td>Specifies the request</td></tr>
+    <tr><td>send()</td><td>Sends the request to the server (used for GET)</td></tr>
+    <tr><td>send(string)</td><td>Sends the request to the server (used for POST)</td></tr>
+    <tr><td>setRequestHeader()</td><td>Adds a label/value pair to the header to be sent</td></tr>
+    </tbody>
+  </table>
+
+  <h3>XMLHttpRequest Object Properties</h3>
+  <hr>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>onload</td><td>Defines a function to be called when the request has loaded</td></tr>
+    <tr><td>onreadystatechange</td><td>Defines a function to be called when the readyState property changes</td></tr>
+    <tr><td>readyState</td><td>Holds the status of the request: 0 not initialized, 1 connection established, 2 request received, 3 processing request, 4 finished and response is ready</td></tr>
+    <tr><td>responseText</td><td>Returns the response data as a string</td></tr>
+    <tr><td>responseXML</td><td>Returns the response data as XML data</td></tr>
+    <tr><td>status</td><td>Returns the status number (e.g. 200 for OK, 403 for Forbidden, 404 for Not Found)</td></tr>
+    <tr><td>statusText</td><td>Returns the status text (e.g. "OK" or "Not Found")</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The onload Property</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    When the response has loaded, the <span class="code">onload</span> callback is triggered, and the response text is written into the page:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const xhttp = new XMLHttpRequest(); <br>
+        xhttp.onload = function() &#123; <br>
+        &nbsp;&nbsp;document.getElementById("demo").innerHTML = this.responseText; <br>
+        &#125; <br>
+        xhttp.open("GET", "data/ajax_info.txt"); <br>
+        xhttp.send();
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Multiple Callback Functions</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    It's good practice to use one reusable request function, and one callback function per AJAX task:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function loadDoc(url, cFunction) &#123; <br>
+        &nbsp;&nbsp;const xhttp = new XMLHttpRequest(); <br>
+        &nbsp;&nbsp;xhttp.onload = function() &#123; cFunction(this); &#125; <br>
+        &nbsp;&nbsp;xhttp.open("GET", url); <br>
+        &nbsp;&nbsp;xhttp.send(); <br>
+        &#125; <br>
+        loadDoc("data/ajax_info.txt", myFunction1); <br>
+        loadDoc("data/fetch_demo.txt", myFunction2);
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The onreadystatechange Property</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">onreadystatechange</span> property defines a function to be called when <span class="code">readyState</span> changes. It changes from 1 to 4, four times for every request. When <span class="code">readyState</span> is 4 and <span class="code">status</span> is 200, the response is ready:
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const xhttp = new XMLHttpRequest(); <br>
+        xhttp.onreadystatechange = function() &#123; <br>
+        &nbsp;&nbsp;if (this.readyState == 4 &amp;&amp; this.status == 200) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = this.responseText; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125; <br>
+        xhttp.open("GET", "data/ajax_info.txt"); <br>
+        xhttp.send();
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong><span class="code">onload</span> only fires once, when the request finishes successfully; <span class="code">onreadystatechange</span> fires on every state change, which is why its handler must check both <span class="code">readyState == 4</span> and <span class="code">status == 200</span>.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +551,74 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const xhttp = new XMLHttpRequest();
+    document.getElementById("demo1").innerHTML = "XMLHttpRequest object created: " + (xhttp instanceof XMLHttpRequest);
+  })();
 
+  (function () {
+    const xhttp = new XMLHttpRequest();
+    const hasCallback = typeof (xhttp.onload = function () {}) === "function";
+    document.getElementById("demo2").innerHTML = "onload callback assigned: " + hasCallback;
+  })();
+
+  (function () {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+      document.getElementById("demo3").innerHTML = "Request sent and loaded, " + this.responseText.length + " characters received";
+    };
+    xhttp.onerror = function () {
+      document.getElementById("demo3").innerHTML = "Request failed.";
+    };
+    xhttp.open("GET", "data/ajax_info.txt");
+    xhttp.send();
+  })();
+
+  (function () {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+      document.getElementById("demo4").innerHTML = this.responseText;
+    };
+    xhttp.onerror = function () {
+      document.getElementById("demo4").innerHTML = "Request failed.";
+    };
+    xhttp.open("GET", "data/ajax_info.txt");
+    xhttp.send();
+  })();
+
+  (function () {
+    const results = { 1: null, 2: null };
+    function render() {
+      if (results[1] !== null && results[2] !== null) {
+        document.getElementById("demo5").innerHTML =
+          "myFunction1 received " + results[1] + " characters<br>myFunction2 received " + results[2] + " characters";
+      }
+    }
+    function loadDoc(url, cFunction) {
+      const xhttp = new XMLHttpRequest();
+      xhttp.onload = function () { cFunction(this); };
+      xhttp.open("GET", url);
+      xhttp.send();
+    }
+    function myFunction1(xhttp) { results[1] = xhttp.responseText.length; render(); }
+    function myFunction2(xhttp) { results[2] = xhttp.responseText.length; render(); }
+    loadDoc("data/ajax_info.txt", myFunction1);
+    loadDoc("data/fetch_demo.txt", myFunction2);
+  })();
+
+  (function () {
+    const xhttp = new XMLHttpRequest();
+    const states = [];
+    xhttp.onreadystatechange = function () {
+      states.push(this.readyState);
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("demo6").innerHTML =
+          "readyState sequence: " + states.join(", ") + "<br>" + this.responseText;
+      }
+    };
+    xhttp.open("GET", "data/ajax_info.txt");
+    xhttp.send();
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
