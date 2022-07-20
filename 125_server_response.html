@@ -322,20 +322,27 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Server Response Properties</h3>
+  <hr>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Property</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>responseText</td><td>get the response data as a string</td></tr>
+    <tr><td>responseXML</td><td>get the response data as XML data</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The responseText Property</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The <span class="code">responseText</span> property returns the server response as a string.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +353,119 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        document.getElementById("demo").innerHTML = xhttp.responseText;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>The responseXML Property</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The <span class="code">responseXML</span> property returns the server response as an XML DOM object, which can then be processed using JavaScript. The example below requests a real XML file (<span class="code">data/cd_catalog.xml</span>), reads every <span class="code">ARTIST</span> element from the response, and lists their text content.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        xhttp.onload = function() &#123; <br>
+        &nbsp;&nbsp;const xmlDoc = this.responseXML; <br>
+        &nbsp;&nbsp;const artists = xmlDoc.getElementsByTagName("ARTIST"); <br>
+        &nbsp;&nbsp;let txt = ""; <br>
+        &nbsp;&nbsp;for (let i = 0; i &lt; artists.length; i++) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;txt += artists[i].childNodes[0].nodeValue + "&lt;br&gt;"; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &nbsp;&nbsp;document.getElementById("demo").innerHTML = txt; <br>
+        &#125; <br>
+        xhttp.open("GET", "data/cd_catalog.xml"); <br>
+        xhttp.send();
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The XML-reading logic must run inside the <span class="code">onload</span> handler (after the response has arrived), not before <span class="code">open()</span>/<span class="code">send()</span> &mdash; otherwise <span class="code">responseXML</span> would still be empty.</p>
+
+  <h3>Server Response Methods</h3>
+  <hr>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Method</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>getResponseHeader()</td><td>Returns specific header information from the server resource</td></tr>
+    <tr><td>getAllResponseHeaders()</td><td>Returns all the header information from the server resource</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The getAllResponseHeaders() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">getAllResponseHeaders()</span> method returns all the header information from a server resource, as a string.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        xhttp.onload = function() &#123; <br>
+        &nbsp;&nbsp;document.getElementById("demo").innerHTML = <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.getAllResponseHeaders(); <br>
+        &#125; <br>
+        xhttp.open("GET", "data/ajax_info.txt"); <br>
+        xhttp.send();
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The getResponseHeader() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">getResponseHeader()</span> method returns the value of one specific named header.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        xhttp.onload = function() &#123; <br>
+        &nbsp;&nbsp;document.getElementById("demo").innerHTML = <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;this.getResponseHeader("Content-Type"); <br>
+        &#125; <br>
+        xhttp.open("GET", "data/ajax_info.txt"); <br>
+        xhttp.send();
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +480,59 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+      document.getElementById("demo1").innerHTML = this.responseText;
+    };
+    xhttp.onerror = function () {
+      document.getElementById("demo1").innerHTML = "Request failed.";
+    };
+    xhttp.open("GET", "data/ajax_info.txt");
+    xhttp.send();
+  })();
 
+  (function () {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+      const xmlDoc = this.responseXML;
+      const artists = xmlDoc.getElementsByTagName("ARTIST");
+      let txt = "";
+      for (let i = 0; i < artists.length; i++) {
+        txt += artists[i].childNodes[0].nodeValue + "<br>";
+      }
+      document.getElementById("demo2").innerHTML = txt;
+    };
+    xhttp.onerror = function () {
+      document.getElementById("demo2").innerHTML = "Request failed.";
+    };
+    xhttp.open("GET", "data/cd_catalog.xml");
+    xhttp.send();
+  })();
+
+  (function () {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+      document.getElementById("demo3").innerHTML = this.getAllResponseHeaders();
+    };
+    xhttp.onerror = function () {
+      document.getElementById("demo3").innerHTML = "Request failed.";
+    };
+    xhttp.open("GET", "data/ajax_info.txt");
+    xhttp.send();
+  })();
+
+  (function () {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+      document.getElementById("demo4").innerHTML = this.getResponseHeader("Content-Type");
+    };
+    xhttp.onerror = function () {
+      document.getElementById("demo4").innerHTML = "Request failed.";
+    };
+    xhttp.open("GET", "data/ajax_info.txt");
+    xhttp.send();
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
