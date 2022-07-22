@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>AJAX Database Example</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    AJAX can be used for interactive communication with a database. This example shows a dropdown listing three customers; changing the selection triggers <span class="code">showCustomer()</span>, which fetches and displays that customer's details without reloading the page.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +337,94 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        &lt;select onchange="showCustomer(this.value)"&gt; <br>
+        &nbsp;&nbsp;&lt;option value=""&gt;Select a customer:&lt;/option&gt; <br>
+        &nbsp;&nbsp;&lt;option value="1"&gt;Alfreds Futterkiste&lt;/option&gt; <br>
+        &nbsp;&nbsp;&lt;option value="2"&gt;North/South&lt;/option&gt; <br>
+        &nbsp;&nbsp;&lt;option value="3"&gt;Wolski Zajazd&lt;/option&gt; <br>
+        &lt;/select&gt; <br>
+        &lt;div id="txtHint"&gt;&lt;/div&gt;
+      </td>
+      <td id="demo1">(illustrative only &mdash; requires a real PHP + MySQL server; not runnable in this static file-based tutorial)</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>The showCustomer() Function</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    If the selected value is empty, <span class="code">showCustomer()</span> clears the output and stops. Otherwise it sends a GET request to <span class="code">getcustomer.php</span> with the selected value as the <span class="code">q</span> parameter, and writes the returned HTML into the output element.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function showCustomer(str) &#123; <br>
+        &nbsp;&nbsp;if (str == "") &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("txtHint").innerHTML = ""; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;return; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &nbsp;&nbsp;const xhttp = new XMLHttpRequest(); <br>
+        &nbsp;&nbsp;xhttp.onload = function() &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("txtHint").innerHTML = this.responseText; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &nbsp;&nbsp;xhttp.open("GET", "getcustomer.php?q=" + encodeURIComponent(str)); <br>
+        &nbsp;&nbsp;xhttp.send(); <br>
+        &#125;
+      </td>
+      <td id="demo2">(illustrative only &mdash; requires a real PHP + MySQL server; not runnable in this static file-based tutorial)</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>The selected value is passed through <span class="code">encodeURIComponent()</span> before being added to the URL, to avoid breaking the query string on special characters &mdash; a safety improvement over an unescaped concatenation.</p>
+
+  <h3>The AJAX Server Page</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">getcustomer.php</span> connects to a MySQL database, runs a parameterized query against a <span class="code">customers</span> table using the <span class="code">q</span> value as the lookup key, and builds an HTML table with the matching customer's details.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        &lt;?php <br>
+        $conn = new mysqli($servername, $username, $password, $dbname); <br>
+        if ($conn-&gt;connect_error) &#123; die("Could not connect"); &#125; <br>
+        <br>
+        $stmt = $conn-&gt;prepare("SELECT * FROM customers WHERE customerid = ?"); <br>
+        $stmt-&gt;bind_param("s", $_GET['q']); <br>
+        $stmt-&gt;execute(); <br>
+        $result = $stmt-&gt;get_result(); <br>
+        $row = $result-&gt;fetch_assoc(); <br>
+        <br>
+        echo "&lt;table&gt;"; <br>
+        foreach ($row as $field =&gt; $value) &#123; <br>
+        &nbsp;&nbsp;echo "&lt;tr&gt;&lt;td&gt;" . htmlspecialchars($field) . "&lt;/td&gt;" <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;. "&lt;td&gt;" . htmlspecialchars($value) . "&lt;/td&gt;&lt;/tr&gt;"; <br>
+        &#125; <br>
+        echo "&lt;/table&gt;"; <br>
+        ?&gt;
+      </td>
+      <td id="demo3">(illustrative only &mdash; requires a real PHP + MySQL server; not runnable in this static file-based tutorial)</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Output values are passed through <span class="code">htmlspecialchars()</span> before being echoed &mdash; the original W3Schools example echoes raw database values, which is an XSS risk if any stored value contains markup. This version applies the standard fix.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +439,6 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
-
 </script>
 <!--Page Specific JavaScript End-->
 </body>
