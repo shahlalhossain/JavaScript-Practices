@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JSON Object Literals</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    A JSON document consists of one JSON value, which can be an object, array, string, number, boolean, or null. Objects are written in curly braces, as key/value pairs separated by commas, with a colon between each key and value. Note: JSON is a text/string format &mdash; once parsed, it becomes a JavaScript object.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +337,183 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        '&#123;"name":"John", "age":30, "car":null&#125;'
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>JSON Array Literals</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Arrays are written in square brackets, containing zero or more values separated by commas.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        '["Ford", "BMW", "Fiat"]'
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    <tr>
+      <td>
+        '[1, 2, 3, 4, 5]'
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JSON Does Not Allow</h3>
+  <hr>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Not Allowed</th>
+      <th>Example</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>Unquoted property names</td><td>&#123;name: "John"&#125;</td></tr>
+    <tr><td>Single-quoted strings</td><td>&#123;'name': 'John'&#125;</td></tr>
+    <tr><td>Trailing commas</td><td>&#123;"name":"John",&#125;</td></tr>
+    <tr><td>Comments</td><td>// not allowed in JSON</td></tr>
+    </tbody>
+  </table>
+
+  <h3>JSON Property Names</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Every key must be a double-quoted string. The example below deliberately uses an unquoted key, which is invalid JSON &mdash; <span class="code">JSON.parse()</span> throws a <span class="code">SyntaxError</span> when given it.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Valid: '&#123;"name": "John"&#125;' <br>
+        Invalid: '&#123;name: "John"&#125;'
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JSON Strings</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Strings must use double quotes, not single quotes.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Valid: '&#123;"city": "London"&#125;' <br>
+        Invalid: "&#123;'city': 'London'&#125;"
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Whitespace</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Whitespace outside of string values is ignored, so JSON can be written compactly on one line or formatted across multiple lines for readability &mdash; both parse to the same value.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        '&#123;"name":"John", "age":30&#125;' <br>
+        vs. <br>
+        '&#123;\n &nbsp;&nbsp;"name": "John",\n &nbsp;&nbsp;"age": 30\n&#125;'
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Trailing Commas</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    No comma is allowed after the last property or the last array value.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Wrong: '&#123;"name":"John", "age":30,&#125;' <br>
+        Correct: '&#123;"name":"John", "age":30&#125;'
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Comments Are Not Allowed</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JSON has no comment syntax &mdash; <span class="code">//</span> or <span class="code">/* */</span> inside a JSON string will fail to parse.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        '&#123; <br>
+        &nbsp;&nbsp;// this comment causes a SyntaxError <br>
+        &nbsp;&nbsp;"name": "John" <br>
+        &#125;'
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +528,86 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const obj = JSON.parse('{"name":"John", "age":30, "car":null}');
+    document.getElementById("demo1").innerHTML = "name: " + obj.name + ", age: " + obj.age + ", car: " + obj.car;
+  })();
 
+  (function () {
+    const arr = JSON.parse('["Ford", "BMW", "Fiat"]');
+    document.getElementById("demo2").innerHTML = "Array of " + arr.length + " items: " + arr.join(", ");
+  })();
+
+  (function () {
+    const arr = JSON.parse('[1, 2, 3, 4, 5]');
+    document.getElementById("demo3").innerHTML = "Sum: " + arr.reduce((a, b) => a + b, 0);
+  })();
+
+  (function () {
+    let validResult;
+    try {
+      validResult = JSON.parse('{"name": "John"}');
+    } catch (e) {
+      validResult = "Error: " + e.message;
+    }
+    let invalidResult;
+    try {
+      invalidResult = JSON.parse('{name: "John"}');
+    } catch (e) {
+      invalidResult = "Error: " + e.message;
+    }
+    document.getElementById("demo4").innerHTML =
+      "Valid (quoted key): " + JSON.stringify(validResult) +
+      "<br>Invalid (unquoted key): " + invalidResult;
+  })();
+
+  (function () {
+    let validResult;
+    try {
+      validResult = JSON.parse('{"city": "London"}');
+    } catch (e) {
+      validResult = "Error: " + e.message;
+    }
+    let invalidResult;
+    try {
+      invalidResult = JSON.parse("{'city': 'London'}");
+    } catch (e) {
+      invalidResult = "Error: " + e.message;
+    }
+    document.getElementById("demo5").innerHTML =
+      "Valid (double quotes): " + JSON.stringify(validResult) +
+      "<br>Invalid (single quotes): " + invalidResult;
+  })();
+
+  (function () {
+    const compact = JSON.parse('{"name":"John", "age":30}');
+    const formatted = JSON.parse('{\n  "name": "John",\n  "age": 30\n}');
+    document.getElementById("demo6").innerHTML =
+      "Both parse equally: " + (JSON.stringify(compact) === JSON.stringify(formatted));
+  })();
+
+  (function () {
+    let wrongResult;
+    try {
+      wrongResult = JSON.parse('{"name":"John", "age":30,}');
+    } catch (e) {
+      wrongResult = "Error: " + e.message;
+    }
+    const correctResult = JSON.parse('{"name":"John", "age":30}');
+    document.getElementById("demo7").innerHTML =
+      "Wrong (trailing comma): " + wrongResult +
+      "<br>Correct: " + JSON.stringify(correctResult);
+  })();
+
+  (function () {
+    let result;
+    try {
+      result = JSON.parse('{\n  // this comment causes a SyntaxError\n  "name": "John"\n}');
+    } catch (e) {
+      result = "Error: " + e.message;
+    }
+    document.getElementById("demo8").innerHTML = result;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
