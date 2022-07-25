@@ -322,20 +322,15 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <strong><i>Note: </i></strong>JSON and XML solve some of the same problems with different structures. Neither is best for every situation.
+  </p>
+
+  <h3>JSON Example</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    An object with an <span class="code">employees</span> key holding an array of three objects, each with <span class="code">firstName</span>/<span class="code">lastName</span>.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +341,171 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        &#123; <br>
+        &nbsp;&nbsp;"employees": [ <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&#123; "firstName":"John", "lastName":"Doe" &#125;, <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&#123; "firstName":"Anna", "lastName":"Smith" &#125;, <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&#123; "firstName":"Peter", "lastName":"Jones" &#125; <br>
+        &nbsp;&nbsp;] <br>
+        &#125;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>XML Example</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The same data, as XML: a root <span class="code">employees</span> element with three <span class="code">employee</span> children.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        &lt;employees&gt; <br>
+        &nbsp;&nbsp;&lt;employee&gt;&lt;firstName&gt;John&lt;/firstName&gt;&lt;lastName&gt;Doe&lt;/lastName&gt;&lt;/employee&gt; <br>
+        &nbsp;&nbsp;&lt;employee&gt;&lt;firstName&gt;Anna&lt;/firstName&gt;&lt;lastName&gt;Smith&lt;/lastName&gt;&lt;/employee&gt; <br>
+        &nbsp;&nbsp;&lt;employee&gt;&lt;firstName&gt;Peter&lt;/firstName&gt;&lt;lastName&gt;Jones&lt;/lastName&gt;&lt;/employee&gt; <br>
+        &lt;/employees&gt;
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JSON and XML Differences</h3>
+  <hr>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Aspect</th>
+      <th>JSON</th>
+      <th>XML</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>Data model</td><td>Objects, arrays, typed values</td><td>Text elements and attributes</td></tr>
+    <tr><td>Element content</td><td>Built-in types</td><td>Text only</td></tr>
+    <tr><td>Syntax</td><td>Small, fixed</td><td>Custom element and attribute names</td></tr>
+    <tr><td>Comments</td><td>Not supported</td><td>Supported</td></tr>
+    <tr><td>Namespaces</td><td>Not supported</td><td>Supported</td></tr>
+    <tr><td>Typical use</td><td>Application data</td><td>Documents and structured data</td></tr>
+    <tr><td>JavaScript mapping</td><td>Maps directly to JS values</td><td>Must be converted</td></tr>
+    <tr><td>Parsing in JS</td><td>JSON.parse()</td><td>DOMParser()</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Working with JSON in JavaScript</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">JSON.parse()</span> turns JSON text into a JavaScript object; <span class="code">JSON.stringify()</span> turns a JavaScript object back into JSON text.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const obj = JSON.parse('&#123;"name":"John","age":30&#125;'); <br>
+        const text = JSON.stringify(obj);
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Working with XML in JavaScript</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">DOMParser</span>'s <span class="code">parseFromString()</span> turns an XML string into an XML Document, which is then read with <span class="code">getElementsByTagName()</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const parser = new DOMParser(); <br>
+        const xmlDoc = parser.parseFromString( <br>
+        &nbsp;&nbsp;"&lt;person&gt;&lt;name&gt;John&lt;/name&gt;&lt;/person&gt;", "text/xml"); <br>
+        const name = xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JSON Is More Compact</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">&#123;"name":"John","age":30&#125;</span> is shorter than the equivalent multi-line XML <span class="code">&lt;person&gt;&lt;name&gt;John&lt;/name&gt;&lt;age&gt;30&lt;/age&gt;&lt;/person&gt;</span>. File size depends on structure, so JSON is not always smaller.
+  </p>
+
+  <h3>XML Attributes vs. JSON</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    XML has a separate attribute/element distinction that JSON does not. A <span class="code">product</span> element with <span class="code">id</span>/<span class="code">currency</span> attributes and <span class="code">name</span>/<span class="code">price</span> children becomes four flat, equal properties in JSON.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>XML</th>
+      <th>Equivalent JSON</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>&lt;product id="1" currency="USD"&gt;&lt;name&gt;Pen&lt;/name&gt;&lt;price&gt;2&lt;/price&gt;&lt;/product&gt;</td>
+      <td>&#123;"id":"1","currency":"USD","name":"Pen","price":2&#125;</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Validation</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    XML is validated with a DTD or XML Schema; JSON is validated with JSON Schema. Validation matters when applications on both ends must agree on structure.
+  </p>
+
+  <h3>When to Use JSON</h3>
+  <hr>
+  <ul style="padding-left: 40px;">
+    <li>Web APIs</li>
+    <li>Sending application data</li>
+    <li>Configuration files</li>
+    <li>Data stored by JavaScript apps</li>
+    <li>Object and array structures</li>
+  </ul>
+
+  <h3>When to Use XML</h3>
+  <hr>
+  <ul style="padding-left: 40px;">
+    <li>Content mixing text and markup</li>
+    <li>Systems built on XML schemas and namespaces</li>
+    <li>Existing XML applications</li>
+    <li>Established XML storage</li>
+  </ul>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +520,45 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const json = {
+      employees: [
+        { firstName: "John", lastName: "Doe" },
+        { firstName: "Anna", lastName: "Smith" },
+        { firstName: "Peter", lastName: "Jones" },
+      ],
+    };
+    document.getElementById("demo1").innerHTML = "Parsed count: " + json.employees.length +
+      ", first: " + json.employees[0].firstName + " " + json.employees[0].lastName;
+  })();
 
+  (function () {
+    const xmlString =
+      "<employees>" +
+      "<employee><firstName>John</firstName><lastName>Doe</lastName></employee>" +
+      "<employee><firstName>Anna</firstName><lastName>Smith</lastName></employee>" +
+      "<employee><firstName>Peter</firstName><lastName>Jones</lastName></employee>" +
+      "</employees>";
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlString, "text/xml");
+    const employees = xmlDoc.getElementsByTagName("employee");
+    document.getElementById("demo2").innerHTML = "Parsed count: " + employees.length +
+      ", first: " + employees[0].getElementsByTagName("firstName")[0].textContent + " " +
+      employees[0].getElementsByTagName("lastName")[0].textContent;
+  })();
+
+  (function () {
+    const obj = JSON.parse('{"name":"John","age":30}');
+    const text = JSON.stringify(obj);
+    document.getElementById("demo3").innerHTML = "obj.name: " + obj.name + ", re-stringified: " + text;
+  })();
+
+  (function () {
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString("<person><name>John</name></person>", "text/xml");
+    const name = xmlDoc.getElementsByTagName("name")[0].childNodes[0].nodeValue;
+    document.getElementById("demo4").innerHTML = "Extracted name: " + name;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
