@@ -322,20 +322,34 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JSON Value Types</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    A JSON value must be one of six types:
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Type</th>
+      <th>Example</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>String</td><td>"John"</td></tr>
+    <tr><td>Number</td><td>30</td></tr>
+    <tr><td>Object</td><td>&#123;"name":"John"&#125;</td></tr>
+    <tr><td>Array</td><td>["John","Anna"]</td></tr>
+    <tr><td>Boolean</td><td>true</td></tr>
+    <tr><td>Null</td><td>null</td></tr>
+    </tbody>
+  </table>
+
+  <h3>JSON Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JSON objects hold key/value pairs in curly braces; names must be double-quoted strings. Objects can nest other objects and arrays.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,14 +360,225 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        '&#123;"name":"John", "age":30, "city":"New York"&#125;'
+      </td>
+      <td id="demo1"></td>
+    </tr>
+    <tr>
+      <td>
+        '&#123;"employee":&#123;"name":"John", "age":30, "city":"New York"&#125;&#125;'
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    <tr>
+      <td>
+        '&#123;"employees":["John", "Anna", "Peter"]&#125;'
+      </td>
+      <td id="demo3"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>JSON Arrays</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Arrays hold an ordered list of values in square brackets. Array elements can be any JSON value type, including other arrays or objects.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        '["Ford", "BMW", "Fiat"]'
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Nested Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Objects and arrays can contain each other, to any depth.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        '&#123;"name":"John", "age":30, <br>
+        &nbsp;&nbsp;"address":&#123;"city":"New York", "country":"USA"&#125;, <br>
+        &nbsp;&nbsp;"hobbies":["reading", "chess", "coding"]&#125;'
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JSON String Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Strings must use double quotes, and support backslash escapes: <span class="code">\"</span>, <span class="code">\/</span>, <span class="code">\\</span>, <span class="code">\b</span>, <span class="code">\f</span>, <span class="code">\n</span>, <span class="code">\r</span>, <span class="code">\t</span>, and <span class="code">\uXXXX</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        '&#123;"quote":"She said \\"hi\\""&#125;' <br>
+        '&#123;"copyright":"\\u00A9 2026"&#125;'
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JSON Number Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Numbers can be integers, decimals, or use exponent notation. Numbers must not be quoted, have leading zeros, a leading <span class="code">+</span>, be <span class="code">NaN</span>/<span class="code">Infinity</span>, or use hex/octal notation.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        '&#123;"age":30, "height":5.9, "speedOfLight":3.0e8&#125;'
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JSON Boolean Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Only lowercase <span class="code">true</span>/<span class="code">false</span> are valid JSON booleans. Quoted <span class="code">"true"</span> becomes a string, and <span class="code">1</span>/<span class="code">0</span> are numbers, not booleans.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        '&#123;"member":true, "student":false&#125;'
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JSON Null</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">null</span> represents an intentionally empty value.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        '&#123;"name":"John", "middleName":null&#125;'
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>undefined Is Not a JSON Value</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">undefined</span> has no JSON representation. Use <span class="code">null</span> instead. <span class="code">JSON.stringify()</span> silently drops properties whose value is <span class="code">undefined</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Wrong: &#123; city: undefined &#125; <br>
+        Correct: &#123; city: null &#125;
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Unsupported JavaScript Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    These JavaScript values have no JSON representation and must be converted (usually to a string) before being stored as JSON: Function, Date, Symbol, BigInt, NaN, Infinity, undefined.
+  </p>
+
+  <h3>Date Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Dates are not a JSON type. Store a date as a string, and convert it back to a <span class="code">Date</span> object after parsing.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const obj = JSON.parse('&#123;"name":"John", "birth":"1985-06-15"&#125;'); <br>
+        const birthDate = new Date(obj.birth);
+      </td>
+      <td id="demo11"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Functions as Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Functions are not a JSON type. A function can be stored as a string and recreated later (carefully &mdash; recreating code from a string has the same risks as <span class="code">eval()</span>).
   </p>
 </section>
 <br>
@@ -369,7 +594,70 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const obj = JSON.parse('{"name":"John", "age":30, "city":"New York"}');
+    document.getElementById("demo1").innerHTML = obj.name + ", " + obj.age + ", " + obj.city;
+  })();
 
+  (function () {
+    const obj = JSON.parse('{"employee":{"name":"John", "age":30, "city":"New York"}}');
+    document.getElementById("demo2").innerHTML = "Nested: " + obj.employee.name + ", " + obj.employee.age;
+  })();
+
+  (function () {
+    const obj = JSON.parse('{"employees":["John", "Anna", "Peter"]}');
+    document.getElementById("demo3").innerHTML = "employees array: " + obj.employees.join(", ");
+  })();
+
+  (function () {
+    const arr = JSON.parse('["Ford", "BMW", "Fiat"]');
+    document.getElementById("demo4").innerHTML = arr.length + " items: " + arr.join(", ");
+  })();
+
+  (function () {
+    const obj = JSON.parse('{"name":"John", "age":30, "address":{"city":"New York", "country":"USA"}, "hobbies":["reading", "chess", "coding"]}');
+    document.getElementById("demo5").innerHTML =
+      obj.name + " lives in " + obj.address.city + ", " + obj.address.country +
+      "<br>Hobbies: " + obj.hobbies.join(", ");
+  })();
+
+  (function () {
+    const obj1 = JSON.parse('{"quote":"She said \\"hi\\""}');
+    const obj2 = JSON.parse('{"copyright":"\\u00A9 2026"}');
+    document.getElementById("demo6").innerHTML = obj1.quote + "<br>" + obj2.copyright;
+  })();
+
+  (function () {
+    const obj = JSON.parse('{"age":30, "height":5.9, "speedOfLight":3.0e8}');
+    document.getElementById("demo7").innerHTML =
+      "age: " + obj.age + " (" + typeof obj.age + "), height: " + obj.height + ", speedOfLight: " + obj.speedOfLight;
+  })();
+
+  (function () {
+    const obj = JSON.parse('{"member":true, "student":false}');
+    document.getElementById("demo8").innerHTML = "member: " + obj.member + " (" + typeof obj.member + "), student: " + obj.student;
+  })();
+
+  (function () {
+    const obj = JSON.parse('{"name":"John", "middleName":null}');
+    document.getElementById("demo9").innerHTML = "middleName: " + obj.middleName + " (" + (obj.middleName === null ? "is null" : "not null") + ")";
+  })();
+
+  (function () {
+    const correct = { city: null };
+    const wrongJson = JSON.stringify({ city: undefined });
+    const correctJson = JSON.stringify(correct);
+    document.getElementById("demo10").innerHTML =
+      "Stringify with undefined: " + wrongJson + " (dropped!)" +
+      "<br>Stringify with null: " + correctJson;
+  })();
+
+  (function () {
+    const obj = JSON.parse('{"name":"John", "birth":"1985-06-15"}');
+    const birthDate = new Date(obj.birth);
+    document.getElementById("demo11").innerHTML =
+      obj.name + "'s birth string: " + obj.birth + ", as Date: " + birthDate.toDateString();
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
