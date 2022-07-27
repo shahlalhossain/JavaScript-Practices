@@ -322,20 +322,29 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The JSON.parse() Method</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    A common use of JSON is to receive data from a web server. <span class="code">JSON.parse()</span> converts a string of JSON text into a JavaScript value. JSON is text &mdash; the input must be a string, not an object.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Syntax</th>
+      <th>Parameters</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>JSON.parse(text, reviver)</td><td><span class="code">text</span>: the JSON string to parse. <span class="code">reviver</span> (optional): a function that transforms each key/value before it's returned.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Parsing a JSON Object</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Converting a JSON object string into a JavaScript object:
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +355,210 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const text = '&#123;"name":"John", "age":30, "city":"New York"&#125;'; <br>
+        const obj = JSON.parse(text); <br>
+        obj.name;
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Parsing a JSON Array</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Converting a JSON array string into a JavaScript array:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const text = '["Ford", "BMW", "Fiat"]'; <br>
+        const arr = JSON.parse(text); <br>
+        arr[0];
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Parsing Other JSON Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">JSON.parse()</span> can also parse bare scalar values: strings, numbers, booleans, and null.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        JSON.parse('"Hello"'); <br>
+        JSON.parse("30"); <br>
+        JSON.parse("true"); <br>
+        JSON.parse("null");
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Common Use of JSON</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Data from a web server always arrives as a string. <span class="code">JSON.parse()</span> converts it into a usable JavaScript object before reading its properties.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const fromServer = '&#123;"name":"John", "age":30&#125;'; <br>
+        const obj = JSON.parse(fromServer); <br>
+        document.getElementById("demo").innerHTML = obj.name;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>The Reviver Function</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The optional second argument to <span class="code">JSON.parse()</span> is a reviver function, called for each key/value pair. Its return value replaces the original; returning <span class="code">undefined</span> deletes that key.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const text = '&#123;"name":"John", "age":"30"&#125;'; <br>
+        const obj = JSON.parse(text, (key, value) =&gt; <br>
+        &nbsp;&nbsp;key === "age" ? Number(value) : value); <br>
+        typeof obj.age;
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    <tr>
+      <td>
+        const text = '&#123;"name":"John", "date":"2026-01-01"&#125;'; <br>
+        const obj = JSON.parse(text, (key, value) =&gt; <br>
+        &nbsp;&nbsp;key === "date" ? new Date(value) : value); <br>
+        typeof obj.date;
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Invalid JSON</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Malformed JSON throws a <span class="code">SyntaxError</span>. Below, single-quoted strings and an unquoted key are invalid.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Valid: '&#123;"name":"John", "age":30&#125;' <br>
+        Invalid: "&#123;name:'John', age:30&#125;"
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Handling Parse Errors</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Wrap <span class="code">JSON.parse()</span> in a <span class="code">try...catch</span> to handle malformed input gracefully instead of letting the error propagate.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        try &#123; <br>
+        &nbsp;&nbsp;const obj = JSON.parse("&#123;bad json&#125;"); <br>
+        &#125; catch(err) &#123; <br>
+        &nbsp;&nbsp;document.getElementById("demo").innerHTML = err.message; <br>
+        &#125;
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Common Parsing Mistakes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">JSON.parse()</span> expects a string. Two common mistakes: passing it an object literal instead of JSON text, and parsing an already-parsed value a second time.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        Wrong: JSON.parse(&#123;name:"John"&#125;) <br>
+        Correct: JSON.parse('&#123;"name":"John"&#125;')
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    <tr>
+      <td>
+        const text = '&#123;"name":"John"&#125;'; <br>
+        const obj = JSON.parse(text); <br>
+        const obj2 = JSON.parse(obj); // fails &mdash; obj is already an object
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>Only call <span class="code">JSON.parse()</span> on JSON text (a string). If the value is already a JavaScript object, there's nothing left to parse.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +573,94 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const text = '{"name":"John", "age":30, "city":"New York"}';
+    const obj = JSON.parse(text);
+    document.getElementById("demo1").innerHTML = "name: " + obj.name;
+  })();
 
+  (function () {
+    const text = '["Ford", "BMW", "Fiat"]';
+    const arr = JSON.parse(text);
+    document.getElementById("demo2").innerHTML = "arr[0]: " + arr[0];
+  })();
+
+  (function () {
+    const results = [
+      JSON.parse('"Hello"'),
+      JSON.parse("30"),
+      JSON.parse("true"),
+      JSON.parse("null"),
+    ];
+    document.getElementById("demo3").innerHTML = results.map(r => JSON.stringify(r) + " (" + typeof r + ")").join(", ");
+  })();
+
+  (function () {
+    const fromServer = '{"name":"John", "age":30}';
+    const obj = JSON.parse(fromServer);
+    document.getElementById("demo4").innerHTML = obj.name;
+  })();
+
+  (function () {
+    const text = '{"name":"John", "age":"30"}';
+    const obj = JSON.parse(text, (key, value) => key === "age" ? Number(value) : value);
+    document.getElementById("demo5").innerHTML = "age: " + obj.age + ", typeof age: " + typeof obj.age;
+  })();
+
+  (function () {
+    const text = '{"name":"John", "date":"2026-01-01"}';
+    const obj = JSON.parse(text, (key, value) => key === "date" ? new Date(value) : value);
+    document.getElementById("demo6").innerHTML = "date: " + obj.date.toDateString() + ", typeof date: " + typeof obj.date;
+  })();
+
+  (function () {
+    let validResult;
+    try {
+      validResult = JSON.parse('{"name":"John", "age":30}');
+    } catch (e) {
+      validResult = "Error: " + e.message;
+    }
+    let invalidResult;
+    try {
+      invalidResult = JSON.parse("{name:'John', age:30}");
+    } catch (e) {
+      invalidResult = "Error: " + e.message;
+    }
+    document.getElementById("demo7").innerHTML =
+      "Valid: " + JSON.stringify(validResult) + "<br>Invalid: " + invalidResult;
+  })();
+
+  (function () {
+    try {
+      JSON.parse("{bad json}");
+    } catch (err) {
+      document.getElementById("demo8").innerHTML = "Caught: " + err.message;
+    }
+  })();
+
+  (function () {
+    let result;
+    try {
+      JSON.parse({ name: "John" });
+      result = "no error (unexpected)";
+    } catch (e) {
+      result = "Error: " + e.message;
+    }
+    document.getElementById("demo9").innerHTML = result;
+  })();
+
+  (function () {
+    const text = '{"name":"John"}';
+    const obj = JSON.parse(text);
+    let result;
+    try {
+      JSON.parse(obj);
+      result = "no error (unexpected)";
+    } catch (e) {
+      result = "Error: " + e.message;
+    }
+    document.getElementById("demo10").innerHTML = result;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
