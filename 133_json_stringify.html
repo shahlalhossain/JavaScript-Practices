@@ -322,20 +322,26 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The JSON.stringify() Method</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    <span class="code">JSON.stringify()</span> converts a JavaScript value into JSON text, needed for sending data over HTTP, transmitting it between applications, or storing it in a file. It always returns a string.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Syntax</th>
+      <th>Parameters</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>JSON.stringify(value, replacer, space)</td><td><span class="code">value</span>: the value to convert. <span class="code">replacer</span> (optional): a function or array to filter/transform properties. <span class="code">space</span> (optional): a number or string for indentation.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Converting an Object</h3>
+  <hr>
   <br>
   <table>
     <thead>
@@ -346,15 +352,271 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const obj = &#123; name: "John", age: 30, city: "New York" &#125;; <br>
+        JSON.stringify(obj);
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Converting an Array</h3>
+  <hr>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const arr = ["Ford", "BMW", "Fiat"]; <br>
+        JSON.stringify(arr);
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Converting Other Values</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    How different JavaScript types are converted:
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>JavaScript Type</th>
+      <th>JSON Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>String</td><td>Quoted string</td></tr>
+    <tr><td>Number</td><td>Number (NaN/Infinity become null)</td></tr>
+    <tr><td>Boolean</td><td>true/false</td></tr>
+    <tr><td>null</td><td>null</td></tr>
+    <tr><td>undefined</td><td>Omitted (in objects) or returns undefined (as top-level value)</td></tr>
+    <tr><td>Object</td><td>Object with supported properties only</td></tr>
+    <tr><td>Array</td><td>Array (unsupported elements become null)</td></tr>
+    </tbody>
+  </table>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        JSON.stringify("hello"); <br>
+        JSON.stringify(30); <br>
+        JSON.stringify(true); <br>
+        JSON.stringify(null); <br>
+        JSON.stringify(undefined);
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Selecting Properties</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Passing an array of property names as the <span class="code">replacer</span> includes only those keys in the output.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const obj = &#123; name: "John", age: 30, city: "New York" &#125;; <br>
+        JSON.stringify(obj, ["name", "city"]);
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Transforming Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Passing a <span class="code">replacer</span> function lets each key/value be transformed before it's written out.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const obj = &#123; name: "John", age: 30 &#125;; <br>
+        JSON.stringify(obj, (key, value) =&gt; <br>
+        &nbsp;&nbsp;key === "age" ? value + 1 : value);
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Formatting JSON</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The <span class="code">space</span> argument indents the output for readability.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const obj = &#123; name: "John", age: 30 &#125;; <br>
+        JSON.stringify(obj, null, 2);
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Unsupported Values</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">BigInt</span> throws a TypeError. Functions, <span class="code">undefined</span>, and Symbols are omitted from objects, but become <span class="code">null</span> inside arrays. <span class="code">NaN</span> and <span class="code">Infinity</span> always become <span class="code">null</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        JSON.stringify(&#123; greet: function() &#123;&#125;, x: undefined, name: "John" &#125;);
+      </td>
+      <td id="demo7"></td>
+    </tr>
+    <tr>
+      <td>
+        JSON.stringify(&#123; a: NaN, b: Infinity &#125;);
+      </td>
+      <td id="demo8"></td>
+    </tr>
+    <tr>
+      <td>
+        JSON.stringify([function() &#123;&#125;, undefined, NaN, Infinity]);
+      </td>
+      <td id="demo9"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Stringifying Dates</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Date</span> objects are converted to ISO date strings. The receiver can convert them back to <span class="code">Date</span> objects after parsing.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const obj = &#123; today: new Date(2026, 0, 1) &#125;; <br>
+        JSON.stringify(obj);
+      </td>
+      <td id="demo10"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Storing Data</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A common pattern: stringify an object, save it to storage, then read it back and parse it.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const obj = &#123; name: "John", age: 30 &#125;; <br>
+        localStorage.setItem("js_tutorial_person", JSON.stringify(obj)); <br>
+        const text = localStorage.getItem("js_tutorial_person"); <br>
+        const restored = JSON.parse(text);
+      </td>
+      <td id="demo11"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Common Stringify Mistakes</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Calling <span class="code">JSON.stringify()</span> twice on the same value adds escaped quotation marks around it. Objects with circular references (a property that refers back to the object itself) cannot be stringified at all &mdash; it throws a <span class="code">TypeError</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const obj = &#123; name: "John" &#125;; <br>
+        const once = JSON.stringify(obj); <br>
+        const twice = JSON.stringify(once); // adds extra escaped quotes
+      </td>
+      <td id="demo12"></td>
+    </tr>
+    <tr>
+      <td>
+        const obj = &#123; name: "John" &#125;; <br>
+        obj.self = obj; // circular reference <br>
+        JSON.stringify(obj); // throws TypeError
+      </td>
+      <td id="demo13"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +631,85 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const obj = { name: "John", age: 30, city: "New York" };
+    document.getElementById("demo1").innerHTML = JSON.stringify(obj);
+  })();
 
+  (function () {
+    const arr = ["Ford", "BMW", "Fiat"];
+    document.getElementById("demo2").innerHTML = JSON.stringify(arr);
+  })();
+
+  (function () {
+    const results = [
+      JSON.stringify("hello"),
+      JSON.stringify(30),
+      JSON.stringify(true),
+      JSON.stringify(null),
+      JSON.stringify(undefined),
+    ];
+    document.getElementById("demo3").innerHTML = results.map(r => String(r)).join(", ");
+  })();
+
+  (function () {
+    const obj = { name: "John", age: 30, city: "New York" };
+    document.getElementById("demo4").innerHTML = JSON.stringify(obj, ["name", "city"]);
+  })();
+
+  (function () {
+    const obj = { name: "John", age: 30 };
+    document.getElementById("demo5").innerHTML = JSON.stringify(obj, (key, value) => key === "age" ? value + 1 : value);
+  })();
+
+  (function () {
+    const obj = { name: "John", age: 30 };
+    document.getElementById("demo6").innerHTML = JSON.stringify(obj, null, 2).replace(/\n/g, "<br>").replace(/ /g, "&nbsp;");
+  })();
+
+  (function () {
+    document.getElementById("demo7").innerHTML = JSON.stringify({ greet: function () {}, x: undefined, name: "John" });
+  })();
+
+  (function () {
+    document.getElementById("demo8").innerHTML = JSON.stringify({ a: NaN, b: Infinity });
+  })();
+
+  (function () {
+    document.getElementById("demo9").innerHTML = JSON.stringify([function () {}, undefined, NaN, Infinity]);
+  })();
+
+  (function () {
+    const obj = { today: new Date(2026, 0, 1) };
+    document.getElementById("demo10").innerHTML = JSON.stringify(obj);
+  })();
+
+  (function () {
+    const obj = { name: "John", age: 30 };
+    localStorage.setItem("js_tutorial_person", JSON.stringify(obj));
+    const text = localStorage.getItem("js_tutorial_person");
+    const restored = JSON.parse(text);
+    document.getElementById("demo11").innerHTML = "Restored: " + restored.name + ", " + restored.age;
+  })();
+
+  (function () {
+    const obj = { name: "John" };
+    const once = JSON.stringify(obj);
+    const twice = JSON.stringify(once);
+    document.getElementById("demo12").innerHTML = "once: " + once + "<br>twice: " + twice;
+  })();
+
+  (function () {
+    const obj = { name: "John" };
+    obj.self = obj;
+    let result;
+    try {
+      result = JSON.stringify(obj);
+    } catch (e) {
+      result = "Error: " + e.message;
+    }
+    document.getElementById("demo13").innerHTML = result;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
