@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JSON Objects</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    A JSON object is written in curly braces as zero or more name/value pairs, separated by commas. Names must be double-quoted strings.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +337,136 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        '&#123;"name":"John", "age":30, "city":"New York"&#125;'
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Accessing Object Values</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    After parsing, object properties are read with dot notation or bracket notation, just like any JavaScript object.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const obj = JSON.parse('&#123;"name":"John", "age":30&#125;'); <br>
+        obj.name; &nbsp;&nbsp;// dot notation <br>
+        obj["age"]; &nbsp;&nbsp;// bracket notation
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Looping Over Object Properties</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">for...in</span> iterates over every key in an object. <span class="code">Object.keys()</span> returns the keys as an array.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const obj = JSON.parse('&#123;"name":"John", "age":30, "city":"New York"&#125;'); <br>
+        let txt = ""; <br>
+        for (const key in obj) &#123; <br>
+        &nbsp;&nbsp;txt += key + ": " + obj[key] + ". "; <br>
+        &#125;
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Nested Object Literals</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A JSON object can hold another object (or array) as a property value. Access nested properties by chaining dot/bracket notation.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const obj = JSON.parse('&#123;"name":"John", "employee":&#123;"age":30, "city":"New York"&#125;&#125;'); <br>
+        obj.employee.city;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Modifying Parsed Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Once parsed, the result is a normal JavaScript object &mdash; its properties can be changed, added, or removed with <span class="code">delete</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const obj = JSON.parse('&#123;"name":"John", "age":30&#125;'); <br>
+        obj.age = 31; &nbsp;&nbsp;// change <br>
+        obj.city = "New York"; &nbsp;&nbsp;// add <br>
+        delete obj.age; &nbsp;&nbsp;// remove
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>JSON Object vs. JavaScript Object Literal</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    JSON object syntax and JavaScript object literal syntax look similar, but they are not the same: JSON is text (a string), always has double-quoted keys, and has no functions or trailing commas. A JavaScript object literal is a live value, keys can be unquoted, and it may contain functions.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>JSON (text)</th>
+      <th>JavaScript Object Literal (value)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>'&#123;"name": "John", "age": 30&#125;'</td>
+      <td>&#123; name: "John", age: 30 &#125;</td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +481,37 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const obj = JSON.parse('{"name":"John", "age":30, "city":"New York"}');
+    document.getElementById("demo1").innerHTML = JSON.stringify(obj);
+  })();
 
+  (function () {
+    const obj = JSON.parse('{"name":"John", "age":30}');
+    document.getElementById("demo2").innerHTML = "dot: " + obj.name + ", bracket: " + obj["age"];
+  })();
+
+  (function () {
+    const obj = JSON.parse('{"name":"John", "age":30, "city":"New York"}');
+    let txt = "";
+    for (const key in obj) {
+      txt += key + ": " + obj[key] + ". ";
+    }
+    document.getElementById("demo3").innerHTML = txt;
+  })();
+
+  (function () {
+    const obj = JSON.parse('{"name":"John", "employee":{"age":30, "city":"New York"}}');
+    document.getElementById("demo4").innerHTML = "employee.city: " + obj.employee.city;
+  })();
+
+  (function () {
+    const obj = JSON.parse('{"name":"John", "age":30}');
+    obj.age = 31;
+    obj.city = "New York";
+    delete obj.age;
+    document.getElementById("demo5").innerHTML = JSON.stringify(obj);
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
