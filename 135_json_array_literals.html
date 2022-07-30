@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JSON Arrays</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    A JSON array is written in square brackets as zero or more values, separated by commas. Array elements can be any JSON value type &mdash; strings, numbers, objects, booleans, null, or other arrays.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +337,138 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        '["Ford", "BMW", "Fiat"]'
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Accessing Array Elements</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    After parsing, elements are accessed by zero-based index, just like any JavaScript array.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const cars = JSON.parse('["Ford", "BMW", "Fiat"]'); <br>
+        cars[0];
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Looping Over a JSON Array</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A parsed JSON array is a real JavaScript array, so it supports <span class="code">for</span>, <span class="code">for...of</span>, and <span class="code">forEach()</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const cars = JSON.parse('["Ford", "BMW", "Fiat"]'); <br>
+        let txt = ""; <br>
+        cars.forEach(car =&gt; txt += car + " ");
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>An Array of Objects</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A common pattern is an array where each element is itself an object. Loop over the array and access each object's properties.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const text = '[&#123;"name":"John","age":30&#125;, &#123;"name":"Anna","age":25&#125;]'; <br>
+        const people = JSON.parse(text); <br>
+        for (const person of people) &#123; <br>
+        &nbsp;&nbsp;console.log(person.name, person.age); <br>
+        &#125;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Nested Arrays</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Arrays can contain other arrays. Access nested elements by chaining index lookups.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const grid = JSON.parse('[[1,2,3], [4,5,6], [7,8,9]]'); <br>
+        grid[1][2]; &nbsp;&nbsp;// second row, third column
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Array Methods on Parsed Arrays</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Since a parsed JSON array is a normal JavaScript array, all the usual array methods work on it: <span class="code">map()</span>, <span class="code">filter()</span>, <span class="code">reduce()</span>, and so on.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const nums = JSON.parse('[1, 2, 3, 4, 5]'); <br>
+        const doubled = nums.map(n =&gt; n * 2); <br>
+        const sum = nums.reduce((a, b) =&gt; a + b, 0);
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +483,44 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const cars = JSON.parse('["Ford", "BMW", "Fiat"]');
+    document.getElementById("demo1").innerHTML = JSON.stringify(cars);
+  })();
 
+  (function () {
+    const cars = JSON.parse('["Ford", "BMW", "Fiat"]');
+    document.getElementById("demo2").innerHTML = "cars[0]: " + cars[0];
+  })();
+
+  (function () {
+    const cars = JSON.parse('["Ford", "BMW", "Fiat"]');
+    let txt = "";
+    cars.forEach(car => txt += car + " ");
+    document.getElementById("demo3").innerHTML = txt.trim();
+  })();
+
+  (function () {
+    const text = '[{"name":"John","age":30}, {"name":"Anna","age":25}]';
+    const people = JSON.parse(text);
+    let txt = "";
+    for (const person of people) {
+      txt += person.name + " (" + person.age + ") ";
+    }
+    document.getElementById("demo4").innerHTML = txt.trim();
+  })();
+
+  (function () {
+    const grid = JSON.parse('[[1,2,3], [4,5,6], [7,8,9]]');
+    document.getElementById("demo5").innerHTML = "grid[1][2]: " + grid[1][2];
+  })();
+
+  (function () {
+    const nums = JSON.parse('[1, 2, 3, 4, 5]');
+    const doubled = nums.map(n => n * 2);
+    const sum = nums.reduce((a, b) => a + b, 0);
+    document.getElementById("demo6").innerHTML = "doubled: " + doubled.join(", ") + ", sum: " + sum;
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
