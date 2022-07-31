@@ -322,20 +322,17 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>The fetch() Method</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    <span class="code">fetch()</span> loads data from a server; <span class="code">response.json()</span> parses the result as JSON.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Loading JSON</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The example below fetches a real file, <span class="code">data/customer.json</span>, and reads its <span class="code">name</span> property.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,15 +343,170 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        fetch("data/customer.json") <br>
+        &nbsp;&nbsp;.then(response =&gt; response.json()) <br>
+        &nbsp;&nbsp;.then(data =&gt; display(data.name));
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Loading a JSON Array</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    When the fetched file's top level is an array, <span class="code">response.json()</span> returns a JavaScript array. The example fetches <span class="code">data/products.json</span> and reads the first element.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        fetch("data/products.json") <br>
+        &nbsp;&nbsp;.then(response =&gt; response.json()) <br>
+        &nbsp;&nbsp;.then(products =&gt; display(products[0].name + ": $" + products[0].price));
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Checking for Errors</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Check <span class="code">response.ok</span> and <span class="code">response.status</span> before trusting the parsed data.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        fetch("data/customer.json") <br>
+        &nbsp;&nbsp;.then(response =&gt; display("status: " + response.status + ", ok: " + response.ok));
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Handling Errors</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Wrap the load in <span class="code">try...catch</span>, and throw explicitly when <span class="code">response.ok</span> is false (HTTP errors do not reject the fetch Promise on their own).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        async function loadCustomer() &#123; <br>
+        &nbsp;&nbsp;try &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const response = await fetch("data/does_not_exist.json"); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (!response.ok) throw new Error("HTTP " + response.status); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const data = await response.json(); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;display(data.name); <br>
+        &nbsp;&nbsp;&#125; catch (err) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;display("Error: " + err.message); <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Loading Multiple JSON Files</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">Promise.all()</span> runs several fetches in parallel and resolves once all of them finish.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const [custRes, prodRes, newsRes] = await Promise.all([ <br>
+        &nbsp;&nbsp;fetch("data/customer.json"), <br>
+        &nbsp;&nbsp;fetch("data/products.json"), <br>
+        &nbsp;&nbsp;fetch("data/news.json"), <br>
+        ]); <br>
+        const products = await prodRes.json(); <br>
+        display(products.length + " products loaded");
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Sending JSON</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    To send data to a server, use <span class="code">method: "POST"</span>, a <span class="code">Content-Type: application/json</span> header, and a <span class="code">body</span> created with <span class="code">JSON.stringify()</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Request Option</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>method</td><td>The HTTP method, e.g. "POST"</td></tr>
+    <tr><td>headers</td><td>An object of request headers, e.g. &#123;"Content-Type": "application/json"&#125;</td></tr>
+    <tr><td>body</td><td>The request body, as a JSON string</td></tr>
+    </tbody>
+  </table>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const person = &#123; name: "John", age: 30 &#125;; <br>
+        fetch("save_person.php", &#123; <br>
+        &nbsp;&nbsp;method: "POST", <br>
+        &nbsp;&nbsp;headers: &#123; "Content-Type": "application/json" &#125;, <br>
+        &nbsp;&nbsp;body: JSON.stringify(person), <br>
+        &#125;) <br>
+        &nbsp;&nbsp;.then(response =&gt; response.json()) <br>
+        &nbsp;&nbsp;.then(result =&gt; display(result.message));
+      </td>
+      <td id="demo6">(illustrative only &mdash; requires a real server endpoint to receive the POST; not runnable in this static file-based tutorial)</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>This project has no server-side endpoint to receive POST requests, so this demo shows the real client-side code without executing the request. The GET-based demos above it (fetching <span class="code">customer.json</span>/<span class="code">products.json</span>/<span class="code">news.json</span>) are fully live, since they only read static files.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +521,58 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    function display(value) { document.getElementById("demo1").innerHTML = value; }
+    fetch("data/customer.json")
+      .then(response => response.json())
+      .then(data => display(data.name))
+      .catch(err => display("Fetch failed: " + err.message));
+  })();
 
+  (function () {
+    function display(value) { document.getElementById("demo2").innerHTML = value; }
+    fetch("data/products.json")
+      .then(response => response.json())
+      .then(products => display(products[0].name + ": $" + products[0].price))
+      .catch(err => display("Fetch failed: " + err.message));
+  })();
+
+  (function () {
+    function display(value) { document.getElementById("demo3").innerHTML = value; }
+    fetch("data/customer.json")
+      .then(response => display("status: " + response.status + ", ok: " + response.ok))
+      .catch(err => display("Fetch failed: " + err.message));
+  })();
+
+  (async function () {
+    function display(value) { document.getElementById("demo4").innerHTML = value; }
+    async function loadCustomer() {
+      try {
+        const response = await fetch("data/does_not_exist.json");
+        if (!response.ok) throw new Error("HTTP " + response.status);
+        const data = await response.json();
+        display(data.name);
+      } catch (err) {
+        display("Error: " + err.message);
+      }
+    }
+    await loadCustomer();
+  })();
+
+  (async function () {
+    function display(value) { document.getElementById("demo5").innerHTML = value; }
+    try {
+      const [custRes, prodRes, newsRes] = await Promise.all([
+        fetch("data/customer.json"),
+        fetch("data/products.json"),
+        fetch("data/news.json"),
+      ]);
+      const products = await prodRes.json();
+      display(products.length + " products loaded");
+    } catch (err) {
+      display("Fetch failed: " + err.message);
+    }
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
