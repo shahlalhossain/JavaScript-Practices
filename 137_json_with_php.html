@@ -322,20 +322,25 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Sending JSON to a Server</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    To send data to a PHP (or any server-side) endpoint, <span class="code">fetch()</span> is used with <span class="code">method: "POST"</span>, a <span class="code">Content-Type: application/json</span> header, and a <span class="code">body</span> created with <span class="code">JSON.stringify()</span>.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Request Option</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>method</td><td>The HTTP method, e.g. "POST"</td></tr>
+    <tr><td>headers</td><td>Request metadata, e.g. the Content-Type</td></tr>
+    <tr><td>body</td><td>The request payload, as a JSON string</td></tr>
+    </tbody>
+  </table>
   <br>
   <table>
     <thead>
@@ -346,15 +351,113 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const person = &#123; name: "John", age: 30 &#125;; <br>
+        fetch("/api/person", &#123; <br>
+        &nbsp;&nbsp;method: "POST", <br>
+        &nbsp;&nbsp;headers: &#123; "Content-Type": "application/json" &#125;, <br>
+        &nbsp;&nbsp;body: JSON.stringify(person), <br>
+        &#125;);
+      </td>
+      <td id="demo1">(illustrative only &mdash; requires a real server endpoint; not runnable in this static file-based tutorial)</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Reading the Server Response</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    After POSTing, the server's JSON reply is parsed the same way as a GET response: with <span class="code">response.json()</span>.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        fetch("/api/person", &#123; method: "POST", <br>
+        &nbsp;&nbsp;headers: &#123; "Content-Type": "application/json" &#125;, <br>
+        &nbsp;&nbsp;body: JSON.stringify(&#123; name: "John", age: 30 &#125;) <br>
+        &#125;) <br>
+        &nbsp;&nbsp;.then(response =&gt; response.json()) <br>
+        &nbsp;&nbsp;.then(result =&gt; document.getElementById("demo").innerHTML = result.message);
+      </td>
+      <td id="demo2">(illustrative only &mdash; requires a real server endpoint; not runnable in this static file-based tutorial)</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Sending JSON with Error Handling</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    As with any fetch, check <span class="code">response.ok</span> and wrap the request in <span class="code">try...catch</span> so network or server errors are handled gracefully.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        async function sendPerson(person) &#123; <br>
+        &nbsp;&nbsp;try &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const response = await fetch("/api/person", &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;method: "POST", <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;headers: &#123; "Content-Type": "application/json" &#125;, <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body: JSON.stringify(person), <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&#125;); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (!response.ok) throw new Error("HTTP " + response.status); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;const result = await response.json(); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = result.message; <br>
+        &nbsp;&nbsp;&#125; catch (err) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;document.getElementById("demo").innerHTML = "Error: " + err.message; <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;
+      </td>
+      <td id="demo3">(illustrative only &mdash; requires a real server endpoint; not runnable in this static file-based tutorial)</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Complete Example</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A full form: the user types a name and age, clicking Send reads both inputs, converts age to a number, and POSTs the object as JSON.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        &lt;input id="name"&gt; &lt;input id="age"&gt; &lt;button onclick="sendPerson()"&gt;Send&lt;/button&gt; <br>
+        function sendPerson() &#123; <br>
+        &nbsp;&nbsp;const person = &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;name: document.getElementById("name").value, <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;age: Number(document.getElementById("age").value), <br>
+        &nbsp;&nbsp;&#125;; <br>
+        &nbsp;&nbsp;fetch("/api/person", &#123; method: "POST", ... , body: JSON.stringify(person) &#125;); <br>
+        &#125;
+      </td>
+      <td id="demo4">(illustrative only &mdash; requires a real server endpoint; not runnable in this static file-based tutorial)</td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>This project has no PHP backend, so sending JSON cannot be demonstrated live here. For the fully runnable half of this topic &mdash; fetching and parsing real JSON files with GET &mdash; see <a href="136_json_server.html">JS JSON - Server</a>.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +472,6 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
-
 </script>
 <!--Page Specific JavaScript End-->
 </body>
