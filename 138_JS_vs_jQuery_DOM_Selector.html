@@ -322,45 +322,139 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>JS vs jQuery: DOM Selectors</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Every jQuery selector starts with <span class="code">$()</span> and builds on CSS selector syntax. Vanilla JavaScript selects elements with <span class="code">document.querySelector()</span>/<span class="code">querySelectorAll()</span> (or older methods like <span class="code">getElementById()</span>). jQuery's selectors are generally shorter, and automatically return a collection you can act on directly.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>The element Selector</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Selects every element with a given tag name. The demo below selects all <span class="code">&lt;p class="jqdemo1"&gt;</span> elements inside the scoped box and changes their color.
+  </p>
   <br>
   <table>
     <thead>
     <tr>
-      <th>Code Example</th>
-      <th>Sample Output</th>
+      <th>Vanilla JavaScript</th>
+      <th>jQuery</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        document.querySelectorAll(".jqdemo1 p") <br>
+        &nbsp;&nbsp;.forEach(el =&gt; el.style.color = "blue");
+      </td>
+      <td>
+        $(".jqdemo1 p").css("color", "red");
+      </td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <div class="jqdemo1" style="padding: 10px; border: 1px solid #ccc; margin-top: 10px;">
+    <p>Paragraph A.</p>
+    <p>Paragraph B.</p>
+    <button type="button" id="elSelectorBtn">Run element Selector Demo</button>
+    <div id="demo1" style="padding-top: 6px;"></div>
+  </div>
+
+  <h3>The #id Selector</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Selects one element by its unique <span class="code">id</span>.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Vanilla JavaScript</th>
+      <th>jQuery</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.getElementById("jqTarget").style.display = "none";
+      </td>
+      <td>
+        $("#jqTarget").hide();
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div style="padding: 10px; border: 1px solid #ccc; margin-top: 10px;">
+    <p id="jqTarget">This paragraph has id="jqTarget".</p>
+    <button type="button" id="idSelectorBtn">Hide via #id Selector</button>
+    <button type="button" id="idSelectorResetBtn">Reset</button>
+    <div id="demo2" style="padding-top: 6px;"></div>
+  </div>
+
+  <h3>The .class Selector</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Selects all elements that share a class name.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Vanilla JavaScript</th>
+      <th>jQuery</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.querySelectorAll(".jqdemo3") <br>
+        &nbsp;&nbsp;.forEach(el =&gt; el.style.display = "none");
+      </td>
+      <td>
+        $(".jqdemo3").hide();
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div style="padding: 10px; border: 1px solid #ccc; margin-top: 10px;">
+    <p class="jqdemo3">First .jqdemo3 element.</p>
+    <p class="jqdemo3">Second .jqdemo3 element.</p>
+    <button type="button" id="classSelectorBtn">Hide via .class Selector</button>
+    <button type="button" id="classSelectorResetBtn">Reset</button>
+    <div id="demo3" style="padding-top: 6px;"></div>
+  </div>
+
+  <h3>More Examples of Selectors</h3>
+  <hr>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>jQuery Selector</th>
+      <th>Selects</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr><td>$("*")</td><td>All elements</td></tr>
+    <tr><td>$(this)</td><td>The current element</td></tr>
+    <tr><td>$("p.intro")</td><td>All &lt;p&gt; elements with class="intro"</td></tr>
+    <tr><td>$("p:first")</td><td>The first &lt;p&gt; element</td></tr>
+    <tr><td>$("ul li:first")</td><td>The first &lt;li&gt; of the first &lt;ul&gt;</td></tr>
+    <tr><td>$("ul li:first-child")</td><td>The first &lt;li&gt; of every &lt;ul&gt;</td></tr>
+    <tr><td>$("[href]")</td><td>Elements with an href attribute</td></tr>
+    <tr><td>$("a[target='_blank']")</td><td>&lt;a&gt; elements with target="_blank"</td></tr>
+    <tr><td>$(":button")</td><td>&lt;button&gt; elements and &lt;input type="button"&gt;</td></tr>
+    <tr><td>$("tr:even")</td><td>Even-indexed &lt;tr&gt; elements</td></tr>
+    <tr><td>$("tr:odd")</td><td>Odd-indexed &lt;tr&gt; elements</td></tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>This page loads jQuery from a CDN so both columns' code actually runs, scoped to the demo boxes above rather than the whole page.</p>
 </section>
 <br>
 <!--Main Section End-->
 
 <!--External JavaScript Library Inclusion Start-->
-<!--<script type="text/javascript" rel="script" src="#"></script>-->
+<script type="text/javascript" rel="script" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <!--External JavaScript Library Inclusion End-->
 
 <!--Internal JavaScript Library Inclusion Start-->
@@ -369,7 +463,35 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    document.getElementById("elSelectorBtn").addEventListener("click", function () {
+      document.querySelectorAll(".jqdemo1 p").forEach(el => el.style.color = "blue");
+      $(".jqdemo1 p").css("background-color", "#ffe9b3");
+      document.getElementById("demo1").innerHTML = "Vanilla JS set color:blue, jQuery set background-color via .css()";
+    });
+  })();
 
+  (function () {
+    document.getElementById("idSelectorBtn").addEventListener("click", function () {
+      $("#jqTarget").hide();
+      document.getElementById("demo2").innerHTML = "Hidden via jQuery's $(\"#jqTarget\").hide()";
+    });
+    document.getElementById("idSelectorResetBtn").addEventListener("click", function () {
+      $("#jqTarget").show();
+      document.getElementById("demo2").innerHTML = "Reset.";
+    });
+  })();
+
+  (function () {
+    document.getElementById("classSelectorBtn").addEventListener("click", function () {
+      $(".jqdemo3").hide();
+      document.getElementById("demo3").innerHTML = "Hidden via jQuery's $(\".jqdemo3\").hide()";
+    });
+    document.getElementById("classSelectorResetBtn").addEventListener("click", function () {
+      $(".jqdemo3").show();
+      document.getElementById("demo3").innerHTML = "Reset.";
+    });
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
