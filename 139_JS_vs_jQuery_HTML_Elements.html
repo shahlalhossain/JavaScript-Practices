@@ -322,20 +322,82 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Get Content: text(), html(), val()</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    jQuery's <span class="code">text()</span> reads text content, <span class="code">html()</span> reads content including markup, and <span class="code">val()</span> reads a form field's value &mdash; comparable to vanilla JS's <span class="code">textContent</span>, <span class="code">innerHTML</span>, and <span class="code">.value</span>.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Vanilla JavaScript</th>
+      <th>jQuery</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>document.getElementById("jqGetTest").textContent</td>
+      <td>$("#jqGetTest").text()</td>
+    </tr>
+    <tr>
+      <td>document.getElementById("jqGetTest").innerHTML</td>
+      <td>$("#jqGetTest").html()</td>
+    </tr>
+    <tr>
+      <td>document.getElementById("jqGetInput").value</td>
+      <td>$("#jqGetInput").val()</td>
+    </tr>
+    </tbody>
+  </table>
+  <div style="padding: 10px; border: 1px solid #ccc; margin-top: 10px;">
+    <p id="jqGetTest">This is <b>bold</b> text.</p>
+    <input type="text" id="jqGetInput" value="Dolly Duck">
+    <button type="button" id="getContentBtn">Read Content (both ways)</button>
+    <div id="demo1" style="padding-top: 6px;"></div>
+  </div>
+
+  <h3>Set Content: text(), html(), val()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The same three methods, called with an argument, set content instead of reading it.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Vanilla JavaScript</th>
+      <th>jQuery</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>el.textContent = "Hello world!";</td>
+      <td>$(el).text("Hello world!");</td>
+    </tr>
+    <tr>
+      <td>el.innerHTML = "&lt;b&gt;Hello world!&lt;/b&gt;";</td>
+      <td>$(el).html("&lt;b&gt;Hello world!&lt;/b&gt;");</td>
+    </tr>
+    <tr>
+      <td>el.value = "Dolly Duck";</td>
+      <td>$(el).val("Dolly Duck");</td>
+    </tr>
+    </tbody>
+  </table>
+  <div style="padding: 10px; border: 1px solid #ccc; margin-top: 10px;">
+    <p id="jqSetTest1">Original text.</p>
+    <p id="jqSetTest2">Original HTML.</p>
+    <input type="text" id="jqSetInput" value="original">
+    <button type="button" id="setContentBtn">Set Content (both ways)</button>
+    <div id="demo2" style="padding-top: 6px;"></div>
+  </div>
+
+  <h3>A Callback Function for text(), html(), and val()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Each setter also accepts a callback receiving the element's index and its current value; the return value becomes the new content.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,21 +408,95 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        $("#jqCallbackTest").text(function(i, oldText) &#123; <br>
+        &nbsp;&nbsp;return "Old: " + oldText + " (index " + i + ")"; <br>
+        &#125;);
+      </td>
+      <td id="demo3"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <p id="jqCallbackTest" style="display:none;">Hello world!</p>
+
+  <h3>Get and Set Attributes: attr()</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    <span class="code">attr()</span> reads an attribute's value with one argument, and sets it with two &mdash; or sets several at once by passing an object of name/value pairs.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Vanilla JavaScript</th>
+      <th>jQuery</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>el.getAttribute("href")</td>
+      <td>$(el).attr("href")</td>
+    </tr>
+    <tr>
+      <td>el.setAttribute("href", "...")</td>
+      <td>$(el).attr("href", "...")</td>
+    </tr>
+    <tr>
+      <td>el.setAttribute("href", "...");<br>el.setAttribute("title", "...");</td>
+      <td>$(el).attr(&#123; href: "...", title: "..." &#125;);</td>
+    </tr>
+    </tbody>
+  </table>
+  <div style="padding: 10px; border: 1px solid #ccc; margin-top: 10px;">
+    <a id="jqLink" href="https://www.w3schools.com/jquery/">jQuery Tutorial</a>
+    <button type="button" id="attrBtn">Get, then Set href+title</button>
+    <div id="demo4" style="padding-top: 6px;"></div>
+  </div>
+
+  <h3>Add Elements: append(), prepend(), after(), before()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">append()</span> inserts content as the last child, <span class="code">prepend()</span> as the first child. <span class="code">after()</span> and <span class="code">before()</span> insert content as a sibling, outside the selected element.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Vanilla JavaScript</th>
+      <th>jQuery</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>el.insertAdjacentHTML("beforeend", "text")</td>
+      <td>$(el).append("text")</td>
+    </tr>
+    <tr>
+      <td>el.insertAdjacentHTML("afterbegin", "text")</td>
+      <td>$(el).prepend("text")</td>
+    </tr>
+    <tr>
+      <td>el.insertAdjacentHTML("afterend", "text")</td>
+      <td>$(el).after("text")</td>
+    </tr>
+    <tr>
+      <td>el.insertAdjacentHTML("beforebegin", "text")</td>
+      <td>$(el).before("text")</td>
+    </tr>
+    </tbody>
+  </table>
+  <div style="padding: 10px; border: 1px solid #ccc; margin-top: 10px;">
+    <p id="jqAddTarget">Middle.</p>
+    <button type="button" id="addBtn">Run append/prepend/after/before</button>
+    <div id="demo5" style="padding-top: 6px;"></div>
+  </div>
+  <p><strong><i>Note: </i></strong>This page loads jQuery from a CDN, so both columns' code actually runs against the scoped demo boxes above.</p>
 </section>
 <br>
 <!--Main Section End-->
 
 <!--External JavaScript Library Inclusion Start-->
-<!--<script type="text/javascript" rel="script" src="#"></script>-->
+<script type="text/javascript" rel="script" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <!--External JavaScript Library Inclusion End-->
 
 <!--Internal JavaScript Library Inclusion Start-->
@@ -369,7 +505,56 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    document.getElementById("getContentBtn").addEventListener("click", function () {
+      const vanillaText = document.getElementById("jqGetTest").textContent;
+      const vanillaHtml = document.getElementById("jqGetTest").innerHTML;
+      const vanillaVal = document.getElementById("jqGetInput").value;
+      const jqText = $("#jqGetTest").text();
+      const jqHtml = $("#jqGetTest").html();
+      const jqVal = $("#jqGetInput").val();
+      document.getElementById("demo1").innerHTML =
+        "Vanilla -> textContent: " + vanillaText + ", innerHTML: " + vanillaHtml + ", value: " + vanillaVal +
+        "<br>jQuery -> text(): " + jqText + ", html(): " + jqHtml + ", val(): " + jqVal;
+    });
+  })();
 
+  (function () {
+    document.getElementById("setContentBtn").addEventListener("click", function () {
+      document.getElementById("jqSetTest1").textContent = "Set via vanilla JS.";
+      $("#jqSetTest2").html("Set via <b>jQuery</b>.");
+      document.getElementById("jqSetInput").value = "set-by-vanilla";
+      document.getElementById("demo2").innerHTML = "Content set (see the two paragraphs and input above).";
+    });
+  })();
+
+  (function () {
+    $("#jqCallbackTest").text(function (i, oldText) {
+      return "Old: " + oldText + " (index " + i + ")";
+    });
+    document.getElementById("demo3").innerHTML = $("#jqCallbackTest").text();
+  })();
+
+  (function () {
+    document.getElementById("attrBtn").addEventListener("click", function () {
+      const before = $("#jqLink").attr("href");
+      $("#jqLink").attr({ href: "https://www.w3schools.com/jquery/jquery_dom_set.asp", title: "jQuery Set Content" });
+      const after = $("#jqLink").attr("href");
+      const title = $("#jqLink").attr("title");
+      document.getElementById("demo4").innerHTML =
+        "href before: " + before + "<br>href after: " + after + ", title after: " + title;
+    });
+  })();
+
+  (function () {
+    document.getElementById("addBtn").addEventListener("click", function () {
+      $("#jqAddTarget").append(" [appended]");
+      $("#jqAddTarget").prepend("[prepended] ");
+      $("#jqAddTarget").after("<span> [after-sibling]</span>");
+      $("#jqAddTarget").before("<span>[before-sibling] </span>");
+      document.getElementById("demo5").innerHTML = "Run — see the Middle. line above, now surrounded by inserted text.";
+    });
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
