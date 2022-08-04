@@ -35,7 +35,8 @@
 
   <!--Page Specific Custom CSS Start-->
   <style>
-
+    .important-demo { font-weight: bold; font-size: large; }
+    .blue-demo { color: blue; }
   </style>
   <!--Page Specific Custom CSS End-->
 </head>
@@ -322,45 +323,153 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>addClass() Method</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    jQuery's <span class="code">addClass()</span> adds one or more classes to the selected elements &mdash; equivalent to vanilla JS's <span class="code">classList.add()</span>.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
     <tr>
-      <th>Code Example</th>
-      <th>Sample Output</th>
+      <th>Vanilla JavaScript</th>
+      <th>jQuery</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>el.classList.add("important", "blue");</td>
+      <td>$(el).addClass("important blue");</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <div class="jqCssDemo" style="padding: 10px; border: 1px solid #ccc; margin-top: 10px;">
+    <p id="jqCssTarget1">Target paragraph.</p>
+    <button type="button" id="addClassBtn">Add Classes (both ways)</button>
+    <div id="demo1" style="padding-top: 6px;"></div>
+  </div>
+
+  <h3>removeClass() Method</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Removes one or more classes &mdash; equivalent to <span class="code">classList.remove()</span>.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Vanilla JavaScript</th>
+      <th>jQuery</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>el.classList.remove("blue");</td>
+      <td>$(el).removeClass("blue");</td>
+    </tr>
+    </tbody>
+  </table>
+  <div style="padding: 10px; border: 1px solid #ccc; margin-top: 10px;">
+    <button type="button" id="removeClassBtn">Remove "blue" (both ways)</button>
+    <div id="demo2" style="padding-top: 6px;"></div>
+  </div>
+
+  <h3>toggleClass() Method</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Adds a class if it's missing, removes it if it's present &mdash; equivalent to <span class="code">classList.toggle()</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Vanilla JavaScript</th>
+      <th>jQuery</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>el.classList.toggle("important");</td>
+      <td>$(el).toggleClass("important");</td>
+    </tr>
+    </tbody>
+  </table>
+  <div style="padding: 10px; border: 1px solid #ccc; margin-top: 10px;">
+    <p id="jqCssTarget2">Toggle target.</p>
+    <button type="button" id="toggleClassBtn">Toggle "important" (both ways)</button>
+    <div id="demo3" style="padding-top: 6px;"></div>
+  </div>
+
+  <h3>The css() Method: Get a Property</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">css("propertyname")</span> returns one computed style property of the first matched element &mdash; comparable to <span class="code">getComputedStyle()</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Vanilla JavaScript</th>
+      <th>jQuery</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>getComputedStyle(el).backgroundColor</td>
+      <td>$(el).css("background-color")</td>
+    </tr>
+    </tbody>
+  </table>
+  <div style="padding: 10px; border: 1px solid #ccc; margin-top: 10px;">
+    <p id="jqCssTarget3" style="background-color: yellow;">Yellow background.</p>
+    <button type="button" id="getCssBtn">Read background-color (both ways)</button>
+    <div id="demo4" style="padding-top: 6px;"></div>
+  </div>
+
+  <h3>The css() Method: Set Properties</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Passing a value sets one property; passing an object sets several at once. In vanilla JS, that's assigning to <span class="code">style</span> properties, or <span class="code">Object.assign(el.style, &#123;...&#125;)</span> for several.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Vanilla JavaScript</th>
+      <th>jQuery</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>el.style.backgroundColor = "yellow";</td>
+      <td>$(el).css("background-color", "yellow");</td>
+    </tr>
+    <tr>
+      <td>
+        Object.assign(el.style, &#123; <br>
+        &nbsp;&nbsp;backgroundColor: "yellow", fontSize: "150%" <br>
+        &#125;);
+      </td>
+      <td>
+        $(el).css(&#123; <br>
+        &nbsp;&nbsp;"background-color": "yellow", "font-size": "150%" <br>
+        &#125;);
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div style="padding: 10px; border: 1px solid #ccc; margin-top: 10px;">
+    <p id="jqCssTarget4">Multi-property target.</p>
+    <button type="button" id="setCssBtn">Set background + font-size (both ways)</button>
+    <div id="demo5" style="padding-top: 6px;"></div>
+  </div>
+  <p><strong><i>Note: </i></strong>This page loads jQuery from a CDN, so both columns' code actually runs against the scoped demo elements above.</p>
 </section>
 <br>
 <!--Main Section End-->
 
 <!--External JavaScript Library Inclusion Start-->
-<!--<script type="text/javascript" rel="script" src="#"></script>-->
+<script type="text/javascript" rel="script" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <!--External JavaScript Library Inclusion End-->
 
 <!--Internal JavaScript Library Inclusion Start-->
@@ -369,7 +478,50 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    document.getElementById("addClassBtn").addEventListener("click", function () {
+      document.getElementById("jqCssTarget1").classList.add("important-demo");
+      $("#jqCssTarget1").addClass("blue-demo");
+      const classes = document.getElementById("jqCssTarget1").className;
+      document.getElementById("demo1").innerHTML = "Classes now: " + classes;
+    });
+  })();
 
+  (function () {
+    document.getElementById("jqCssTarget1") && document.getElementById("jqCssTarget1").classList.add("blue-demo");
+    document.getElementById("removeClassBtn").addEventListener("click", function () {
+      document.getElementById("jqCssTarget1").classList.remove("blue-demo");
+      $("#jqCssTarget1").removeClass("important-demo");
+      const classes = document.getElementById("jqCssTarget1").className;
+      document.getElementById("demo2").innerHTML = "Classes now: '" + classes + "' (both removed)";
+    });
+  })();
+
+  (function () {
+    document.getElementById("toggleClassBtn").addEventListener("click", function () {
+      document.getElementById("jqCssTarget2").classList.toggle("important-demo");
+      $("#jqCssTarget2").toggleClass("important-demo");
+      const has = document.getElementById("jqCssTarget2").classList.contains("important-demo");
+      document.getElementById("demo3").innerHTML = "important-demo present: " + has + " (toggled twice: vanilla then jQuery, net result unchanged)";
+    });
+  })();
+
+  (function () {
+    document.getElementById("getCssBtn").addEventListener("click", function () {
+      const vanilla = getComputedStyle(document.getElementById("jqCssTarget3")).backgroundColor;
+      const jq = $("#jqCssTarget3").css("background-color");
+      document.getElementById("demo4").innerHTML = "Vanilla (getComputedStyle): " + vanilla + "<br>jQuery (.css()): " + jq;
+    });
+  })();
+
+  (function () {
+    document.getElementById("setCssBtn").addEventListener("click", function () {
+      const el = document.getElementById("jqCssTarget4");
+      Object.assign(el.style, { backgroundColor: "yellow", fontSize: "150%" });
+      $("#jqCssTarget4").css({ "border": "1px solid blue" });
+      document.getElementById("demo5").innerHTML = "Set: background-color + font-size via vanilla, border via jQuery.";
+    });
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
