@@ -322,45 +322,96 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Remove Elements: remove()</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    jQuery's <span class="code">remove()</span> deletes the selected element and all its children &mdash; equivalent to vanilla JS's <span class="code">el.remove()</span>.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
     <tr>
-      <th>Code Example</th>
-      <th>Sample Output</th>
+      <th>Vanilla JavaScript</th>
+      <th>jQuery</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>document.getElementById("jqRemoveDiv").remove();</td>
+      <td>$("#jqRemoveDiv").remove();</td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+  <div style="padding: 10px; border: 1px solid #ccc; margin-top: 10px;">
+    <div id="jqRemoveDiv" style="padding: 6px; background: #eee;">This div will be removed (vanilla JS button) or re-created then removed (jQuery button).</div>
+    <button type="button" id="removeVanillaBtn">Remove via Vanilla JS</button>
+    <button type="button" id="removeJqBtn">Reset + Remove via jQuery</button>
+    <div id="demo1" style="padding-top: 6px;"></div>
+  </div>
+
+  <h3>Remove Only Children: empty()</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    <span class="code">empty()</span> removes only the children of the selected element; the element itself stays &mdash; equivalent to setting <span class="code">innerHTML = ""</span>.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Vanilla JavaScript</th>
+      <th>jQuery</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>document.getElementById("jqEmptyDiv").innerHTML = "";</td>
+      <td>$("#jqEmptyDiv").empty();</td>
+    </tr>
+    </tbody>
+  </table>
+  <div style="padding: 10px; border: 1px solid #ccc; margin-top: 10px;">
+    <div id="jqEmptyDiv" style="padding: 6px; background: #eee;"><p>Child 1</p><p>Child 2</p></div>
+    <button type="button" id="emptyBtn">Empty via jQuery</button>
+    <div id="demo2" style="padding-top: 6px;"></div>
+  </div>
+
+  <h3>Filtering What Gets Removed</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">remove()</span> accepts an optional selector so only matching elements, among those selected, are removed.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Vanilla JavaScript</th>
+      <th>jQuery</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        document.querySelectorAll(".jqFilterTest") <br>
+        &nbsp;&nbsp;.forEach(el =&gt; el.remove());
+      </td>
+      <td>$("#jqFilterGroup p").remove(".jqFilterTest");</td>
+    </tr>
+    </tbody>
+  </table>
+  <div style="padding: 10px; border: 1px solid #ccc; margin-top: 10px;" id="jqFilterGroup">
+    <p class="jqFilterTest">Marked for removal (test).</p>
+    <p>Kept paragraph.</p>
+    <p class="jqFilterTest">Marked for removal (test), second.</p>
+    <button type="button" id="filterRemoveBtn">Remove .jqFilterTest via jQuery</button>
+    <div id="demo3" style="padding-top: 6px;"></div>
+  </div>
+  <p><strong><i>Note: </i></strong>This page loads jQuery from a CDN, so both columns' code actually runs against the scoped demo boxes above.</p>
 </section>
 <br>
 <!--Main Section End-->
 
 <!--External JavaScript Library Inclusion Start-->
-<!--<script type="text/javascript" rel="script" src="#"></script>-->
+<script type="text/javascript" rel="script" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <!--External JavaScript Library Inclusion End-->
 
 <!--Internal JavaScript Library Inclusion Start-->
@@ -369,7 +420,41 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const container = document.getElementById("demo1").parentElement;
+    document.getElementById("removeVanillaBtn").addEventListener("click", function () {
+      const el = document.getElementById("jqRemoveDiv");
+      if (el) el.remove();
+      document.getElementById("demo1").innerHTML = "Removed via vanilla JS. jqRemoveDiv exists: " + !!document.getElementById("jqRemoveDiv");
+    });
+    document.getElementById("removeJqBtn").addEventListener("click", function () {
+      if (!document.getElementById("jqRemoveDiv")) {
+        const fresh = document.createElement("div");
+        fresh.id = "jqRemoveDiv";
+        fresh.style.padding = "6px";
+        fresh.style.background = "#eee";
+        fresh.textContent = "Re-created div, about to be removed by jQuery.";
+        container.insertBefore(fresh, document.getElementById("removeVanillaBtn"));
+      }
+      $("#jqRemoveDiv").remove();
+      document.getElementById("demo1").innerHTML = "Removed via jQuery. jqRemoveDiv exists: " + !!document.getElementById("jqRemoveDiv");
+    });
+  })();
 
+  (function () {
+    document.getElementById("emptyBtn").addEventListener("click", function () {
+      $("#jqEmptyDiv").empty();
+      document.getElementById("demo2").innerHTML = "Emptied. jqEmptyDiv innerHTML now: '" + document.getElementById("jqEmptyDiv").innerHTML + "' (element itself still exists)";
+    });
+  })();
+
+  (function () {
+    document.getElementById("filterRemoveBtn").addEventListener("click", function () {
+      $("#jqFilterGroup p").remove(".jqFilterTest");
+      const remainingCount = document.querySelectorAll("#jqFilterGroup p").length;
+      document.getElementById("demo3").innerHTML = "Remaining &lt;p&gt; elements in group: " + remainingCount + " (should be 1 — the kept paragraph)";
+    });
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
