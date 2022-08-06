@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>SVG (Scalable Vector Graphics)</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    SVG defines vector-based graphics in XML, embedded directly in HTML. Because shapes are defined mathematically rather than as pixels, SVG graphics stay sharp at any zoom level or size.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,14 +337,49 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        &lt;svg width="100" height="100"&gt; <br>
+        &nbsp;&nbsp;&lt;circle cx="50" cy="50" r="40" <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;stroke="green" stroke-width="4" fill="yellow" /&gt; <br>
+        &lt;/svg&gt;
+      </td>
+      <td id="demo1">
+        <svg width="100" height="100">
+          <circle cx="50" cy="50" r="40" stroke="green" stroke-width="4" fill="yellow"></circle>
+        </svg>
+      </td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>HTML Canvas</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    The <span class="code">&lt;canvas&gt;</span> element is a blank bitmap drawing surface. JavaScript draws shapes, gradients, images, and text onto it pixel-by-pixel via the Canvas API. Unlike SVG, canvas content is not made of individually addressable DOM elements &mdash; it's a single raster image. See <a href="143_JS_HTML_Canvas.html">JS Graphics - HTML Canvas</a> for a full walkthrough.
+  </p>
+
+  <h3>Plotting with JavaScript Libraries</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Several JavaScript libraries build charts and graphs on top of SVG or Canvas: <span class="code">Plotly.js</span>, <span class="code">Chart.js</span>, <span class="code">Google Charts</span>, and <span class="code">D3.js</span>. Each is covered on its own page later in this tutorial:
+  </p>
+  <ul style="padding-left: 40px;">
+    <li><a href="144_Plotly_JS.html">JS Graphics - Plotly.js</a></li>
+    <li><a href="145_Chart_JS.html">JS Graphics - Chart.js</a></li>
+    <li><a href="146_D3_JS.html">JS Graphics - D3.js</a></li>
+    <li><a href="147_Google_Chart_JS.html">JS Graphics - Google Chart</a></li>
+  </ul>
+
+  <h3>Google Maps</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The Google Maps API lets a page embed an interactive map. It requires a Google Maps API key and real network access, so it is not demonstrated in this tutorial.
+  </p>
+
+  <h3>HTML + JavaScript Games</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Games built with HTML and JavaScript typically combine the <span class="code">&lt;canvas&gt;</span> element for rendering with <span class="code">requestAnimationFrame()</span> for the game loop and keyboard/mouse event listeners for input.
   </p>
 </section>
 <br>
