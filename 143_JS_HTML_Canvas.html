@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>What is HTML Canvas?</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    The <span class="code">&lt;canvas&gt;</span> element is a container; it is blank until a script draws on it. Canvas has methods for drawing paths, boxes, circles, text, and images, and can be animated and made interactive. <span class="code">id</span> is required so JavaScript can reference it; <span class="code">width</span>/<span class="code">height</span> set its size (default 300&times;150px, with no border).
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,15 +337,131 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        &lt;canvas id="myCanvas" width="200" height="100" <br>
+        &nbsp;&nbsp;style="border:1px solid #000000;"&gt;&lt;/canvas&gt;
+      </td>
+      <td><canvas id="demo1" width="200" height="100" style="border:1px solid #000000;"></canvas></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Draw on the Canvas: fillRect()</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Three steps to draw: (1) find the canvas with <span class="code">getElementById()</span>, (2) get a drawing context with <span class="code">getContext("2d")</span>, (3) set properties like <span class="code">fillStyle</span> and call a drawing method like <span class="code">fillRect(x, y, width, height)</span>.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const canvas = document.getElementById("myCanvas"); <br>
+        const ctx = canvas.getContext("2d"); <br>
+        ctx.fillStyle = "red"; <br>
+        ctx.fillRect(0, 0, 150, 75);
+      </td>
+      <td><canvas id="demo2" width="200" height="100" style="border:1px solid #000000;"></canvas></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Drawing Lines</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">beginPath()</span> starts a new path, <span class="code">moveTo(x,y)</span> sets the start point, <span class="code">lineTo(x,y)</span> sets the end point, and <span class="code">stroke()</span> renders the line (black by default).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        ctx.beginPath(); <br>
+        ctx.moveTo(0, 0); <br>
+        ctx.lineTo(200, 100); <br>
+        ctx.stroke();
+      </td>
+      <td><canvas id="demo3" width="200" height="100" style="border:1px solid #000000;"></canvas></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Drawing Circles: arc()</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">arc(x, y, radius, startAngle, endAngle, counterclockwise?)</span> defines a circular path. A full circle uses angles 0 to <span class="code">2 * Math.PI</span>; a half circle stops at <span class="code">Math.PI</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        ctx.beginPath(); <br>
+        ctx.arc(95, 50, 40, 0, 2 * Math.PI); <br>
+        ctx.fillStyle = "red"; <br>
+        ctx.fill(); <br>
+        ctx.lineWidth = 4; <br>
+        ctx.strokeStyle = "blue"; <br>
+        ctx.stroke();
+      </td>
+      <td><canvas id="demo4" width="200" height="100" style="border:1px solid #000000;"></canvas></td>
+    </tr>
+    <tr>
+      <td>
+        ctx.beginPath(); <br>
+        ctx.arc(95, 50, 40, 0, Math.PI); &nbsp;&nbsp;// half circle <br>
+        ctx.fillStyle = "red"; <br>
+        ctx.fill(); <br>
+        ctx.stroke();
+      </td>
+      <td><canvas id="demo5" width="200" height="100" style="border:1px solid #000000;"></canvas></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Canvas Can Draw Text, Be Animated, and Be Interactive</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Beyond shapes, canvas can draw colorful text, support animation (from a bouncing ball to a full game loop), and respond to click/touch events &mdash; which is why it's a common foundation for browser games and charting libraries like Chart.js.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        ctx.font = "30px Arial"; <br>
+        ctx.fillStyle = "green"; <br>
+        ctx.fillText("Hello Canvas", 10, 50);
+      </td>
+      <td><canvas id="demo6" width="200" height="100" style="border:1px solid #000000;"></canvas></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>All six canvases above are real, live <span class="code">&lt;canvas&gt;</span> elements drawn by the page's own JavaScript, not static images.</p>
 </section>
 <br>
 <!--Main Section End-->
@@ -369,7 +476,58 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const canvas = document.getElementById("demo1");
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "lightblue";
+    ctx.fillRect(10, 10, 60, 40);
+  })();
 
+  (function () {
+    const canvas = document.getElementById("demo2");
+    const ctx = canvas.getContext("2d");
+    ctx.fillStyle = "red";
+    ctx.fillRect(0, 0, 150, 75);
+  })();
+
+  (function () {
+    const canvas = document.getElementById("demo3");
+    const ctx = canvas.getContext("2d");
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(200, 100);
+    ctx.stroke();
+  })();
+
+  (function () {
+    const canvas = document.getElementById("demo4");
+    const ctx = canvas.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+    ctx.fillStyle = "red";
+    ctx.fill();
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "blue";
+    ctx.stroke();
+  })();
+
+  (function () {
+    const canvas = document.getElementById("demo5");
+    const ctx = canvas.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(95, 50, 40, 0, Math.PI);
+    ctx.fillStyle = "red";
+    ctx.fill();
+    ctx.stroke();
+  })();
+
+  (function () {
+    const canvas = document.getElementById("demo6");
+    const ctx = canvas.getContext("2d");
+    ctx.font = "30px Arial";
+    ctx.fillStyle = "green";
+    ctx.fillText("Hello Canvas", 10, 50);
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
