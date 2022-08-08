@@ -322,20 +322,17 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>Plotly.js</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Plotly.js is a free, open-source (MIT licensed) charting library built on D3.js and stack.gl. It draws bar charts, pie charts, scatter plots, line graphs, 3D charts, and more, all with built-in zoom/pan/hover interactivity.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
+
+  <h3>Bar Charts</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A bar trace needs <span class="code">x</span>/<span class="code">y</span> arrays and <span class="code">type: "bar"</span>. <span class="code">Plotly.newPlot(containerId, data, layout)</span> draws it into a target element.
+  </p>
   <br>
   <table>
     <thead>
@@ -346,21 +343,171 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        const data = [&#123; <br>
+        &nbsp;&nbsp;x: ["Norway", "Sweden", "Denmark"], <br>
+        &nbsp;&nbsp;y: [51, 32, 19], <br>
+        &nbsp;&nbsp;type: "bar", <br>
+        &nbsp;&nbsp;marker: &#123; color: "blue" &#125; <br>
+        &#125;]; <br>
+        Plotly.newPlot("myPlot1", data, &#123; title: "Bar Chart" &#125;);
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Pie and Donut Charts</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    Setting <span class="code">type: "pie"</span> with <span class="code">labels</span>/<span class="code">values</span> arrays draws a pie chart. Adding <span class="code">hole: .4</span> to the same trace turns it into a donut.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const data = [&#123; <br>
+        &nbsp;&nbsp;values: [51, 32, 19], <br>
+        &nbsp;&nbsp;labels: ["Norway", "Sweden", "Denmark"], <br>
+        &nbsp;&nbsp;type: "pie", <br>
+        &nbsp;&nbsp;hole: .4 <br>
+        &#125;]; <br>
+        Plotly.newPlot("myPlot2", data, &#123; title: "Donut Chart" &#125;);
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Plotting Equations</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Any JavaScript expression can be evaluated across a range of x values and plotted as a line, by building matching <span class="code">x</span>/<span class="code">y</span> arrays in a loop.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const xValues = [], yValues = []; <br>
+        for (let x = 0; x &lt;= 10; x += 0.1) &#123; <br>
+        &nbsp;&nbsp;xValues.push(x); <br>
+        &nbsp;&nbsp;yValues.push(Math.sin(x)); <br>
+        &#125; <br>
+        const data = [&#123; x: xValues, y: yValues, mode: "lines" &#125;]; <br>
+        Plotly.newPlot("myPlot3", data, &#123; title: "y = Math.sin(x)" &#125;);
+      </td>
+      <td id="demo3"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Scatter Plots and Line Graphs</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    The same data can be drawn as discrete points (<span class="code">mode: "markers"</span>) or as a connected line (<span class="code">mode: "lines"</span>). Axis ranges and titles are set in <span class="code">layout</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const trace1 = &#123; <br>
+        &nbsp;&nbsp;x: [900, 1000, 1100, 1200, 1300], <br>
+        &nbsp;&nbsp;y: [220000, 250000, 270000, 300000, 310000], <br>
+        &nbsp;&nbsp;mode: "markers", type: "scatter" <br>
+        &#125;; <br>
+        const layout = &#123; <br>
+        &nbsp;&nbsp;xaxis: &#123; range: [800, 1400], title: "Size (sqft)" &#125;, <br>
+        &nbsp;&nbsp;yaxis: &#123; range: [200000, 320000], title: "Price" &#125; <br>
+        &#125;; <br>
+        Plotly.newPlot("myPlot4", [trace1], layout);
+      </td>
+      <td id="demo4"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Bubble Plots</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A scatter trace becomes a bubble chart when <span class="code">marker.size</span> (and optionally <span class="code">marker.color</span>) are arrays instead of single values &mdash; each point varies independently.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const trace1 = &#123; <br>
+        &nbsp;&nbsp;x: [1, 2, 3, 4], <br>
+        &nbsp;&nbsp;y: [10, 15, 13, 17], <br>
+        &nbsp;&nbsp;mode: "markers", <br>
+        &nbsp;&nbsp;marker: &#123; size: [20, 40, 60, 80], color: ["red","blue","green","purple"] &#125; <br>
+        &#125;; <br>
+        Plotly.newPlot("myPlot5", [trace1], &#123; title: "Bubble Chart" &#125;);
+      </td>
+      <td id="demo5"></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Multiple Lines</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    Passing several traces in the <span class="code">data</span> array draws them all on one chart.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const trace1 = &#123; x: xValues, y: xValues, mode: "lines", name: "x" &#125;; <br>
+        const trace2 = &#123; x: xValues, y: xValues.map(x =&gt; 1.5*x), mode: "lines", name: "1.5x" &#125;; <br>
+        const trace3 = &#123; x: xValues, y: xValues.map(x =&gt; 1.5*x+7), mode: "lines", name: "1.5x+7" &#125;; <br>
+        Plotly.newPlot("myPlot6", [trace1, trace2, trace3]);
+      </td>
+      <td id="demo6"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>This page loads Plotly.js from a CDN, so all six charts above are real, interactive Plotly charts (hover for tooltips, drag to zoom), not static images.</p>
 </section>
 <br>
 <!--Main Section End-->
 
 <!--External JavaScript Library Inclusion Start-->
-<!--<script type="text/javascript" rel="script" src="#"></script>-->
+<script type="text/javascript" rel="script" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
 <!--External JavaScript Library Inclusion End-->
 
 <!--Internal JavaScript Library Inclusion Start-->
@@ -369,7 +516,69 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    const data = [{
+      x: ["Norway", "Sweden", "Denmark"],
+      y: [51, 32, 19],
+      type: "bar",
+      marker: { color: "blue" },
+    }];
+    Plotly.newPlot("demo1", data, { title: "Bar Chart", width: 350, height: 300 });
+  })();
 
+  (function () {
+    const data = [{
+      values: [51, 32, 19],
+      labels: ["Norway", "Sweden", "Denmark"],
+      type: "pie",
+      hole: .4,
+    }];
+    Plotly.newPlot("demo2", data, { title: "Donut Chart", width: 350, height: 300 });
+  })();
+
+  (function () {
+    const xValues = [], yValues = [];
+    for (let x = 0; x <= 10; x += 0.1) {
+      xValues.push(x);
+      yValues.push(Math.sin(x));
+    }
+    const data = [{ x: xValues, y: yValues, mode: "lines" }];
+    Plotly.newPlot("demo3", data, { title: "y = Math.sin(x)", width: 350, height: 300 });
+  })();
+
+  (function () {
+    const trace1 = {
+      x: [900, 1000, 1100, 1200, 1300],
+      y: [220000, 250000, 270000, 300000, 310000],
+      mode: "markers", type: "scatter",
+    };
+    const layout = {
+      title: "Scatter Plot",
+      width: 350, height: 300,
+      xaxis: { range: [800, 1400], title: "Size (sqft)" },
+      yaxis: { range: [200000, 320000], title: "Price" },
+    };
+    Plotly.newPlot("demo4", [trace1], layout);
+  })();
+
+  (function () {
+    const trace1 = {
+      x: [1, 2, 3, 4],
+      y: [10, 15, 13, 17],
+      mode: "markers",
+      marker: { size: [20, 40, 60, 80], color: ["red", "blue", "green", "purple"] },
+    };
+    Plotly.newPlot("demo5", [trace1], { title: "Bubble Chart", width: 350, height: 300 });
+  })();
+
+  (function () {
+    const xValues = [];
+    for (let x = 0; x <= 10; x += 1) xValues.push(x);
+    const trace1 = { x: xValues, y: xValues, mode: "lines", name: "x" };
+    const trace2 = { x: xValues, y: xValues.map(x => 1.5 * x), mode: "lines", name: "1.5x" };
+    const trace3 = { x: xValues, y: xValues.map(x => 1.5 * x + 7), mode: "lines", name: "1.5x+7" };
+    Plotly.newPlot("demo6", [trace1, trace2, trace3], { title: "Multiple Lines", width: 350, height: 300 });
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
