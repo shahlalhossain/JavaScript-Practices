@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>How to Use Chart.js</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    Two steps: load Chart.js from a CDN, then add a <span class="code">&lt;canvas&gt;</span> element with a unique id. The <span class="code">Chart</span> constructor takes the canvas and a config object with <span class="code">type</span>, <span class="code">data</span>, and <span class="code">options</span>.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,21 +337,200 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        &lt;canvas id="myChart" style="width:100%;max-width:600px"&gt;&lt;/canvas&gt; <br>
+        new Chart("myChart", &#123; type: "bar", data: &#123;...&#125;, options: &#123;...&#125; &#125;);
+      </td>
+      <td><canvas id="demo1" style="max-width:320px; max-height:260px;"></canvas></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Bar Charts</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    <span class="code">type: "bar"</span> with <span class="code">labels</span> and a dataset's <span class="code">data</span> array. <span class="code">backgroundColor</span> can be a single color or an array for per-bar colors.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        new Chart("myChart", &#123; <br>
+        &nbsp;&nbsp;type: "bar", <br>
+        &nbsp;&nbsp;data: &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;labels: ["Italy", "France", "Spain", "USA", "Argentina"], <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;datasets: [&#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data: [55, 49, 44, 24, 15], <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;backgroundColor: ["red","blue","green","orange","brown"] <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&#125;] <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;);
+      </td>
+      <td><canvas id="demo2" style="max-width:320px; max-height:260px;"></canvas></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Horizontal Bars</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    In current Chart.js versions, bars go horizontal by setting <span class="code">indexAxis: "y"</span> in <span class="code">options</span> (older v2 tutorials used a separate <span class="code">"horizontalBar"</span> type, which no longer exists).
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        new Chart("myChart", &#123; <br>
+        &nbsp;&nbsp;type: "bar", <br>
+        &nbsp;&nbsp;data: &#123; ... &#125;, <br>
+        &nbsp;&nbsp;options: &#123; indexAxis: "y" &#125; <br>
+        &#125;);
+      </td>
+      <td><canvas id="demo3" style="max-width:320px; max-height:260px;"></canvas></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Pie and Doughnut Charts</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">type: "pie"</span> (or <span class="code">"doughnut"</span>) uses the same <span class="code">labels</span>/<span class="code">data</span>/<span class="code">backgroundColor</span> shape as a bar chart. A title is set under <span class="code">options.plugins.title</span>.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        new Chart("myChart", &#123; <br>
+        &nbsp;&nbsp;type: "doughnut", <br>
+        &nbsp;&nbsp;data: &#123; labels: [...], datasets: [&#123; data: [...], backgroundColor: [...] &#125;] &#125;, <br>
+        &nbsp;&nbsp;options: &#123; plugins: &#123; title: &#123; display: true, text: "World Wide Wine Production" &#125; &#125; &#125; <br>
+        &#125;);
+      </td>
+      <td><canvas id="demo4" style="max-width:320px; max-height:260px;"></canvas></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Scatter Plots</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">type: "scatter"</span> plots an array of <span class="code">&#123;x, y&#125;</span> point objects as discrete markers.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        new Chart("myChart", &#123; <br>
+        &nbsp;&nbsp;type: "scatter", <br>
+        &nbsp;&nbsp;data: &#123; datasets: [&#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;data: [&#123;x:50,y:7&#125;, &#123;x:60,y:8&#125;, &#123;x:70,y:8&#125;, ...], <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;pointRadius: 4, pointBackgroundColor: "blue" <br>
+        &nbsp;&nbsp;&#125;] &#125; <br>
+        &#125;);
+      </td>
+      <td><canvas id="demo5" style="max-width:320px; max-height:260px;"></canvas></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Line Graphs and Multiple Lines</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    <span class="code">type: "line"</span> connects points with a line. Several datasets in the same chart draw multiple lines; <span class="code">fill: false</span> prevents each line from shading the area beneath it.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        new Chart("myChart", &#123; <br>
+        &nbsp;&nbsp;type: "line", <br>
+        &nbsp;&nbsp;data: &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;labels: xValues, <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;datasets: [ <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; data: y1, borderColor: "red", fill: false &#125;, <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; data: y2, borderColor: "green", fill: false &#125;, <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123; data: y3, borderColor: "blue", fill: false &#125; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;] <br>
+        &nbsp;&nbsp;&#125; <br>
+        &#125;);
+      </td>
+      <td><canvas id="demo6" style="max-width:320px; max-height:260px;"></canvas></td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h3>Function Graphs</h3>
+  <hr>
+  <p style="padding-top: 10px; padding-bottom: 10px;">
+    A helper function evaluates a formula across a range of x values, building the arrays that feed into a line chart &mdash; the same pattern used for Plotly's equation plots.
+  </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        function generateData(expr) &#123; <br>
+        &nbsp;&nbsp;const xValues = [], yValues = []; <br>
+        &nbsp;&nbsp;for (let x = 0; x &lt;= 10; x += 0.5) &#123; <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;xValues.push(x.toFixed(1)); <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;yValues.push(expr(x)); <br>
+        &nbsp;&nbsp;&#125; <br>
+        &nbsp;&nbsp;return &#123; xValues, yValues &#125;; <br>
+        &#125; <br>
+        const &#123; xValues, yValues &#125; = generateData(x =&gt; Math.sin(x));
+      </td>
+      <td><canvas id="demo7" style="max-width:320px; max-height:260px;"></canvas></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>This page loads Chart.js v4 from a CDN, so all seven charts above are real, interactive charts. The tutorial's original examples used Chart.js v2 syntax; this version uses current v4 option names (<span class="code">options.plugins.title</span> instead of a top-level <span class="code">title</span>, <span class="code">indexAxis: "y"</span> instead of a <span class="code">"horizontalBar"</span> type) since that's what the CDN now serves.</p>
 </section>
 <br>
 <!--Main Section End-->
 
 <!--External JavaScript Library Inclusion Start-->
-<!--<script type="text/javascript" rel="script" src="#"></script>-->
+<script type="text/javascript" rel="script" src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 <!--External JavaScript Library Inclusion End-->
 
 <!--Internal JavaScript Library Inclusion Start-->
@@ -369,7 +539,92 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    new Chart("demo1", {
+      type: "bar",
+      data: { labels: ["A", "B", "C"], datasets: [{ data: [3, 7, 4], backgroundColor: "blue" }] },
+      options: { plugins: { title: { display: true, text: "Minimal setup" }, legend: { display: false } } },
+    });
+  })();
 
+  (function () {
+    new Chart("demo2", {
+      type: "bar",
+      data: {
+        labels: ["Italy", "France", "Spain", "USA", "Argentina"],
+        datasets: [{ data: [55, 49, 44, 24, 15], backgroundColor: ["red", "blue", "green", "orange", "brown"] }],
+      },
+      options: { plugins: { title: { display: true, text: "Wine Production" }, legend: { display: false } } },
+    });
+  })();
+
+  (function () {
+    new Chart("demo3", {
+      type: "bar",
+      data: {
+        labels: ["Italy", "France", "Spain", "USA", "Argentina"],
+        datasets: [{ data: [55, 49, 44, 24, 15], backgroundColor: "teal" }],
+      },
+      options: { indexAxis: "y", plugins: { title: { display: true, text: "Horizontal Bars" }, legend: { display: false } } },
+    });
+  })();
+
+  (function () {
+    new Chart("demo4", {
+      type: "doughnut",
+      data: {
+        labels: ["Italy", "France", "Spain", "USA", "Argentina"],
+        datasets: [{ data: [55, 49, 44, 24, 15], backgroundColor: ["red", "blue", "green", "orange", "brown"] }],
+      },
+      options: { plugins: { title: { display: true, text: "World Wide Wine Production" } } },
+    });
+  })();
+
+  (function () {
+    const points = [];
+    for (let x = 50; x <= 150; x += 10) points.push({ x, y: 7 + (x - 50) / 15 });
+    new Chart("demo5", {
+      type: "scatter",
+      data: { datasets: [{ data: points, pointRadius: 4, pointBackgroundColor: "blue" }] },
+      options: { plugins: { title: { display: true, text: "Scatter Plot" }, legend: { display: false } } },
+    });
+  })();
+
+  (function () {
+    const xValues = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+    const y1 = xValues.map(x => x / 10);
+    const y2 = xValues.map(x => x / 10 + 20);
+    const y3 = xValues.map(x => x / 10 - 20);
+    new Chart("demo6", {
+      type: "line",
+      data: {
+        labels: xValues,
+        datasets: [
+          { data: y1, borderColor: "red", fill: false, label: "y1" },
+          { data: y2, borderColor: "green", fill: false, label: "y2" },
+          { data: y3, borderColor: "blue", fill: false, label: "y3" },
+        ],
+      },
+      options: { plugins: { title: { display: true, text: "Multiple Lines" } } },
+    });
+  })();
+
+  (function () {
+    function generateData(expr) {
+      const xValues = [], yValues = [];
+      for (let x = 0; x <= 10; x += 0.5) {
+        xValues.push(x.toFixed(1));
+        yValues.push(expr(x));
+      }
+      return { xValues, yValues };
+    }
+    const { xValues, yValues } = generateData(x => Math.sin(x));
+    new Chart("demo7", {
+      type: "line",
+      data: { labels: xValues, datasets: [{ data: yValues, borderColor: "rgba(255,0,0,0.6)", pointRadius: 1, fill: false }] },
+      options: { plugins: { title: { display: true, text: "y = Math.sin(x)" }, legend: { display: false } } },
+    });
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
