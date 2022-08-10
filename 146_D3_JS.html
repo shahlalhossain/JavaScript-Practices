@@ -322,20 +322,11 @@
 
 <!--Main Section Start-->
 <section class="content">
-  <h3>SectionTitle</h3>
+  <h3>How to Use D3.js</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    <span class="code">code</span> <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription <br>
-    SectionDescription
+    D3.js ("Data-Driven Documents") is a JavaScript library for manipulating documents using data, built around selecting DOM/SVG elements and binding data to them. <span class="code">d3.select()</span> selects an element; <span class="code">.append()</span> creates and inserts a new child.
   </p>
-  <ul style="padding-left: 40px;">
-    <li>item</li>
-  </ul>
   <br>
   <table>
     <thead>
@@ -346,21 +337,60 @@
     </thead>
     <tbody>
     <tr>
-      <td>Code</td>
-      <td>Output</td>
+      <td>
+        d3.select("#demo1") <br>
+        &nbsp;&nbsp;.append("p") <br>
+        &nbsp;&nbsp;.text("Hello World!");
+      </td>
+      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
-  <p><strong><i>Note: </i></strong>description</p>
+
+  <h3>Scatter Plot</h3>
+  <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
-    paragraph
+    A D3 chart is built from SVG shapes bound to data. The steps: (1) append an <span class="code">&lt;svg&gt;</span> and a <span class="code">&lt;g&gt;</span> group translated by a margin, (2) create linear scales mapping data values to pixel coordinates, (3) draw axes with <span class="code">d3.axisBottom()</span>/<span class="code">d3.axisLeft()</span>, (4) bind an array of points to <span class="code">&lt;circle&gt;</span> elements with <span class="code">.data().enter().append()</span>, passing each coordinate through its scale.
   </p>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th>Code Example</th>
+      <th>Sample Output</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>
+        const margin = 40, size = 300; <br>
+        const data = d3.range(50).map(() =&gt; [Math.random()*500, Math.random()*500]); <br>
+        <br>
+        const svg = d3.select("#demo2").append("svg") <br>
+        &nbsp;&nbsp;.attr("width", size + 2*margin).attr("height", size + 2*margin) <br>
+        &nbsp;&nbsp;.append("g").attr("transform", `translate($&#123;margin&#125;,$&#123;margin&#125;)`); <br>
+        <br>
+        const x = d3.scaleLinear().domain([0, 500]).range([0, size]); <br>
+        const y = d3.scaleLinear().domain([0, 500]).range([size, 0]); <br>
+        <br>
+        svg.append("g").attr("transform", `translate(0,$&#123;size&#125;)`).call(d3.axisBottom(x)); <br>
+        svg.append("g").call(d3.axisLeft(y)); <br>
+        <br>
+        svg.selectAll("circle").data(data).enter().append("circle") <br>
+        &nbsp;&nbsp;.attr("cx", d =&gt; x(d[0])).attr("cy", d =&gt; y(d[1])) <br>
+        &nbsp;&nbsp;.attr("r", 3).attr("fill", "red");
+      </td>
+      <td id="demo2"></td>
+    </tr>
+    </tbody>
+  </table>
+  <p><strong><i>Note: </i></strong>This page loads D3 v7 (the original W3Schools lesson loads v3, but then uses v4+ API names like <span class="code">d3.scaleLinear</span>, which don't exist in v3 &mdash; so this version is updated to a consistent, current D3 release). The dot coordinates are also passed through the <span class="code">x()</span>/<span class="code">y()</span> scale functions, fixing a bug in the original lesson where the raw 0&ndash;500 data values were plotted directly against a 0&ndash;420 pixel area, misaligning the dots with the axis ticks.</p>
 </section>
 <br>
 <!--Main Section End-->
 
 <!--External JavaScript Library Inclusion Start-->
-<!--<script type="text/javascript" rel="script" src="#"></script>-->
+<script type="text/javascript" rel="script" src="https://d3js.org/d3.v7.min.js"></script>
 <!--External JavaScript Library Inclusion End-->
 
 <!--Internal JavaScript Library Inclusion Start-->
@@ -369,7 +399,30 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
+  (function () {
+    d3.select("#demo1")
+      .append("p")
+      .text("Hello World!");
+  })();
 
+  (function () {
+    const margin = 40, size = 300;
+    const data = d3.range(50).map(() => [Math.random() * 500, Math.random() * 500]);
+
+    const svg = d3.select("#demo2").append("svg")
+      .attr("width", size + 2 * margin).attr("height", size + 2 * margin)
+      .append("g").attr("transform", `translate(${margin},${margin})`);
+
+    const x = d3.scaleLinear().domain([0, 500]).range([0, size]);
+    const y = d3.scaleLinear().domain([0, 500]).range([size, 0]);
+
+    svg.append("g").attr("transform", `translate(0,${size})`).call(d3.axisBottom(x));
+    svg.append("g").call(d3.axisLeft(y));
+
+    svg.selectAll("circle").data(data).enter().append("circle")
+      .attr("cx", d => x(d[0])).attr("cy", d => y(d[1]))
+      .attr("r", 3).attr("fill", "red");
+  })();
 </script>
 <!--Page Specific JavaScript End-->
 </body>
