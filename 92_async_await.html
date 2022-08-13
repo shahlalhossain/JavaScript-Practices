@@ -329,7 +329,7 @@
     <span class="code">async</span> makes a function return a Promise. <span class="code">await</span> makes a function wait for a Promise.
   </p>
 
-  <h3>The async Keyword</h3>
+  <h3 style="padding-top: 20px;">The async Keyword</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The keyword <span class="code">async</span> before a function makes the function return a Promise.
@@ -360,7 +360,7 @@
   </table>
   <p><strong><i>Note: </i></strong>This is the same as: <span class="code">function myFunction() &#123; return Promise.resolve("Hello"); &#125;</span></p>
 
-  <h3>The await Keyword</h3>
+  <h3 style="padding-top: 20px;">The await Keyword</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">await</span> keyword can only be used inside an <span class="code">async</span> function. It makes the function pause until a Promise settles, and returns the resolved value.
@@ -387,7 +387,7 @@
     </tbody>
   </table>
 
-  <h3>What Happens During await?</h3>
+  <h3 style="padding-top: 20px;">What Happens During await?</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">await</span> only pauses the <span class="code">async</span> function it's in. The rest of the program keeps running.
@@ -422,7 +422,7 @@
   </table>
   <p><strong><i>Note: </i></strong>The function waits, not JavaScript. Output order: "Start", "Continue", "Done".</p>
 
-  <h3>Compare Promise and await</h3>
+  <h3 style="padding-top: 20px;">Compare Promise and await</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The following two examples do exactly the same thing: one using <span class="code">.then()</span> chaining, the other using <span class="code">async</span>/<span class="code">await</span>.
@@ -462,7 +462,7 @@
   </table>
   <p><strong><i>Note: </i></strong><span class="code">async</span>/<span class="code">await</span> reads like synchronous code, which many developers find easier to follow than a chain of <span class="code">.then()</span> calls.</p>
 
-  <h3>Handling Errors</h3>
+  <h3 style="padding-top: 20px;">Handling Errors</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Use <span class="code">try...catch</span> to handle a rejected Promise inside an <span class="code">async</span> function.
@@ -497,7 +497,7 @@
   </table>
   <p><strong><i>Note: </i></strong>Without <span class="code">try...catch</span>, an awaited rejection becomes an unhandled Promise rejection, which can crash a Node.js process or log an uncaught error in the browser console.</p>
 
-  <h3>Multiple await</h3>
+  <h3 style="padding-top: 20px;">Multiple await</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Multiple sequential <span class="code">await</span> statements will run one after another, each one waiting for the previous to settle, which can add up in total time.
@@ -530,13 +530,13 @@
   </table>
   <p><strong><i>Note: </i></strong>Three sequential 30ms awaits take about 90ms total, not 30ms. If the operations do not depend on each other, start them together with <span class="code">Promise.all()</span> instead.</p>
 
-  <h3>Summary</h3>
+  <h3 style="padding-top: 20px;">Summary</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">async</span> makes a function return a Promise. <span class="code">await</span> makes a function wait for a Promise, and can only be used inside an async function. <span class="code">async</span>/<span class="code">await</span> makes promise-based code read like synchronous code. Use <span class="code">try...catch</span> to handle errors. Sequential awaits run one after another; independent operations should be started together.
   </p>
 
-  <h3>More Examples</h3>
+  <h3 style="padding-top: 20px;">More Examples</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     An <span class="code">async</span> function's <span class="code">return</span> value is automatically wrapped in a resolved Promise, the same as writing <span class="code">Promise.resolve()</span> explicitly.
@@ -571,7 +571,7 @@
     </tbody>
   </table>
 
-  <h3>Why async and await Exist</h3>
+  <h3 style="padding-top: 20px;">Why async and await Exist</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">async</span>/<span class="code">await</span> was introduced to reduce the nesting and chaining needed with plain Promises.
@@ -611,7 +611,7 @@
     </tbody>
   </table>
 
-  <h3>Common Beginner Mistakes</h3>
+  <h3 style="padding-top: 20px;">Common Beginner Mistakes</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Using <span class="code">await</span> outside of an <span class="code">async</span> function (this is a SyntaxError, except at the top level of a module). Forgetting to wrap awaited code in <span class="code">try...catch</span>, leaving rejections unhandled.

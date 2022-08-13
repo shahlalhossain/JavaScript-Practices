@@ -329,7 +329,7 @@
     A JavaScript Promise is an object that represents the eventual completion (or failure) of an asynchronous operation. A Promise is a placeholder for a future result. It starts in a pending state, and settles into either fulfilled (the operation succeeded) or rejected (the operation failed).
   </p>
 
-  <h3>Why Promises?</h3>
+  <h3 style="padding-top: 20px;">Why Promises?</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Before Promises, asynchronous code relied on nested callbacks, where each step waits for the previous one using a callback function. Deeply nested callbacks are hard to read and maintain, a pattern often called "callback hell".
@@ -381,7 +381,7 @@
     </tbody>
   </table>
 
-  <h3>Promise States</h3>
+  <h3 style="padding-top: 20px;">Promise States</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     A Promise is always in one of these states:
@@ -402,7 +402,7 @@
   </table>
   <p><strong><i>Note: </i></strong>A Promise is "settled" once it becomes either fulfilled or rejected. A settled Promise never changes state again.</p>
 
-  <h3>Promises Returned by JavaScript APIs</h3>
+  <h3 style="padding-top: 20px;">Promises Returned by JavaScript APIs</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Many browser APIs, like <span class="code">fetch()</span>, return a Promise immediately, while the actual work (such as a network download) continues in the background.
@@ -428,7 +428,7 @@
     </tbody>
   </table>
 
-  <h3>How then() Works</h3>
+  <h3 style="padding-top: 20px;">How then() Works</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">fetch()</span> returns a Promise. <span class="code">then()</span> registers a callback for when the Promise is fulfilled. JavaScript continues executing the rest of the script. Once the Promise is fulfilled, the registered callback runs.
@@ -453,7 +453,7 @@
     </tbody>
   </table>
 
-  <h3>Creating a Promise</h3>
+  <h3 style="padding-top: 20px;">Creating a Promise</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <strong>Syntax</strong> <br>
@@ -481,7 +481,7 @@
   </table>
   <p><strong><i>Note: </i></strong>The function passed to <span class="code">new Promise()</span> should call exactly one of <span class="code">resolve()</span> or <span class="code">reject()</span>. A Promise settles only once.</p>
 
-  <h3>Example: Create and Use a Promise</h3>
+  <h3 style="padding-top: 20px;">Example: Create and Use a Promise</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     This example creates a Promise with a hardcoded success flag, resolving with a success message, or rejecting with a failure message.
@@ -516,7 +516,7 @@
     </tbody>
   </table>
 
-  <h3>The then() Method</h3>
+  <h3 style="padding-top: 20px;">The then() Method</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">then()</span> method takes two functions as arguments: one for when the Promise is fulfilled, and one for when it is rejected. It returns a new Promise, which is why multiple <span class="code">.then()</span> calls can be chained.
@@ -541,7 +541,7 @@
     </tbody>
   </table>
 
-  <h3>The catch() Method</h3>
+  <h3 style="padding-top: 20px;">The catch() Method</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">catch()</span> method takes one function, and is called when the Promise is rejected, or an error is thrown anywhere earlier in the chain.
@@ -569,7 +569,7 @@
     </tbody>
   </table>
 
-  <h3>The finally() Method</h3>
+  <h3 style="padding-top: 20px;">The finally() Method</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">finally()</span> method is called, whether the Promise is fulfilled or rejected.
@@ -596,7 +596,7 @@
     </tbody>
   </table>
 
-  <h3>Promise Chaining</h3>
+  <h3 style="padding-top: 20px;">Promise Chaining</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Promises can be chained, with each step building on the result of the previous one.
@@ -627,7 +627,7 @@
     </tbody>
   </table>
 
-  <h3>Returning a Promise</h3>
+  <h3 style="padding-top: 20px;">Returning a Promise</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     If a <span class="code">then()</span> callback returns a Promise, the next <span class="code">then()</span> in the chain waits for it to settle before running.
@@ -652,7 +652,7 @@
     </tbody>
   </table>
 
-  <h3>Common Promise Mistakes</h3>
+  <h3 style="padding-top: 20px;">Common Promise Mistakes</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <strong>Forgetting to Return a Promise:</strong> if a <span class="code">then()</span> callback starts another async step but doesn't return it, the chain moves on before that step finishes.
@@ -720,19 +720,19 @@
   </table>
   <p><strong><i>Note: </i></strong>The output order is: "Start", "JavaScript continues", "Finished." The <span class="code">.then()</span> callback always runs after the current script has finished, even if the Promise is already resolved.</p>
 
-  <h3>Promises and Asynchronous Programming</h3>
+  <h3 style="padding-top: 20px;">Promises and Asynchronous Programming</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Promises do not, by themselves, make code asynchronous. They represent the eventual result of operations that are already asynchronous, such as <span class="code">fetch()</span> or <span class="code">setTimeout()</span>.
   </p>
 
-  <h3>Promises and the Event Loop</h3>
+  <h3 style="padding-top: 20px;">Promises and the Event Loop</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Promise callbacks (passed to <span class="code">then()</span>, <span class="code">catch()</span>, <span class="code">finally()</span>) are placed on the microtask queue, and run only after the current synchronous code has finished, via the Event Loop.
   </p>
 
-  <h3>Promises vs Callbacks</h3>
+  <h3 style="padding-top: 20px;">Promises vs Callbacks</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Promises address several problems with plain callbacks:
@@ -752,7 +752,7 @@
     </tbody>
   </table>
 
-  <h3>Summary</h3>
+  <h3 style="padding-top: 20px;">Summary</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     A Promise has 3 states: pending, fulfilled, rejected. Use <span class="code">then()</span> to handle a fulfilled Promise. Use <span class="code">catch()</span> to handle a rejected Promise. Use <span class="code">finally()</span> for code that must run regardless of outcome. Returning a Promise from a <span class="code">then()</span> callback lets the chain wait for it. Functions like <span class="code">fetch()</span> return Promises.

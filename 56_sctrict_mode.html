@@ -330,7 +330,7 @@
     The purpose of <span class="code">"use strict"</span> is to indicate that the code should be executed in "strict mode". With strict mode, you can not, for example, use undeclared variables.
   </p>
 
-  <h3>Declaring Strict Mode</h3>
+  <h3 style="padding-top: 20px;">Declaring Strict Mode</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Strict mode is declared by adding <span class="code">"use strict";</span> to the beginning of a script or a function. Declared at the beginning of a script, it has global scope (all code in the script will execute in strict mode).
@@ -379,14 +379,14 @@
     </tbody>
   </table>
 
-  <h3>The "use strict"; Syntax</h3>
+  <h3 style="padding-top: 20px;">The "use strict"; Syntax</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The syntax was designed this way (as a string literal, and not actual syntax) to be compatible with older browsers that do not support strict mode. <br>
     A script or function with <span class="code">"use strict";</span> on a line before any other statements signals that the code should be executed in strict mode.
   </p>
 
-  <h3>Why Strict Mode?</h3>
+  <h3 style="padding-top: 20px;">Why Strict Mode?</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Strict mode makes it easier to write "secure" JavaScript. <br>
@@ -394,7 +394,7 @@
     In normal JavaScript, a developer will not receive any error feedback assigning values to non-writable properties. In strict mode, any assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object, will throw an error.
   </p>
 
-  <h3>Not Allowed in Strict Mode</h3>
+  <h3 style="padding-top: 20px;">Not Allowed in Strict Mode</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Using a variable or an object, without declaring it, is not allowed; deleting a variable (or object) is not allowed; deleting a function is not allowed; duplicating a parameter name is not allowed; octal numeric literals are not allowed; octal escape characters are not allowed; writing to a read-only or a get-only property is not allowed; deleting an undeletable property is not allowed; using the word <span class="code">eval</span> or <span class="code">arguments</span> as a variable name is not allowed; the <span class="code">with</span> statement is not allowed; <span class="code">eval()</span> creating variables in the scope from which it was called is not allowed.
@@ -424,7 +424,7 @@
   </table>
   <p><strong><i>Note: </i></strong>The <span class="code">with</span> statement and octal escape characters (like <span class="code">"\010"</span>) are also not allowed in strict mode. <span class="code">eval()</span> is not allowed to declare variables (with <span class="code">var</span> or <span class="code">let</span>) that leak into the surrounding scope.</p>
 
-  <h3>Watch Out!</h3>
+  <h3 style="padding-top: 20px;">Watch Out!</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Strict mode is supported in all modern browsers. <br>

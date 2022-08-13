@@ -347,14 +347,14 @@
   </table>
   <p><strong><i>Note: </i></strong>The <span class="code">addEventListener()</span> method attaches an event handler to an element without overwriting existing event handlers. You can add many event handlers to one element. You can add many event handlers of the same type to one element, i.e two "click" events. You can add event listeners to any DOM object, not only HTML elements, i.e the window object. The <span class="code">addEventListener()</span> method makes it easier to control how the event reacts to bubbling.</p>
 
-  <h3>Syntax</h3>
+  <h3 style="padding-top: 20px;">Syntax</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">element.addEventListener(event, function, useCapture);</span> <br>
     The first parameter is the type of the event (like "click" or "mousedown"). The second parameter is the function we want to call when the event occurs. The third parameter is a boolean value specifying whether to use event bubbling or event capturing. This parameter is optional.
   </p>
 
-  <h3>Add an Event Handler to an Element</h3>
+  <h3 style="padding-top: 20px;">Add an Event Handler to an Element</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     This example adds a click event to a button element:
@@ -391,7 +391,7 @@
     </tbody>
   </table>
 
-  <h3>Add Many Event Handlers to the Same Element</h3>
+  <h3 style="padding-top: 20px;">Add Many Event Handlers to the Same Element</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">addEventListener()</span> method allows you to add many events to the same element, without overwriting existing events.
@@ -438,7 +438,7 @@
     </tbody>
   </table>
 
-  <h3>Add an Event Handler to the window Object</h3>
+  <h3 style="padding-top: 20px;">Add an Event Handler to the window Object</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">addEventListener()</span> method allows you to add event listeners on any HTML DOM object available, such as HTML elements, the HTML document, the window object, or other objects that support events, like the <span class="code">xmlHttpRequest</span> object.
@@ -464,7 +464,7 @@
   </table>
   <p><strong><i>Note: </i></strong>Try resizing your browser window.</p>
 
-  <h3>Passing Parameters</h3>
+  <h3 style="padding-top: 20px;">Passing Parameters</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     When passing parameter values, use an "anonymous function" that calls the specified function with the parameters.
@@ -490,7 +490,7 @@
     </tbody>
   </table>
 
-  <h3>Event Bubbling or Event Capturing?</h3>
+  <h3 style="padding-top: 20px;">Event Bubbling or Event Capturing?</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     There are two ways of event propagation in the HTML DOM: bubbling and capturing. <br>
@@ -520,7 +520,7 @@
   </table>
   <p><strong><i>Note: </i></strong>With the <span class="code">useCapture</span> parameter set to true, you get capturing propagation, with the outer element's click event being handled first. The default value, false, gives bubbling propagation, where the inner element's click event is handled first.</p>
 
-  <h3>The removeEventListener() Method</h3>
+  <h3 style="padding-top: 20px;">The removeEventListener() Method</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">removeEventListener()</span> method removes an event handler that has been attached with the <span class="code">addEventListener()</span> method.
@@ -547,7 +547,7 @@
     </tbody>
   </table>
 
-  <h3>HTML DOM Event Object Reference</h3>
+  <h3 style="padding-top: 20px;">HTML DOM Event Object Reference</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     For a complete reference of all HTML DOM events, see our HTML DOM Event Object Reference.

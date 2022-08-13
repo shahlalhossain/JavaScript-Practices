@@ -328,7 +328,7 @@
     <span class="code">fetch()</span> loads data from a server; <span class="code">response.json()</span> parses the result as JSON.
   </p>
 
-  <h3>Loading JSON</h3>
+  <h3 style="padding-top: 20px;">Loading JSON</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The example below fetches a real file, <span class="code">data/customer.json</span>, and reads its <span class="code">name</span> property.
@@ -353,7 +353,7 @@
     </tbody>
   </table>
 
-  <h3>Loading a JSON Array</h3>
+  <h3 style="padding-top: 20px;">Loading a JSON Array</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     When the fetched file's top level is an array, <span class="code">response.json()</span> returns a JavaScript array. The example fetches <span class="code">data/products.json</span> and reads the first element.
@@ -378,7 +378,7 @@
     </tbody>
   </table>
 
-  <h3>Checking for Errors</h3>
+  <h3 style="padding-top: 20px;">Checking for Errors</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Check <span class="code">response.ok</span> and <span class="code">response.status</span> before trusting the parsed data.
@@ -402,7 +402,7 @@
     </tbody>
   </table>
 
-  <h3>Handling Errors</h3>
+  <h3 style="padding-top: 20px;">Handling Errors</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Wrap the load in <span class="code">try...catch</span>, and throw explicitly when <span class="code">response.ok</span> is false (HTTP errors do not reject the fetch Promise on their own).
@@ -434,7 +434,7 @@
     </tbody>
   </table>
 
-  <h3>Loading Multiple JSON Files</h3>
+  <h3 style="padding-top: 20px;">Loading Multiple JSON Files</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">Promise.all()</span> runs several fetches in parallel and resolves once all of them finish.
@@ -463,7 +463,7 @@
     </tbody>
   </table>
 
-  <h3>Sending JSON</h3>
+  <h3 style="padding-top: 20px;">Sending JSON</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     To send data to a server, use <span class="code">method: "POST"</span>, a <span class="code">Content-Type: application/json</span> header, and a <span class="code">body</span> created with <span class="code">JSON.stringify()</span>.

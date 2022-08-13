@@ -345,7 +345,7 @@
     </tbody>
   </table>
 
-  <h3>JSON Objects</h3>
+  <h3 style="padding-top: 20px;">JSON Objects</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     JSON objects hold key/value pairs in curly braces; names must be double-quoted strings. Objects can nest other objects and arrays.
@@ -380,7 +380,7 @@
     </tbody>
   </table>
 
-  <h3>JSON Arrays</h3>
+  <h3 style="padding-top: 20px;">JSON Arrays</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Arrays hold an ordered list of values in square brackets. Array elements can be any JSON value type, including other arrays or objects.
@@ -403,7 +403,7 @@
     </tbody>
   </table>
 
-  <h3>Nested Values</h3>
+  <h3 style="padding-top: 20px;">Nested Values</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Objects and arrays can contain each other, to any depth.
@@ -428,7 +428,7 @@
     </tbody>
   </table>
 
-  <h3>JSON String Values</h3>
+  <h3 style="padding-top: 20px;">JSON String Values</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Strings must use double quotes, and support backslash escapes: <span class="code">\"</span>, <span class="code">\/</span>, <span class="code">\\</span>, <span class="code">\b</span>, <span class="code">\f</span>, <span class="code">\n</span>, <span class="code">\r</span>, <span class="code">\t</span>, and <span class="code">\uXXXX</span>.
@@ -452,7 +452,7 @@
     </tbody>
   </table>
 
-  <h3>JSON Number Values</h3>
+  <h3 style="padding-top: 20px;">JSON Number Values</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Numbers can be integers, decimals, or use exponent notation. Numbers must not be quoted, have leading zeros, a leading <span class="code">+</span>, be <span class="code">NaN</span>/<span class="code">Infinity</span>, or use hex/octal notation.
@@ -475,7 +475,7 @@
     </tbody>
   </table>
 
-  <h3>JSON Boolean Values</h3>
+  <h3 style="padding-top: 20px;">JSON Boolean Values</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Only lowercase <span class="code">true</span>/<span class="code">false</span> are valid JSON booleans. Quoted <span class="code">"true"</span> becomes a string, and <span class="code">1</span>/<span class="code">0</span> are numbers, not booleans.
@@ -498,7 +498,7 @@
     </tbody>
   </table>
 
-  <h3>JSON Null</h3>
+  <h3 style="padding-top: 20px;">JSON Null</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">null</span> represents an intentionally empty value.
@@ -521,7 +521,7 @@
     </tbody>
   </table>
 
-  <h3>undefined Is Not a JSON Value</h3>
+  <h3 style="padding-top: 20px;">undefined Is Not a JSON Value</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">undefined</span> has no JSON representation. Use <span class="code">null</span> instead. <span class="code">JSON.stringify()</span> silently drops properties whose value is <span class="code">undefined</span>.
@@ -545,13 +545,13 @@
     </tbody>
   </table>
 
-  <h3>Unsupported JavaScript Values</h3>
+  <h3 style="padding-top: 20px;">Unsupported JavaScript Values</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     These JavaScript values have no JSON representation and must be converted (usually to a string) before being stored as JSON: Function, Date, Symbol, BigInt, NaN, Infinity, undefined.
   </p>
 
-  <h3>Date Values</h3>
+  <h3 style="padding-top: 20px;">Date Values</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Dates are not a JSON type. Store a date as a string, and convert it back to a <span class="code">Date</span> object after parsing.
@@ -575,7 +575,7 @@
     </tbody>
   </table>
 
-  <h3>Functions as Values</h3>
+  <h3 style="padding-top: 20px;">Functions as Values</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Functions are not a JSON type. A function can be stored as a string and recreated later (carefully &mdash; recreating code from a string has the same risks as <span class="code">eval()</span>).

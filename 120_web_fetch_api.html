@@ -328,7 +328,7 @@
     The Fetch API is a modern browser interface for making asynchronous network requests. It is a more powerful and flexible replacement for the older <span class="code">XMLHttpRequest</span>, and it is built on Promises.
   </p>
 
-  <h3>Fetching a Text File</h3>
+  <h3 style="padding-top: 20px;">Fetching a Text File</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">fetch()</span> takes a URL and returns a Promise. The example below fetches a real text file (<span class="code">data/fetch_demo.txt</span>) served from this site, reads the response as text with <span class="code">.text()</span>, and displays it.
@@ -354,7 +354,7 @@
   </table>
   <p><strong><i>Note: </i></strong>This example, and the ones below, require this page to be served over http(s):// (a local web server), not opened directly via file://, because Fetch is blocked for file:// URLs.</p>
 
-  <h3>Using an Asynchronous Function</h3>
+  <h3 style="padding-top: 20px;">Using an Asynchronous Function</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The same request can be written with <span class="code">async</span>/<span class="code">await</span>, which reads top-to-bottom instead of using chained <span class="code">.then()</span> calls.
@@ -381,7 +381,7 @@
     </tbody>
   </table>
 
-  <h3>The Response Object</h3>
+  <h3 style="padding-top: 20px;">The Response Object</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">fetch()</span> resolves to a Response object holding the server's response. Logged directly, it displays as <span class="code">[object Response]</span>.
@@ -405,7 +405,7 @@
     </tbody>
   </table>
 
-  <h3>The ok Property</h3>
+  <h3 style="padding-top: 20px;">The ok Property</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">ok</span> property is <span class="code">true</span> if the request succeeded.
@@ -429,7 +429,7 @@
     </tbody>
   </table>
 
-  <h3>The status Property</h3>
+  <h3 style="padding-top: 20px;">The status Property</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">status</span> property holds the HTTP status code of the response, such as 200 for a success.
@@ -453,7 +453,7 @@
     </tbody>
   </table>
 
-  <h3>The url Property</h3>
+  <h3 style="padding-top: 20px;">The url Property</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">url</span> property holds the full URL of the response.
@@ -477,7 +477,7 @@
     </tbody>
   </table>
 
-  <h3>Asynchronous Output</h3>
+  <h3 style="padding-top: 20px;">Asynchronous Output</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     JavaScript keeps running while a fetch is pending. The example below calls an async loader function, then immediately displays a second message — the "Loading..." message appears before the fetched result, proving the fetch did not block execution.
@@ -507,7 +507,7 @@
   </table>
   <p><strong><i>Note: </i></strong>Watch the output area above: "Loading..." is shown first, then replaced a moment later by the fetched file's text, demonstrating that the fetch runs asynchronously.</p>
 
-  <h3>Response Object Properties and Methods</h3>
+  <h3 style="padding-top: 20px;">Response Object Properties and Methods</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The Response object exposes these properties and methods for reading request results and the response body:
@@ -544,7 +544,7 @@
     </tbody>
   </table>
 
-  <h3>Checking for HTTP Errors</h3>
+  <h3 style="padding-top: 20px;">Checking for HTTP Errors</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     HTTP errors like 404 do NOT reject the fetch Promise — the request still "succeeds" at the network level. The <span class="code">ok</span> property must be checked explicitly to detect them. The example below deliberately fetches a file that does not exist.
@@ -573,7 +573,7 @@
   </table>
   <p><strong><i>Note: </i></strong>Most fetch problems are path or response issues, not JavaScript errors. Check the browser console, then the Network tab, for the file name, path, and status code.</p>
 
-  <h3>Fetch API vs. XMLHttpRequest (XHR)</h3>
+  <h3 style="padding-top: 20px;">Fetch API vs. XMLHttpRequest (XHR)</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Fetch is the modern replacement for XHR, with a cleaner Promise-based syntax:

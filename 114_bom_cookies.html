@@ -329,13 +329,13 @@
     When a server receives an HTTP request, there is no way to know if the request comes from a user that visited the website before or if it is the first time. Cookies work as a memory for the web server; with cookies, web servers can deliver a page tailored to a particular user, or the page itself can contain some script that knows about the history of the user to present the user some old history information.
   </p>
 
-  <h3>How does JavaScript Handle Cookies?</h3>
+  <h3 style="padding-top: 20px;">How does JavaScript Handle Cookies?</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     JavaScript can create, read, and delete cookies with the <span class="code">document.cookie</span> property.
   </p>
 
-  <h3>Create a Cookie with JavaScript</h3>
+  <h3 style="padding-top: 20px;">Create a Cookie with JavaScript</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     With JavaScript, a cookie can be created like this:
@@ -396,7 +396,7 @@
     </tbody>
   </table>
 
-  <h3>Read a Cookie with JavaScript</h3>
+  <h3 style="padding-top: 20px;">Read a Cookie with JavaScript</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     With JavaScript, cookies can be read like this:
@@ -420,7 +420,7 @@
   </table>
   <p><strong><i>Note: </i></strong><span class="code">document.cookie</span> will return all cookies in one string, much like: cookie1=value; cookie2=value; cookie3=value;</p>
 
-  <h3>Change a Cookie with JavaScript</h3>
+  <h3 style="padding-top: 20px;">Change a Cookie with JavaScript</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     With JavaScript, you can change a cookie the same way you created it:
@@ -444,7 +444,7 @@
   </table>
   <p><strong><i>Note: </i></strong>The old cookie is overwritten by the new cookie.</p>
 
-  <h3>Delete a Cookie with JavaScript</h3>
+  <h3 style="padding-top: 20px;">Delete a Cookie with JavaScript</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Deleting a cookie is very simple. You don't have to specify a cookie value when you delete a cookie. Just set the <span class="code">expires</span> parameter to a passed date:
@@ -468,19 +468,19 @@
   </table>
   <p><strong><i>Note: </i></strong>You should define the cookie path to ensure that you delete the right cookie. Some browsers will not let you delete a cookie if you don't specify the path.</p>
 
-  <h3>The Cookie String</h3>
+  <h3 style="padding-top: 20px;">The Cookie String</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">document.cookie</span> property looks like a normal text string. But it is not. Even if you write a whole cookie string to <span class="code">document.cookie</span>, when you read it out again, you can only see the name-value pair of it. If you set a new cookie, older cookies are not overwritten. The new cookie is added to <span class="code">document.cookie</span>, so if you read <span class="code">document.cookie</span> again you will get something like: cookie1=value; cookie2=value;
   </p>
 
-  <h3>JavaScript Cookie Example</h3>
+  <h3 style="padding-top: 20px;">JavaScript Cookie Example</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     In the example to follow, we will create a cookie that stores the name of a visitor. The first time a visitor arrives to the web page, he/she will be asked to fill in his/her name. The name is then stored in a cookie. The next time the visitor arrives at the same page, he/she will get a welcome message.
   </p>
 
-  <h3>A Function to Set a Cookie</h3>
+  <h3 style="padding-top: 20px;">A Function to Set a Cookie</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     First, we create a function that stores the name of the visitor in a cookie variable:
@@ -508,7 +508,7 @@
     </tbody>
   </table>
 
-  <h3>A Function to Get a Cookie</h3>
+  <h3 style="padding-top: 20px;">A Function to Get a Cookie</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Then, we create a function that returns the value of a specified cookie:
@@ -545,7 +545,7 @@
     </tbody>
   </table>
 
-  <h3>A Function to Check a Cookie</h3>
+  <h3 style="padding-top: 20px;">A Function to Check a Cookie</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Next, we create the function that checks if a cookie has been set:
@@ -579,7 +579,7 @@
     </tbody>
   </table>
 
-  <h3>All Together Now</h3>
+  <h3 style="padding-top: 20px;">All Together Now</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Here is the full example, wired to a live demo below.

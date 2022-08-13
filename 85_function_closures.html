@@ -328,7 +328,7 @@
     A closure is a function having access to the parent scope, even after the parent function has closed.
   </p>
 
-  <h3>Local Variables</h3>
+  <h3 style="padding-top: 20px;">Local Variables</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     A variable declared within a JavaScript function, becomes LOCAL to the function. It can only be accessed from within that function. It has local scope.
@@ -355,7 +355,7 @@
   </table>
   <p><strong><i>Note: </i></strong>Local variables are created when a function starts, and deleted when the function is completed. As long as a function is running, the local variables are in scope (they are visible/usable).</p>
 
-  <h3>Global Variables</h3>
+  <h3 style="padding-top: 20px;">Global Variables</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     A variable declared outside a function, becomes GLOBAL.
@@ -404,13 +404,13 @@
     </tbody>
   </table>
 
-  <h3>Variable Lifetime</h3>
+  <h3 style="padding-top: 20px;">Variable Lifetime</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Global variables live until the page is discarded, like when you navigate to another page or close the window. Local variables have short lives. They are created when the function is invoked, and deleted when the function is finished.
   </p>
 
-  <h3>A Counter Dilemma</h3>
+  <h3 style="padding-top: 20px;">A Counter Dilemma</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Suppose you want to use a variable for counting something, and you want this counter to be available to all functions.
@@ -444,7 +444,7 @@
   </table>
   <p><strong><i>Note: </i></strong>There is a problem with this: any code on the page can change counter, without calling add().</p>
 
-  <h3>Warning !</h3>
+  <h3 style="padding-top: 20px;">Warning !</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     If you declare the counter variable inside the function, you remove the problem, but you are now unable to increment the counter from outside the function.
@@ -505,13 +505,13 @@
     </tbody>
   </table>
 
-  <h3>Solution</h3>
+  <h3 style="padding-top: 20px;">Solution</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The solution is a JavaScript inner function. By using a closure, you can preserve the state of a local variable between function calls.
   </p>
 
-  <h3>JavaScript Nested Functions</h3>
+  <h3 style="padding-top: 20px;">JavaScript Nested Functions</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     All functions have access to the global scope. In fact, in JavaScript, all functions have access to the scope "above" them. <br>
@@ -541,7 +541,7 @@
   </table>
   <p>In this example, the <span class="code">plus()</span> function has access to the counter variable in the parent function.</p>
 
-  <h3>JavaScript Closures</h3>
+  <h3 style="padding-top: 20px;">JavaScript Closures</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     As demonstrated above, nested functions have access to the scope "above" them. <br>
@@ -575,7 +575,7 @@
     </tbody>
   </table>
 
-  <h3>Example Explained</h3>
+  <h3 style="padding-top: 20px;">Example Explained</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The variable <span class="code">add</span> is assigned the return value of a self-invoking function. The self-invoking function only runs once. It sets the counter to zero (0), and returns a function expression. <br>
@@ -583,14 +583,14 @@
     The counter is protected by the scope of the anonymous function, and can only be changed using the <span class="code">add</span> function.
   </p>
 
-  <h3>Conclusion</h3>
+  <h3 style="padding-top: 20px;">Conclusion</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Closures are useful for: data privacy, encapsulating related functionality, creating function factories, and in event handlers and callbacks. <br>
     Modern JavaScript also offers alternatives, such as private class fields, modules, and the <span class="code">let</span>/<span class="code">const</span> block-scoped variables.
   </p>
 
-  <h3>Modern Alternative: Private Class Fields</h3>
+  <h3 style="padding-top: 20px;">Modern Alternative: Private Class Fields</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     ES2022 introduced private class fields (prefixed with <span class="code">#</span>), which offer another way to achieve data privacy, without needing a closure.

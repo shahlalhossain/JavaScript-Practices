@@ -328,7 +328,7 @@
     All modern browsers support the <span class="code">XMLHttpRequest</span> object, which is used to exchange data with a server behind the scenes. This means it is possible to update parts of a web page without reloading the whole page.
   </p>
 
-  <h3>Create an XMLHttpRequest Object</h3>
+  <h3 style="padding-top: 20px;">Create an XMLHttpRequest Object</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     All modern browsers have a built-in <span class="code">XMLHttpRequest</span> object, created like this:
@@ -351,7 +351,7 @@
     </tbody>
   </table>
 
-  <h3>Define a Callback Function</h3>
+  <h3 style="padding-top: 20px;">Define a Callback Function</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     A callback function is a function passed as a parameter to another function &mdash; here, the code to be executed when the response is ready.
@@ -376,7 +376,7 @@
     </tbody>
   </table>
 
-  <h3>Send a Request</h3>
+  <h3 style="padding-top: 20px;">Send a Request</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     To send a request to a server, use the <span class="code">open()</span> and <span class="code">send()</span> methods:
@@ -400,13 +400,13 @@
     </tbody>
   </table>
 
-  <h3>Access Across Domains</h3>
+  <h3 style="padding-top: 20px;">Access Across Domains</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     For security reasons, modern browsers do not allow access across domains. This means that both the web page and the file it tries to load must be located on the same server.
   </p>
 
-  <h3>XMLHttpRequest Object Methods</h3>
+  <h3 style="padding-top: 20px;">XMLHttpRequest Object Methods</h3>
   <hr>
   <br>
   <table>
@@ -428,7 +428,7 @@
     </tbody>
   </table>
 
-  <h3>XMLHttpRequest Object Properties</h3>
+  <h3 style="padding-top: 20px;">XMLHttpRequest Object Properties</h3>
   <hr>
   <br>
   <table>
@@ -449,7 +449,7 @@
     </tbody>
   </table>
 
-  <h3>The onload Property</h3>
+  <h3 style="padding-top: 20px;">The onload Property</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     When the response has loaded, the <span class="code">onload</span> callback is triggered, and the response text is written into the page:
@@ -477,7 +477,7 @@
     </tbody>
   </table>
 
-  <h3>Multiple Callback Functions</h3>
+  <h3 style="padding-top: 20px;">Multiple Callback Functions</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     It's good practice to use one reusable request function, and one callback function per AJAX task:
@@ -507,7 +507,7 @@
     </tbody>
   </table>
 
-  <h3>The onreadystatechange Property</h3>
+  <h3 style="padding-top: 20px;">The onreadystatechange Property</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">onreadystatechange</span> property defines a function to be called when <span class="code">readyState</span> changes. It changes from 1 to 4, four times for every request. When <span class="code">readyState</span> is 4 and <span class="code">status</span> is 200, the response is ready:

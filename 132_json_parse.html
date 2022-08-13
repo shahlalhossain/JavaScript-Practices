@@ -340,7 +340,7 @@
     </tbody>
   </table>
 
-  <h3>Parsing a JSON Object</h3>
+  <h3 style="padding-top: 20px;">Parsing a JSON Object</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Converting a JSON object string into a JavaScript object:
@@ -365,7 +365,7 @@
     </tbody>
   </table>
 
-  <h3>Parsing a JSON Array</h3>
+  <h3 style="padding-top: 20px;">Parsing a JSON Array</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Converting a JSON array string into a JavaScript array:
@@ -390,7 +390,7 @@
     </tbody>
   </table>
 
-  <h3>Parsing Other JSON Values</h3>
+  <h3 style="padding-top: 20px;">Parsing Other JSON Values</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">JSON.parse()</span> can also parse bare scalar values: strings, numbers, booleans, and null.
@@ -416,7 +416,7 @@
     </tbody>
   </table>
 
-  <h3>Common Use of JSON</h3>
+  <h3 style="padding-top: 20px;">Common Use of JSON</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Data from a web server always arrives as a string. <span class="code">JSON.parse()</span> converts it into a usable JavaScript object before reading its properties.
@@ -441,7 +441,7 @@
     </tbody>
   </table>
 
-  <h3>The Reviver Function</h3>
+  <h3 style="padding-top: 20px;">The Reviver Function</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The optional second argument to <span class="code">JSON.parse()</span> is a reviver function, called for each key/value pair. Its return value replaces the original; returning <span class="code">undefined</span> deletes that key.
@@ -476,7 +476,7 @@
     </tbody>
   </table>
 
-  <h3>Invalid JSON</h3>
+  <h3 style="padding-top: 20px;">Invalid JSON</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Malformed JSON throws a <span class="code">SyntaxError</span>. Below, single-quoted strings and an unquoted key are invalid.
@@ -500,7 +500,7 @@
     </tbody>
   </table>
 
-  <h3>Handling Parse Errors</h3>
+  <h3 style="padding-top: 20px;">Handling Parse Errors</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Wrap <span class="code">JSON.parse()</span> in a <span class="code">try...catch</span> to handle malformed input gracefully instead of letting the error propagate.
@@ -527,7 +527,7 @@
     </tbody>
   </table>
 
-  <h3>Common Parsing Mistakes</h3>
+  <h3 style="padding-top: 20px;">Common Parsing Mistakes</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">JSON.parse()</span> expects a string. Two common mistakes: passing it an object literal instead of JSON text, and parsing an already-parsed value a second time.

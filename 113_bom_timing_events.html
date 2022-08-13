@@ -343,7 +343,7 @@
     </tbody>
   </table>
 
-  <h3>The setTimeout() Function</h3>
+  <h3 style="padding-top: 20px;">The setTimeout() Function</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <strong>Syntax</strong> <br>
@@ -370,7 +370,7 @@
     </tbody>
   </table>
 
-  <h3>Passing a Function</h3>
+  <h3 style="padding-top: 20px;">Passing a Function</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Pass the name of the function, not a call to it. Using parentheses calls the function immediately.
@@ -399,7 +399,7 @@
     </tbody>
   </table>
 
-  <h3>Using an Anonymous Function</h3>
+  <h3 style="padding-top: 20px;">Using an Anonymous Function</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     You can also pass an anonymous function directly to setTimeout().
@@ -424,7 +424,7 @@
     </tbody>
   </table>
 
-  <h3>Timers Do Not Pause JavaScript</h3>
+  <h3 style="padding-top: 20px;">Timers Do Not Pause JavaScript</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">setTimeout()</span> does not pause the execution of the rest of the code. The timer callback always runs after the current script finishes.
@@ -449,7 +449,7 @@
     </tbody>
   </table>
 
-  <h3>A Zero Delay</h3>
+  <h3 style="padding-top: 20px;">A Zero Delay</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Using <span class="code">setTimeout()</span> with a delay of 0 ms still defers the callback until after the current script finishes.
@@ -474,13 +474,13 @@
     </tbody>
   </table>
 
-  <h3>The Delay Is a Minimum</h3>
+  <h3 style="padding-top: 20px;">The Delay Is a Minimum</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The delay parameter specifies the minimum time before the callback runs; it is not a guarantee. A long-running synchronous task will delay the timer further.
   </p>
 
-  <h3>Canceling a Timeout</h3>
+  <h3 style="padding-top: 20px;">Canceling a Timeout</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">clearTimeout()</span> stops the execution of the function specified in <span class="code">setTimeout()</span>.
@@ -511,7 +511,7 @@
     </tbody>
   </table>
 
-  <h3>The setInterval() Function</h3>
+  <h3 style="padding-top: 20px;">The setInterval() Function</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <strong>Syntax</strong> <br>
@@ -541,7 +541,7 @@
     </tbody>
   </table>
 
-  <h3>Canceling an Interval</h3>
+  <h3 style="padding-top: 20px;">Canceling an Interval</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <strong>Syntax</strong> <br>
@@ -549,7 +549,7 @@
     The "Stop Clock" button above calls <span class="code">clearInterval()</span> with the interval's ID, stopping the recurring updates.
   </p>
 
-  <h3>Timeout or Interval?</h3>
+  <h3 style="padding-top: 20px;">Timeout or Interval?</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Use the right tool for the task:
@@ -570,7 +570,7 @@
     </tbody>
   </table>
 
-  <h3>Passing Arguments</h3>
+  <h3 style="padding-top: 20px;">Passing Arguments</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Extra arguments to <span class="code">setTimeout()</span> (after the delay) are passed through to the callback function.
@@ -596,7 +596,7 @@
     </tbody>
   </table>
 
-  <h3>Repeated setTimeout()</h3>
+  <h3 style="padding-top: 20px;">Repeated setTimeout()</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     A function can reschedule itself with <span class="code">setTimeout()</span> to create a repeating timer, as an alternative to <span class="code">setInterval()</span>.
@@ -625,7 +625,7 @@
     </tbody>
   </table>
 
-  <h3>A Countdown Example</h3>
+  <h3 style="padding-top: 20px;">A Countdown Example</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     This example counts down from 10 to 0, using <span class="code">setInterval()</span>, stopping automatically at zero.
@@ -654,7 +654,7 @@
     </tbody>
   </table>
 
-  <h3>Avoid Strings as Timer Code</h3>
+  <h3 style="padding-top: 20px;">Avoid Strings as Timer Code</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Never use strings as the first argument to <span class="code">setTimeout()</span> or <span class="code">setInterval()</span>: it evaluates like <span class="code">eval()</span>, which is a security risk.
@@ -683,19 +683,19 @@
     </tbody>
   </table>
 
-  <h3>Timers Run on the Main Thread</h3>
+  <h3 style="padding-top: 20px;">Timers Run on the Main Thread</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     JavaScript timers run on the same single thread as the rest of your page. A heavy, long-running callback can freeze the page's responsiveness while it runs.
   </p>
 
-  <h3>Common Timer Mistakes</h3>
+  <h3 style="padding-top: 20px;">Common Timer Mistakes</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Calling the function immediately by adding <span class="code">()</span> instead of passing its name. Losing the timer ID, making it impossible to cancel later. Starting duplicate intervals by not checking if one is already running. Assuming the delay is exact, rather than a minimum. Forgetting to call <span class="code">clearInterval()</span> when a repeating timer is no longer needed.
   </p>
 
-  <h3>A Slide Show Example</h3>
+  <h3 style="padding-top: 20px;">A Slide Show Example</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Cycles through a sequence every interval, with Start/Stop buttons.
@@ -726,7 +726,7 @@
     </tbody>
   </table>
 
-  <h3>Timers and Asynchronous JavaScript</h3>
+  <h3 style="padding-top: 20px;">Timers and Asynchronous JavaScript</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Timers are one of the simplest examples of asynchronous behavior in JavaScript: scheduling work to happen later, without blocking the rest of the script. <span class="code">setTimeout()</span> and <span class="code">setInterval()</span> work alongside callbacks, Promises, and async/await to coordinate work that happens over time.

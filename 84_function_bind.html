@@ -329,14 +329,14 @@
     Unlike <span class="code">call()</span> and <span class="code">apply()</span>, <span class="code">bind()</span> does not invoke the function immediately: it returns a new function, with <span class="code">this</span> permanently bound.
   </p>
 
-  <h3>Basic bind() Syntax</h3>
+  <h3 style="padding-top: 20px;">Basic bind() Syntax</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <strong>Syntax</strong> <br>
     const newFunction = functionName.bind(thisArg, arg1, arg2, ...);
   </p>
 
-  <h3>Using bind() to Fix this</h3>
+  <h3 style="padding-top: 20px;">Using bind() to Fix this</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">bind()</span> method allows an object to borrow a method from another object, without copying the method, and returns a new function with <span class="code">this</span> permanently set.
@@ -407,7 +407,7 @@
     </tbody>
   </table>
 
-  <h3>bind() vs call() and apply()</h3>
+  <h3 style="padding-top: 20px;">bind() vs call() and apply()</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     With the <span class="code">call()</span> and <span class="code">apply()</span> methods you can call a function, with an object, right away. With the <span class="code">bind()</span> method, the function is not invoked, it is only prepared and returned, to be invoked later.
@@ -440,7 +440,7 @@
     </tbody>
   </table>
 
-  <h3>bind() for Functions Called Later</h3>
+  <h3 style="padding-top: 20px;">bind() for Functions Called Later</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     When a function is detached from its object (as a plain reference), <span class="code">this</span> is lost when the function is called later.
@@ -491,7 +491,7 @@
     </tbody>
   </table>
 
-  <h3>Using bind() for Preserving this</h3>
+  <h3 style="padding-top: 20px;">Using bind() for Preserving this</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     When a method is called directly on its object, <span class="code">this</span> works fine.
@@ -561,7 +561,7 @@
     </tbody>
   </table>
 
-  <h3>bind() with Arguments</h3>
+  <h3 style="padding-top: 20px;">bind() with Arguments</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">bind()</span> can also be used to preset leading arguments of a function, creating a new function with those arguments fixed.
@@ -590,7 +590,7 @@
     </tbody>
   </table>
 
-  <h3>bind() Does Not Change the Original Function</h3>
+  <h3 style="padding-top: 20px;">bind() Does Not Change the Original Function</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">bind()</span> returns a new function each time it is called. The original function remains unchanged, and can still be bound again with a different object.
@@ -614,7 +614,7 @@
     </tbody>
   </table>
 
-  <h3>Common Mistakes</h3>
+  <h3 style="padding-top: 20px;">Common Mistakes</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <strong>Expecting bind() to Call the Function:</strong> <span class="code">bind()</span> returns a new function, it does not call it. <br>

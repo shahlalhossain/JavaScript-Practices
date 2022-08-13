@@ -328,7 +328,7 @@
     AJAX is used to create more interactive applications. This example shows a web page where the server queries a database as the user types, without reloading the page: a "First name" input shows matching name suggestions below it as the user types.
   </p>
 
-  <h3>Example Explained</h3>
+  <h3 style="padding-top: 20px;">Example Explained</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The HTML form has a text input whose <span class="code">onkeyup</span> event passes its current value to <span class="code">showHint()</span>, and an empty <span class="code">&lt;span id="txtHint"&gt;</span> to hold the results.
@@ -355,7 +355,7 @@
     </tbody>
   </table>
 
-  <h3>The showHint() Function</h3>
+  <h3 style="padding-top: 20px;">The showHint() Function</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     If the input is empty, <span class="code">showHint()</span> clears the suggestions and stops. Otherwise it sends a GET request to <span class="code">gethint.php</span>, with the typed text as the <span class="code">q</span> parameter, and writes the response into the suggestions span.
@@ -389,7 +389,7 @@
     </tbody>
   </table>
 
-  <h3>The PHP File - "gethint.php"</h3>
+  <h3 style="padding-top: 20px;">The PHP File - "gethint.php"</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The server-side script checks a hardcoded list of 30 names against the <span class="code">q</span> parameter, and returns the matching names as a comma-separated string, or "no suggestion" if none match.

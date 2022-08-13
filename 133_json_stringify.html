@@ -340,7 +340,7 @@
     </tbody>
   </table>
 
-  <h3>Converting an Object</h3>
+  <h3 style="padding-top: 20px;">Converting an Object</h3>
   <hr>
   <br>
   <table>
@@ -361,7 +361,7 @@
     </tbody>
   </table>
 
-  <h3>Converting an Array</h3>
+  <h3 style="padding-top: 20px;">Converting an Array</h3>
   <hr>
   <br>
   <table>
@@ -382,7 +382,7 @@
     </tbody>
   </table>
 
-  <h3>Converting Other Values</h3>
+  <h3 style="padding-top: 20px;">Converting Other Values</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     How different JavaScript types are converted:
@@ -427,7 +427,7 @@
     </tbody>
   </table>
 
-  <h3>Selecting Properties</h3>
+  <h3 style="padding-top: 20px;">Selecting Properties</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Passing an array of property names as the <span class="code">replacer</span> includes only those keys in the output.
@@ -451,7 +451,7 @@
     </tbody>
   </table>
 
-  <h3>Transforming Values</h3>
+  <h3 style="padding-top: 20px;">Transforming Values</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Passing a <span class="code">replacer</span> function lets each key/value be transformed before it's written out.
@@ -476,7 +476,7 @@
     </tbody>
   </table>
 
-  <h3>Formatting JSON</h3>
+  <h3 style="padding-top: 20px;">Formatting JSON</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">space</span> argument indents the output for readability.
@@ -500,7 +500,7 @@
     </tbody>
   </table>
 
-  <h3>Unsupported Values</h3>
+  <h3 style="padding-top: 20px;">Unsupported Values</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">BigInt</span> throws a TypeError. Functions, <span class="code">undefined</span>, and Symbols are omitted from objects, but become <span class="code">null</span> inside arrays. <span class="code">NaN</span> and <span class="code">Infinity</span> always become <span class="code">null</span>.
@@ -535,7 +535,7 @@
     </tbody>
   </table>
 
-  <h3>Stringifying Dates</h3>
+  <h3 style="padding-top: 20px;">Stringifying Dates</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">Date</span> objects are converted to ISO date strings. The receiver can convert them back to <span class="code">Date</span> objects after parsing.
@@ -559,7 +559,7 @@
     </tbody>
   </table>
 
-  <h3>Storing Data</h3>
+  <h3 style="padding-top: 20px;">Storing Data</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     A common pattern: stringify an object, save it to storage, then read it back and parse it.
@@ -585,7 +585,7 @@
     </tbody>
   </table>
 
-  <h3>Common Stringify Mistakes</h3>
+  <h3 style="padding-top: 20px;">Common Stringify Mistakes</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Calling <span class="code">JSON.stringify()</span> twice on the same value adds escaped quotation marks around it. Objects with circular references (a property that refers back to the object itself) cannot be stringified at all &mdash; it throws a <span class="code">TypeError</span>.

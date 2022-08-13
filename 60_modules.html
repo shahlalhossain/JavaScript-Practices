@@ -330,7 +330,7 @@
   </p>
   <p><strong><i>Note: </i></strong>Modules only work with the <span class="code">http://</span> or <span class="code">https://</span> protocol (not <span class="code">file://</span>). The live demos on this page require the page to be served over HTTP(S), e.g. via a local web server.</p>
 
-  <h3>What are Modules?</h3>
+  <h3 style="padding-top: 20px;">What are Modules?</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Modules let you break up code into separate files, and export and import pieces of code between them.
@@ -360,19 +360,19 @@
     </tbody>
   </table>
 
-  <h3>Module Files</h3>
+  <h3 style="padding-top: 20px;">Module Files</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Modules are stored in regular files. There is only one practical restriction: URLs need a relative path like "./" or "/", or an absolute path.
   </p>
 
-  <h3>How to Use Modules</h3>
+  <h3 style="padding-top: 20px;">How to Use Modules</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     You must specify <span class="code">type="module"</span> in the script tag to use JavaScript modules.
   </p>
 
-  <h3>Module File "math.js"</h3>
+  <h3 style="padding-top: 20px;">Module File "math.js"</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     This example has a function, <span class="code">add()</span>, in a module file, that is exported:
@@ -399,7 +399,7 @@
     </tbody>
   </table>
 
-  <h3>Module Script:</h3>
+  <h3 style="padding-top: 20px;">Module Script:</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Now we can import the "add" function from "./math.js" and use it.
@@ -429,7 +429,7 @@
     </tbody>
   </table>
 
-  <h3>Module File "person.js"</h3>
+  <h3 style="padding-top: 20px;">Module File "person.js"</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     This example has a module file that exports two variables:
@@ -455,7 +455,7 @@
     </tbody>
   </table>
 
-  <h3>Module Script</h3>
+  <h3 style="padding-top: 20px;">Module Script</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Now we can import "name" and "age" from "./person.js" and use them.
@@ -483,13 +483,13 @@
     </tbody>
   </table>
 
-  <h3>Modules Can Export</h3>
+  <h3 style="padding-top: 20px;">Modules Can Export</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Modules can export: Variables, functions, classes, or they can export a single "default" value.
   </p>
 
-  <h3>Module File "message.js"</h3>
+  <h3 style="padding-top: 20px;">Module File "message.js"</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     This example creates a "default" export:
@@ -519,7 +519,7 @@
     </tbody>
   </table>
 
-  <h3>Module Script:</h3>
+  <h3 style="padding-top: 20px;">Module Script:</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Since "message" is a default export, we can import it without curly braces, and name it anything.
@@ -544,7 +544,7 @@
     </tbody>
   </table>
 
-  <h3>Why Modules?</h3>
+  <h3 style="padding-top: 20px;">Why Modules?</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Re-using code is useful, and modules make it easy. By using modules, declarations in one module are kept local, unless explicitly exported using one of the export forms. Conversely, the variable, function, or class name imported by one of the import forms is local to the importing module, unless given a different name using an "as" clause.

@@ -328,13 +328,13 @@
     Minimize the use of global variables. This includes all data types, objects, and functions. Global variables and functions can be overwritten by other scripts. Use local variables instead, and learn how to use closures.
   </p>
 
-  <h3>Always Declare Local Variables</h3>
+  <h3 style="padding-top: 20px;">Always Declare Local Variables</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     All variables used in a function should be declared as local variables. Local variables must be declared with the <span class="code">var</span>, <span class="code">let</span>, or <span class="code">const</span> keyword, otherwise they will become global variables.
   </p>
 
-  <h3>Declarations on Top</h3>
+  <h3 style="padding-top: 20px;">Declarations on Top</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     It is a good coding practice to put all declarations at the top of each script or function. This will give cleaner code, provide a single place to look for local variables, make it easier to avoid unwanted (implied) global variables, and reduce the possibility of unwanted re-declarations.
@@ -367,7 +367,7 @@
     </tbody>
   </table>
 
-  <h3>Initialize Variables</h3>
+  <h3 style="padding-top: 20px;">Initialize Variables</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     It is a good coding practice to initialize variables when you declare them. This will give cleaner code, provide a single place to initialize variables, and avoid undefined values.
@@ -394,7 +394,7 @@
   </table>
   <p><strong><i>Note: </i></strong>Initializing variables provides an idea of the intended use (and intended data type) of the variable.</p>
 
-  <h3>Re-Declaring JavaScript Variables</h3>
+  <h3 style="padding-top: 20px;">Re-Declaring JavaScript Variables</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Re-declaring a JavaScript variable with <span class="code">var</span> is allowed, anywhere in a program.
@@ -445,7 +445,7 @@
     </tbody>
   </table>
 
-  <h3>Declare Objects with const</h3>
+  <h3 style="padding-top: 20px;">Declare Objects with const</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Declaring objects with <span class="code">const</span> will prevent any accidental change of type.
@@ -470,7 +470,7 @@
     </tbody>
   </table>
 
-  <h3>Declare Arrays with const</h3>
+  <h3 style="padding-top: 20px;">Declare Arrays with const</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Declaring arrays with <span class="code">const</span> will prevent any accidental change of type.
@@ -495,7 +495,7 @@
     </tbody>
   </table>
 
-  <h3>Don't Use new Object()</h3>
+  <h3 style="padding-top: 20px;">Don't Use new Object()</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Use <span class="code">""</span> instead of <span class="code">new String()</span>, use <span class="code">0</span> instead of <span class="code">new Number()</span>, use <span class="code">false</span> instead of <span class="code">new Boolean()</span>, use <span class="code">&#123;&#125;</span> instead of <span class="code">new Object()</span>, use <span class="code">[]</span> instead of <span class="code">new Array()</span>, use <span class="code">/()/</span> instead of <span class="code">new RegExp()</span>, use <span class="code">function(){}</span> instead of <span class="code">new Function()</span>.
@@ -524,7 +524,7 @@
     </tbody>
   </table>
 
-  <h3>Beware of Automatic Type Conversions</h3>
+  <h3 style="padding-top: 20px;">Beware of Automatic Type Conversions</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     JavaScript is loosely typed. A variable can contain different data types, and a variable can change its data type.
@@ -553,7 +553,7 @@
     </tbody>
   </table>
 
-  <h3>Use === Comparison</h3>
+  <h3 style="padding-top: 20px;">Use === Comparison</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">==</span> comparison operator always converts (to matching types) before comparison. The <span class="code">===</span> operator forces comparison of values and type.
@@ -584,7 +584,7 @@
     </tbody>
   </table>
 
-  <h3>Use Parameter Defaults</h3>
+  <h3 style="padding-top: 20px;">Use Parameter Defaults</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     If a function is called with a missing argument, the value of the missing argument is set to <span class="code">undefined</span>. Undefined values can break your code. It is a good habit to assign default values to arguments.
@@ -634,7 +634,7 @@
     </tbody>
   </table>
 
-  <h3>End Your Switches with Defaults</h3>
+  <h3 style="padding-top: 20px;">End Your Switches with Defaults</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Always end your <span class="code">switch</span> statements with a <span class="code">default</span>. Even if you think there is no need for it.
@@ -667,7 +667,7 @@
     </tbody>
   </table>
 
-  <h3>Avoid Number, String, and Boolean as Objects</h3>
+  <h3 style="padding-top: 20px;">Avoid Number, String, and Boolean as Objects</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Always treat numbers, strings, or booleans as primitive values. Not as objects. Declaring these types as objects, slows down execution speed, and produces nasty side effects.
@@ -713,7 +713,7 @@
     </tbody>
   </table>
 
-  <h3>Avoid Using eval()</h3>
+  <h3 style="padding-top: 20px;">Avoid Using eval()</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">eval()</span> function is used to run text as code. In almost all cases, it should not be necessary to use it. Because it allows arbitrary code to be run, it also represents a security problem.

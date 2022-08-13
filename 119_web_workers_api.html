@@ -329,7 +329,7 @@
     When executing scripts in an HTML page, the page becomes unresponsive until the script is finished. A web worker is a JavaScript that runs in the background, independently of other scripts, without affecting the performance of the page. You can continue to do whatever you want: clicking, selecting things, etc., while the web worker runs in the background.
   </p>
 
-  <h3>Browser Support</h3>
+  <h3 style="padding-top: 20px;">Browser Support</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The numbers in the table specify the first browser version that fully supports Web Workers:
@@ -352,7 +352,7 @@
     </tbody>
   </table>
 
-  <h3>Web Workers Example</h3>
+  <h3 style="padding-top: 20px;">Web Workers Example</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The following example demonstrates a web page counting numbers from 1 to a very large number, in the background, without blocking the page.
@@ -377,7 +377,7 @@
     </tbody>
   </table>
 
-  <h3>Check Web Worker Support</h3>
+  <h3 style="padding-top: 20px;">Check Web Worker Support</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Before creating a web worker, check if the user's browser supports it:
@@ -405,7 +405,7 @@
     </tbody>
   </table>
 
-  <h3>Create a Web Worker File</h3>
+  <h3 style="padding-top: 20px;">Create a Web Worker File</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Now let's create our web worker in an external JavaScript (<span class="code">demo_workers.js</span>). <br>
@@ -439,7 +439,7 @@
   </table>
   <p><strong><i>Note: </i></strong>The important part of the code above is the <span class="code">postMessage()</span> method, which is used to post a message back to the HTML page.</p>
 
-  <h3>Create a Web Worker Object</h3>
+  <h3 style="padding-top: 20px;">Create a Web Worker Object</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     We have already created the web worker file, now let's create the Web Worker object, and specify the file to be used for the object.
@@ -467,7 +467,7 @@
     </tbody>
   </table>
 
-  <h3>Terminate a Web Worker</h3>
+  <h3 style="padding-top: 20px;">Terminate a Web Worker</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     When a web worker object is created, it will continue to listen for messages (even after the external script is finished) until it is terminated. To terminate a web worker, and free browser/computer resources, use the <span class="code">terminate()</span> method.
@@ -490,7 +490,7 @@
     </tbody>
   </table>
 
-  <h3>Reuse the Web Worker</h3>
+  <h3 style="padding-top: 20px;">Reuse the Web Worker</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     If you set the worker variable to undefined, after it has been terminated, you can reuse the code.
@@ -514,7 +514,7 @@
     </tbody>
   </table>
 
-  <h3>Full Web Worker Example Code</h3>
+  <h3 style="padding-top: 20px;">Full Web Worker Example Code</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The full example is wired to the Start Worker and Stop Worker buttons shown above in "Web Workers Example".
@@ -553,7 +553,7 @@
     </tbody>
   </table>
 
-  <h3>Web Workers and the DOM</h3>
+  <h3 style="padding-top: 20px;">Web Workers and the DOM</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Since web workers are in external files, they do not have access to the following JavaScript objects: the <span class="code">window</span> object, the <span class="code">document</span> object, the <span class="code">parent</span> object.

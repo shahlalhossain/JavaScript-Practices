@@ -328,7 +328,7 @@
     The <span class="code">window.history</span> object contains the browser's history. The <span class="code">window</span> prefix can be omitted, written simply as <span class="code">history</span>.
   </p>
 
-  <h3>History Object Methods</h3>
+  <h3 style="padding-top: 20px;">History Object Methods</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The history object has several methods:
@@ -350,7 +350,7 @@
     </tbody>
   </table>
 
-  <h3>History Object Properties</h3>
+  <h3 style="padding-top: 20px;">History Object Properties</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The history object has several properties:
@@ -371,7 +371,7 @@
   </table>
   <p><strong><i>Note! </i></strong>For security/privacy reasons, JavaScript cannot access the actual URLs in the browser history.</p>
 
-  <h3>The history.back() Method</h3>
+  <h3 style="padding-top: 20px;">The history.back() Method</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">history.back()</span> method loads the previous URL in the history list. This is the same as clicking the "Back" arrow in the browser.
@@ -394,7 +394,7 @@
     </tbody>
   </table>
 
-  <h3>The history.forward() Method</h3>
+  <h3 style="padding-top: 20px;">The history.forward() Method</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">history.forward()</span> method loads the next URL in the history list. This is the same as clicking the "Forward" arrow in the browser.
@@ -417,7 +417,7 @@
     </tbody>
   </table>
 
-  <h3>The history.go() Method</h3>
+  <h3 style="padding-top: 20px;">The history.go() Method</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">history.go()</span> method loads a specific URL from the history list, relative to the current entry (a negative value goes back, a positive value goes forward).
@@ -446,7 +446,7 @@
     </tbody>
   </table>
 
-  <h3>The history.length Property</h3>
+  <h3 style="padding-top: 20px;">The history.length Property</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">history.length</span> property returns the number of URLs in the history list.
@@ -469,7 +469,7 @@
     </tbody>
   </table>
 
-  <h3>The history.state Property</h3>
+  <h3 style="padding-top: 20px;">The history.state Property</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">history.state</span> property returns the current state object.
@@ -492,13 +492,13 @@
     </tbody>
   </table>
 
-  <h3>Changing the Browser History</h3>
+  <h3 style="padding-top: 20px;">Changing the Browser History</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The HTML5 standard introduced two new methods that can change the browser history, without reloading a new page: <span class="code">history.pushState()</span> and <span class="code">history.replaceState()</span>.
   </p>
 
-  <h3>The history.pushState() Method</h3>
+  <h3 style="padding-top: 20px;">The history.pushState() Method</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">history.pushState()</span> method adds a new entry to the browser history. <br>
@@ -526,7 +526,7 @@
   </table>
   <p><strong><i>Note: </i></strong><span class="code">pushState()</span> does not load a new page, it only updates the browser's URL and history. The title parameter is largely ignored by most browsers.</p>
 
-  <h3>The history.replaceState() Method</h3>
+  <h3 style="padding-top: 20px;">The history.replaceState() Method</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">history.replaceState()</span> method replaces the current history entry. <br>
@@ -554,7 +554,7 @@
   </table>
   <p><strong><i>Note: </i></strong><span class="code">replaceState()</span> also does not load a new page, and does not add a new entry to the history list (unlike pushState).</p>
 
-  <h3>The popstate Event</h3>
+  <h3 style="padding-top: 20px;">The popstate Event</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Every time the active history entry changes (due to the user navigating, or due to <span class="code">history.back()</span>/<span class="code">forward()</span>/<span class="code">go()</span>), a <span class="code">popstate</span> event is fired on the window.
@@ -581,7 +581,7 @@
     </tbody>
   </table>
 
-  <h3>A Simple History API Example</h3>
+  <h3 style="padding-top: 20px;">A Simple History API Example</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Click the button below to change the page state with <span class="code">pushState()</span>, without reloading the page.
@@ -608,7 +608,7 @@
     </tbody>
   </table>
 
-  <h3>Scroll Restoration</h3>
+  <h3 style="padding-top: 20px;">Scroll Restoration</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">history.scrollRestoration</span> property allows web applications to explicitly set the default scroll restoration behavior, overriding the browser's default. <br>

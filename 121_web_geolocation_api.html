@@ -328,13 +328,13 @@
     The HTML Geolocation API lets you get the geographical position of a user. Since this can compromise privacy, the position is only available if the user approves it. Geolocation is most accurate for devices with GPS, like smartphones.
   </p>
 
-  <h3>Browser Support</h3>
+  <h3 style="padding-top: 20px;">Browser Support</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Geolocation is supported in all modern browsers, but only works in secure contexts (HTTPS). Requests made from a plain HTTP origin will fail.
   </p>
 
-  <h3>Using the Geolocation API</h3>
+  <h3 style="padding-top: 20px;">Using the Geolocation API</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The <span class="code">getCurrentPosition()</span> method is used to return the user's current position. <span class="code">getLocation()</span> checks whether <span class="code">navigator.geolocation</span> exists, then calls <span class="code">getCurrentPosition(showPosition)</span>; <span class="code">showPosition()</span> writes the latitude and longitude. This basic example has no error handling.
@@ -368,7 +368,7 @@
     </tbody>
   </table>
 
-  <h3>Handling Errors and Rejections</h3>
+  <h3 style="padding-top: 20px;">Handling Errors and Rejections</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     The second parameter of <span class="code">getCurrentPosition()</span> is a function that runs if it fails to get the user's location, for example because the user denied permission. <span class="code">showError(error)</span> switches on <span class="code">error.code</span>:
@@ -415,7 +415,7 @@
     </tbody>
   </table>
 
-  <h3>Displaying the Result in a Map</h3>
+  <h3 style="padding-top: 20px;">Displaying the Result in a Map</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     To display the result in a map, a map service such as Google Maps is needed. <span class="code">showPosition()</span> joins the latitude/longitude into a "lat,lon" string and builds a Google Static Maps image URL from it.
@@ -443,13 +443,13 @@
     </tbody>
   </table>
 
-  <h3>Location-specific Information</h3>
+  <h3 style="padding-top: 20px;">Location-specific Information</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Besides showing the position on a map, Geolocation can be used for: up-to-date local information, showing points of interest near the user, and turn-by-turn GPS navigation.
   </p>
 
-  <h3>The getCurrentPosition() Method - Return Data</h3>
+  <h3 style="padding-top: 20px;">The getCurrentPosition() Method - Return Data</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     On success, a <span class="code">coordinates</span> object is returned to the function specified as a parameter. The latitude, longitude, and accuracy properties are always returned; the other properties are returned if available.
@@ -474,7 +474,7 @@
     </tbody>
   </table>
 
-  <h3>Geolocation Object - Other Interesting Methods</h3>
+  <h3 style="padding-top: 20px;">Geolocation Object - Other Interesting Methods</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">watchPosition()</span> returns the current position and keeps returning updated positions as the user moves (like a GPS in a car). <span class="code">clearWatch()</span> stops <span class="code">watchPosition()</span>. The example below has the same structure as the basic example, but calls <span class="code">watchPosition(showPosition)</span> instead, so <span class="code">showPosition</span> runs repeatedly as the position changes.

@@ -328,7 +328,7 @@
     How to speed up your JavaScript code.
   </p>
 
-  <h3>Reduce Activity in Loops</h3>
+  <h3 style="padding-top: 20px;">Reduce Activity in Loops</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Loops are often used in programming. Each statement in a loop, including the for statement, is executed for each iteration of the loop. Statements or assignments that can be placed outside the loop will make the loop execute faster.
@@ -365,7 +365,7 @@
   </table>
   <p><strong><i>Note: </i></strong>The "bad" example is not necessarily bad for short arrays.</p>
 
-  <h3>Reduce DOM Access</h3>
+  <h3 style="padding-top: 20px;">Reduce DOM Access</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Accessing the HTML DOM is very slow, compared to other JavaScript statements. If you expect to access a DOM element several times, access it once, and use it as a local variable.
@@ -389,13 +389,13 @@
     </tbody>
   </table>
 
-  <h3>Reduce DOM Size</h3>
+  <h3 style="padding-top: 20px;">Reduce DOM Size</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Keep the number of elements in the HTML DOM small. This will always improve page loading, and speed up rendering (page display), especially important for smaller devices.
   </p>
 
-  <h3>Avoid Unnecessary Variables</h3>
+  <h3 style="padding-top: 20px;">Avoid Unnecessary Variables</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     If your program creates variables you don't ever save, do not create them.
@@ -427,7 +427,7 @@
     </tbody>
   </table>
 
-  <h3>Delay JavaScript Loading</h3>
+  <h3 style="padding-top: 20px;">Delay JavaScript Loading</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Putting your scripts at the bottom of the page body lets the browser load the page first. You can also postpone the execution of code, by using the <span class="code">window.onload</span> event, or by setting a <span class="code">setTimeout()</span> in your code, or by attaching the <span class="code">defer</span> attribute to script elements, or by letting your script create the script element.
@@ -454,7 +454,7 @@
     </tbody>
   </table>
 
-  <h3>Avoid Using with</h3>
+  <h3 style="padding-top: 20px;">Avoid Using with</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Avoid using the <span class="code">with</span> keyword. It has a negative effect on speed. It also clutters up JavaScript scopes. The <span class="code">with</span> keyword is not allowed in strict mode.

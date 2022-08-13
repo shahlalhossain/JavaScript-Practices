@@ -371,7 +371,7 @@
     </tbody>
   </table>
   <br>
-  <h3>JavaScript Numbers are Always 64-bit Floating Point</h3>
+  <h3 style="padding-top: 20px;">JavaScript Numbers are Always 64-bit Floating Point</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Unlike many other programming languages, JavaScript does not define different types of numbers, like integers, short, long, floating-point etc. <br>
@@ -381,7 +381,7 @@
     This format stores numbers in 64 bits, where the number (the fraction) is stored in bits 0 to 51, the exponent in bits 52 to 62, and the sign in bit 63.
   </p>
   <br>
-  <h3>Precision</h3>
+  <h3 style="padding-top: 20px;">Precision</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Integers (numbers without a period or exponent notation) are accurate up to 15 digits.
@@ -451,7 +451,7 @@
     </tbody>
   </table>
   <br>
-  <h3>Adding Numbers and Strings</h3>
+  <h3 style="padding-top: 20px;">Adding Numbers and Strings</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     JavaScript uses the <span class="code">+</span> operator for both addition and concatenation. Numbers are added. Strings are concatenated.
@@ -499,7 +499,7 @@
   </table>
   <p><strong><i>Note: </i></strong>A common mistake is to expect this result to be 15: <span class="code">let x = 10;<br>let y = 5;<br>let z = "The result is: " + x + y;</span> Since the string comes first, JavaScript evaluates the expression left to right: "The result is: " + 10 is first converted to the string "The result is: 10", then + 5 is appended, giving "The result is: 105".</p>
   <br>
-  <h3>Numeric Strings</h3>
+  <h3 style="padding-top: 20px;">Numeric Strings</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     JavaScript strings can have numeric content:
@@ -533,7 +533,7 @@
   </table>
   <p><strong><i>Note: </i></strong>JavaScript will try to convert strings to numbers in all numeric operations, but the last example does not work because <span class="code">+</span> is also used for string concatenation.</p>
   <br>
-  <h3>NaN - Not a Number</h3>
+  <h3 style="padding-top: 20px;">NaN - Not a Number</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">NaN</span> is a JavaScript reserved word indicating that a number is not a legal number.
@@ -604,7 +604,7 @@
   </table>
   <p><strong><i>Note: </i></strong><span class="code">NaN</span> is a number: <span class="code">typeof NaN</span> returns "number". You cannot compare NaN against itself: <span class="code">NaN === NaN</span> returns false.</p>
   <br>
-  <h3>Infinity</h3>
+  <h3 style="padding-top: 20px;">Infinity</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">Infinity</span> (or <span class="code">-Infinity</span>) is the value JavaScript will return if you calculate a number outside the largest possible number.
@@ -634,7 +634,7 @@
   </table>
   <p><strong><i>Note: </i></strong><span class="code">typeof Infinity</span> returns "number".</p>
   <br>
-  <h3>Hexadecimal</h3>
+  <h3 style="padding-top: 20px;">Hexadecimal</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     JavaScript interprets numeric constants as hexadecimal if they are preceded by <span class="code">0x</span>.
@@ -656,7 +656,7 @@
   </table>
   <p><strong><i>Note: </i></strong>Never write a number with a leading zero (like 07), as some JavaScript versions interpret numbers as octal if they are written with a leading zero.</p>
   <br>
-  <h3>Numeric Separators</h3>
+  <h3 style="padding-top: 20px;">Numeric Separators</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     A numeric separator (<span class="code">_</span>) makes it easier for humans to read numeric values, especially on large numbers with lots of digits.
@@ -681,7 +681,7 @@
   </p>
   <p><strong><i>Note: </i></strong>Numeric separators are not supported in JSON and are not allowed in some places, like right after a leading 0, or adjacent to a decimal point.</p>
   <br>
-  <h3>JavaScript Numbers as Objects</h3>
+  <h3 style="padding-top: 20px;">JavaScript Numbers as Objects</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     Normally JavaScript numbers are primitive values created from literals: <span class="code">let x = 123;</span> <br>
@@ -709,7 +709,7 @@
   </table>
   <p><strong><i>Note: </i></strong>Do not create Number objects. It slows down execution speed, and produces side effects. The <span class="code">new</span> keyword complicates the code. Comparing two JavaScript objects always returns false.</p>
   <br>
-  <h3>JavaScript Number Reference</h3>
+  <h3 style="padding-top: 20px;">JavaScript Number Reference</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     For a complete reference, see the full <span class="code">Number</span> object reference.

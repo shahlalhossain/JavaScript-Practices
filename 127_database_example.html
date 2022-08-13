@@ -351,7 +351,7 @@
     </tbody>
   </table>
 
-  <h3>The showCustomer() Function</h3>
+  <h3 style="padding-top: 20px;">The showCustomer() Function</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     If the selected value is empty, <span class="code">showCustomer()</span> clears the output and stops. Otherwise it sends a GET request to <span class="code">getcustomer.php</span> with the selected value as the <span class="code">q</span> parameter, and writes the returned HTML into the output element.
@@ -386,7 +386,7 @@
   </table>
   <p><strong><i>Note: </i></strong>The selected value is passed through <span class="code">encodeURIComponent()</span> before being added to the URL, to avoid breaking the query string on special characters &mdash; a safety improvement over an unescaped concatenation.</p>
 
-  <h3>The AJAX Server Page</h3>
+  <h3 style="padding-top: 20px;">The AJAX Server Page</h3>
   <hr>
   <p style="padding-top: 10px; padding-bottom: 10px;">
     <span class="code">getcustomer.php</span> connects to a MySQL database, runs a parameterized query against a <span class="code">customers</span> table using the <span class="code">q</span> value as the lookup key, and builds an HTML table with the matching customer's details.
