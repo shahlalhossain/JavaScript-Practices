@@ -368,11 +368,17 @@
     <tbody>
     <tr>
       <td>
+        const w = new Worker("js/workers/demo_workers.js"); <br>
+        w.onmessage = function(event) &#123; <br>
+        &nbsp;&nbsp;document.getElementById("result1").innerHTML = event.data; <br>
+        &#125;;
+      </td>
+      <td>
         <button type="button" id="startWorkerBtn">Start Worker</button>
         <button type="button" id="stopWorkerBtn">Stop Worker</button>
         <output id="result1"></output>
+        <div id="demo1" style="padding-top: 6px;"></div>
       </td>
-      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>

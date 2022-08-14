@@ -340,9 +340,12 @@
     <tbody>
     <tr>
       <td>
-        <h1 onclick="this.innerHTML = 'Ooops!'" style="font-size: 1.2em; margin: 0;">Click on this text!</h1>
+        &lt;h1 onclick="this.innerHTML = 'Ooops!'"&gt;Click on this text!&lt;/h1&gt;
       </td>
-      <td id="demo1"></td>
+      <td>
+        <h1 onclick="this.innerHTML = 'Ooops!'" style="font-size: 1.2em; margin: 0;">Click on this text!</h1>
+        <div id="demo1" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -359,12 +362,15 @@
     <tbody>
     <tr>
       <td>
-        <h1 onclick="changeText(this)" style="font-size: 1.2em; margin: 0;">Click on this text!</h1>
+        &lt;h1 onclick="changeText(this)"&gt;Click on this text!&lt;/h1&gt; <br>
         function changeText(id) &#123; <br>
         &nbsp;&nbsp;id.innerHTML = "Ooops!"; <br>
         &#125;
       </td>
-      <td id="demo2"></td>
+      <td>
+        <h1 onclick="changeText(this)" style="font-size: 1.2em; margin: 0;">Click on this text!</h1>
+        <div id="demo2" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -385,9 +391,13 @@
     <tbody>
     <tr>
       <td>
-        <button type="button" id="dateBtn" onclick="document.getElementById('dateDemo').innerHTML = Date()">Try it</button> <span id="dateDemo"></span>
+        &lt;button onclick="document.getElementById('dateDemo').innerHTML = Date()"&gt;Try it&lt;/button&gt; <br>
+        &lt;span id="dateDemo"&gt;&lt;/span&gt;
       </td>
-      <td id="demo3"></td>
+      <td>
+        <button type="button" id="dateBtn" onclick="document.getElementById('dateDemo').innerHTML = Date()">Try it</button> <span id="dateDemo"></span>
+        <div id="demo3" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -408,10 +418,13 @@
     <tbody>
     <tr>
       <td>
-        <button type="button" id="myBtn">Try it (DOM assigned)</button>
+        &lt;button id="myBtn"&gt;Try it (DOM assigned)&lt;/button&gt; <br>
         document.getElementById("myBtn").onclick = displayDate;
       </td>
-      <td id="demo4"></td>
+      <td>
+        <button type="button" id="myBtn">Try it (DOM assigned)</button>
+        <div id="demo4" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -455,9 +468,12 @@
     <tbody>
     <tr>
       <td>
-        <input type="text" id="fname1" oninput="document.getElementById('demo6').innerHTML = this.value.toUpperCase()" placeholder="Type here">
+        &lt;input oninput="document.getElementById('demo6').innerHTML = this.value.toUpperCase()"&gt;
       </td>
-      <td id="demo6"></td>
+      <td>
+        <input type="text" id="fname1" oninput="document.getElementById('demo6').innerHTML = this.value.toUpperCase()" placeholder="Type here">
+        <div id="demo6" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -478,9 +494,12 @@
     <tbody>
     <tr>
       <td>
-        <input type="text" id="fname2" onchange="document.getElementById('demo7').innerHTML = this.value.toUpperCase()" placeholder="Type then click away">
+        &lt;input onchange="document.getElementById('demo7').innerHTML = this.value.toUpperCase()"&gt;
       </td>
-      <td id="demo7"></td>
+      <td>
+        <input type="text" id="fname2" onchange="document.getElementById('demo7').innerHTML = this.value.toUpperCase()" placeholder="Type then click away">
+        <div id="demo7" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -501,9 +520,13 @@
     <tbody>
     <tr>
       <td>
-        <div onmouseover="document.getElementById('demo8').innerHTML='Mouse Over Me'" onmouseout="document.getElementById('demo8').innerHTML='Mouse Out'" style="padding: 10px; background: #eee; display: inline-block;">Mouse over this div</div>
+        &lt;div onmouseover="...innerHTML='Mouse Over Me'" <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;onmouseout="...innerHTML='Mouse Out'"&gt;Mouse over this div&lt;/div&gt;
       </td>
-      <td id="demo8"></td>
+      <td>
+        <div onmouseover="document.getElementById('demo8').innerHTML='Mouse Over Me'" onmouseout="document.getElementById('demo8').innerHTML='Mouse Out'" style="padding: 10px; background: #eee; display: inline-block;">Mouse over this div</div>
+        <div id="demo8" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -524,9 +547,13 @@
     <tbody>
     <tr>
       <td>
-        <div onmousedown="document.getElementById('demo9').innerHTML='Mouse Down'" onmouseup="document.getElementById('demo9').innerHTML='Mouse Up'" style="padding: 10px; background: #eee; display: inline-block;">Press and release the mouse here</div>
+        &lt;div onmousedown="...innerHTML='Mouse Down'" <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;onmouseup="...innerHTML='Mouse Up'"&gt;Press and release the mouse here&lt;/div&gt;
       </td>
-      <td id="demo9"></td>
+      <td>
+        <div onmousedown="document.getElementById('demo9').innerHTML='Mouse Down'" onmouseup="document.getElementById('demo9').innerHTML='Mouse Up'" style="padding: 10px; background: #eee; display: inline-block;">Press and release the mouse here</div>
+        <div id="demo9" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>

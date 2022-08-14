@@ -363,8 +363,6 @@
     <tbody>
     <tr>
       <td>
-        Enter a number between 100 and 300: <input id="id1a" type="number" min="100" max="300" required>
-        <button type="button" id="checkValidityBtn">OK</button>
         function myFunction() &#123; <br>
         &nbsp;&nbsp;const inpObj = document.getElementById("id1a"); <br>
         &nbsp;&nbsp;if (!inpObj.checkValidity()) &#123; <br>
@@ -374,7 +372,11 @@
         &nbsp;&nbsp;&#125; <br>
         &#125;
       </td>
-      <td id="demo1"></td>
+      <td>
+        Enter a number between 100 and 300: <input id="id1a" type="number" min="100" max="300" required>
+        <button type="button" id="checkValidityBtn">OK</button>
+        <div id="demo1" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -447,8 +449,6 @@
     <tbody>
     <tr>
       <td>
-        Enter a number (max 100): <input id="id2a" type="number" max="100">
-        <button type="button" id="rangeOverflowBtn">OK</button>
         function myFunction() &#123; <br>
         &nbsp;&nbsp;const inpObj = document.getElementById("id2a"); <br>
         &nbsp;&nbsp;let text = "Value OK"; <br>
@@ -458,7 +458,11 @@
         &nbsp;&nbsp;document.getElementById("demo2").innerHTML = text; <br>
         &#125;
       </td>
-      <td id="demo2"></td>
+      <td>
+        Enter a number (max 100): <input id="id2a" type="number" max="100">
+        <button type="button" id="rangeOverflowBtn">OK</button>
+        <div id="demo2" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -479,8 +483,6 @@
     <tbody>
     <tr>
       <td>
-        Enter a number (min 100): <input id="id3a" type="number" min="100">
-        <button type="button" id="rangeUnderflowBtn">OK</button>
         function myFunction() &#123; <br>
         &nbsp;&nbsp;const inpObj = document.getElementById("id3a"); <br>
         &nbsp;&nbsp;let text = "Value OK"; <br>
@@ -490,7 +492,11 @@
         &nbsp;&nbsp;document.getElementById("demo3").innerHTML = text; <br>
         &#125;
       </td>
-      <td id="demo3"></td>
+      <td>
+        Enter a number (min 100): <input id="id3a" type="number" min="100">
+        <button type="button" id="rangeUnderflowBtn">OK</button>
+        <div id="demo3" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>

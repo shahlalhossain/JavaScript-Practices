@@ -363,10 +363,14 @@
     <tbody>
     <tr>
       <td>
+        &lt;h1 id="id1"&gt;My Heading 1&lt;/h1&gt; <br>
+        &lt;button onclick="document.getElementById('id1').style.color = 'red'"&gt;Click Me!&lt;/button&gt;
+      </td>
+      <td>
         <h1 id="id1" style="font-size: 1.2em; margin: 0;">My Heading 1</h1>
         <button type="button" onclick="document.getElementById('id1').style.color = 'red'">Click Me!</button>
+        <div id="demo2" style="padding-top: 6px;"></div>
       </td>
-      <td id="demo2"></td>
     </tr>
     </tbody>
   </table>
@@ -387,11 +391,16 @@
     <tbody>
     <tr>
       <td>
+        &lt;p id="p1"&gt;Click Me!&lt;/p&gt; <br>
+        &lt;input type="button" value="Hide text" onclick="document.getElementById('p1').style.visibility='hidden'"&gt; <br>
+        &lt;input type="button" value="Show text" onclick="document.getElementById('p1').style.visibility='visible'"&gt;
+      </td>
+      <td>
         <p id="p1">Click Me!</p>
         <input type="button" value="Hide text" onclick="document.getElementById('p1').style.visibility='hidden'">
         <input type="button" value="Show text" onclick="document.getElementById('p1').style.visibility='visible'">
+        <div id="demo3" style="padding-top: 6px;"></div>
       </td>
-      <td id="demo3"></td>
     </tr>
     </tbody>
   </table>

@@ -496,8 +496,6 @@
     <tbody>
     <tr>
       <td>
-        <button type="button" id="startTimeoutBtn">Start</button>
-        <button type="button" id="stopTimeoutBtn">Stop</button>
         let myTimeout; <br>
         function myStart() &#123; <br>
         &nbsp;&nbsp;myTimeout = setTimeout(myFunction, 3000); <br>
@@ -506,7 +504,11 @@
         &nbsp;&nbsp;clearTimeout(myTimeout); <br>
         &#125;
       </td>
-      <td id="demo7"></td>
+      <td>
+        <button type="button" id="startTimeoutBtn">Start</button>
+        <button type="button" id="stopTimeoutBtn">Stop</button>
+        <div id="demo7" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -529,14 +531,16 @@
     <tbody>
     <tr>
       <td>
-        <button type="button" id="startClockBtn">Start Clock</button>
-        <button type="button" id="stopClockBtn">Stop Clock</button>
         setInterval(function() &#123; <br>
         &nbsp;&nbsp;const d = new Date(); <br>
         &nbsp;&nbsp;document.getElementById("demo8").innerHTML = d.toLocaleTimeString(); <br>
         &#125;, 1000);
       </td>
-      <td id="demo8"></td>
+      <td>
+        <button type="button" id="startClockBtn">Start Clock</button>
+        <button type="button" id="stopClockBtn">Stop Clock</button>
+        <div id="demo8" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -641,7 +645,6 @@
     <tbody>
     <tr>
       <td>
-        <button type="button" id="countdownBtn">Start Countdown</button>
         let count = 10; <br>
         const id = setInterval(function() &#123; <br>
         &nbsp;&nbsp;document.getElementById("demo11").innerHTML = count; <br>
@@ -649,7 +652,10 @@
         &nbsp;&nbsp;if (count &lt; 0) clearInterval(id); <br>
         &#125;, 200);
       </td>
-      <td id="demo11"></td>
+      <td>
+        <button type="button" id="countdownBtn">Start Countdown</button>
+        <div id="demo11" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -711,8 +717,6 @@
     <tbody>
     <tr>
       <td>
-        <button type="button" id="startSlideBtn">Start Slideshow</button>
-        <button type="button" id="stopSlideBtn">Stop Slideshow</button>
         const slides = ["Slide 1", "Slide 2", "Slide 3"]; <br>
         let slideIndex = 0; <br>
         let slideTimer; <br>
@@ -721,7 +725,11 @@
         &nbsp;&nbsp;slideIndex = (slideIndex + 1) % slides.length; <br>
         &#125;
       </td>
-      <td id="demo14"></td>
+      <td>
+        <button type="button" id="startSlideBtn">Start Slideshow</button>
+        <button type="button" id="stopSlideBtn">Stop Slideshow</button>
+        <div id="demo14" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>

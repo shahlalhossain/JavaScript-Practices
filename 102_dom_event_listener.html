@@ -338,10 +338,13 @@
     <tbody>
     <tr>
       <td>
-        <button type="button" id="myBtn2">Try it</button>
+        &lt;button id="myBtn2"&gt;Try it&lt;/button&gt; <br>
         document.getElementById("myBtn2").addEventListener("click", displayDate);
       </td>
-      <td id="demo1"></td>
+      <td>
+        <button type="button" id="myBtn2">Try it</button>
+        <div id="demo1" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -370,23 +373,29 @@
     <tbody>
     <tr>
       <td>
-        <button type="button" id="btnA">Click Me</button>
+        &lt;button id="btnA"&gt;Click Me&lt;/button&gt; <br>
         document.getElementById("btnA").addEventListener("click", function() &#123; <br>
         &nbsp;&nbsp;alert("Hello World!"); <br>
         &#125;);
       </td>
-      <td id="demo2"></td>
+      <td>
+        <button type="button" id="btnA">Click Me</button>
+        <div id="demo2" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     <tr>
       <td>
-        <button type="button" id="btnB">Click Me</button>
+        &lt;button id="btnB"&gt;Click Me&lt;/button&gt; <br>
         document.getElementById("btnB").addEventListener("click", myFunction); <br>
         <br>
         function myFunction() &#123; <br>
         &nbsp;&nbsp;alert("Hello World!"); <br>
         &#125;
       </td>
-      <td id="demo3"></td>
+      <td>
+        <button type="button" id="btnB">Click Me</button>
+        <div id="demo3" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -407,11 +416,14 @@
     <tbody>
     <tr>
       <td>
-        <button type="button" id="btnC">Click Me (two handlers)</button>
+        &lt;button id="btnC"&gt;Click Me (two handlers)&lt;/button&gt; <br>
         element.addEventListener("click", myFunction); <br>
         element.addEventListener("click", mySecondFunction);
       </td>
-      <td id="demo4"></td>
+      <td>
+        <button type="button" id="btnC">Click Me (two handlers)</button>
+        <div id="demo4" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -428,12 +440,15 @@
     <tbody>
     <tr>
       <td>
-        <button type="button" id="btnD">Hover / Click Me</button>
+        &lt;button id="btnD"&gt;Hover / Click Me&lt;/button&gt; <br>
         element.addEventListener("mouseover", myFunction); <br>
         element.addEventListener("click", mySecondFunction); <br>
         element.addEventListener("mouseout", myThirdFunction);
       </td>
-      <td id="demo5"></td>
+      <td>
+        <button type="button" id="btnD">Hover / Click Me</button>
+        <div id="demo5" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -480,12 +495,15 @@
     <tbody>
     <tr>
       <td>
-        <button type="button" id="btnE">Click Me</button>
+        &lt;button id="btnE"&gt;Click Me&lt;/button&gt; <br>
         element.addEventListener("click", function() &#123; <br>
         &nbsp;&nbsp;myFunction(p1, p2); <br>
         &#125;);
       </td>
-      <td id="demo7"></td>
+      <td>
+        <button type="button" id="btnE">Click Me</button>
+        <div id="demo7" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -508,13 +526,16 @@
     <tbody>
     <tr>
       <td>
-        <div id="myDiv1" style="padding: 15px; background: #eee;">
-          <p id="myP1" style="padding: 10px; background: #ddd; margin: 0;">Click Me!</p>
-        </div>
+        &lt;div id="myDiv1"&gt;&lt;p id="myP1"&gt;Click Me!&lt;/p&gt;&lt;/div&gt; <br>
         document.getElementById("myP1").addEventListener("click", myFunction, true); <br>
         document.getElementById("myDiv1").addEventListener("click", myFunction, true);
       </td>
-      <td id="demo8"></td>
+      <td>
+        <div id="myDiv1" style="padding: 15px; background: #eee;">
+          <p id="myP1" style="padding: 10px; background: #ddd; margin: 0;">Click Me!</p>
+        </div>
+        <div id="demo8" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -536,13 +557,17 @@
     <tbody>
     <tr>
       <td>
-        <div id="moveArea9" style="padding: 20px; background: #eee;">Move the mouse here</div>
+        &lt;div id="moveArea9"&gt;Move the mouse here&lt;/div&gt; <br>
         element.addEventListener("mousemove", myFunction); <br>
         <br>
-        <button type="button" id="btnF9">Remove Listener</button>
+        &lt;button id="btnF9"&gt;Remove Listener&lt;/button&gt; <br>
         element.removeEventListener("mousemove", myFunction);
       </td>
-      <td id="demo9"></td>
+      <td>
+        <div id="moveArea9" style="padding: 20px; background: #eee;">Move the mouse here</div>
+        <button type="button" id="btnF9">Remove Listener</button>
+        <div id="demo9" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
