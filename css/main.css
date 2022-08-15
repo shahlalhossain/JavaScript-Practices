@@ -266,6 +266,11 @@ header {
   color: blue;
 }
 
+.content button {
+  font-size: 0.95em;
+  padding: 5px 10px;
+}
+
 table {
   border-collapse: collapse;
   width: 100%;
