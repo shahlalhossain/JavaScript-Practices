@@ -266,7 +266,10 @@ header {
   color: blue;
 }
 
-.content button {
+.content button,
+.content input[type="text"],
+.content input[type="number"],
+.content input[type="button"] {
   font-size: 0.95em;
   padding: 5px 10px;
 }

@@ -345,10 +345,12 @@
     <tbody>
     <tr>
       <td>
-        <h1 id="header1" style="font-size: 1.1em; margin: 0;">Header Example</h1>
         window.document.getElementById("header1");
       </td>
-      <td id="demo1"></td>
+      <td>
+        <h1 id="header1" style="font-size: 1.1em; margin: 0;">Header Example</h1>
+        <div id="demo1" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     <tr>
       <td>
@@ -418,7 +420,7 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
-  document.getElementById("demo1").innerHTML = window.document.getElementById("header1").innerHTML;
+  document.getElementById("demo1").innerHTML = "Found via window.document: \"" + window.document.getElementById("header1").innerHTML + "\"";
   document.getElementById("demo2").innerHTML = document.getElementById("header1").innerHTML;
 
   (function () {

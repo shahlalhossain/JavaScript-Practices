@@ -338,13 +338,15 @@
     <tbody>
     <tr>
       <td>
-        <p class="nlist1" style="margin:2px 0;">Paragraph 0.</p>
-        <p class="nlist1" style="margin:2px 0;">Paragraph 1.</p>
-        <p class="nlist1" style="margin:2px 0;">Paragraph 2.</p>
         const myNodeList = document.querySelectorAll("p.nlist1"); <br>
         myNodeList[1];
       </td>
-      <td id="demo1"></td>
+      <td>
+        <p class="nlist1" style="margin:2px 0;">Paragraph 0.</p>
+        <p class="nlist1" style="margin:2px 0;">Paragraph 1.</p>
+        <p class="nlist1" style="margin:2px 0;">Paragraph 2.</p>
+        <div id="demo1" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -366,9 +368,10 @@
     <tbody>
     <tr>
       <td>
+        const myNodelist = document.querySelectorAll("p.nlist1"); <br>
         myNodelist.length;
       </td>
-      <td id="demo2"></td>
+      <td id="demo2">(counts the same 3-paragraph node list shown above)</td>
     </tr>
     </tbody>
   </table>
@@ -385,14 +388,16 @@
     <tbody>
     <tr>
       <td>
-        <p class="nlist2" style="margin:2px 0;">Paragraph A.</p>
-        <p class="nlist2" style="margin:2px 0;">Paragraph B.</p>
         const myNodelist = document.querySelectorAll("p.nlist2"); <br>
         for (let i = 0; i &lt; myNodelist.length; i++) &#123; <br>
         &nbsp;&nbsp;myNodelist[i].style.color = "red"; <br>
         &#125;
       </td>
-      <td id="demo3"></td>
+      <td>
+        <p class="nlist2" style="margin:2px 0;">Paragraph A.</p>
+        <p class="nlist2" style="margin:2px 0;">Paragraph B.</p>
+        <div id="demo3" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -441,7 +446,7 @@
     for (let i = 0; i < myNodelist.length; i++) {
       myNodelist[i].style.color = "red";
     }
-    document.getElementById("demo3").innerHTML = "Colored " + myNodelist.length + " paragraph(s) red.";
+    document.getElementById("demo3").innerHTML = "Looped through " + myNodelist.length + " paragraph(s) and set each to red — see above.";
   })();
 </script>
 <!--Page Specific JavaScript End-->

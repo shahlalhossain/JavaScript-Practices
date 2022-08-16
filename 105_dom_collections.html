@@ -338,13 +338,15 @@
     <tbody>
     <tr>
       <td>
+        const myCollection = document.getElementsByClassName("coll1"); <br>
+        myCollection[1];
+      </td>
+      <td>
         <p class="coll1" style="margin:2px 0;">Paragraph 0.</p>
         <p class="coll1" style="margin:2px 0;">Paragraph 1.</p>
         <p class="coll1" style="margin:2px 0;">Paragraph 2.</p>
-        const myCollection = document.getElementsByTagName("p"); <br>
-        myCollection[1];
+        <div id="demo1" style="padding-top: 6px;"></div>
       </td>
-      <td id="demo1"></td>
     </tr>
     </tbody>
   </table>
@@ -366,10 +368,10 @@
     <tbody>
     <tr>
       <td>
-        const myCollection = document.getElementsByTagName("p"); <br>
+        const myCollection = document.getElementsByClassName("coll1"); <br>
         myCollection.length;
       </td>
-      <td id="demo2"></td>
+      <td id="demo2">(counts the same 3-paragraph collection shown above)</td>
     </tr>
     </tbody>
   </table>
@@ -386,14 +388,16 @@
     <tbody>
     <tr>
       <td>
-        <p class="coll2" style="margin:2px 0;">Paragraph A.</p>
-        <p class="coll2" style="margin:2px 0;">Paragraph B.</p>
         const myCollection = document.getElementsByClassName("coll2"); <br>
         for (let i = 0; i &lt; myCollection.length; i++) &#123; <br>
         &nbsp;&nbsp;myCollection[i].style.color = "red"; <br>
         &#125;
       </td>
-      <td id="demo3"></td>
+      <td>
+        <p class="coll2" style="margin:2px 0;">Paragraph A.</p>
+        <p class="coll2" style="margin:2px 0;">Paragraph B.</p>
+        <div id="demo3" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -426,7 +430,7 @@
     for (let i = 0; i < myCollection.length; i++) {
       myCollection[i].style.color = "red";
     }
-    document.getElementById("demo3").innerHTML = "Colored " + myCollection.length + " paragraph(s) red.";
+    document.getElementById("demo3").innerHTML = "Looped through " + myCollection.length + " paragraph(s) and set each to red — see above.";
   })();
 </script>
 <!--Page Specific JavaScript End-->
