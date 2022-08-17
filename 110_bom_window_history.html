@@ -389,7 +389,10 @@
       <td>
         &lt;button onclick="history.back()"&gt;Go Back&lt;/button&gt;
       </td>
-      <td id="demo1"></td>
+      <td>
+        <button type="button" id="backBtn">Go Back</button>
+        <div id="demo1" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -412,7 +415,10 @@
       <td>
         &lt;button onclick="history.forward()"&gt;Go Forward&lt;/button&gt;
       </td>
-      <td id="demo2"></td>
+      <td>
+        <button type="button" id="forwardBtn">Go Forward</button>
+        <div id="demo2" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -435,13 +441,19 @@
       <td>
         &lt;button onclick="history.go(-2)"&gt;Go Back 2 Pages&lt;/button&gt;
       </td>
-      <td id="demo3"></td>
+      <td>
+        <button type="button" id="goBack2Btn">Go Back 2 Pages</button>
+        <div id="demo3" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     <tr>
       <td>
         &lt;button onclick="history.go(1)"&gt;Go Forward 1 Page&lt;/button&gt;
       </td>
-      <td id="demo4"></td>
+      <td>
+        <button type="button" id="goForward1Btn">Go Forward 1 Page</button>
+        <div id="demo4" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -517,7 +529,7 @@
     <tr>
       <td>
         let state = &#123;name: "example", page: 2&#125;; <br>
-        let url = "page2.html"; <br>
+        let url = "110_bom_window_history.html?page=2"; <br>
         history.pushState(state, "", url);
       </td>
       <td id="demo7"></td>
@@ -545,7 +557,7 @@
     <tr>
       <td>
         let state = &#123;name: "example", page: 3&#125;; <br>
-        let url = "page3.html"; <br>
+        let url = "110_bom_window_history.html?page=3"; <br>
         history.replaceState(state, "", url);
       </td>
       <td id="demo8"></td>
@@ -597,13 +609,15 @@
     <tbody>
     <tr>
       <td>
-        <button type="button" id="pageBtn">Change Page State</button>
         function showPage(pageNum) &#123; <br>
         &nbsp;&nbsp;const state = &#123;page: pageNum&#125;; <br>
-        &nbsp;&nbsp;history.pushState(state, "", "?page=" + pageNum); <br>
+        &nbsp;&nbsp;history.pushState(state, "", "110_bom_window_history.html?page=" + pageNum); <br>
         &#125;
       </td>
-      <td id="demo10"></td>
+      <td>
+        <button type="button" id="pageBtn">Change Page State</button>
+        <div id="demo10" style="padding-top: 6px;"></div>
+      </td>
     </tr>
     </tbody>
   </table>
@@ -645,17 +659,32 @@
 
 <!--Page Specific JavaScript Start-->
 <script type="text/javascript">
-  document.getElementById("demo1").innerHTML = "(disabled in this tutorial, to avoid navigating away)";
-  document.getElementById("demo2").innerHTML = "(disabled in this tutorial, to avoid navigating away)";
-  document.getElementById("demo3").innerHTML = "(disabled in this tutorial, to avoid navigating away)";
-  document.getElementById("demo4").innerHTML = "(disabled in this tutorial, to avoid navigating away)";
+  document.getElementById("backBtn").addEventListener("click", function () {
+    history.back();
+  });
+  document.getElementById("demo1").innerHTML = "Click to go back (does nothing if there's no previous page in this tab's history).";
+
+  document.getElementById("forwardBtn").addEventListener("click", function () {
+    history.forward();
+  });
+  document.getElementById("demo2").innerHTML = "Click to go forward (does nothing if there's no next page in this tab's history).";
+
+  document.getElementById("goBack2Btn").addEventListener("click", function () {
+    history.go(-2);
+  });
+  document.getElementById("demo3").innerHTML = "Click to go back 2 entries (does nothing if there aren't 2 entries behind this one).";
+
+  document.getElementById("goForward1Btn").addEventListener("click", function () {
+    history.go(1);
+  });
+  document.getElementById("demo4").innerHTML = "Click to go forward 1 entry (does nothing if there's no entry ahead of this one).";
 
   document.getElementById("demo5").innerHTML = "history.length: " + window.history.length;
   document.getElementById("demo6").innerHTML = "history.state: " + JSON.stringify(history.state);
 
   (function () {
     let state = { name: "example", page: 2 };
-    let url = "page2.html";
+    let url = "110_bom_window_history.html?page=2";
     try {
       history.pushState(state, "", url);
       document.getElementById("demo7").innerHTML = "Pushed state: " + JSON.stringify(state) + ", url now: " + location.href;
@@ -666,7 +695,7 @@
 
   (function () {
     let state = { name: "example", page: 3 };
-    let url = "page3.html";
+    let url = "110_bom_window_history.html?page=3";
     try {
       history.replaceState(state, "", url);
       document.getElementById("demo8").innerHTML = "Replaced state: " + JSON.stringify(state) + ", url now: " + location.href;
@@ -687,7 +716,7 @@
     let pageNum = 1;
     function showPage(n) {
       const state = { page: n };
-      history.pushState(state, "", "?page=" + n);
+      history.pushState(state, "", "110_bom_window_history.html?page=" + n);
       document.getElementById("demo10").innerHTML = "Pushed state: " + JSON.stringify(state) + ", url now: " + location.href;
     }
     btn.addEventListener("click", function() {
