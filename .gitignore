@@ -1,0 +1,28 @@
+# Folders
+_obj
+_test
+
+# Architecture Specific Extensions/Prefixes
+*.exe
+*.test
+*.prof
+
+# WebStorm
+*.iml
+
+# Directory-based Project Format:
+.idea/
+.idea/workspace.xml
+**/.idea/workspace.xml
+
+# Mac Hidden Files
+.DS_Store
+
+## Others
+node_modules/
+bower_components/
+.tmp
+.sass-cache
+builds/**/images/*
+*.ogg
+*.psd
