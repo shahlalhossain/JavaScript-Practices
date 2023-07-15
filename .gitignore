@@ -13,6 +13,7 @@ _test
 # Directory-based Project Format:
 .idea/
 .idea/workspace.xml
+.idea/JavaScript-Practices.iml
 **/.idea/workspace.xml
 
 # Mac Hidden Files
